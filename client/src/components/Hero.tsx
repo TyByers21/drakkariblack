@@ -34,9 +34,14 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-2xl md:text-3xl mb-12 text-smoke font-light max-w-3xl mx-auto tracking-wide"
+          className="text-2xl md:text-3xl mb-12 text-white font-light max-w-3xl mx-auto tracking-wide"
           style={{ 
-            textShadow: '0 0 20px rgba(0,0,0,0.7)' 
+            textShadow: '0 4px 12px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.8)',
+            background: 'linear-gradient(135deg, rgba(0,0,0,0.4), rgba(139,0,0,0.2))',
+            padding: '1.5rem 2.5rem',
+            borderRadius: '1rem',
+            backdropFilter: 'blur(8px)',
+            border: '1px solid rgba(255,255,255,0.1)'
           }}
         >
           Experience the sound that defines a generation. <span className="crimson-accent font-medium">Modern beats, timeless soul.</span>
