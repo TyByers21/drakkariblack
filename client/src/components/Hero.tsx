@@ -8,47 +8,53 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 hero-gradient">
-        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-red-900/30 to-black/80"></div>
         <img 
           src={artistImage} 
           alt="Drakkari Black artist portrait" 
-          className="w-full h-full object-cover opacity-60" 
+          className="w-full h-full object-cover opacity-70" 
         />
       </div>
       
       {/* Content */}
-      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+      <div className="relative z-20 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
         <motion.h1 
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-6xl md:text-8xl font-black mb-6 text-white leading-tight"
+          className="text-7xl md:text-9xl font-black mb-8 text-white leading-tight tracking-wider"
+          style={{ 
+            textShadow: '0 0 40px rgba(0,0,0,0.8), 0 0 80px rgba(220,38,38,0.3)' 
+          }}
         >
           DRAKKARI<br />
-          <span className="gold-accent">BLACK</span>
+          <span className="luxury-accent animate-glow">BLACK</span>
         </motion.h1>
         
         <motion.p 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-xl md:text-2xl mb-8 text-gray-300 font-light max-w-2xl mx-auto"
+          className="text-2xl md:text-3xl mb-12 text-smoke font-light max-w-3xl mx-auto tracking-wide"
+          style={{ 
+            textShadow: '0 0 20px rgba(0,0,0,0.7)' 
+          }}
         >
-          Experience the sound that defines a generation. Modern beats, timeless soul.
+          Experience the sound that defines a generation. <span className="crimson-accent font-medium">Modern beats, timeless soul.</span>
         </motion.p>
         
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+          className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
         >
-          <button className="btn-primary flex items-center">
-            <Play className="mr-2" size={20} />
+          <button className="btn-primary flex items-center text-lg">
+            <Play className="mr-3" size={24} />
             Listen Now
           </button>
-          <button className="btn-secondary flex items-center">
-            <Calendar className="mr-2" size={20} />
+          <button className="btn-secondary flex items-center text-lg">
+            <Calendar className="mr-3" size={24} />
             Book Performance
           </button>
         </motion.div>
@@ -58,16 +64,20 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex justify-center space-x-6"
+          className="flex justify-center space-x-8"
         >
           {SOCIAL_LINKS.map((social, index) => (
-            <a 
+            <motion.a 
               key={index}
               href={social.url}
-              className="text-2xl text-gray-400 gold-accent-hover transition-colors duration-200"
+              className="text-3xl text-smoke crimson-accent-hover transition-all duration-300 transform hover:scale-125"
+              whileHover={{ y: -5 }}
+              style={{ 
+                textShadow: '0 0 15px rgba(220,38,38,0.3)' 
+              }}
             >
               <i className={social.icon}></i>
-            </a>
+            </motion.a>
           ))}
         </motion.div>
       </div>

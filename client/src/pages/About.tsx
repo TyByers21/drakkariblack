@@ -2,49 +2,51 @@ import { motion } from "framer-motion";
 
 export default function About() {
   return (
-    <div className="pt-16 min-h-screen">
-      <section className="py-20 bg-dark-surface">
+    <div className="pt-20 min-h-screen bg-deep-black">
+      <section className="py-24 bg-gradient-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
-            <h1 className="text-5xl font-bold mb-4 text-white">About Drakkari Black</h1>
-            <div className="w-24 h-1 bg-primary mx-auto"></div>
+            <h1 className="text-6xl md:text-7xl font-black mb-6 text-white tracking-wider">
+              About <span className="luxury-accent animate-glow">Drakkari Black</span>
+            </h1>
+            <div className="w-32 h-1 bg-gradient-accent mx-auto rounded-full"></div>
           </motion.div>
           
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div 
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="space-y-6"
+              className="space-y-8"
             >
-              <h2 className="text-3xl font-semibold gold-accent mb-6">The Journey</h2>
-              <p className="text-gray-300 text-lg leading-relaxed">
-                Born from the intersection of classical training and street wisdom, Drakkari Black emerged as a defining voice in contemporary music. His journey began in the underground clubs of Detroit, where raw talent met relentless ambition.
+              <h2 className="text-4xl font-bold crimson-accent mb-8 tracking-wide">The Journey</h2>
+              <p className="text-smoke text-xl leading-relaxed font-light">
+                Born from the intersection of classical training and street wisdom, <span className="text-white font-medium">Drakkari Black</span> emerged as a defining voice in contemporary music. His journey began in the underground clubs of Detroit, where raw talent met relentless ambition.
               </p>
-              <p className="text-gray-300 text-lg leading-relaxed">
-                With over a decade of experience crafting sounds that resonate across generations, Drakkari has collaborated with industry legends while maintaining his unique artistic vision. His music tells stories of triumph, struggle, and the human experience.
+              <p className="text-smoke text-xl leading-relaxed font-light">
+                With over a decade of experience crafting sounds that resonate across generations, Drakkari has collaborated with industry legends while maintaining his unique artistic vision. His music tells stories of <span className="crimson-accent font-medium">triumph, struggle, and the human experience</span>.
               </p>
-              <p className="text-gray-300 text-lg leading-relaxed">
-                From intimate studio sessions to sold-out arenas, every performance is a testament to his commitment to authentic artistry. Drakkari Black doesn't just make music—he creates experiences that transform listeners.
+              <p className="text-smoke text-xl leading-relaxed font-light">
+                From intimate studio sessions to sold-out arenas, every performance is a testament to his commitment to authentic artistry. <span className="luxury-accent font-medium">Drakkari Black doesn't just make music—he creates experiences that transform listeners.</span>
               </p>
               
-              <div className="grid grid-cols-3 gap-6 mt-8">
+              <div className="grid grid-cols-3 gap-8 mt-12 pt-8 border-t border-crimson">
                 <div className="text-center">
-                  <div className="text-3xl font-bold gold-accent">15+</div>
-                  <div className="text-gray-400">Years Active</div>
+                  <div className="text-4xl font-black luxury-accent animate-glow">15+</div>
+                  <div className="text-smoke text-lg mt-2">Years Active</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold gold-accent">500K+</div>
-                  <div className="text-gray-400">Monthly Listeners</div>
+                  <div className="text-4xl font-black luxury-accent animate-glow">500K+</div>
+                  <div className="text-smoke text-lg mt-2">Monthly Listeners</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold gold-accent">50+</div>
-                  <div className="text-gray-400">Live Shows</div>
+                  <div className="text-4xl font-black luxury-accent animate-glow">50+</div>
+                  <div className="text-smoke text-lg mt-2">Live Shows</div>
                 </div>
               </div>
             </motion.div>
@@ -53,14 +55,18 @@ export default function About() {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="relative"
+              className="relative luxury-card p-8"
             >
               <img 
                 src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
                 alt="Professional music studio setup" 
-                className="rounded-lg shadow-2xl w-full h-96 object-cover" 
+                className="rounded-xl shadow-2xl w-full h-96 object-cover border border-crimson" 
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-dark-bg/60 to-transparent rounded-lg"></div>
+              <div className="absolute inset-8 bg-gradient-to-t from-deep-black/80 via-transparent to-transparent rounded-xl"></div>
+              <div className="absolute bottom-12 left-12 right-12">
+                <h3 className="text-2xl font-bold luxury-accent mb-2">In The Studio</h3>
+                <p className="text-smoke">Where the magic happens</p>
+              </div>
             </motion.div>
           </div>
         </div>

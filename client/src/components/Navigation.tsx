@@ -70,7 +70,7 @@ export default function Navigation() {
                     className={`block px-3 py-2 transition-colors duration-200 ${
                       location === item.path 
                         ? 'text-white' 
-                        : 'text-muted gold-accent-hover'
+                        : 'text-smoke crimson-accent-hover'
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >

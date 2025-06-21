@@ -22,19 +22,21 @@ const videos = [
 
 export default function ListeningLounge() {
   return (
-    <div className="pt-16 min-h-screen">
-      <section className="py-20 bg-dark-bg">
+    <div className="pt-20 min-h-screen bg-deep-black">
+      <section className="py-24 bg-gradient-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
-            <h1 className="text-5xl font-bold mb-4 text-white">Listening Lounge</h1>
-            <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
-            <p className="text-gray-300 text-xl max-w-2xl mx-auto">
-              Immerse yourself in the complete Drakkari Black experience
+            <h1 className="text-6xl md:text-7xl font-black mb-6 text-white tracking-wider">
+              Listening <span className="luxury-accent animate-glow">Lounge</span>
+            </h1>
+            <div className="w-32 h-1 bg-gradient-accent mx-auto mb-8 rounded-full"></div>
+            <p className="text-smoke text-2xl max-w-3xl mx-auto font-light tracking-wide">
+              Immerse yourself in the complete <span className="crimson-accent font-medium">Drakkari Black experience</span>
             </p>
           </motion.div>
           
@@ -43,24 +45,31 @@ export default function ListeningLounge() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-16"
+            className="mb-20"
           >
-            <h2 className="text-3xl font-semibold gold-accent mb-8 text-center">Featured Video</h2>
-            <div className="max-w-4xl mx-auto">
-              <div className="relative aspect-video bg-dark-surface rounded-lg overflow-hidden shadow-2xl">
+            <h2 className="text-4xl font-bold crimson-accent mb-12 text-center tracking-wide">Featured Video</h2>
+            <div className="max-w-5xl mx-auto">
+              <div className="relative aspect-video luxury-card p-6 overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&h=675" 
                   alt="Concert stage with dramatic lighting" 
-                  className="w-full h-full object-cover" 
+                  className="w-full h-full object-cover rounded-xl border border-crimson" 
                 />
-                <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                  <button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full p-6 transform hover:scale-110 transition-all duration-200 shadow-lg">
-                    <Play size={32} className="ml-1" />
-                  </button>
+                <div className="absolute inset-6 bg-black/50 flex items-center justify-center rounded-xl">
+                  <motion.button 
+                    className="bg-gradient-accent text-white rounded-full p-8 shadow-2xl"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    style={{ 
+                      boxShadow: '0 0 40px rgba(220, 38, 38, 0.6)' 
+                    }}
+                  >
+                    <Play size={40} className="ml-2" />
+                  </motion.button>
                 </div>
-                <div className="absolute bottom-4 left-4 right-4">
-                  <h3 className="text-2xl font-bold text-white mb-2">Midnight Sessions - Live Performance</h3>
-                  <p className="text-gray-300">Exclusive live recording from the sold-out Madison Square Garden show</p>
+                <div className="absolute bottom-10 left-10 right-10">
+                  <h3 className="text-3xl font-black text-white mb-3 luxury-accent">Midnight Sessions - Live Performance</h3>
+                  <p className="text-smoke text-lg">Exclusive live recording from the sold-out Madison Square Garden show</p>
                 </div>
               </div>
             </div>

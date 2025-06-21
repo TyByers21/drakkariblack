@@ -14,7 +14,7 @@ import NotFound from "@/pages/not-found";
 
 function Router() {
   return (
-    <div className="min-h-screen bg-dark-bg text-white">
+    <div className="min-h-screen bg-deep-black text-white">
       <Navigation />
       <main>
         <Switch>
