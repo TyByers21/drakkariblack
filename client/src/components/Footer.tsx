@@ -33,7 +33,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <div className="text-3xl brand-font luxury-accent mb-6 animate-glow">DRAKKARI BLACK</div>
+            <div className="text-3xl brand-font luxury-accent mb-6 animate-glow">Drakkari Black</div>
             <p className="text-smoke mb-6 text-lg leading-relaxed">
               Defining the sound of a generation through authentic artistry and unforgettable experiences.
             </p>

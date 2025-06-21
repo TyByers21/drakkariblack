@@ -21,7 +21,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-20">
           <Link href="/">
             <div className="text-3xl brand-font luxury-accent cursor-pointer animate-glow">
-              DRAKKARI BLACK
+              Drakkari Black
             </div>
           </Link>
           

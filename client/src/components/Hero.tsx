@@ -27,8 +27,8 @@ export default function Hero() {
             textShadow: '0 0 40px rgba(0,0,0,0.8), 0 0 80px rgba(220,38,38,0.3)' 
           }}
         >
-          <span className="brand-font">DRAKKARI</span><br />
-          <span className="brand-font luxury-accent animate-glow">BLACK</span>
+          <span className="brand-font">Drakkari</span><br />
+          <span className="brand-font luxury-accent animate-glow">Black</span>
         </motion.h1>
         
         <motion.p 
