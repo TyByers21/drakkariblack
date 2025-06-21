@@ -80,27 +80,33 @@ export default function ListeningLounge() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mb-16"
+            className="mb-20"
           >
-            <h2 className="text-3xl font-semibold gold-accent mb-8 text-center">Video Collection</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <h2 className="text-4xl font-bold crimson-accent mb-12 text-center tracking-wide">Video Collection</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {videos.map((video, index) => (
                 <motion.div 
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                  className="bg-dark-surface rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-200"
+                  className="luxury-card p-6 group cursor-pointer"
+                  whileHover={{ y: -8 }}
                 >
-                  <img 
-                    src={video.thumbnail} 
-                    alt={video.title}
-                    className="w-full h-48 object-cover" 
-                  />
-                  <div className="p-4">
-                    <h3 className="text-xl font-semibold text-white mb-2">{video.title}</h3>
-                    <p className="text-gray-400 text-sm mb-3">{video.description}</p>
-                    <button className="text-primary gold-accent-hover transition-colors duration-200 flex items-center">
+                  <div className="relative overflow-hidden rounded-xl mb-6">
+                    <img 
+                      src={video.thumbnail} 
+                      alt={video.title}
+                      className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" 
+                    />
+                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <Play size={32} className="text-luxury-accent" />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-luxury-accent transition-colors duration-300">{video.title}</h3>
+                    <p className="text-smoke text-sm mb-4 leading-relaxed">{video.description}</p>
+                    <button className="crimson-accent crimson-accent-hover transition-all duration-300 flex items-center font-semibold text-sm uppercase tracking-wider">
                       <Play size={16} className="mr-2" />
                       Watch Now
                     </button>
@@ -117,18 +123,21 @@ export default function ListeningLounge() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-center"
           >
-            <h2 className="text-3xl font-semibold gold-accent mb-8">Stream Everywhere</h2>
-            <div className="flex flex-wrap justify-center gap-6">
+            <h2 className="text-4xl font-bold luxury-accent mb-12 tracking-wide animate-glow">Stream Everywhere</h2>
+            <div className="flex flex-wrap justify-center gap-8">
               {STREAMING_PLATFORMS.map((platform, index) => (
                 <motion.a 
                   key={index}
                   href={platform.url}
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.1, y: -5 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`bg-dark-surface ${platform.color} text-white px-8 py-4 rounded-full font-semibold transition-all duration-200 flex items-center`}
+                  className="luxury-card px-10 py-6 text-white font-bold transition-all duration-300 flex items-center text-lg uppercase tracking-wider group"
+                  style={{ 
+                    boxShadow: '0 8px 32px rgba(220, 38, 38, 0.3)' 
+                  }}
                 >
-                  <i className={`${platform.icon} text-2xl mr-3`}></i>
-                  {platform.name}
+                  <i className={`${platform.icon} text-3xl mr-4 group-hover:text-luxury-accent transition-colors duration-300`}></i>
+                  <span className="group-hover:text-luxury-accent transition-colors duration-300">{platform.name}</span>
                 </motion.a>
               ))}
             </div>

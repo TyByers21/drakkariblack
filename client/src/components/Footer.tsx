@@ -28,28 +28,44 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-dark-surface border-t border-dark-border py-12">
+    <footer className="bg-charcoal border-t border-crimson py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
+        <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <div className="text-2xl font-bold gold-accent mb-4">DRAKKARI BLACK</div>
-            <p className="text-gray-400 mb-4">
+            <div className="text-3xl font-black luxury-accent mb-6 animate-glow tracking-wider">DRAKKARI BLACK</div>
+            <p className="text-smoke mb-6 text-lg leading-relaxed">
               Defining the sound of a generation through authentic artistry and unforgettable experiences.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 gold-accent-hover transition-colors duration-200">
-                <i className="fab fa-instagram text-xl"></i>
-              </a>
-              <a href="#" className="text-gray-400 gold-accent-hover transition-colors duration-200">
-                <i className="fab fa-twitter text-xl"></i>
-              </a>
-              <a href="#" className="text-gray-400 gold-accent-hover transition-colors duration-200">
-                <i className="fab fa-facebook text-xl"></i>
-              </a>
-              <a href="#" className="text-gray-400 gold-accent-hover transition-colors duration-200">
-                <i className="fab fa-youtube text-xl"></i>
-              </a>
+            <div className="flex space-x-6">
+              <motion.a 
+                href="#" 
+                className="text-smoke crimson-accent-hover transition-all duration-300 transform hover:scale-125"
+                whileHover={{ y: -3 }}
+              >
+                <i className="fab fa-instagram text-2xl"></i>
+              </motion.a>
+              <motion.a 
+                href="#" 
+                className="text-smoke crimson-accent-hover transition-all duration-300 transform hover:scale-125"
+                whileHover={{ y: -3 }}
+              >
+                <i className="fab fa-twitter text-2xl"></i>
+              </motion.a>
+              <motion.a 
+                href="#" 
+                className="text-smoke crimson-accent-hover transition-all duration-300 transform hover:scale-125"
+                whileHover={{ y: -3 }}
+              >
+                <i className="fab fa-facebook text-2xl"></i>
+              </motion.a>
+              <motion.a 
+                href="#" 
+                className="text-smoke crimson-accent-hover transition-all duration-300 transform hover:scale-125"
+                whileHover={{ y: -3 }}
+              >
+                <i className="fab fa-youtube text-2xl"></i>
+              </motion.a>
             </div>
           </div>
           

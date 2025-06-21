@@ -58,19 +58,21 @@ export default function Contact() {
   };
 
   return (
-    <div className="pt-16 min-h-screen">
-      <section className="py-20 bg-dark-bg">
+    <div className="pt-20 min-h-screen bg-deep-black">
+      <section className="py-24 bg-gradient-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
-            <h1 className="text-5xl font-bold mb-4 text-white">Get In Touch</h1>
-            <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
-            <p className="text-gray-300 text-xl max-w-2xl mx-auto">
-              Ready to book Drakkari Black for your next event? Let's create something unforgettable together.
+            <h1 className="text-6xl md:text-7xl font-black mb-6 text-white tracking-wider">
+              Get In <span className="luxury-accent animate-glow">Touch</span>
+            </h1>
+            <div className="w-32 h-1 bg-gradient-accent mx-auto mb-8 rounded-full"></div>
+            <p className="text-smoke text-2xl max-w-3xl mx-auto font-light tracking-wide">
+              Ready to book <span className="crimson-accent font-medium">Drakkari Black</span> for your next event? Let's create something unforgettable together.
             </p>
           </motion.div>
           
@@ -80,52 +82,52 @@ export default function Contact() {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="space-y-8"
+              className="space-y-10"
             >
-              <h2 className="text-3xl font-semibold gold-accent mb-6">Booking Information</h2>
+              <h2 className="text-4xl font-bold crimson-accent mb-8 tracking-wide">Booking Information</h2>
               
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="bg-primary/20 p-3 rounded-lg">
-                    <Mail className="text-primary" size={24} />
+              <div className="space-y-8">
+                <div className="flex items-start space-x-6">
+                  <div className="bg-gradient-accent p-4 rounded-2xl shadow-lg">
+                    <Mail className="text-white" size={28} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-white mb-2">Email</h3>
-                    <p className="text-gray-300">booking@drakkariblack.com</p>
-                    <p className="text-gray-400 text-sm">Response within 24 hours</p>
+                    <h3 className="text-2xl font-bold text-white mb-3">Email</h3>
+                    <p className="text-smoke text-lg font-medium">booking@drakkariblack.com</p>
+                    <p className="text-smoke opacity-75">Response within 24 hours</p>
                   </div>
                 </div>
                 
-                <div className="flex items-start space-x-4">
-                  <div className="bg-primary/20 p-3 rounded-lg">
-                    <Phone className="text-primary" size={24} />
+                <div className="flex items-start space-x-6">
+                  <div className="bg-gradient-accent p-4 rounded-2xl shadow-lg">
+                    <Phone className="text-white" size={28} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-white mb-2">Phone</h3>
-                    <p className="text-gray-300">+1 (555) 123-4567</p>
-                    <p className="text-gray-400 text-sm">Mon-Fri, 9AM-6PM EST</p>
+                    <h3 className="text-2xl font-bold text-white mb-3">Phone</h3>
+                    <p className="text-smoke text-lg font-medium">+1 (555) 123-4567</p>
+                    <p className="text-smoke opacity-75">Mon-Fri, 9AM-6PM EST</p>
                   </div>
                 </div>
                 
-                <div className="flex items-start space-x-4">
-                  <div className="bg-primary/20 p-3 rounded-lg">
-                    <MapPin className="text-primary" size={24} />
+                <div className="flex items-start space-x-6">
+                  <div className="bg-gradient-accent p-4 rounded-2xl shadow-lg">
+                    <MapPin className="text-white" size={28} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-white mb-2">Management</h3>
-                    <p className="text-gray-300">Apex Entertainment Group</p>
-                    <p className="text-gray-400 text-sm">Los Angeles, CA</p>
+                    <h3 className="text-2xl font-bold text-white mb-3">Management</h3>
+                    <p className="text-smoke text-lg font-medium">Apex Entertainment Group</p>
+                    <p className="text-smoke opacity-75">Los Angeles, CA</p>
                   </div>
                 </div>
               </div>
               
-              <div className="bg-dark-surface p-6 rounded-lg">
-                <h3 className="text-xl font-semibold text-white mb-4">Booking Types</h3>
-                <ul className="space-y-2 text-gray-300">
+              <div className="luxury-card p-8">
+                <h3 className="text-2xl font-bold luxury-accent mb-6">Booking Types</h3>
+                <ul className="space-y-4 text-smoke">
                   {BOOKING_TYPES.map((type, index) => (
                     <li key={index} className="flex items-center">
-                      <Check className="text-primary mr-3" size={16} />
-                      <span>{type}</span>
+                      <Check className="text-crimson-accent mr-4" size={20} />
+                      <span className="text-lg font-medium">{type}</span>
                     </li>
                   ))}
                 </ul>
@@ -137,9 +139,12 @@ export default function Contact() {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="bg-dark-surface p-8 rounded-lg shadow-xl"
+              className="luxury-card p-10"
+              style={{ 
+                boxShadow: '0 20px 50px rgba(220, 38, 38, 0.3)' 
+              }}
             >
-              <h2 className="text-2xl font-semibold text-white mb-6">Send Us a Message</h2>
+              <h2 className="text-3xl font-bold luxury-accent mb-8 tracking-wide">Send Us a Message</h2>
               
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
