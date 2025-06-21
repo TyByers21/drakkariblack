@@ -16,11 +16,11 @@ export default function Navigation() {
   const [location] = useLocation();
 
   return (
-    <nav className="fixed top-0 w-full bg-dark-bg/95 backdrop-blur-sm border-b border-dark-border z-50">
+    <nav className="fixed top-0 w-full glass-effect border-b border-crimson z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           <Link href="/">
-            <div className="text-2xl font-bold gold-accent cursor-pointer">
+            <div className="text-3xl font-black luxury-accent cursor-pointer animate-glow tracking-wider">
               DRAKKARI BLACK
             </div>
           </Link>
@@ -33,7 +33,7 @@ export default function Navigation() {
                   <span className={`nav-link ${
                     location === item.path 
                       ? 'text-white' 
-                      : 'text-muted gold-accent-hover'
+                      : 'text-smoke crimson-accent-hover'
                   }`}>
                     {item.name}
                   </span>
@@ -61,7 +61,7 @@ export default function Navigation() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-dark-surface border-t border-dark-border"
+            className="md:hidden bg-charcoal border-t border-crimson"
           >
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
