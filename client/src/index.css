@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -76,6 +78,20 @@
 }
 
 @layer components {
+  .brand-font {
+    font-family: 'Orbitron', monospace;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  
+  .brand-font-alt {
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  
   .nav-link {
     @apply transition-all duration-300 font-medium hover:text-primary relative;
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.1);

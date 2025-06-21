@@ -12,7 +12,7 @@ export default function About() {
             className="text-center mb-20"
           >
             <h1 className="text-6xl md:text-7xl font-black mb-6 text-white tracking-wider">
-              About <span className="luxury-accent animate-glow">Drakkari Black</span>
+              About <span className="brand-font luxury-accent animate-glow">Drakkari Black</span>
             </h1>
             <div className="w-32 h-1 bg-gradient-accent mx-auto rounded-full"></div>
           </motion.div>

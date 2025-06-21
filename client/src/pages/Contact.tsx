@@ -68,7 +68,7 @@ export default function Contact() {
             className="text-center mb-20"
           >
             <h1 className="text-6xl md:text-7xl font-black mb-6 text-white tracking-wider">
-              Get In <span className="luxury-accent animate-glow">Touch</span>
+              Get In <span className="brand-font luxury-accent animate-glow">Touch</span>
             </h1>
             <div className="w-32 h-1 bg-gradient-accent mx-auto mb-8 rounded-full"></div>
             <p className="text-smoke text-2xl max-w-3xl mx-auto font-light tracking-wide">
