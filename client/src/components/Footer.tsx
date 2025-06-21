@@ -71,12 +71,12 @@ export default function Footer() {
           
           {/* Quick Links */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2">
+            <h4 className="text-white font-bold mb-6 text-xl">Quick Links</h4>
+            <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.path}>
                   <Link href={link.path}>
-                    <span className="text-gray-400 gold-accent-hover transition-colors duration-200 cursor-pointer">
+                    <span className="text-smoke crimson-accent-hover transition-all duration-300 cursor-pointer text-lg hover:translate-x-2 block">
                       {link.name}
                     </span>
                   </Link>
@@ -87,13 +87,13 @@ export default function Footer() {
           
           {/* Music Platforms */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Music Platforms</h4>
-            <ul className="space-y-2">
+            <h4 className="text-white font-bold mb-6 text-xl">Music Platforms</h4>
+            <ul className="space-y-3">
               {musicPlatforms.map((platform) => (
                 <li key={platform.name}>
                   <a 
                     href={platform.url}
-                    className="text-gray-400 gold-accent-hover transition-colors duration-200"
+                    className="text-smoke crimson-accent-hover transition-all duration-300 text-lg hover:translate-x-2 block"
                   >
                     {platform.name}
                   </a>
@@ -104,22 +104,22 @@ export default function Footer() {
           
           {/* Newsletter */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Newsletter</h4>
-            <p className="text-gray-400 mb-4">
+            <h4 className="text-white font-bold mb-6 text-xl">Newsletter</h4>
+            <p className="text-smoke mb-6 text-lg leading-relaxed">
               Stay updated with latest releases and tour dates
             </p>
-            <form onSubmit={handleNewsletterSubmit} className="space-y-3">
+            <form onSubmit={handleNewsletterSubmit} className="space-y-4">
               <input 
                 type="email" 
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-dark-bg border border-dark-border rounded-lg px-4 py-2 text-white focus:outline-none focus:border-primary transition-colors duration-200" 
+                className="w-full bg-charcoal border border-crimson rounded-xl px-6 py-4 text-white focus:outline-none focus:border-luxury-accent focus:ring-2 focus:ring-luxury-accent/20 transition-all duration-300 text-lg" 
                 placeholder="Enter your email"
                 required
               />
               <button 
                 type="submit" 
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-2 rounded-lg transition-colors duration-200"
+                className="w-full btn-primary text-lg"
               >
                 Subscribe
               </button>
@@ -127,9 +127,9 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="border-t border-dark-border pt-8 text-center">
-          <p className="text-gray-400">
-            © 2024 Drakkari Black. All rights reserved. | Privacy Policy | Terms of Service
+        <div className="border-t border-crimson pt-12 text-center">
+          <p className="text-smoke text-lg">
+            © 2024 <span className="luxury-accent font-medium">Drakkari Black</span>. All rights reserved. | <span className="crimson-accent hover:text-white transition-colors duration-300 cursor-pointer">Privacy Policy</span> | <span className="crimson-accent hover:text-white transition-colors duration-300 cursor-pointer">Terms of Service</span>
           </p>
         </div>
       </div>
