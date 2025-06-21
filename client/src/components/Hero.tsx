@@ -24,7 +24,7 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
           className="text-6xl md:text-8xl font-black mb-6 text-white leading-tight"
         >
-          DRAKKARI<br>
+          DRAKKARI<br />
           <span className="gold-accent">BLACK</span>
         </motion.h1>
         
