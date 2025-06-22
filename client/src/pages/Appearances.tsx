@@ -41,7 +41,7 @@ export default function Appearances() {
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ scale: 1.05, y: -10 }}
                 className="luxury-card p-8 group cursor-pointer"
                 style={{ 
@@ -87,7 +87,7 @@ export default function Appearances() {
                   key={index}
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
                   whileHover={{ scale: 1.1, y: -10 }}
                   className="luxury-card p-4 cursor-pointer group"
                   style={{ 
