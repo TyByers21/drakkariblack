@@ -1,7 +1,12 @@
 import { motion } from "framer-motion";
-import { Clock, Ticket } from "lucide-react";
-import { UPCOMING_EVENTS } from "@/lib/constants";
+import { Clock, Ticket, Music, ChevronLeft, ChevronRight, X } from "lucide-react";
+import { UPCOMING_EVENTS, SPEAKEASY_SETLIST } from "@/lib/constants";
 import AnimatedText from "@/components/AnimatedText";
+import { useState } from "react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { useQuery } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
 
 const promoImages = [
   "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=600",
@@ -9,6 +14,90 @@ const promoImages = [
   "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=600",
   "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=600"
 ];
+
+function SetListModal() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextSong = () => {
+    setCurrentIndex((prev) => (prev + 1) % SPEAKEASY_SETLIST.length);
+  };
+
+  const prevSong = () => {
+    setCurrentIndex((prev) => (prev - 1 + SPEAKEASY_SETLIST.length) % SPEAKEASY_SETLIST.length);
+  };
+
+  const currentSong = SPEAKEASY_SETLIST[currentIndex];
+
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button className="btn-primary text-lg px-8 py-4">
+          <Music className="mr-3" size={24} />
+          View Set List
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="max-w-md bg-deep-black border-crimson p-0 overflow-hidden">
+        <div className="relative">
+          {/* Song Card */}
+          <motion.div 
+            key={currentIndex}
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -100 }}
+            transition={{ duration: 0.3 }}
+            className="p-8 text-center"
+          >
+            <div className="mb-6">
+              <img 
+                src={currentSong.image} 
+                alt={`${currentSong.title} album cover`}
+                className="w-64 h-64 mx-auto rounded-2xl shadow-2xl border-2 border-crimson"
+              />
+            </div>
+            <h3 className="text-2xl font-bold text-white mb-2">{currentSong.title}</h3>
+            <p className="text-luxury-accent text-lg font-medium mb-1">{currentSong.artist}</p>
+            <p className="text-smoke text-sm opacity-75">{currentSong.album}</p>
+          </motion.div>
+
+          {/* Navigation */}
+          <div className="absolute inset-y-0 left-0 flex items-center">
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              onClick={prevSong}
+              className="text-white hover:text-luxury-accent hover:bg-black/20 ml-2"
+            >
+              <ChevronLeft size={24} />
+            </Button>
+          </div>
+          <div className="absolute inset-y-0 right-0 flex items-center">
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              onClick={nextSong}
+              className="text-white hover:text-luxury-accent hover:bg-black/20 mr-2"
+            >
+              <ChevronRight size={24} />
+            </Button>
+          </div>
+
+          {/* Progress Dots */}
+          <div className="flex justify-center space-x-2 pb-6">
+            {SPEAKEASY_SETLIST.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === currentIndex ? 'bg-luxury-accent' : 'bg-smoke/30'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}
 
 export default function Appearances() {
   return (
@@ -104,6 +193,22 @@ export default function Appearances() {
                 </motion.div>
               ))}
             </div>
+          </motion.div>
+
+          {/* Speakeasy Set List */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="text-center mt-20"
+          >
+            <h2 className="text-5xl font-bold luxury-accent mb-8 tracking-wide animate-glow">
+              <AnimatedText text="Speakeasy Set List" className="brand-font" delay={1.0} />
+            </h2>
+            <p className="text-smoke text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
+              Explore the intimate acoustic arrangements from my exclusive speakeasy performances
+            </p>
+            <SetListModal />
           </motion.div>
         </div>
       </section>
