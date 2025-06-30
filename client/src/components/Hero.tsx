@@ -50,16 +50,16 @@ export default function Hero() {
               transition={{ delay: 0.9 }}
               className="flex flex-col sm:flex-row gap-4 mb-12"
             >
-              <Link href="/listening-lounge">
+              <Link href="/listening">
                 <button className="btn-primary flex items-center justify-center text-lg py-4 px-8 group w-full">
                   <Play className="mr-3 group-hover:scale-110 transition-transform" size={20} />
                   Play Latest
                 </button>
               </Link>
-              <Link href="/listening-lounge">
+              <Link href="/appearances">
                 <button className="btn-outline flex items-center justify-center text-lg py-4 px-8 group w-full">
-                  <Headphones className="mr-3 group-hover:scale-110 transition-transform" size={20} />
-                  Listening Lounge
+                  <Calendar className="mr-3 group-hover:scale-110 transition-transform" size={20} />
+                  View Shows
                 </button>
               </Link>
             </motion.div>
@@ -128,7 +128,7 @@ export default function Hero() {
             className="grid md:grid-cols-3 gap-8"
           >
             {/* Latest Release */}
-            <Link href="/listening-lounge">
+            <Link href="/listening">
               <div className="group cursor-pointer">
                 <div className="bg-gradient-to-br from-crimson/10 to-deep-black border border-crimson/20 rounded-2xl p-8 h-full hover:border-luxury-accent/50 transition-all duration-300">
                   <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-luxury-accent transition-colors">
