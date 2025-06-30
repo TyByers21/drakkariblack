@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import AnimatedText from "@/components/AnimatedText";
 import { Play, Calendar } from "lucide-react";
 import { SOCIAL_LINKS } from "@/lib/constants";
 import artistImage from "@assets/Ty SmooveNoTats_1750523642870.png";
@@ -27,7 +28,7 @@ export default function Hero() {
             textShadow: '0 0 40px rgba(0,0,0,0.8), 0 0 80px rgba(220,38,38,0.3)' 
           }}
         >
-          <span className="brand-font luxury-accent animate-glow">Drakkari Black</span>
+          <AnimatedText text="Drakkari Black" className="brand-font luxury-accent animate-glow" delay={0.5} />
         </motion.h1>
         
         <motion.p 

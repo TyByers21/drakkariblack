@@ -14,6 +14,7 @@ import { insertContactSubmissionSchema } from "@shared/schema";
 import { apiRequest } from "@/lib/queryClient";
 import { BOOKING_TYPES } from "@/lib/constants";
 import type { InsertContactSubmission } from "@shared/schema";
+import AnimatedText from "@/components/AnimatedText";
 
 export default function Contact() {
   const { toast } = useToast();
@@ -68,7 +69,7 @@ export default function Contact() {
             className="text-center mb-20"
           >
             <h1 className="text-6xl md:text-7xl font-black mb-6 text-white tracking-wider">
-              Get In <span className="brand-font luxury-accent animate-glow">Touch</span>
+              Get In <AnimatedText text="Touch" className="brand-font luxury-accent animate-glow text-8xl md:text-9xl" delay={0.8} />
             </h1>
             <div className="w-32 h-1 bg-gradient-accent mx-auto mb-8 rounded-full"></div>
             <p className="text-smoke text-2xl max-w-3xl mx-auto font-light tracking-wide">
