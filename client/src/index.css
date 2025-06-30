@@ -193,6 +193,22 @@
     box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
     transform: translateY(-2px) scale(1.05);
   }
+
+  .btn-outline {
+    @apply font-bold px-10 py-4 rounded-full transition-all duration-300 transform hover:scale-105;
+    background: transparent;
+    border: 2px solid var(--smoke-gray);
+    color: var(--smoke-gray);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .btn-outline:hover {
+    border-color: var(--luxury-gold);
+    color: var(--luxury-gold);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    transform: translateY(-2px) scale(1.05);
+  }
   
   .luxury-card {
     @apply rounded-2xl shadow-2xl transition-all duration-500;

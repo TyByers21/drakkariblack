@@ -3,7 +3,7 @@ import { Clock, Ticket, Music, ChevronLeft, ChevronRight, X } from "lucide-react
 import { UPCOMING_EVENTS, SPEAKEASY_SETLIST } from "@/lib/constants";
 import AnimatedText from "@/components/AnimatedText";
 import { useState } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { useQuery } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
@@ -37,6 +37,10 @@ function SetListModal() {
         </Button>
       </DialogTrigger>
       <DialogContent className="max-w-md bg-deep-black border-crimson p-0 overflow-hidden">
+        <DialogHeader className="sr-only">
+          <DialogTitle>Speakeasy Set List</DialogTitle>
+          <DialogDescription>Browse through the songs from Drakkari Black's intimate speakeasy performances</DialogDescription>
+        </DialogHeader>
         <div className="relative">
           {/* Song Card */}
           <motion.div 
