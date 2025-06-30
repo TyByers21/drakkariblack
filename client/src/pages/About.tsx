@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import AnimatedText from "@/components/AnimatedText";
 
 export default function About() {
   return (
@@ -12,7 +13,7 @@ export default function About() {
             className="text-center mb-20"
           >
             <h1 className="text-6xl md:text-7xl font-black mb-6 text-white tracking-wider">
-              About <span className="brand-font luxury-accent animate-glow">Drakkari Black</span>
+              About <AnimatedText text="Drakkari Black" className="brand-font luxury-accent animate-glow text-8xl md:text-9xl" delay={0.8} />
             </h1>
             <div className="w-32 h-1 bg-gradient-accent mx-auto rounded-full"></div>
           </motion.div>

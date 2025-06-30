@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import { STREAMING_PLATFORMS } from "@/lib/constants";
+import AnimatedText from "@/components/AnimatedText";
 
 const videos = [
   {
@@ -32,7 +33,7 @@ export default function ListeningLounge() {
             className="text-center mb-20"
           >
             <h1 className="text-6xl md:text-7xl font-black mb-6 text-white tracking-wider">
-              Listening <span className="brand-font luxury-accent animate-glow">Lounge</span>
+              Listening <AnimatedText text="Lounge" className="brand-font luxury-accent animate-glow text-8xl md:text-9xl" delay={0.8} />
             </h1>
             <div className="w-32 h-1 bg-gradient-accent mx-auto mb-8 rounded-full"></div>
             <p className="text-smoke text-2xl max-w-3xl mx-auto font-light tracking-wide">

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Clock, Ticket } from "lucide-react";
 import { UPCOMING_EVENTS } from "@/lib/constants";
+import AnimatedText from "@/components/AnimatedText";
 
 const promoImages = [
   "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=600",
@@ -21,7 +22,7 @@ export default function Appearances() {
             className="text-center mb-20"
           >
             <h1 className="text-6xl md:text-7xl font-black mb-6 text-white tracking-wider">
-              Upcoming <span className="brand-font luxury-accent animate-glow">Appearances</span>
+              Upcoming <AnimatedText text="Appearances" className="brand-font luxury-accent animate-glow text-8xl md:text-9xl" delay={0.8} />
             </h1>
             <div className="w-32 h-1 bg-gradient-accent mx-auto mb-8 rounded-full"></div>
             <p className="text-smoke text-2xl max-w-3xl mx-auto font-light tracking-wide">
