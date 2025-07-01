@@ -218,7 +218,8 @@ export default function Contact() {
                         <FormLabel className="text-gray-300">Phone Number</FormLabel>
                         <FormControl>
                           <Input 
-                            {...field} 
+                            {...field}
+                            value={field.value || ""}
                             type="tel"
                             className="bg-black/90 border-red-900/50 text-white placeholder-gray-400 focus:border-red-500 focus:ring-1 focus:ring-red-500"
                             placeholder="+1 (555) 123-4567"
@@ -235,7 +236,7 @@ export default function Contact() {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel className="text-gray-300">Event Type</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <Select onValueChange={field.onChange} value={field.value || undefined}>
                           <FormControl>
                             <SelectTrigger className="bg-black/90 border-red-900/50 text-white focus:border-red-500 focus:ring-1 focus:ring-red-500">
                               <SelectValue placeholder="Select event type" />
@@ -262,7 +263,8 @@ export default function Contact() {
                           <FormLabel className="text-gray-300">Event Date</FormLabel>
                           <FormControl>
                             <Input 
-                              {...field} 
+                              {...field}
+                              value={field.value || ""}
                               type="date"
                               className="bg-black/90 border-red-900/50 text-white focus:border-red-500 focus:ring-1 focus:ring-red-500"
                             />
@@ -279,7 +281,8 @@ export default function Contact() {
                           <FormLabel className="text-gray-300">Expected Attendance</FormLabel>
                           <FormControl>
                             <Input 
-                              {...field} 
+                              {...field}
+                              value={field.value ? field.value.toString() : ""}
                               type="number"
                               className="bg-black/90 border-red-900/50 text-white placeholder-gray-400 focus:border-red-500 focus:ring-1 focus:ring-red-500"
                               placeholder="1000"
