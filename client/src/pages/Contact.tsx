@@ -241,11 +241,11 @@ export default function Contact() {
                               <SelectValue placeholder="Select event type" />
                             </SelectTrigger>
                           </FormControl>
-                          <SelectContent className="bg-dark-surface border-dark-border">
-                            <SelectItem value="concert">Concert Venue</SelectItem>
-                            <SelectItem value="festival">Music Festival</SelectItem>
-                            <SelectItem value="private">Private Event</SelectItem>
-                            <SelectItem value="corporate">Corporate Function</SelectItem>
+                          <SelectContent className="bg-black/95 border-red-900/50 backdrop-blur-sm">
+                            <SelectItem value="concert" className="text-white hover:bg-red-900/50 focus:bg-red-900/50">Concert Venue</SelectItem>
+                            <SelectItem value="festival" className="text-white hover:bg-red-900/50 focus:bg-red-900/50">Music Festival</SelectItem>
+                            <SelectItem value="private" className="text-white hover:bg-red-900/50 focus:bg-red-900/50">Private Event</SelectItem>
+                            <SelectItem value="corporate" className="text-white hover:bg-red-900/50 focus:bg-red-900/50">Corporate Function</SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />
