@@ -1,4 +1,5 @@
 import donell from "@/images/donellj.jpeg";
+import donellAlt from "@/images/donell.jpeg";
 import kelly from "@/images/kelly.jpg";
 import theScript from "@/images/theScript.jpg";
 import george from "@/images/george.jpg";
@@ -196,63 +197,63 @@ export const SPEAKEASY_SETLIST = [
     title: "What You Won't Do For Love",
     album: "",
     spotifyId: "",
-    image: ,
+    image: bobby,
   },
   {
     artist: "Bruno Mars",
     title: "Locked Out Of Heaven",
     album: "",
     spotifyId: "",
-    image: ,
+    image: george,
   },
   {
     artist: "Chris Isaak",
     title: "Wicked Game",
     album: "",
     spotifyId: "",
-    image: ,
+    image: kelly,
   },
   {
     artist: "Prince",
     title: "Kiss",
     album: "",
     spotifyId: "",
-    image: ,
+    image: theScript,
   },
   {
     artist: "Prince",
     title: "Purple Rain",
     album: "",
     spotifyId: "",
-    image: ,
+    image: legend,
   },
   {
     artist: "Robin Thicke",
     title: "I Need Love",
     album: "",
     spotifyId: "",
-    image: ,
+    image: donell,
   },
   {
     artist: "The Beatles",
     title: "My Guitar Gently Weeps",
     album: "",
     spotifyId: "",
-    image: ,
+    image: george,
   },
   {
     artist: "Passenger",
     title: "Let Her Go",
     album: "",
     spotifyId: "",
-    image: ,
+    image: bobby,
   },
   {
     artist: "The Fray",
     title: "Look After You",
     album: "",
     spotifyId: "",
-    image: ,
+    image: jaime,
   },
   {
     artist: "Donell Jones",

@@ -28,7 +28,7 @@ export default function Contact() {
       phone: "",
       eventType: "",
       eventDate: "",
-      expectedAttendance: undefined,
+      expectedAttendance: 0,
       message: "",
     },
   });
