@@ -116,7 +116,7 @@ function SetListModal() {
             View Set List
           </Button>
         </DialogTrigger>
-        <DialogContent className="max-w-md glass-card border-crimson p-0 overflow-hidden rounded-2xl">
+        <DialogContent className="max-w-md glass-card-static border-crimson p-0 overflow-hidden rounded-2xl">
           <DialogHeader className="sr-only">
             <DialogTitle>Speakeasy Set List</DialogTitle>
             <DialogDescription>Browse through the songs from Drakkari Black's intimate speakeasy performances</DialogDescription>
@@ -137,7 +137,7 @@ function SetListModal() {
           View Set List
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-md glass-card border-crimson p-0 overflow-hidden rounded-2xl">
+      <DialogContent className="max-w-md glass-card-static border-crimson p-0 overflow-hidden rounded-2xl">
         <DialogHeader className="sr-only">
           <DialogTitle>Speakeasy Set List</DialogTitle>
           <DialogDescription>Browse through the songs from Drakkari Black's intimate speakeasy performances</DialogDescription>
