@@ -135,13 +135,13 @@ function SetListModal() {
                 </div>
               )}
               <img 
-                src={currentSong.image} 
+                src={currentSong.spotifyImage || currentSong.image} 
                 alt={`${currentSong.title} album cover`}
                 className="w-64 h-64 mx-auto rounded-2xl shadow-2xl border-2 border-crimson"
               />
-              {currentSong.musicbrainzImage && (
+              {currentSong.spotifyImage && (
                 <div className="absolute -bottom-2 -right-2 bg-luxury-accent text-white text-xs px-2 py-1 rounded-full">
-                  MusicBrainz
+                  Spotify
                 </div>
               )}
             </div>
