@@ -116,7 +116,7 @@ function SetListModal() {
             View Set List
           </Button>
         </DialogTrigger>
-        <DialogContent className="max-w-md bg-deep-black border-crimson p-0 overflow-hidden">
+        <DialogContent className="max-w-md glass-card border-crimson p-0 overflow-hidden rounded-2xl">
           <DialogHeader className="sr-only">
             <DialogTitle>Speakeasy Set List</DialogTitle>
             <DialogDescription>Browse through the songs from Drakkari Black's intimate speakeasy performances</DialogDescription>
@@ -137,7 +137,7 @@ function SetListModal() {
           View Set List
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-md bg-deep-black border-crimson p-0 overflow-hidden">
+      <DialogContent className="max-w-md glass-card border-crimson p-0 overflow-hidden rounded-2xl">
         <DialogHeader className="sr-only">
           <DialogTitle>Speakeasy Set List</DialogTitle>
           <DialogDescription>Browse through the songs from Drakkari Black's intimate speakeasy performances</DialogDescription>
@@ -253,10 +253,7 @@ export default function Appearances() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ scale: 1.05, y: -10 }}
-                className="luxury-card p-8 group cursor-pointer"
-                style={{ 
-                  boxShadow: '0 15px 40px rgba(220, 38, 38, 0.2)' 
-                }}
+                className="glass-card p-8 group cursor-pointer rounded-2xl"
               >
                 <div className="bg-gradient-accent text-white p-6 rounded-2xl text-center mb-6 group-hover:shadow-xl transition-all duration-300">
                   <div className="text-2xl font-bold opacity-90">{event.month}</div>

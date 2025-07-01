@@ -145,10 +145,7 @@ export default function Contact() {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="luxury-card p-10"
-              style={{ 
-                boxShadow: '0 20px 50px rgba(220, 38, 38, 0.3)' 
-              }}
+              className="glass-card p-10 rounded-2xl"
             >
               <h2 className="text-3xl font-bold luxury-accent mb-8 tracking-wide">Send Us a Message</h2>
               

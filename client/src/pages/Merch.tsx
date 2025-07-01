@@ -141,7 +141,7 @@ export default function Merch() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="text-center p-6 luxury-card"
+                className="text-center p-6 glass-card rounded-2xl"
               >
                 <feature.icon className="w-12 h-12 text-crimson-accent mx-auto mb-4" />
                 <h3 className="text-xl font-bold text-white mb-2">{feature.title}</h3>
@@ -177,10 +177,7 @@ export default function Merch() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -10, scale: 1.02 }}
-                className="luxury-card p-6 group cursor-pointer"
-                style={{ 
-                  boxShadow: '0 10px 30px rgba(220, 38, 38, 0.15)' 
-                }}
+                className="glass-card p-6 group cursor-pointer rounded-2xl"
               >
                 <div className="relative mb-6 overflow-hidden rounded-lg">
                   <img 
