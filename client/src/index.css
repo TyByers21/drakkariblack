@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@400;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -90,6 +90,19 @@
     font-family: 'Qwitcher Grypen', cursive;
     font-weight: 700;
     letter-spacing: 0.02em;
+  }
+
+  /* Main heading font styles using Outfit */
+  h1, h2 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+
+  .heading-font {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
   }
   
   .nav-link {

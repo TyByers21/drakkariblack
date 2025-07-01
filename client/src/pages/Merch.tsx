@@ -141,7 +141,7 @@ export default function Merch() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="text-center p-6 glass-card rounded-2xl"
+                className="text-center bg-gradient-primary  p-6 glass-card rounded-2xl"
               >
                 <feature.icon className="w-12 h-12 text-crimson-accent mx-auto mb-4" />
                 <h3 className="text-xl font-bold text-white mb-2">{feature.title}</h3>

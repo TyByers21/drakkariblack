@@ -229,7 +229,7 @@ export default function Appearances() {
               <span className="block sm:inline">Upcoming</span>
               <span className="block sm:inline">
                 <span className="sm:ml-4">
-                  <AnimatedText text="Appearances" className="brand-font luxury-accent animate-glow" delay={0.8} />
+                  <AnimatedText text="Appearances" className="brand-font text-7xl sm:text-9xl luxury-accent animate-glow" delay={0.8} />
                 </span>
               </span>
             </h1>

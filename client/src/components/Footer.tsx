@@ -122,9 +122,11 @@ export default function Footer() {
                 placeholder="Enter your email"
                 required
               />
-              <button type="submit" className="w-full btn-primary text-lg">
+              <div className="animate-glow bg-gradient-primary">
+              <button type="submit" className="glass-button flex items-center justify-center text-xl sm:text-lg py-3 sm:py-4 px-6 sm:px-8 group w-full rounded-xl">
                 Subscribe
               </button>
+                </div>
             </form>
           </div>
         </div>

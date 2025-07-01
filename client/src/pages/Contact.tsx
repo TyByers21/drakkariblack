@@ -72,7 +72,7 @@ export default function Contact() {
               <span className="block sm:inline">Get In</span>
               <span className="block sm:inline">
                 <span className="sm:ml-4">
-                  <AnimatedText text="Touch" className="brand-font luxury-accent animate-glow" delay={0.8} />
+                  <AnimatedText text="Touch" className="brand-font text-7xl sm:text-9xl luxury-accent animate-glow" delay={0.8} />
                 </span>
               </span>
             </h1>
@@ -90,7 +90,7 @@ export default function Contact() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="space-y-10"
             >
-              <h2 className="text-4xl font-bold crimson-accent mb-8 tracking-wide">Booking Information</h2>
+              <h2 className="text-4xl font-bold animate-glow brand-accent mb-8 tracking-wide">Booking Information</h2>
               
               <div className="space-y-8">
                 <div className="flex items-start space-x-6 glass-card p-6 rounded-2xl">

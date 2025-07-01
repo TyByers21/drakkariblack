@@ -16,7 +16,7 @@ export default function About() {
               <span className="block sm:inline">About</span>
               <span className="block sm:inline">
                 <span className="sm:ml-4">
-                  <AnimatedText text="Drakkari Black" className="brand-font luxury-accent animate-glow" delay={0.8} />
+                  <AnimatedText text="Drakkari Black" className="brand-font text-6xl sm:text-8xl luxury-accent animate-glow" delay={0.8} />
                 </span>
               </span>
             </h1>

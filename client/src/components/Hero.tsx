@@ -199,7 +199,7 @@ export default function Hero() {
               className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-12 w-full"
             >
               <Link href="/listening" className="flex-1">
-                <button className="glass-button flex items-center justify-center text-base sm:text-lg py-3 sm:py-4 px-6 sm:px-8 group w-full rounded-xl">
+                <button className="glass-button bg-gradient-primary flex items-center justify-center text-base sm:text-lg py-3 sm:py-4 px-6 sm:px-8 group w-full rounded-xl">
                   <Play
                     className="mr-2 sm:mr-3 group-hover:scale-110 transition-transform"
                     size={18}
@@ -207,8 +207,8 @@ export default function Hero() {
                   Play Latest
                 </button>
               </Link>
-              <Link href="/appearances" className="flex-1">
-                <button className="glass-button flex items-center justify-center text-base sm:text-lg py-3 sm:py-4 px-6 sm:px-8 group w-full rounded-xl">
+              <Link href="/appearances" className="flex-1 ">
+                <button className="glass-button animate-glow bg-gradient-primary flex items-center justify-center text-base sm:text-lg py-3 sm:py-4 px-6 sm:px-8 group w-full rounded-xl">
                   <Calendar
                     className="mr-2 sm:mr-3 group-hover:scale-110 transition-transform"
                     size={18}
@@ -310,7 +310,7 @@ export default function Hero() {
       </section>
 
       {/* Featured Content Row */}
-      <section className="py-20 px-8 lg:px-16 border-t border-smoke/10 bg-black">
+      <section className="py-20 px-8 lg:px-16 border-t border-smoke/10 ">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -327,7 +327,7 @@ export default function Hero() {
             >
               <Link href="/listening">
                 <div className="group cursor-pointer">
-                  <div className="bg-gradient-to-br from-crimson/10 to-deep-black border border-crimson/20 rounded-2xl p-8 h-full hover:border-luxury-accent/50 hover:shadow-xl hover:shadow-red-500/30 transition-all duration-300 hover:bg-crimson/20">
+                  <div className="bg-gradient-to-br from-crimson/10 to-deep-black border border-crimson/20 rounded-2xl p-8 h-full hover:border-luxury-accent/50 hover:shadow-xl hover:shadow-white/20 transition-all duration-300 hover:bg-crimson/20">
                     <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-luxury-accent transition-colors">
                       Latest Release
                     </h3>
@@ -351,7 +351,7 @@ export default function Hero() {
             >
               <Link href="/appearances">
                 <div className="group cursor-pointer">
-                  <div className="bg-gradient-to-br from-luxury-accent/10 to-deep-black border border-luxury-accent/20 rounded-2xl p-8 h-full hover:border-crimson/50 hover:shadow-xl hover:shadow-yellow-500/30 transition-all duration-300 hover:bg-luxury-accent/20">
+                  <div className="bg-gradient-to-br from-luxury-accent/10 to-deep-black border border-luxury-accent/20 rounded-2xl p-8 h-full hover:border-crimson/50 hover:shadow-xl hover:shadow-white/20 transition-all duration-300 hover:bg-luxury-accent/20">
                     <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-crimson transition-colors">
                       Live Shows
                     </h3>
@@ -375,7 +375,7 @@ export default function Hero() {
             >
               <Link href="/contact">
                 <div className="group cursor-pointer">
-                  <div className="bg-gradient-to-br from-smoke/5 to-deep-black border border-smoke/20 rounded-2xl p-8 h-full hover:border-white/30 hover:shadow-xl hover:shadow-white/10 transition-all duration-300 hover:bg-smoke/10">
+                  <div className="bg-gradient-to-br from-smoke/5 to-deep-black border border-smoke/20 rounded-2xl p-8 h-full hover:border-white/30 hover:shadow-xl hover:shadow-white/20 transition-all duration-300 hover:bg-smoke/10">
                     <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-luxury-accent transition-colors">
                       Connect
                     </h3>

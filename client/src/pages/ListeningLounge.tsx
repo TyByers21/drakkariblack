@@ -137,7 +137,7 @@ export default function ListeningLounge() {
               <span className="block sm:inline">Listening</span>
               <span className="block sm:inline">
                 <span className="sm:ml-4">
-                  <AnimatedText text="Lounge" className="brand-font luxury-accent animate-glow" delay={0.8} />
+                  <AnimatedText text="Lounge" className="brand-font text-7xl sm:text-9xl luxury-accent animate-glow" delay={0.8} />
                 </span>
               </span>
             </h1>
