@@ -68,8 +68,13 @@ export default function Contact() {
             transition={{ duration: 0.8 }}
             className="text-center mb-20"
           >
-            <h1 className="text-6xl md:text-7xl font-black mb-6 text-white tracking-wider">
-              Get In <AnimatedText text="Touch" className="brand-font luxury-accent animate-glow text-8xl md:text-9xl" delay={0.8} />
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 text-white tracking-wider leading-tight">
+              <span className="block sm:inline">Get In</span>
+              <span className="block sm:inline">
+                <span className="sm:ml-4">
+                  <AnimatedText text="Touch" className="brand-font luxury-accent animate-glow" delay={0.8} />
+                </span>
+              </span>
             </h1>
             <div className="w-32 h-1 bg-gradient-accent mx-auto mb-8 rounded-full"></div>
             <p className="text-smoke text-2xl max-w-3xl mx-auto font-light tracking-wide">

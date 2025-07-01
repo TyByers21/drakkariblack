@@ -123,7 +123,7 @@ export default function Hero() {
       {/* Main Hero Section - Split Layout */}
       <section className="grid grid-cols-1 lg:grid-cols-2 min-h-screen relative z-10">
         {/* Left Side - Content */}
-        <div className="flex flex-col justify-center items-center lg:items-start px-6 sm:px-8 lg:px-16 py-16 text-center lg:text-left">
+        <div className="flex flex-col justify-center items-center lg:items-start px-6 sm:px-8 lg:px-16 py-16 text-center ">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -135,7 +135,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-luxury-accent text-xs sm:text-sm font-medium tracking-widest uppercase mb-4 block"
+              className="text-luxury-accent text-xs sm:text-sm font-medium tracking-widest uppercase mb-4 block text-center"
             >
               Artist • Performer • Visionary
             </motion.span>
