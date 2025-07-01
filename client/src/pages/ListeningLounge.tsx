@@ -9,7 +9,7 @@ const videos = [
     title: "Studio Sessions Vol. 1",
     description: "Behind the scenes creative process",
     thumbnail: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250",
-    videoUrl: ""
+    videoUrl: "https://youtu.be/jfvJn0JWBCI?si=yc5hBxN9j273dh6j"
   },
   {
     title: "Golden Hour Acoustic",
@@ -29,7 +29,7 @@ const featuredVideo = {
   title: "Midnight Sessions - Live Performance",
   description: "Exclusive live recording from the sold-out Madison Square Garden show",
   thumbnail: "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&h=675",
-  videoUrl: ""
+  videoUrl: "https://youtu.be/16CHYU-PYKw?si=hKB_e8uOlHwEG5gt"
 };
 
 // Helper function to get YouTube embed URL
