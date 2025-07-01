@@ -157,7 +157,7 @@ export default function ListeningLounge() {
             <h2 className="text-4xl font-bold brand-accent mb-12 text-center animate-glow tracking-wide">Featured Video</h2>
             <div className="max-w-5xl mx-auto">
               <div 
-                className="relative aspect-video luxury-card p-6 overflow-hidden cursor-pointer group"
+                className="relative aspect-video glass-card p-6 overflow-hidden cursor-pointer group rounded-2xl"
                 onClick={() => openVideo(featuredVideo)}
               >
                 <img 
@@ -200,7 +200,7 @@ export default function ListeningLounge() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="luxury-card p-6 group cursor-pointer"
+                  className="glass-card p-6 group cursor-pointer rounded-2xl"
                   whileHover={{ y: -8 }}
                   onClick={() => openVideo(video)}
                 >
@@ -242,10 +242,7 @@ export default function ListeningLounge() {
                   href={platform.url}
                   whileHover={{ scale: 1.1, y: -5 }}
                   whileTap={{ scale: 0.95 }}
-                  className="luxury-card px-10 py-6 text-white font-bold transition-all duration-300 flex items-center text-lg uppercase tracking-wider group"
-                  style={{ 
-                    boxShadow: '0 8px 32px rgba(220, 38, 38, 0.3)' 
-                  }}
+                  className="glass-card px-10 py-6 text-white font-bold transition-all duration-300 flex items-center text-lg uppercase tracking-wider group rounded-2xl"
                 >
                   <i className={`${platform.icon} text-3xl mr-4 group-hover:text-luxury-accent transition-colors duration-300`}></i>
                   <span className="group-hover:text-luxury-accent transition-colors duration-300">{platform.name}</span>

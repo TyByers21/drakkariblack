@@ -199,7 +199,7 @@ export default function Hero() {
               className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-12 w-full"
             >
               <Link href="/listening" className="flex-1">
-                <button className="btn-primary flex items-center justify-center text-base sm:text-lg py-3 sm:py-4 px-6 sm:px-8 group w-full">
+                <button className="glass-button flex items-center justify-center text-base sm:text-lg py-3 sm:py-4 px-6 sm:px-8 group w-full rounded-xl">
                   <Play
                     className="mr-2 sm:mr-3 group-hover:scale-110 transition-transform"
                     size={18}
@@ -208,7 +208,7 @@ export default function Hero() {
                 </button>
               </Link>
               <Link href="/appearances" className="flex-1">
-                <button className="btn-outline flex items-center justify-center text-base sm:text-lg py-3 sm:py-4 px-6 sm:px-8 group w-full">
+                <button className="glass-button flex items-center justify-center text-base sm:text-lg py-3 sm:py-4 px-6 sm:px-8 group w-full rounded-xl">
                   <Calendar
                     className="mr-2 sm:mr-3 group-hover:scale-110 transition-transform"
                     size={18}
