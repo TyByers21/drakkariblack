@@ -40,6 +40,37 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Spotify token endpoint
+  app.post("/api/spotify-token", async (req, res) => {
+    try {
+      const clientId = process.env.SPOTIFY_CLIENT_ID;
+      const clientSecret = process.env.SPOTIFY_CLIENT_SECRET;
+
+      if (!clientId || !clientSecret) {
+        return res.status(500).json({ error: "Spotify credentials not configured" });
+      }
+
+      const response = await fetch('https://accounts.spotify.com/api/token', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Authorization': `Basic ${Buffer.from(`${clientId}:${clientSecret}`).toString('base64')}`
+        },
+        body: 'grant_type=client_credentials'
+      });
+
+      if (!response.ok) {
+        return res.status(500).json({ error: "Failed to get Spotify access token" });
+      }
+
+      const data = await response.json();
+      res.json(data);
+    } catch (error) {
+      console.error("Error getting Spotify token:", error);
+      res.status(500).json({ error: "Failed to get Spotify access token" });
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }

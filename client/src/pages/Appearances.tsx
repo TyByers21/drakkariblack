@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { useQuery } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
-import { enhanceSetlistWithArtwork, type SongWithArtwork } from "@/lib/musicbrainz";
+import { enhanceSetlistWithSpotifyArt, type SongWithSpotifyArt } from "@/lib/spotify";
 import drakImage from "@/images/drak.jpg";
 import drak2Image from "@/images/drak2.jpg";
 import drak3Image from "@/images/drak3.jpg";
@@ -73,20 +73,20 @@ function handleAddToCalendar(event: typeof UPCOMING_EVENTS[0], provider: 'google
 
 function SetListModal() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [enhancedSetlist, setEnhancedSetlist] = useState<SongWithArtwork[]>(SPEAKEASY_SETLIST);
+  const [enhancedSetlist, setEnhancedSetlist] = useState<SongWithSpotifyArt[]>(SPEAKEASY_SETLIST);
   const [isLoadingArtwork, setIsLoadingArtwork] = useState(false);
 
-  // Enhance setlist with MusicBrainz artwork on component mount
+  // Enhance setlist with Spotify artwork on component mount
   useEffect(() => {
     const loadArtwork = async () => {
       setIsLoadingArtwork(true);
       try {
-        const enhanced = await enhanceSetlistWithArtwork(SPEAKEASY_SETLIST as SongWithArtwork[]);
+        const enhanced = await enhanceSetlistWithSpotifyArt(SPEAKEASY_SETLIST as SongWithSpotifyArt[]);
         setEnhancedSetlist(enhanced);
       } catch (error) {
-        console.error('Failed to enhance setlist with MusicBrainz artwork:', error);
+        console.error('Failed to enhance setlist with Spotify artwork:', error);
         // Keep original setlist if enhancement fails
-        setEnhancedSetlist(SPEAKEASY_SETLIST as SongWithArtwork[]);
+        setEnhancedSetlist(SPEAKEASY_SETLIST as SongWithSpotifyArt[]);
       } finally {
         setIsLoadingArtwork(false);
       }
