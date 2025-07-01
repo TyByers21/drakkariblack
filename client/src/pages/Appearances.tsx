@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
-import { Clock, Ticket, Music, ChevronLeft, ChevronRight, X } from "lucide-react";
+import { Clock, Calendar, Music, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { UPCOMING_EVENTS, SPEAKEASY_SETLIST } from "@/lib/constants";
 import AnimatedText from "@/components/AnimatedText";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { useQuery } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 
@@ -14,6 +15,55 @@ const promoImages = [
   "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=600",
   "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=600"
 ];
+
+// Function to generate calendar event URLs
+function generateCalendarUrls(event: typeof UPCOMING_EVENTS[0]) {
+  // Parse the event date and time
+  const eventDate = new Date(`${event.month} ${event.day}, ${event.year} ${event.time}`);
+  
+  // Format for different calendar providers
+  const startDate = eventDate.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+  const endDate = new Date(eventDate.getTime() + 3 * 60 * 60 * 1000).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+  
+  const title = encodeURIComponent(`Drakkari Black at ${event.venue}`);
+  const details = encodeURIComponent(`Live performance by Drakkari Black at ${event.venue}, ${event.location}. ${event.priceRange}`);
+  const location = encodeURIComponent(`${event.venue}, ${event.location}`);
+  
+  return {
+    google: `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&details=${details}&location=${location}`,
+    outlook: `https://outlook.live.com/calendar/0/deeplink/compose?subject=${title}&startdt=${startDate}&enddt=${endDate}&body=${details}&location=${location}`,
+    yahoo: `https://calendar.yahoo.com/?v=60&view=d&type=20&title=${title}&st=${startDate}&et=${endDate}&desc=${details}&in_loc=${location}`,
+    ics: `data:text/calendar;charset=utf8,BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+URL:${window.location.href}
+DTSTART:${startDate}
+DTEND:${endDate}
+SUMMARY:${decodeURIComponent(title)}
+DESCRIPTION:${decodeURIComponent(details)}
+LOCATION:${decodeURIComponent(location)}
+END:VEVENT
+END:VCALENDAR`
+  };
+}
+
+// Function to handle add to calendar with provider selection
+function handleAddToCalendar(event: typeof UPCOMING_EVENTS[0], provider: 'google' | 'outlook' | 'yahoo' | 'ics') {
+  const urls = generateCalendarUrls(event);
+  
+  if (provider === 'ics') {
+    // Create and download ICS file
+    const element = document.createElement('a');
+    element.setAttribute('href', urls.ics);
+    element.setAttribute('download', `drakkari-black-${event.venue.toLowerCase().replace(/\s+/g, '-')}.ics`);
+    element.style.display = 'none';
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+  } else {
+    window.open(urls[provider], '_blank');
+  }
+}
 
 function SetListModal() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -124,7 +174,7 @@ export default function Appearances() {
             </h1>
             <div className="w-32 h-1 bg-gradient-accent mx-auto mb-8 rounded-full"></div>
             <p className="text-smoke text-2xl max-w-3xl mx-auto font-light tracking-wide">
-              Catch <span className="crimson-accent font-medium">Drakkari Black</span> live at these exclusive venues
+              Catch <span className="luxury-accent brand-font text-4xl">Drakkari Black</span> live at these exclusive venues
             </p>
           </motion.div>
           
@@ -161,13 +211,48 @@ export default function Appearances() {
                       <span className="font-medium">{event.time}</span>
                     </div>
                     <div className="flex items-center">
-                      <Ticket className="mr-3 text-crimson-accent" size={20} />
+                      <Calendar className="mr-3 text-crimson-accent" size={20} />
                       <span className="font-medium">{event.priceRange}</span>
                     </div>
                   </div>
-                  <button className="w-full btn-primary text-lg">
-                    Get Tickets
-                  </button>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <button className="w-full btn-primary text-lg flex items-center justify-center">
+                        <Calendar className="mr-2" size={20} />
+                        Add to Calendar
+                      </button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="w-56 bg-black/95 border-red-900/50 backdrop-blur-sm">
+                      <DropdownMenuItem 
+                        className="text-white hover:bg-red-900/30 focus:bg-red-900/30 cursor-pointer"
+                        onClick={() => handleAddToCalendar(event, 'google')}
+                      >
+                        <Calendar className="mr-2 h-4 w-4" />
+                        Google Calendar
+                      </DropdownMenuItem>
+                      <DropdownMenuItem 
+                        className="text-white hover:bg-red-900/30 focus:bg-red-900/30 cursor-pointer"
+                        onClick={() => handleAddToCalendar(event, 'outlook')}
+                      >
+                        <Calendar className="mr-2 h-4 w-4" />
+                        Outlook Calendar
+                      </DropdownMenuItem>
+                      <DropdownMenuItem 
+                        className="text-white hover:bg-red-900/30 focus:bg-red-900/30 cursor-pointer"
+                        onClick={() => handleAddToCalendar(event, 'yahoo')}
+                      >
+                        <Calendar className="mr-2 h-4 w-4" />
+                        Yahoo Calendar
+                      </DropdownMenuItem>
+                      <DropdownMenuItem 
+                        className="text-white hover:bg-red-900/30 focus:bg-red-900/30 cursor-pointer"
+                        onClick={() => handleAddToCalendar(event, 'ics')}
+                      >
+                        <Calendar className="mr-2 h-4 w-4" />
+                        Download .ics file
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </div>
               </motion.div>
             ))}

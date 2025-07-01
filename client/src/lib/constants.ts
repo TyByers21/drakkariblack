@@ -35,31 +35,31 @@ export const SOCIAL_LINKS = [
 
 export const UPCOMING_EVENTS = [
   {
-    month: "MAR",
-    day: "15",
-    year: "2024",
-    venue: "Madison Square Garden",
-    location: "New York, NY",
-    time: "8:00 PM",
-    priceRange: "$75 - $250"
-  },
-  {
-    month: "APR",
+    month: "July",
     day: "02",
-    year: "2024",
-    venue: "Hollywood Bowl",
-    location: "Los Angeles, CA",
-    time: "7:30 PM",
-    priceRange: "$85 - $300"
+    year: "2025",
+    venue: "Craftails Speakeasy",
+    location: "Bradenton, FL",
+    time: "7:00 PM",
+    priceRange: "FREE"
   },
   {
-    month: "MAY",
-    day: "18",
-    year: "2024",
-    venue: "Red Rocks Amphitheatre",
-    location: "Morrison, CO",
-    time: "8:00 PM",
-    priceRange: "$95 - $350"
+    month: "July",
+    day: "03",
+    year: "2025",
+    venue: "Craftails Speakeasy",
+    location: "Bradenton, FL",
+    time: "7:00 PM",
+    priceRange: "FREE"
+  },
+  {
+    month: "July",
+    day: "09",
+    year: "2025",
+    venue: "Craftails Speakeasy",
+    location: "Bradenton, FL",
+    time: "7:00 PM",
+    priceRange: "FREE"
   }
 ];
 

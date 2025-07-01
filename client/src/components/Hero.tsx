@@ -152,7 +152,7 @@ export default function Hero() {
       {/* Main Hero Section - Split Layout */}
       <section className="grid grid-cols-1 lg:grid-cols-2 min-h-screen relative z-10">
         {/* Left Side - Content */}
-        <div className="flex flex-col justify-center items-center px-6 sm:px-8 lg:px-16 py-16 text-center">
+        <div className="flex flex-col bg-black bg-opacity-80 justify-center items-center px-6 sm:px-8 lg:px-16 py-16 text-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
