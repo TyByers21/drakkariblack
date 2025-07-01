@@ -105,6 +105,29 @@ function SetListModal() {
 
   const currentSong = enhancedSetlist[currentIndex];
 
+  // Show loading state if no current song
+  if (!currentSong) {
+    return (
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button className="btn-primary text-lg px-8 py-4">
+            <Music className="mr-3" size={24} />
+            View Set List
+          </Button>
+        </DialogTrigger>
+        <DialogContent className="max-w-md bg-deep-black border-crimson p-0 overflow-hidden">
+          <DialogHeader className="sr-only">
+            <DialogTitle>Speakeasy Set List</DialogTitle>
+            <DialogDescription>Browse through the songs from Drakkari Black's intimate speakeasy performances</DialogDescription>
+          </DialogHeader>
+          <div className="p-8 text-center">
+            <div className="text-white">Loading setlist...</div>
+          </div>
+        </DialogContent>
+      </Dialog>
+    );
+  }
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -172,17 +195,17 @@ function SetListModal() {
             </Button>
           </div>
 
-          {/* Progress Dots */}
-          <div className="flex justify-center space-x-2 pb-6">
-            {enhancedSetlist.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  index === currentIndex ? 'bg-luxury-accent' : 'bg-smoke/30'
-                }`}
+          {/* Progress Counter */}
+          <div className="flex justify-center items-center space-x-4 pb-6">
+            <div className="text-smoke text-sm">
+              {currentIndex + 1} of {enhancedSetlist.length}
+            </div>
+            <div className="flex-1 max-w-48 bg-smoke/20 rounded-full h-1">
+              <div 
+                className="bg-luxury-accent h-1 rounded-full transition-all duration-300"
+                style={{ width: `${((currentIndex + 1) / enhancedSetlist.length) * 100}%` }}
               />
-            ))}
+            </div>
           </div>
         </div>
       </DialogContent>
