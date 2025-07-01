@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import AnimatedText from "@/components/AnimatedText";
-import { Play, Calendar, Volume2, Headphones } from "lucide-react";
+import { Play, Calendar, Volume2, Headphones, Instagram, Twitter, Youtube, Music } from "lucide-react";
 import { SOCIAL_LINKS } from "@/lib/constants";
 import artistImage from "@assets/Ty SmooveNoTats_1750523642870.png";
 import { Link } from "wouter";
@@ -224,16 +224,34 @@ export default function Hero() {
               transition={{ delay: 1.1 }}
               className="flex space-x-4 sm:space-x-6 justify-center"
             >
-              {SOCIAL_LINKS.map((social, index) => (
-                <motion.a
-                  key={index}
-                  href={social.url}
-                  whileHover={{ y: -3, scale: 1.1 }}
-                  className="text-2xl text-smoke hover:text-luxury-accent transition-colors duration-300"
-                >
-                  <i className={social.icon}></i>
-                </motion.a>
-              ))}
+              <motion.a
+                href="#"
+                whileHover={{ y: -3, scale: 1.1 }}
+                className="text-smoke hover:text-luxury-accent transition-colors duration-300"
+              >
+                <Music size={24} />
+              </motion.a>
+              <motion.a
+                href="#"
+                whileHover={{ y: -3, scale: 1.1 }}
+                className="text-smoke hover:text-luxury-accent transition-colors duration-300"
+              >
+                <Instagram size={24} />
+              </motion.a>
+              <motion.a
+                href="#"
+                whileHover={{ y: -3, scale: 1.1 }}
+                className="text-smoke hover:text-luxury-accent transition-colors duration-300"
+              >
+                <Twitter size={24} />
+              </motion.a>
+              <motion.a
+                href="#"
+                whileHover={{ y: -3, scale: 1.1 }}
+                className="text-smoke hover:text-luxury-accent transition-colors duration-300"
+              >
+                <Youtube size={24} />
+              </motion.a>
             </motion.div>
           </motion.div>
         </div>
