@@ -18,10 +18,10 @@ export default function Navigation() {
 
   return (
     <nav className="fixed top-0 w-full glass-effect border-b border-crimson z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className=" mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link href="/">
-            <div className="text-3xl brand-font luxury-accent cursor-pointer animate-glow">
+            <div className="text-5xl brand-font luxury-accent cursor-pointer animate-glow">
               Drakkari Black
             </div>
           </Link>

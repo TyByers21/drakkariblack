@@ -267,7 +267,7 @@ export default function Merch() {
               Stay tuned for exclusive limited edition drops, new designs, and special collaborations. 
               Follow our social media for the latest updates on new merchandise releases.
             </p>
-            <Button className="btn-primary text-lg px-8 py-4">
+            <Button className="btn-primary w-full text-lg px-8 py-4">
               Notify Me of New Releases
             </Button>
           </motion.div>

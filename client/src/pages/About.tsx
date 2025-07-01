@@ -32,13 +32,13 @@ export default function About() {
             >
               <h2 className="text-4xl font-bold animate-glow brand-accent mb-8 tracking-wide">The Journey</h2>
               <p className="text-smoke text-xl leading-relaxed font-light">
-                Born from the intersection of classical training and street wisdom, <span className="text-white font-medium">Drakkari Black</span> emerged as a defining voice in contemporary music. His journey began in the underground clubs of Detroit, where raw talent met relentless ambition.
+                Born from the intersection of classical training and urban wisdom, <span className="text-white font-medium">Drakkari Black</span> emerged as a defining voice in contemporary music. His journey began in the underground clubs of Atlanta, where raw talent met relentless ambition.
               </p>
               <p className="text-smoke text-xl leading-relaxed font-light">
                 With over a decade of experience crafting sounds that resonate across generations, Drakkari has collaborated with industry legends while maintaining his unique artistic vision. His music tells stories of <span className="brand-accent animate-glow text-white font-medium">triumph, struggle, and the human experience</span>.
               </p>
               <p className="text-smoke text-xl leading-relaxed font-light">
-                From intimate studio sessions to sold-out arenas, every performance is a testament to his commitment to authentic artistry. <span className="luxury-accent font-medium">Drakkari Black doesn't just make music—he creates experiences that transform listeners.</span>
+                From intimate studio sessions to sold-out arenas, every performance is a testament to his commitment to authentic artistry. <span className="luxury-accent font-medium">Drakkari Black doesn't just make music — he creates experiences that transform the soul.</span>
               </p>
               
               <div className="grid grid-cols-3 gap-8 mt-12 pt-8 border-t border-crimson">
@@ -47,7 +47,7 @@ export default function About() {
                   <div className="text-smoke text-lg mt-2">Years Active</div>
                 </div>
                 <div className="text-center glass-card p-6 rounded-2xl">
-                  <div className="text-4xl font-black luxury-accent animate-glow">500K+</div>
+                  <div className="text-4xl font-black luxury-accent  animate-glow">50K+</div>
                   <div className="text-smoke text-lg mt-2">Monthly Listeners</div>
                 </div>
                 <div className="text-center glass-card p-6 rounded-2xl">
