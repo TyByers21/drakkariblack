@@ -89,35 +89,66 @@ export interface SongWithArtwork {
  */
 async function searchRecording(artist: string, title: string): Promise<MusicBrainzRecording | null> {
   try {
-    // Clean and encode search parameters
-    const cleanArtist = artist.replace(/[^\w\s]/g, '').trim();
-    const cleanTitle = title.replace(/[^\w\s]/g, '').trim();
-    
-    const query = `artist:"${cleanArtist}" AND recording:"${cleanTitle}"`;
-    const searchUrl = `${MUSICBRAINZ_BASE_URL}/recording?query=${encodeURIComponent(query)}&fmt=json&inc=releases`;
-    
-    console.log(`Searching MusicBrainz for: ${artist} - ${title}`);
-    
-    const response = await rateLimitedFetch(searchUrl);
-    
-    if (!response.ok) {
-      console.warn(`MusicBrainz search failed for ${artist} - ${title}: ${response.status}`);
-      return null;
-    }
-    
-    const data: MusicBrainzSearchResponse = await response.json();
-    
-    if (data.recordings && data.recordings.length > 0) {
-      // Find the best match - prefer exact artist name match
-      const exactMatch = data.recordings.find(recording => 
-        recording['artist-credit']?.some(credit => 
-          credit.artist.name.toLowerCase() === artist.toLowerCase()
-        )
-      );
+    // Try multiple search strategies for better results
+    const searchStrategies = [
+      // Strategy 1: Search for main album releases (exclude compilations, singles)
+      `artist:"${artist}" AND recording:"${title}" AND primarytype:album`,
+      // Strategy 2: Exact quoted search
+      `artist:"${artist}" AND recording:"${title}"`,
+      // Strategy 3: Fuzzy search without quotes
+      `artist:${artist} AND recording:${title}`,
+      // Strategy 4: Broader search with partial matches
+      `${artist} ${title}`
+    ];
+
+    for (let index = 0; index < searchStrategies.length; index++) {
+      const query = searchStrategies[index];
+      console.log(`Searching MusicBrainz for: ${artist} - ${title} (strategy ${index + 1})`);
       
-      return exactMatch || data.recordings[0];
+      const searchUrl = `${MUSICBRAINZ_BASE_URL}/recording?query=${encodeURIComponent(query)}&fmt=json&inc=releases+artist-credits&limit=5`;
+      
+      const response = await rateLimitedFetch(searchUrl);
+      
+      if (!response.ok) {
+        console.warn(`MusicBrainz search failed for ${artist} - ${title}: ${response.status}`);
+        continue;
+      }
+      
+      const data: MusicBrainzSearchResponse = await response.json();
+      
+      if (data.recordings && data.recordings.length > 0) {
+        console.log(`Found ${data.recordings.length} recordings with strategy ${index + 1}`);
+        
+        // Find the best match - prefer exact artist name match
+        let bestMatch = data.recordings.find(recording => 
+          recording['artist-credit']?.some(credit => 
+            credit.artist.name.toLowerCase() === artist.toLowerCase()
+          )
+        );
+        
+        // If no exact match, look for partial matches
+        if (!bestMatch) {
+          bestMatch = data.recordings.find(recording => 
+            recording['artist-credit']?.some(credit => 
+              credit.artist.name.toLowerCase().includes(artist.toLowerCase()) ||
+              artist.toLowerCase().includes(credit.artist.name.toLowerCase())
+            )
+          );
+        }
+        
+        // If still no match, use the first result
+        if (!bestMatch && data.recordings.length > 0) {
+          bestMatch = data.recordings[0];
+        }
+        
+        if (bestMatch) {
+          console.log(`Selected recording: ${bestMatch.title} by ${bestMatch['artist-credit']?.[0]?.artist?.name}`);
+          return bestMatch;
+        }
+      }
     }
     
+    console.log(`No recordings found for ${artist} - ${title} after trying all strategies`);
     return null;
   } catch (error) {
     console.error(`Error searching MusicBrainz for ${artist} - ${title}:`, error);
@@ -164,29 +195,41 @@ export async function getMusicBrainzArtwork(artist: string, title: string): Prom
     // Search for the recording
     const recording = await searchRecording(artist, title);
     
-    if (!recording || !recording.releases) {
-      console.log(`No releases found for ${artist} - ${title}`);
+    if (!recording) {
+      console.log(`No recording found for ${artist} - ${title}`);
       return null;
     }
     
-    // Find a release with cover art
-    const releaseWithArt = recording.releases.find(release => 
-      release['cover-art-archive']?.artwork === true
-    );
-    
-    if (!releaseWithArt) {
-      console.log(`No cover art available for ${artist} - ${title}`);
+    if (!recording.releases || recording.releases.length === 0) {
+      console.log(`No releases found for recording: ${recording.title}`);
       return null;
     }
     
-    // Get the cover art
-    const artwork = await getCoverArt(releaseWithArt.id);
+    console.log(`Found ${recording.releases.length} releases for ${recording.title}`);
     
-    if (artwork) {
-      console.log(`Found cover art for ${artist} - ${title}: ${releaseWithArt.title}`);
+    // Try each release to find one with cover art
+    // Since the search API doesn't include cover-art-archive details, we'll try to fetch cover art directly
+    for (const release of recording.releases) {
+      console.log(`Checking release: ${release.title} (${release.id})`);
+      
+      try {
+        // Directly try to get cover art - the Cover Art Archive will return 404 if no art exists
+        const artwork = await getCoverArt(release.id);
+        
+        if (artwork) {
+          console.log(`Successfully found cover art for ${artist} - ${title}: ${release.title}`);
+          return artwork;
+        } else {
+          console.log(`No cover art found for release ${release.title}`);
+        }
+      } catch (error) {
+        console.log(`Error fetching cover art for release ${release.title}:`, error);
+        continue;
+      }
     }
     
-    return artwork;
+    console.log(`No cover art available for any release of ${artist} - ${title}`);
+    return null;
   } catch (error) {
     console.error(`Error getting MusicBrainz artwork for ${artist} - ${title}:`, error);
     return null;

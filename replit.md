@@ -43,6 +43,8 @@ This is a full-stack artist portfolio application built for "Drakkari Black", fe
 - **Responsive Navigation**: Mobile-friendly navigation with hamburger menu
 - **Animation System**: Text animations and smooth transitions throughout
 - **Professional Branding**: Consistent luxury aesthetic with custom fonts and colors
+- **MusicBrainz Integration**: Automatic album artwork enhancement for speakeasy setlist using MusicBrainz API
+- **Calendar Integration**: Add to Calendar functionality for events (Google, Outlook, Yahoo)
 
 ### Database Schema
 - **Users Table**: Basic user management (username, password)
