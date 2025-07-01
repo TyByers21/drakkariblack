@@ -121,28 +121,30 @@ export default function Hero() {
       </div>
 
       {/* Main Hero Section - Split Layout */}
-      <section className="grid lg:grid-cols-2 min-h-screen relative z-10">
+      <section className="grid grid-cols-1 lg:grid-cols-2 min-h-screen relative z-10">
         {/* Left Side - Content */}
-        <div className="flex flex-col justify-center px-8 lg:px-16 py-20">
+        <div className="flex flex-col justify-center items-center lg:items-start px-6 sm:px-8 lg:px-16 py-16 text-center lg:text-left">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
+            className="max-w-lg mx-auto lg:mx-0"
           >
             {/* Small Label */}
             <motion.span 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-luxury-accent text-sm font-medium tracking-widest text-center uppercase mb-4 block"
+              className="text-luxury-accent text-xs sm:text-sm font-medium tracking-widest uppercase mb-4 block"
             >
               Artist • Performer • Visionary
             </motion.span>
 
-            {/* Main Title */}
-            <h1 className="text-6xl lg:text-8xl xl:text-9xl font-black text-white mb-6 leading-none">
-              <AnimatedText text="Drakkari " className="brand-font luxury-accent animate-glow" delay={0.3} />
-              <AnimatedText text="Black" className="brand-font flex-row luxury-accent animate-glow" delay={0.5} />
+            {/* Main Title - Single Line */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-6 leading-none whitespace-nowrap">
+              <span className="brand-font luxury-accent animate-glow">
+                <AnimatedText text="Drakkari Black" className="inline" delay={0.3} />
+              </span>
             </h1>
 
             {/* Subtitle */}
@@ -150,7 +152,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
-              className="text-xl lg:text-2xl text-smoke mb-8 max-w-lg leading-relaxed"
+              className="text-base sm:text-lg lg:text-xl text-smoke mb-8 leading-relaxed"
             >
               Crafting the soundtrack to modern soul with innovative beats and timeless melodies.
             </motion.p>
@@ -160,17 +162,17 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9 }}
-              className="flex flex-col sm:flex-row gap-4 mb-12"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-12 w-full"
             >
-              <Link href="/listening">
-                <button className="btn-primary flex items-center justify-center text-lg py-4 px-8 group w-full">
-                  <Play className="mr-3 group-hover:scale-110 transition-transform" size={20} />
+              <Link href="/listening" className="flex-1">
+                <button className="btn-primary flex items-center justify-center text-base sm:text-lg py-3 sm:py-4 px-6 sm:px-8 group w-full">
+                  <Play className="mr-2 sm:mr-3 group-hover:scale-110 transition-transform" size={18} />
                   Play Latest
                 </button>
               </Link>
-              <Link href="/appearances">
-                <button className="btn-outline flex items-center justify-center text-lg py-4 px-8 group w-full">
-                  <Calendar className="mr-3 group-hover:scale-110 transition-transform" size={20} />
+              <Link href="/appearances" className="flex-1">
+                <button className="btn-outline flex items-center justify-center text-base sm:text-lg py-3 sm:py-4 px-6 sm:px-8 group w-full">
+                  <Calendar className="mr-2 sm:mr-3 group-hover:scale-110 transition-transform" size={18} />
                   View Shows
                 </button>
               </Link>
@@ -181,7 +183,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.1 }}
-              className="flex space-x-6"
+              className="flex space-x-4 sm:space-x-6 justify-center lg:justify-start"
             >
               {SOCIAL_LINKS.map((social, index) => (
                 <motion.a 
@@ -198,12 +200,12 @@ export default function Hero() {
         </div>
 
         {/* Right Side - Visual */}
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden min-h-[50vh] lg:min-h-full order-first lg:order-last">
           <motion.div 
             initial={{ scale: 1.1, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1.2 }}
-            className="h-full relative"
+            className="h-full min-h-[50vh] lg:min-h-full relative"
           >
             <img 
               src={artistImage} 
@@ -222,7 +224,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Floating Music Visualizer */}
-          <div className="absolute top-8 right-8">
+          <div className="absolute top-4 right-4 sm:top-6 sm:right-6 lg:top-8 lg:right-8">
             <motion.div 
               animate={{ 
                 boxShadow: ['0 0 20px rgba(220,38,38,0.3)', '0 0 40px rgba(220,38,38,0.6)', '0 0 20px rgba(220,38,38,0.3)']
