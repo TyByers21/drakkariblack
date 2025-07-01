@@ -7,9 +7,96 @@ import { Link } from "wouter";
 
 export default function Hero() {
   return (
-    <div className="min-h-screen bg-deep-black">
+    <div className="min-h-screen bg-deep-black relative overflow-hidden">
+      {/* Animated Electric Background */}
+      <div className="absolute inset-0 z-0">
+        {/* Electric Grid Pattern */}
+        <svg className="absolute inset-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="electric-grid" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+              <path d="M 100 0 L 0 0 0 100" fill="none" stroke="url(#electric-gradient)" strokeWidth="0.5" opacity="0.3"/>
+            </pattern>
+            <linearGradient id="electric-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#dc2626" stopOpacity="0.8"/>
+              <stop offset="50%" stopColor="#ffd700" stopOpacity="0.6"/>
+              <stop offset="100%" stopColor="#dc2626" stopOpacity="0.8"/>
+            </linearGradient>
+            <filter id="electric-glow">
+              <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+              <feMerge> 
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#electric-grid)"/>
+        </svg>
+
+        {/* Floating Electric Particles */}
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 bg-luxury-accent rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -20, 0],
+              opacity: [0.2, 0.8, 0.2],
+              scale: [1, 1.5, 1],
+            }}
+            transition={{
+              duration: 3 + Math.random() * 2,
+              repeat: Infinity,
+              delay: Math.random() * 2,
+            }}
+          />
+        ))}
+
+        {/* Pulsating Electric Lines */}
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={`line-${i}`}
+            className="absolute bg-gradient-to-r from-transparent via-crimson to-transparent h-px opacity-30"
+            style={{
+              left: '0%',
+              right: '0%',
+              top: `${10 + i * 12}%`,
+              transformOrigin: 'center',
+            }}
+            animate={{
+              scaleX: [0, 1, 0],
+              opacity: [0, 0.6, 0],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              delay: i * 0.5,
+            }}
+          />
+        ))}
+
+        {/* Pulsating Background Gradient */}
+        <motion.div
+          className="absolute inset-0"
+          animate={{
+            background: [
+              'radial-gradient(circle at 20% 80%, rgba(220, 38, 38, 0.1) 0%, transparent 50%)',
+              'radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%)',
+              'radial-gradient(circle at 20% 80%, rgba(220, 38, 38, 0.1) 0%, transparent 50%)',
+            ]
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+      </div>
+
       {/* Main Hero Section - Split Layout */}
-      <section className="grid lg:grid-cols-2 min-h-screen">
+      <section className="grid lg:grid-cols-2 min-h-screen relative z-10">
         {/* Left Side - Content */}
         <div className="flex flex-col justify-center px-8 lg:px-16 py-20">
           <motion.div
@@ -86,7 +173,7 @@ export default function Hero() {
         </div>
 
         {/* Right Side - Visual */}
-        <div className="relative overflow-hidden bg-gradient-to-br from-deep-black via-crimson/20 to-deep-black">
+        <div className="relative overflow-hidden">
           <motion.div 
             initial={{ scale: 1.1, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
