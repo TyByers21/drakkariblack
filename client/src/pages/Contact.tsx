@@ -281,7 +281,7 @@ export default function Contact() {
                             <Input 
                               {...field} 
                               type="number"
-                              className="bg-dark-bg border-dark-border text-white focus:border-primary"
+                              className="bg-black/90 border-red-900/50 text-white placeholder-gray-400 focus:border-red-500 focus:ring-1 focus:ring-red-500"
                               placeholder="1000"
                               onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)}
                             />
@@ -302,7 +302,7 @@ export default function Contact() {
                           <Textarea 
                             {...field} 
                             rows={5}
-                            className="bg-dark-bg border-dark-border text-white focus:border-primary resize-none"
+                            className="bg-black/90 border-red-900/50 text-white placeholder-gray-400 focus:border-red-500 focus:ring-1 focus:ring-red-500 resize-none"
                             placeholder="Tell us about your event, venue, and any specific requirements..."
                           />
                         </FormControl>
