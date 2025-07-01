@@ -154,7 +154,7 @@ export default function ListeningLounge() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mb-20"
           >
-            <h2 className="text-4xl font-bold brand-accent mb-12 text-center animate-glow tracking-wide">Featured Video</h2>
+            <h2 className="text-6xl font-bold brand-accent mb-12 text-center animate-glow tracking-wide">Featured Video</h2>
             <div className="max-w-5xl mx-auto">
               <div 
                 className="relative aspect-video glass-card p-6 overflow-hidden cursor-pointer group rounded-2xl"

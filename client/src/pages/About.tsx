@@ -35,7 +35,7 @@ export default function About() {
                 Born from the intersection of classical training and street wisdom, <span className="text-white font-medium">Drakkari Black</span> emerged as a defining voice in contemporary music. His journey began in the underground clubs of Detroit, where raw talent met relentless ambition.
               </p>
               <p className="text-smoke text-xl leading-relaxed font-light">
-                With over a decade of experience crafting sounds that resonate across generations, Drakkari has collaborated with industry legends while maintaining his unique artistic vision. His music tells stories of <span className="crimson-accent font-medium">triumph, struggle, and the human experience</span>.
+                With over a decade of experience crafting sounds that resonate across generations, Drakkari has collaborated with industry legends while maintaining his unique artistic vision. His music tells stories of <span className="brand-accent animate-glow text-white font-medium">triumph, struggle, and the human experience</span>.
               </p>
               <p className="text-smoke text-xl leading-relaxed font-light">
                 From intimate studio sessions to sold-out arenas, every performance is a testament to his commitment to authentic artistry. <span className="luxury-accent font-medium">Drakkari Black doesn't just make music—he creates experiences that transform listeners.</span>
@@ -70,7 +70,7 @@ export default function About() {
               />
               <div className="absolute inset-8 bg-gradient-to-t from-deep-black/80 via-transparent to-transparent rounded-xl"></div>
               <div className="absolute bottom-12 left-12 right-12">
-                <h3 className="text-2xl font-bold luxury-accent mb-2">In The Studio</h3>
+                <h3 className="text-2xl font-bold animate-glow luxury-accent mb-2">In The Studio</h3>
                 <p className="text-smoke">Where the magic happens</p>
               </div>
             </motion.div>
