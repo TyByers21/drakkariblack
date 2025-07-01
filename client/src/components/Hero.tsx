@@ -151,12 +151,12 @@ export default function Hero() {
       {/* Main Hero Section - Split Layout */}
       <section className="grid grid-cols-1 lg:grid-cols-2 min-h-screen relative z-10">
         {/* Left Side - Content */}
-        <div className="flex flex-col justify-center items-center lg:items-start px-6 sm:px-8 lg:px-16 py-16 text-center ">
+        <div className="flex flex-col justify-center items-center px-6 sm:px-8 lg:px-16 py-16 text-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-lg mx-auto lg:mx-0"
+            className="max-w-lg mx-auto"
           >
             {/* Small Label */}
             <motion.span
@@ -222,7 +222,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.1 }}
-              className="flex space-x-4 sm:space-x-6 justify-center lg:justify-start"
+              className="flex space-x-4 sm:space-x-6 justify-center"
             >
               {SOCIAL_LINKS.map((social, index) => (
                 <motion.a
@@ -283,7 +283,7 @@ export default function Hero() {
       </section>
 
       {/* Featured Content Row */}
-      <section className="py-20 px-8 lg:px-16 border-t border-smoke/10">
+      <section className="py-20 px-8 lg:px-16 border-t border-smoke/10 bg-black">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
