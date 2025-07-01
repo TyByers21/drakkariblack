@@ -2,12 +2,13 @@ import { motion } from "framer-motion";
 import { Clock, Calendar, Music, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { UPCOMING_EVENTS, SPEAKEASY_SETLIST } from "@/lib/constants";
 import AnimatedText from "@/components/AnimatedText";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { useQuery } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
+import { enhanceSetlistWithArtwork, type SongWithArtwork } from "@/lib/musicbrainz";
 import drakImage from "@/images/drak.jpg";
 import drak2Image from "@/images/drak2.jpg";
 import drak3Image from "@/images/drak3.jpg";
@@ -72,16 +73,37 @@ function handleAddToCalendar(event: typeof UPCOMING_EVENTS[0], provider: 'google
 
 function SetListModal() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [enhancedSetlist, setEnhancedSetlist] = useState<SongWithArtwork[]>(SPEAKEASY_SETLIST);
+  const [isLoadingArtwork, setIsLoadingArtwork] = useState(false);
+
+  // Enhance setlist with MusicBrainz artwork on component mount
+  useEffect(() => {
+    const loadArtwork = async () => {
+      setIsLoadingArtwork(true);
+      try {
+        const enhanced = await enhanceSetlistWithArtwork(SPEAKEASY_SETLIST as SongWithArtwork[]);
+        setEnhancedSetlist(enhanced);
+      } catch (error) {
+        console.error('Failed to enhance setlist with MusicBrainz artwork:', error);
+        // Keep original setlist if enhancement fails
+        setEnhancedSetlist(SPEAKEASY_SETLIST as SongWithArtwork[]);
+      } finally {
+        setIsLoadingArtwork(false);
+      }
+    };
+
+    loadArtwork();
+  }, []);
 
   const nextSong = () => {
-    setCurrentIndex((prev) => (prev + 1) % SPEAKEASY_SETLIST.length);
+    setCurrentIndex((prev) => (prev + 1) % enhancedSetlist.length);
   };
 
   const prevSong = () => {
-    setCurrentIndex((prev) => (prev - 1 + SPEAKEASY_SETLIST.length) % SPEAKEASY_SETLIST.length);
+    setCurrentIndex((prev) => (prev - 1 + enhancedSetlist.length) % enhancedSetlist.length);
   };
 
-  const currentSong = SPEAKEASY_SETLIST[currentIndex];
+  const currentSong = enhancedSetlist[currentIndex];
 
   return (
     <Dialog>
@@ -106,12 +128,22 @@ function SetListModal() {
             transition={{ duration: 0.3 }}
             className="p-8 text-center"
           >
-            <div className="mb-6">
+            <div className="mb-6 relative">
+              {isLoadingArtwork && (
+                <div className="absolute inset-0 bg-black/50 rounded-2xl flex items-center justify-center z-10">
+                  <div className="text-white text-sm">Loading enhanced artwork...</div>
+                </div>
+              )}
               <img 
                 src={currentSong.image} 
                 alt={`${currentSong.title} album cover`}
                 className="w-64 h-64 mx-auto rounded-2xl shadow-2xl border-2 border-crimson"
               />
+              {currentSong.musicbrainzImage && (
+                <div className="absolute -bottom-2 -right-2 bg-luxury-accent text-white text-xs px-2 py-1 rounded-full">
+                  MusicBrainz
+                </div>
+              )}
             </div>
             <h3 className="text-2xl font-bold text-white mb-2">{currentSong.title}</h3>
             <p className="text-luxury-accent text-lg font-medium mb-1">{currentSong.artist}</p>
@@ -142,7 +174,7 @@ function SetListModal() {
 
           {/* Progress Dots */}
           <div className="flex justify-center space-x-2 pb-6">
-            {SPEAKEASY_SETLIST.map((_, index) => (
+            {enhancedSetlist.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}

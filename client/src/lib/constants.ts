@@ -108,7 +108,7 @@ export const SPEAKEASY_SETLIST = [
   },
   {
     artist: "H.E.R.",
-    title: "Best Part",
+    title: "Hard Place",
     album: "H.E.R.",
     spotifyId: "4ii62XO6w8RPqiJI6iGz6s",
     image: "https://i.scdn.co/image/ab67616d0000b273bb7af5c91e2a1b8d94e3e5d7"
