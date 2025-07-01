@@ -14,17 +14,42 @@ export default function Hero() {
         <div className="absolute inset-0 opacity-30">
           <svg width="100%" height="100%" className="absolute inset-0">
             <defs>
-              <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-                <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#dc2626" strokeWidth="1" opacity="0.4"/>
+              <pattern
+                id="grid"
+                width="60"
+                height="60"
+                patternUnits="userSpaceOnUse"
+              >
+                <path
+                  d="M 60 0 L 0 0 0 60"
+                  fill="none"
+                  stroke="#dc2626"
+                  strokeWidth=".5"
+                  opacity="0.4"
+                />
               </pattern>
               <linearGradient id="gridGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style={{ stopColor: '#dc2626', stopOpacity: 0.6 }} />
-                <stop offset="50%" style={{ stopColor: '#ffd700', stopOpacity: 0.8 }} />
-                <stop offset="100%" style={{ stopColor: '#dc2626', stopOpacity: 0.6 }} />
+                <stop
+                  offset="0%"
+                  style={{ stopColor: "#dc2626", stopOpacity: 0.6 }}
+                />
+                <stop
+                  offset="50%"
+                  style={{ stopColor: "#ffd700", stopOpacity: 0.8 }}
+                />
+                <stop
+                  offset="100%"
+                  style={{ stopColor: "#dc2626", stopOpacity: 0.6 }}
+                />
               </linearGradient>
             </defs>
             <rect width="100%" height="100%" fill="url(#grid)" />
-            <rect width="100%" height="100%" fill="url(#gridGrad)" opacity="0.1" />
+            <rect
+              width="100%"
+              height="100%"
+              fill="url(#gridGrad)"
+              opacity="0.1"
+            />
           </svg>
         </div>
 
@@ -34,10 +59,10 @@ export default function Hero() {
             key={i}
             className="absolute rounded-full"
             style={{
-              width: '3px',
-              height: '3px',
-              background: '#ffd700',
-              boxShadow: '0 0 6px #ffd700',
+              width: "3px",
+              height: "3px",
+              background: "#ffd700",
+              boxShadow: "0 0 6px #ffd700",
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
             }}
@@ -51,7 +76,7 @@ export default function Hero() {
               duration: 4 + Math.random() * 3,
               repeat: Infinity,
               delay: Math.random() * 3,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
           />
         ))}
@@ -62,21 +87,22 @@ export default function Hero() {
             key={`line-${i}`}
             className="absolute h-0.5"
             style={{
-              left: '0%',
-              right: '0%',
+              left: "0%",
+              right: "0%",
               top: `${15 + i * 15}%`,
-              background: 'linear-gradient(90deg, transparent 0%, #dc2626 50%, transparent 100%)',
-              boxShadow: '0 0 4px #dc2626',
+              background:
+                "linear-gradient(90deg, transparent 0%, #dc2626 10%, transparent 50%)",
+              boxShadow: "0 0 4px #dc2626",
             }}
             animate={{
-              scaleX: [0, 1, 0],
-              opacity: [0, 0.8, 0],
+              scaleX: [0, 0.9, 0],
+              opacity: [0, 0.3, 0],
             }}
             transition={{
               duration: 5,
               repeat: Infinity,
-              delay: i * 0.8,
-              ease: "easeInOut"
+              delay: i * 1.4,
+              ease: "easeInOut",
             }}
           />
         ))}
@@ -85,9 +111,10 @@ export default function Hero() {
         <motion.div
           className="absolute w-32 h-32 rounded-full"
           style={{
-            top: '20%',
-            left: '10%',
-            background: 'radial-gradient(circle, rgba(220, 38, 38, 0.3) 0%, transparent 70%)',
+            top: "20%",
+            left: "10%",
+            background:
+              "radial-gradient(circle, rgba(220, 38, 38, 0.3) 0%, transparent 70%)",
           }}
           animate={{
             scale: [1, 1.5, 1],
@@ -96,16 +123,17 @@ export default function Hero() {
           transition={{
             duration: 4,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
         />
-        
+
         <motion.div
           className="absolute w-40 h-40 rounded-full"
           style={{
-            bottom: '30%',
-            right: '15%',
-            background: 'radial-gradient(circle, rgba(255, 215, 0, 0.25) 0%, transparent 70%)',
+            bottom: "30%",
+            right: "15%",
+            background:
+              "radial-gradient(circle, rgba(255, 215, 0, 0.25) 0%, transparent 70%)",
           }}
           animate={{
             scale: [1, 1.3, 1],
@@ -115,7 +143,7 @@ export default function Hero() {
             duration: 6,
             repeat: Infinity,
             delay: 2,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
         />
       </div>
@@ -131,7 +159,7 @@ export default function Hero() {
             className="max-w-lg mx-auto lg:mx-0"
           >
             {/* Small Label */}
-            <motion.span 
+            <motion.span
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
@@ -143,22 +171,27 @@ export default function Hero() {
             {/* Main Title - Single Line */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-6 leading-none whitespace-nowrap">
               <span className="brand-font luxury-accent animate-glow">
-                <AnimatedText text="Drakkari Black" className="inline" delay={0.3} />
+                <AnimatedText
+                  text="Drakkari Black"
+                  className="inline"
+                  delay={0.3}
+                />
               </span>
             </h1>
 
             {/* Subtitle */}
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
               className="text-base sm:text-lg lg:text-xl text-smoke mb-8 leading-relaxed"
             >
-              Crafting the soundtrack to modern soul with innovative beats and timeless melodies.
+              Crafting the soundtrack to modern soul with innovative beats and
+              timeless melodies.
             </motion.p>
 
             {/* Action Buttons */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9 }}
@@ -166,27 +199,33 @@ export default function Hero() {
             >
               <Link href="/listening" className="flex-1">
                 <button className="btn-primary flex items-center justify-center text-base sm:text-lg py-3 sm:py-4 px-6 sm:px-8 group w-full">
-                  <Play className="mr-2 sm:mr-3 group-hover:scale-110 transition-transform" size={18} />
+                  <Play
+                    className="mr-2 sm:mr-3 group-hover:scale-110 transition-transform"
+                    size={18}
+                  />
                   Play Latest
                 </button>
               </Link>
               <Link href="/appearances" className="flex-1">
                 <button className="btn-outline flex items-center justify-center text-base sm:text-lg py-3 sm:py-4 px-6 sm:px-8 group w-full">
-                  <Calendar className="mr-2 sm:mr-3 group-hover:scale-110 transition-transform" size={18} />
+                  <Calendar
+                    className="mr-2 sm:mr-3 group-hover:scale-110 transition-transform"
+                    size={18}
+                  />
                   View Shows
                 </button>
               </Link>
             </motion.div>
 
             {/* Social Links */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.1 }}
               className="flex space-x-4 sm:space-x-6 justify-center lg:justify-start"
             >
               {SOCIAL_LINKS.map((social, index) => (
-                <motion.a 
+                <motion.a
                   key={index}
                   href={social.url}
                   whileHover={{ y: -3, scale: 1.1 }}
@@ -201,22 +240,23 @@ export default function Hero() {
 
         {/* Right Side - Visual */}
         <div className="relative overflow-hidden min-h-[50vh] lg:min-h-full order-first lg:order-last">
-          <motion.div 
+          <motion.div
             initial={{ scale: 1.1, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1.2 }}
             className="h-full min-h-[50vh] lg:min-h-full relative"
           >
-            <img 
-              src={artistImage} 
-              alt="Drakkari Black" 
-              className="w-full h-full object-cover object-center" 
+            <img
+              src={artistImage}
+              alt="Drakkari Black"
+              className="w-full h-full object-cover object-center"
             />
             {/* Gradient fade from left to right - starts at 0% opacity on left, reaches 100% on right */}
-            <div 
+            <div
               className="absolute inset-0"
               style={{
-                background: 'linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.1) 60%, transparent 80%)'
+                background:
+                  "linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.1) 60%, transparent 80%)",
               }}
             ></div>
             {/* Bottom fade for depth */}
@@ -225,9 +265,13 @@ export default function Hero() {
 
           {/* Floating Music Visualizer */}
           <div className="absolute top-4 right-4 sm:top-6 sm:right-6 lg:top-8 lg:right-8">
-            <motion.div 
-              animate={{ 
-                boxShadow: ['0 0 20px rgba(220,38,38,0.3)', '0 0 40px rgba(220,38,38,0.6)', '0 0 20px rgba(220,38,38,0.3)']
+            <motion.div
+              animate={{
+                boxShadow: [
+                  "0 0 20px rgba(220,38,38,0.3)",
+                  "0 0 40px rgba(220,38,38,0.6)",
+                  "0 0 20px rgba(220,38,38,0.3)",
+                ],
               }}
               transition={{ duration: 2, repeat: Infinity }}
               className="bg-deep-black/80 backdrop-blur-sm border border-crimson/30 rounded-full p-4"
@@ -241,7 +285,7 @@ export default function Hero() {
       {/* Featured Content Row */}
       <section className="py-20 px-8 lg:px-16 border-t border-smoke/10">
         <div className="max-w-7xl mx-auto">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
