@@ -8,12 +8,17 @@ import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { useQuery } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
+import drakImage from "@/images/drak.jpg";
+import drak2Image from "@/images/drak2.jpg";
+import drak3Image from "@/images/drak3.jpg";
+import drak4Image from "@/images/drak4.jpg";
+import bb1Image from "@/images/bb1.jpg";
 
 const promoImages = [
-  "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=600",
-  "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=600",
-  "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=600",
-  "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=600"
+  drakImage,
+  drak2Image,
+  drak3Image,
+  drak4Image,
 ];
 
 // Function to generate calendar event URLs
@@ -244,13 +249,7 @@ export default function Appearances() {
                         <Calendar className="mr-2 h-4 w-4" />
                         Yahoo Calendar
                       </DropdownMenuItem>
-                      <DropdownMenuItem 
-                        className="text-white hover:bg-red-900/30 focus:bg-red-900/30 cursor-pointer"
-                        onClick={() => handleAddToCalendar(event, 'ics')}
-                      >
-                        <Calendar className="mr-2 h-4 w-4" />
-                        Download .ics file
-                      </DropdownMenuItem>
+
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </div>
