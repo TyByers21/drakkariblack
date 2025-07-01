@@ -3,32 +3,35 @@ import { Play, X } from "lucide-react";
 import { STREAMING_PLATFORMS } from "@/lib/constants";
 import AnimatedText from "@/components/AnimatedText";
 import { useState } from "react";
+import drakImage from "@/images/drak.jpg";
+import drak2Image from "@/images/drak2.jpg";
+import bb1Image from "@/images/bb1.jpg";
 
 const videos = [
   {
-    title: "Studio Sessions Vol. 1",
-    description: "Behind the scenes creative process",
-    thumbnail: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250",
+    title: "Quicksand",
+    description: "First single release",
+    thumbnail: drak2Image,
     videoUrl: "https://youtu.be/jfvJn0JWBCI?si=yc5hBxN9j273dh6j"
   },
   {
-    title: "Golden Hour Acoustic",
-    description: "Stripped down intimate performance",
-    thumbnail: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250",
+    title: "Bad Bitch Comin",
+    description: "Exclusive song written for Rihanna",
+    thumbnail: bb1Image,
     videoUrl: "https://youtu.be/xyWb6bErq9o?si=X3wenN5ta5K_oAHf"
   },
   {
-    title: "World Tour Highlights",
+    title: "Put It Right There",
     description: "Best moments from international shows",
-    thumbnail: "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250",
+    thumbnail: drakImage,
     videoUrl: "https://youtu.be/kJbk2raSQCk?si=sa9IDjPO8qQZcDGe"
   }
 ];
 
 const featuredVideo = {
-  title: "Midnight Sessions - Live Performance",
-  description: "Exclusive live recording from the sold-out Madison Square Garden show",
-  thumbnail: "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&h=675",
+  title: "Kissin' You",
+  description: "Exclusive Miami release",
+  thumbnail: drak2Image,
   videoUrl: "https://youtu.be/16CHYU-PYKw?si=hKB_e8uOlHwEG5gt"
 };
 
