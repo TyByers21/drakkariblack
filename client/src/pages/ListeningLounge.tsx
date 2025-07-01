@@ -1,29 +1,127 @@
 import { motion } from "framer-motion";
-import { Play } from "lucide-react";
+import { Play, X } from "lucide-react";
 import { STREAMING_PLATFORMS } from "@/lib/constants";
 import AnimatedText from "@/components/AnimatedText";
+import { useState } from "react";
 
 const videos = [
   {
     title: "Studio Sessions Vol. 1",
     description: "Behind the scenes creative process",
-    thumbnail: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250"
+    thumbnail: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250",
+    videoUrl: ""
   },
   {
     title: "Golden Hour Acoustic",
     description: "Stripped down intimate performance",
-    thumbnail: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250"
+    thumbnail: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250",
+    videoUrl: ""
   },
   {
     title: "World Tour Highlights",
     description: "Best moments from international shows",
-    thumbnail: "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250"
+    thumbnail: "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250",
+    videoUrl: ""
   }
 ];
 
+const featuredVideo = {
+  title: "Midnight Sessions - Live Performance",
+  description: "Exclusive live recording from the sold-out Madison Square Garden show",
+  thumbnail: "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&h=675",
+  videoUrl: ""
+};
+
+// Helper function to get YouTube embed URL
+function getYouTubeEmbedUrl(url: string): string {
+  if (!url) return "";
+  
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+  
+  if (match && match[2].length === 11) {
+    return `https://www.youtube.com/embed/${match[2]}`;
+  }
+  
+  return url; // Return original if not YouTube or already embed format
+}
+
+// Video Player Modal Component
+function VideoModal({ video, isOpen, onClose }: { 
+  video: { title: string; videoUrl: string; description: string } | null; 
+  isOpen: boolean; 
+  onClose: () => void; 
+}) {
+  if (!isOpen || !video) return null;
+
+  const embedUrl = getYouTubeEmbedUrl(video.videoUrl);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4"
+      onClick={onClose}
+    >
+      <motion.div
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.8, opacity: 0 }}
+        className="relative w-full max-w-6xl aspect-video bg-deep-black rounded-xl overflow-hidden"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 z-10 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-colors duration-200"
+        >
+          <X size={24} />
+        </button>
+        
+        {embedUrl ? (
+          <iframe
+            src={embedUrl}
+            title={video.title}
+            className="w-full h-full"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center text-white">
+            <div className="text-center">
+              <p className="text-xl mb-4">Video URL not provided</p>
+              <p className="text-smoke">Please add a video URL to play this content</p>
+            </div>
+          </div>
+        )}
+        
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+          <h3 className="text-2xl font-bold text-white mb-2">{video.title}</h3>
+          <p className="text-smoke">{video.description}</p>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
 export default function ListeningLounge() {
+  const [selectedVideo, setSelectedVideo] = useState<{ title: string; videoUrl: string; description: string } | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openVideo = (video: { title: string; videoUrl: string; description: string }) => {
+    setSelectedVideo(video);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedVideo(null);
+  };
+
   return (
     <div className="pt-20 min-h-screen bg-deep-black">
+      <VideoModal video={selectedVideo} isOpen={isModalOpen} onClose={closeModal} />
       <section className="py-24 bg-gradient-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
@@ -55,13 +153,16 @@ export default function ListeningLounge() {
           >
             <h2 className="text-4xl font-bold crimson-accent mb-12 text-center tracking-wide">Featured Video</h2>
             <div className="max-w-5xl mx-auto">
-              <div className="relative aspect-video luxury-card p-6 overflow-hidden">
+              <div 
+                className="relative aspect-video luxury-card p-6 overflow-hidden cursor-pointer group"
+                onClick={() => openVideo(featuredVideo)}
+              >
                 <img 
-                  src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&h=675" 
-                  alt="Concert stage with dramatic lighting" 
-                  className="w-full h-full object-cover rounded-xl border border-crimson" 
+                  src={featuredVideo.thumbnail} 
+                  alt={featuredVideo.title} 
+                  className="w-full h-full object-cover rounded-xl border border-crimson transition-transform duration-500 group-hover:scale-105" 
                 />
-                <div className="absolute inset-6 bg-black/50 flex items-center justify-center rounded-xl">
+                <div className="absolute inset-6 bg-black/50 flex items-center justify-center rounded-xl group-hover:bg-black/40 transition-colors duration-300">
                   <motion.button 
                     className="bg-gradient-accent text-white rounded-full p-8 shadow-2xl"
                     whileHover={{ scale: 1.1 }}
@@ -74,8 +175,8 @@ export default function ListeningLounge() {
                   </motion.button>
                 </div>
                 <div className="absolute bottom-10 left-10 right-10">
-                  <h3 className="text-3xl font-black text-white mb-3 luxury-accent">Midnight Sessions - Live Performance</h3>
-                  <p className="text-smoke text-lg">Exclusive live recording from the sold-out Madison Square Garden show</p>
+                  <h3 className="text-3xl font-black text-white mb-3 luxury-accent">{featuredVideo.title}</h3>
+                  <p className="text-smoke text-lg">{featuredVideo.description}</p>
                 </div>
               </div>
             </div>
@@ -98,6 +199,7 @@ export default function ListeningLounge() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="luxury-card p-6 group cursor-pointer"
                   whileHover={{ y: -8 }}
+                  onClick={() => openVideo(video)}
                 >
                   <div className="relative overflow-hidden rounded-xl mb-6">
                     <img 
