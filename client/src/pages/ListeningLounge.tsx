@@ -15,13 +15,13 @@ const videos = [
     title: "Golden Hour Acoustic",
     description: "Stripped down intimate performance",
     thumbnail: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250",
-    videoUrl: ""
+    videoUrl: "https://youtu.be/xyWb6bErq9o?si=X3wenN5ta5K_oAHf"
   },
   {
     title: "World Tour Highlights",
     description: "Best moments from international shows",
     thumbnail: "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250",
-    videoUrl: ""
+    videoUrl: "https://youtu.be/kJbk2raSQCk?si=sa9IDjPO8qQZcDGe"
   }
 ];
 
