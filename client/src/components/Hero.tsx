@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import AnimatedText from "@/components/AnimatedText";
 import { Play, Calendar, Volume2, Headphones, Instagram, Twitter, Youtube, Music } from "lucide-react";
+import { SiTiktok } from "react-icons/si";
 import { SOCIAL_LINKS } from "@/lib/constants";
 import artistImage from "@assets/Ty SmooveNoTats_1750523642870.png";
 import { Link } from "wouter";
@@ -225,28 +226,36 @@ export default function Hero() {
               className="flex space-x-4 sm:space-x-6 justify-center"
             >
               <motion.a
-                href="#"
+                href="https://www.tiktok.com/@drakkariblack?is_from_webapp=1&sender_device=pc"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ y: -3, scale: 1.1 }}
                 className="text-smoke hover:text-luxury-accent transition-colors duration-300"
               >
-                <Music size={24} />
+                <SiTiktok size={24} />
               </motion.a>
               <motion.a
-                href="#"
+                href="https://www.instagram.com/drakkariblack"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ y: -3, scale: 1.1 }}
                 className="text-smoke hover:text-luxury-accent transition-colors duration-300"
               >
                 <Instagram size={24} />
               </motion.a>
               <motion.a
-                href="#"
+                href="https://x.com/drakkariblack"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ y: -3, scale: 1.1 }}
                 className="text-smoke hover:text-luxury-accent transition-colors duration-300"
               >
                 <Twitter size={24} />
               </motion.a>
               <motion.a
-                href="#"
+                href="https://www.youtube.com/@drakkariblacktv"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ y: -3, scale: 1.1 }}
                 className="text-smoke hover:text-luxury-accent transition-colors duration-300"
               >
