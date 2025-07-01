@@ -34,7 +34,8 @@ This is a full-stack artist portfolio application built for "Drakkari Black", fe
 - **Home**: Hero section with artist branding and call-to-action buttons
 - **About**: Artist biography and statistics
 - **Listening Lounge**: Music streaming integration and video content
-- **Appearances**: Event listings and booking information
+- **Appearances**: Event listings and booking information with calendar integration
+- **Merch**: Official merchandise store with product catalog and shopping features
 - **Contact**: Professional contact form with event booking capabilities
 
 ### Core Features
