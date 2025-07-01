@@ -22,15 +22,15 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-luxury-accent text-sm font-medium tracking-widest uppercase mb-4 block"
+              className="text-luxury-accent text-sm font-medium tracking-widest text-center uppercase mb-4 block"
             >
               Artist • Performer • Visionary
             </motion.span>
 
             {/* Main Title */}
             <h1 className="text-6xl lg:text-8xl xl:text-9xl font-black text-white mb-6 leading-none">
-              <AnimatedText text="Drakkari" className="brand-font block" delay={0.3} />
-              <AnimatedText text="Black" className="brand-font luxury-accent" delay={0.5} />
+              <AnimatedText text="Drakkari " className="brand-font luxury-accent animate-glow" delay={0.3} />
+              <AnimatedText text="Black" className="brand-font flex-row luxury-accent animate-glow" delay={0.5} />
             </h1>
 
             {/* Subtitle */}
@@ -98,8 +98,15 @@ export default function Hero() {
               alt="Drakkari Black" 
               className="w-full h-full object-cover object-center" 
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-deep-black/80 via-transparent to-transparent"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-deep-black/40 via-transparent to-transparent"></div>
+            {/* Gradient fade from left to right - starts at 0% opacity on left, reaches 100% on right */}
+            <div 
+              className="absolute inset-0"
+              style={{
+                background: 'linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.1) 60%, transparent 80%)'
+              }}
+            ></div>
+            {/* Bottom fade for depth */}
+            <div className="absolute inset-0 bg-gradient-to-t from-deep-black/60 via-transparent to-transparent"></div>
           </motion.div>
 
           {/* Floating Music Visualizer */}
