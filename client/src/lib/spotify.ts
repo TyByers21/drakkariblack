@@ -203,7 +203,13 @@ export async function enhanceSetlistWithSpotifyArt(songs: SongWithSpotifyArt[]):
 
   for (const song of songs) {
     try {
-      const spotifyArtwork = await getSpotifyArtwork(song.artist, song.title);
+      // Skip Spotify enhancement if song already has a custom image (not placeholder)
+      const hasCustomImage = song.image && !song.image.includes('390c6afbbe4b4e38c11eb8da');
+      
+      let spotifyArtwork = null;
+      if (!hasCustomImage) {
+        spotifyArtwork = await getSpotifyArtwork(song.artist, song.title);
+      }
       
       const enhancedSong: SongWithSpotifyArt = {
         ...song,
