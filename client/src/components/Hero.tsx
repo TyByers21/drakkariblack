@@ -10,86 +10,111 @@ export default function Hero() {
     <div className="min-h-screen bg-deep-black relative overflow-hidden">
       {/* Animated Electric Background */}
       <div className="absolute inset-0 z-0">
-        {/* Electric Grid Pattern */}
-        <svg className="absolute inset-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="electric-grid" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-              <path d="M 100 0 L 0 0 0 100" fill="none" stroke="url(#electric-gradient)" strokeWidth="0.5" opacity="0.3"/>
-            </pattern>
-            <linearGradient id="electric-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#dc2626" stopOpacity="0.8"/>
-              <stop offset="50%" stopColor="#ffd700" stopOpacity="0.6"/>
-              <stop offset="100%" stopColor="#dc2626" stopOpacity="0.8"/>
-            </linearGradient>
-            <filter id="electric-glow">
-              <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-              <feMerge> 
-                <feMergeNode in="coloredBlur"/>
-                <feMergeNode in="SourceGraphic"/>
-              </feMerge>
-            </filter>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#electric-grid)"/>
-        </svg>
+        {/* Electric Grid Pattern - More Visible */}
+        <div className="absolute inset-0 opacity-30">
+          <svg width="100%" height="100%" className="absolute inset-0">
+            <defs>
+              <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+                <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#dc2626" strokeWidth="1" opacity="0.4"/>
+              </pattern>
+              <linearGradient id="gridGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style={{ stopColor: '#dc2626', stopOpacity: 0.6 }} />
+                <stop offset="50%" style={{ stopColor: '#ffd700', stopOpacity: 0.8 }} />
+                <stop offset="100%" style={{ stopColor: '#dc2626', stopOpacity: 0.6 }} />
+              </linearGradient>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)" />
+            <rect width="100%" height="100%" fill="url(#gridGrad)" opacity="0.1" />
+          </svg>
+        </div>
 
-        {/* Floating Electric Particles */}
-        {[...Array(20)].map((_, i) => (
+        {/* Visible Floating Particles */}
+        {[...Array(25)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-luxury-accent rounded-full"
+            className="absolute rounded-full"
             style={{
+              width: '3px',
+              height: '3px',
+              background: '#ffd700',
+              boxShadow: '0 0 6px #ffd700',
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
             }}
             animate={{
-              y: [0, -20, 0],
-              opacity: [0.2, 0.8, 0.2],
-              scale: [1, 1.5, 1],
+              y: [0, -30, 0],
+              x: [0, Math.random() * 20 - 10, 0],
+              opacity: [0.3, 1, 0.3],
+              scale: [1, 1.8, 1],
             }}
             transition={{
-              duration: 3 + Math.random() * 2,
+              duration: 4 + Math.random() * 3,
               repeat: Infinity,
-              delay: Math.random() * 2,
+              delay: Math.random() * 3,
+              ease: "easeInOut"
             }}
           />
         ))}
 
-        {/* Pulsating Electric Lines */}
-        {[...Array(8)].map((_, i) => (
+        {/* Electric Lines - More Visible */}
+        {[...Array(6)].map((_, i) => (
           <motion.div
             key={`line-${i}`}
-            className="absolute bg-gradient-to-r from-transparent via-crimson to-transparent h-px opacity-30"
+            className="absolute h-0.5"
             style={{
               left: '0%',
               right: '0%',
-              top: `${10 + i * 12}%`,
-              transformOrigin: 'center',
+              top: `${15 + i * 15}%`,
+              background: 'linear-gradient(90deg, transparent 0%, #dc2626 50%, transparent 100%)',
+              boxShadow: '0 0 4px #dc2626',
             }}
             animate={{
               scaleX: [0, 1, 0],
-              opacity: [0, 0.6, 0],
+              opacity: [0, 0.8, 0],
             }}
             transition={{
-              duration: 4,
+              duration: 5,
               repeat: Infinity,
-              delay: i * 0.5,
+              delay: i * 0.8,
+              ease: "easeInOut"
             }}
           />
         ))}
 
-        {/* Pulsating Background Gradient */}
+        {/* Pulsating Orbs */}
         <motion.div
-          className="absolute inset-0"
+          className="absolute w-32 h-32 rounded-full"
+          style={{
+            top: '20%',
+            left: '10%',
+            background: 'radial-gradient(circle, rgba(220, 38, 38, 0.3) 0%, transparent 70%)',
+          }}
           animate={{
-            background: [
-              'radial-gradient(circle at 20% 80%, rgba(220, 38, 38, 0.1) 0%, transparent 50%)',
-              'radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%)',
-              'radial-gradient(circle at 20% 80%, rgba(220, 38, 38, 0.1) 0%, transparent 50%)',
-            ]
+            scale: [1, 1.5, 1],
+            opacity: [0.3, 0.6, 0.3],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        
+        <motion.div
+          className="absolute w-40 h-40 rounded-full"
+          style={{
+            bottom: '30%',
+            right: '15%',
+            background: 'radial-gradient(circle, rgba(255, 215, 0, 0.25) 0%, transparent 70%)',
+          }}
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.2, 0.5, 0.2],
           }}
           transition={{
             duration: 6,
             repeat: Infinity,
+            delay: 2,
             ease: "easeInOut"
           }}
         />
