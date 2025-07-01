@@ -78,7 +78,7 @@ export default function Contact() {
             </h1>
             <div className="w-32 h-1 bg-gradient-accent mx-auto mb-8 rounded-full"></div>
             <p className="text-smoke text-2xl max-w-3xl mx-auto font-light tracking-wide">
-              Ready to book <span className="crimson-accent font-medium">Drakkari Black</span> for your next event? Let's create something unforgettable together.
+              Ready to book <span className="text-4xl brand-font luxury-accent mb-6 animate-glow">Drakkari Black</span> for your next event? Let's create something unforgettable together.
             </p>
           </motion.div>
           
@@ -93,41 +93,41 @@ export default function Contact() {
               <h2 className="text-4xl font-bold crimson-accent mb-8 tracking-wide">Booking Information</h2>
               
               <div className="space-y-8">
-                <div className="flex items-start space-x-6">
+                <div className="flex items-start space-x-6 glass-card p-6 rounded-2xl">
                   <div className="bg-gradient-accent p-4 rounded-2xl shadow-lg">
                     <Mail className="text-white" size={28} />
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold text-white mb-3">Email</h3>
-                    <p className="text-smoke text-lg font-medium">booking@drakkariblack.com</p>
+                    <p className="text-smoke text-lg font-medium">info@drakkariblack.com</p>
                     <p className="text-smoke opacity-75">Response within 24 hours</p>
                   </div>
                 </div>
                 
-                <div className="flex items-start space-x-6">
+                <div className="flex items-start space-x-6 glass-card p-6 rounded-2xl">
                   <div className="bg-gradient-accent p-4 rounded-2xl shadow-lg">
                     <Phone className="text-white" size={28} />
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold text-white mb-3">Phone</h3>
-                    <p className="text-smoke text-lg font-medium">+1 (555) 123-4567</p>
+                    <p className="text-smoke text-lg font-medium">+1 (786) 200-4889</p>
                     <p className="text-smoke opacity-75">Mon-Fri, 9AM-6PM EST</p>
                   </div>
                 </div>
                 
-                <div className="flex items-start space-x-6">
+                <div className="flex items-start space-x-6 glass-card p-6 rounded-2xl">
                   <div className="bg-gradient-accent p-4 rounded-2xl shadow-lg">
                     <MapPin className="text-white" size={28} />
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold text-white mb-3">Management</h3>
-                    <p className="text-smoke text-lg font-medium">Apex Entertainment Group</p>
+                    <p className="text-smoke text-lg font-medium">Arcane Entertainment Group</p>
                     <p className="text-smoke opacity-75">Los Angeles, CA</p>
                   </div>
                 </div>
               </div>
               
-              <div className="luxury-card p-8">
+              <div className="glass-card p-8 rounded-2xl">
                 <h3 className="text-2xl font-bold luxury-accent mb-6">Booking Types</h3>
                 <ul className="space-y-4 text-smoke">
                   {BOOKING_TYPES.map((type, index) => (

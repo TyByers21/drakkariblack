@@ -12,34 +12,37 @@ export const STREAMING_PLATFORMS = [
     name: "Spotify",
     icon: "fab fa-spotify",
     color: "hover:bg-green-600",
-    url: "#",
+    url: "https://open.spotify.com/",
   },
   {
     name: "Apple Music",
     icon: "fab fa-apple",
     color: "hover:bg-gray-800",
-    url: "#",
+    url: "https://music.apple.com/us/new",
   },
   {
     name: "SoundCloud",
     icon: "fab fa-soundcloud",
     color: "hover:bg-orange-600",
-    url: "#",
+    url: "https://soundcloud.com/drakkari-black",
   },
   {
     name: "YouTube Music",
     icon: "fab fa-youtube",
     color: "hover:bg-red-600",
-    url: "#",
+    url: "https://www.youtube.com/@drakkariblacktv",
   },
 ];
 
 export const SOCIAL_LINKS = [
-  { icon: "fab fa-spotify", url: "#" },
-  { icon: "fab fa-apple", url: "#" },
-  { icon: "fab fa-instagram", url: "#" },
-  { icon: "fab fa-twitter", url: "#" },
-  { icon: "fab fa-youtube", url: "#" },
+  {
+    icon: "fab fa-spotify",
+    url: "https://open.spotify.com/track/4NjBWWELiKCLfqpQOlIFL8?si=0a13a98fd11b4e02",
+  },
+  { icon: "fab fa-apple", url: "https://music.apple.com/us/new" },
+  { icon: "fab fa-instagram", url: "https://instagram.com/drakkariblack" },
+  { icon: "fab fa-twitter", url: "https://x.com/drakkariblack" },
+  { icon: "fab fa-youtube", url: "https://www.youtube.com/@drakkariblacktv" },
 ];
 
 export const UPCOMING_EVENTS = [
@@ -149,7 +152,7 @@ export const SPEAKEASY_SETLIST = [
     title: "What You Won't Do For Love",
     album: "",
     spotifyId: "",
-    image: bobby,
+    image: "",
   },
   {
     artist: "Kelly Clarkson",

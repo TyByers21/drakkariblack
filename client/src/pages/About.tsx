@@ -30,7 +30,7 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="space-y-8"
             >
-              <h2 className="text-4xl font-bold crimson-accent mb-8 tracking-wide">The Journey</h2>
+              <h2 className="text-4xl font-bold animate-glow brand-accent mb-8 tracking-wide">The Journey</h2>
               <p className="text-smoke text-xl leading-relaxed font-light">
                 Born from the intersection of classical training and street wisdom, <span className="text-white font-medium">Drakkari Black</span> emerged as a defining voice in contemporary music. His journey began in the underground clubs of Detroit, where raw talent met relentless ambition.
               </p>
@@ -42,15 +42,15 @@ export default function About() {
               </p>
               
               <div className="grid grid-cols-3 gap-8 mt-12 pt-8 border-t border-crimson">
-                <div className="text-center">
+                <div className="text-center glass-card p-6 rounded-2xl">
                   <div className="text-4xl font-black luxury-accent animate-glow">15+</div>
                   <div className="text-smoke text-lg mt-2">Years Active</div>
                 </div>
-                <div className="text-center">
+                <div className="text-center glass-card p-6 rounded-2xl">
                   <div className="text-4xl font-black luxury-accent animate-glow">500K+</div>
                   <div className="text-smoke text-lg mt-2">Monthly Listeners</div>
                 </div>
-                <div className="text-center">
+                <div className="text-center glass-card p-6 rounded-2xl">
                   <div className="text-4xl font-black luxury-accent animate-glow">50+</div>
                   <div className="text-smoke text-lg mt-2">Live Shows</div>
                 </div>

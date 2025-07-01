@@ -9,17 +9,18 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { useQuery } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { enhanceSetlistWithSpotifyArt, type SongWithSpotifyArt } from "@/lib/spotify";
-import drakImage from "@/images/drak.jpg";
+import tySmooth from "@/images/tySmooth.png";
 import drak2Image from "@/images/drak2.jpg";
-import drak3Image from "@/images/drak3.jpg";
+import cyberTy from "@/images/cyberTy.jpg";
 import drak4Image from "@/images/drak4.jpg";
-import bb1Image from "@/images/bb1.jpg";
+import drakBridge from "@/images/drakBridge.jpg";
 
 const promoImages = [
-  drakImage,
-  drak2Image,
-  drak3Image,
+  tySmooth,
+ 
+  drakBridge,
   drak4Image,
+  cyberTy,
 ];
 
 // Function to generate calendar event URLs
@@ -351,10 +352,10 @@ export default function Appearances() {
             className="text-center mt-20"
           >
             <h2 className="text-5xl font-bold luxury-accent mb-8 tracking-wide animate-glow">
-              <AnimatedText text="Speakeasy Set List" className="brand-font" delay={1.0} />
+              <AnimatedText text="Speakeasy Set List" className="brand-font text-8xl" delay={1.0} />
             </h2>
             <p className="text-smoke text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
-              Explore the intimate acoustic arrangements from my exclusive speakeasy performances
+              Explore the full list of requestable songs from my exclusive speakeasy performance set list
             </p>
             <SetListModal />
           </motion.div>

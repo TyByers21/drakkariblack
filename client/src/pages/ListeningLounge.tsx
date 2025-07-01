@@ -143,7 +143,7 @@ export default function ListeningLounge() {
             </h1>
             <div className="w-32 h-1 bg-gradient-accent mx-auto mb-8 rounded-full"></div>
             <p className="text-smoke text-2xl max-w-3xl mx-auto font-light tracking-wide">
-              Immerse yourself in the complete <span className="crimson-accent font-medium">Drakkari Black experience</span>
+              Immerse yourself in the complete <span className="text-4xl brand-font luxury-accent mb-6 animate-glow">Drakkari Black </span>experience
             </p>
           </motion.div>
           
@@ -154,7 +154,7 @@ export default function ListeningLounge() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mb-20"
           >
-            <h2 className="text-4xl font-bold crimson-accent mb-12 text-center tracking-wide">Featured Video</h2>
+            <h2 className="text-4xl font-bold brand-accent mb-12 text-center animate-glow tracking-wide">Featured Video</h2>
             <div className="max-w-5xl mx-auto">
               <div 
                 className="relative aspect-video luxury-card p-6 overflow-hidden cursor-pointer group"
@@ -192,7 +192,7 @@ export default function ListeningLounge() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="mb-20"
           >
-            <h2 className="text-4xl font-bold crimson-accent mb-12 text-center tracking-wide">Video Collection</h2>
+            <h2 className="text-4xl font-bold brand-accent animate-glow mb-12 text-center tracking-wide">Video Collection</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {videos.map((video, index) => (
                 <motion.div 
@@ -234,7 +234,7 @@ export default function ListeningLounge() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-center"
           >
-            <h2 className="text-4xl font-bold luxury-accent mb-12 tracking-wide animate-glow">Stream Everywhere</h2>
+            <h2 className="text-4xl font-bold brand-accent mb-12 tracking-wide animate-glow">Stream Everywhere</h2>
             <div className="flex flex-wrap justify-center gap-8">
               {STREAMING_PLATFORMS.map((platform, index) => (
                 <motion.a 

@@ -7,14 +7,14 @@ const quickLinks = [
   { name: "About", path: "/about" },
   { name: "Listening Lounge", path: "/listening" },
   { name: "Appearances", path: "/appearances" },
-  { name: "Contact", path: "/contact" }
+  { name: "Contact", path: "/contact" },
 ];
 
 const musicPlatforms = [
-  { name: "Spotify", url: "#" },
-  { name: "Apple Music", url: "#" },
-  { name: "SoundCloud", url: "#" },
-  { name: "YouTube Music", url: "#" }
+  { name: "Spotify", url: "https://open.spotify.com/" },
+  { name: "Apple Music", url: "https://music.apple.com/us/new" },
+  { name: "SoundCloud", url: "https://soundcloud.com/drakkari-black" },
+  { name: "YouTube Music", url: "https://www.youtube.com/@drakkariblacktv" },
 ];
 
 export default function Footer() {
@@ -33,34 +33,37 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <div className="text-3xl brand-font luxury-accent mb-6 animate-glow">Drakkari Black</div>
+            <div className="text-4xl brand-font luxury-accent mb-6 animate-glow">
+              Drakkari Black
+            </div>
             <p className="text-smoke mb-6 text-lg leading-relaxed">
-              Defining the sound of a generation through authentic artistry and unforgettable experiences.
+              Defining the sound of a generation through authentic artistry and
+              unforgettable experiences.
             </p>
             <div className="flex space-x-6">
-              <motion.a 
-                href="#" 
+              <motion.a
+                href="#"
                 className="text-smoke crimson-accent-hover transition-all duration-300 transform hover:scale-125"
                 whileHover={{ y: -3 }}
               >
                 <i className="fab fa-instagram text-2xl"></i>
               </motion.a>
-              <motion.a 
-                href="#" 
+              <motion.a
+                href="#"
                 className="text-smoke crimson-accent-hover transition-all duration-300 transform hover:scale-125"
                 whileHover={{ y: -3 }}
               >
                 <i className="fab fa-twitter text-2xl"></i>
               </motion.a>
-              <motion.a 
-                href="#" 
+              <motion.a
+                href="#"
                 className="text-smoke crimson-accent-hover transition-all duration-300 transform hover:scale-125"
                 whileHover={{ y: -3 }}
               >
                 <i className="fab fa-facebook text-2xl"></i>
               </motion.a>
-              <motion.a 
-                href="#" 
+              <motion.a
+                href="#"
                 className="text-smoke crimson-accent-hover transition-all duration-300 transform hover:scale-125"
                 whileHover={{ y: -3 }}
               >
@@ -68,7 +71,7 @@ export default function Footer() {
               </motion.a>
             </div>
           </div>
-          
+
           {/* Quick Links */}
           <div>
             <h4 className="text-white font-bold mb-6 text-xl">Quick Links</h4>
@@ -84,14 +87,16 @@ export default function Footer() {
               ))}
             </ul>
           </div>
-          
+
           {/* Music Platforms */}
           <div>
-            <h4 className="text-white font-bold mb-6 text-xl">Music Platforms</h4>
+            <h4 className="text-white font-bold mb-6 text-xl">
+              Music Platforms
+            </h4>
             <ul className="space-y-3">
               {musicPlatforms.map((platform) => (
                 <li key={platform.name}>
-                  <a 
+                  <a
                     href={platform.url}
                     className="text-smoke crimson-accent-hover transition-all duration-300 text-lg hover:translate-x-2 block"
                   >
@@ -101,7 +106,7 @@ export default function Footer() {
               ))}
             </ul>
           </div>
-          
+
           {/* Newsletter */}
           <div>
             <h4 className="text-white font-bold mb-6 text-xl">Newsletter</h4>
@@ -109,27 +114,33 @@ export default function Footer() {
               Stay updated with latest releases and tour dates
             </p>
             <form onSubmit={handleNewsletterSubmit} className="space-y-4">
-              <input 
-                type="email" 
+              <input
+                type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-charcoal border border-crimson rounded-xl px-6 py-4 text-white focus:outline-none focus:border-luxury-accent focus:ring-2 focus:ring-luxury-accent/20 transition-all duration-300 text-lg" 
+                className="w-full bg-charcoal border border-crimson rounded-xl px-6 py-4 text-white focus:outline-none focus:border-luxury-accent focus:ring-2 focus:ring-luxury-accent/20 transition-all duration-300 text-lg"
                 placeholder="Enter your email"
                 required
               />
-              <button 
-                type="submit" 
-                className="w-full btn-primary text-lg"
-              >
+              <button type="submit" className="w-full btn-primary text-lg">
                 Subscribe
               </button>
             </form>
           </div>
         </div>
-        
+
         <div className="border-t border-crimson pt-12 text-center">
           <p className="text-smoke text-lg">
-            © 2024 <span className="luxury-accent font-medium">Drakkari Black</span>. All rights reserved. | <span className="crimson-accent hover:text-white transition-colors duration-300 cursor-pointer">Privacy Policy</span> | <span className="crimson-accent hover:text-white transition-colors duration-300 cursor-pointer">Terms of Service</span>
+            © 2025{" "}
+            <span className="luxury-accent font-medium">Drakkari Black</span>.
+            All rights reserved. |{" "}
+            <span className="crimson-accent hover:text-white transition-colors duration-300 cursor-pointer">
+              Privacy Policy
+            </span>{" "}
+            |{" "}
+            <span className="crimson-accent hover:text-white transition-colors duration-300 cursor-pointer">
+              Terms of Service
+            </span>
           </p>
         </div>
       </div>

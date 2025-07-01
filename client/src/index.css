@@ -41,6 +41,14 @@
   --gradient-primary: linear-gradient(135deg, var(--deep-black) 0%, var(--dark-red) 50%, var(--shadow-red) 100%);
   --gradient-accent: linear-gradient(45deg, var(--crimson) 0%, var(--blood-red) 100%);
   --gradient-overlay: linear-gradient(180deg, transparent 0%, var(--deep-black) 100%);
+  
+  /* Glass morphism variables */
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-bg-hover: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-border-hover: rgba(220, 38, 38, 0.3);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --glass-shadow-hover: 0 16px 64px rgba(220, 38, 38, 0.1);
 }
 
 .dark {
@@ -138,6 +146,55 @@
   
   .text-smoke {
     color: var(--smoke-gray);
+  }
+  
+  /* Glass Morphism Utilities */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .glass:hover {
+    background: var(--glass-bg-hover);
+    border-color: var(--glass-border-hover);
+    box-shadow: var(--glass-shadow-hover);
+    transform: translateY(-2px);
+  }
+  
+  .glass-card {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .glass-card:hover {
+    background: rgba(0, 0, 0, 0.3);
+    border-color: rgba(220, 38, 38, 0.2);
+    box-shadow: 0 16px 64px rgba(0, 0, 0, 0.5), 0 0 40px rgba(220, 38, 38, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    transform: translateY(-4px) scale(1.02);
+  }
+  
+  .glass-button {
+    background: rgba(220, 38, 38, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(220, 38, 38, 0.2);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+  }
+  
+  .glass-button:hover {
+    background: rgba(220, 38, 38, 0.2);
+    border-color: rgba(220, 38, 38, 0.4);
+    box-shadow: 0 8px 32px rgba(220, 38, 38, 0.2);
+    transform: translateY(-1px);
   }
   
   .bg-deep-black {

@@ -119,7 +119,7 @@ export default function Merch() {
               <AnimatedText text="Official Merch" className="brand-font" />
             </h1>
             <p className="text-xl md:text-2xl text-smoke mb-8 max-w-3xl mx-auto leading-relaxed">
-              Exclusive Drakkari Black merchandise designed for true fans. 
+              Exclusive <span className="text-4xl brand-font luxury-accent mb-6 animate-glow">Drakkari Black</span> merchandise designed for true fans. 
               Premium quality apparel, accessories, and collectibles.
             </p>
           </motion.div>
