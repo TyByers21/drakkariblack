@@ -293,58 +293,76 @@ export default function Hero() {
             className="grid md:grid-cols-3 gap-8"
           >
             {/* Latest Release */}
-            <Link href="/listening">
-              <div className="group cursor-pointer">
-                <div className="bg-gradient-to-br from-crimson/10 to-deep-black border border-crimson/20 rounded-2xl p-8 h-full hover:border-luxury-accent/50 transition-all duration-300">
-                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-luxury-accent transition-colors">
-                    Latest Release
-                  </h3>
-                  <p className="text-smoke text-lg mb-6">
-                    Stream my newest single now available on all platforms
-                  </p>
-                  <div className="flex items-center text-luxury-accent font-medium">
-                    <Play size={16} className="mr-2" />
-                    Listen Now
+            <motion.div
+              whileHover={{ scale: 1.02, y: -4 }}
+              whileTap={{ scale: 0.98 }}
+              className="relative z-10"
+            >
+              <Link href="/listening">
+                <div className="group cursor-pointer">
+                  <div className="bg-gradient-to-br from-crimson/10 to-deep-black border border-crimson/20 rounded-2xl p-8 h-full hover:border-luxury-accent/50 hover:shadow-xl hover:shadow-crimson/20 transition-all duration-300 hover:bg-crimson/20">
+                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-luxury-accent transition-colors">
+                      Latest Release
+                    </h3>
+                    <p className="text-smoke text-lg mb-6 group-hover:text-gray-300 transition-colors">
+                      Stream my newest single now available on all platforms
+                    </p>
+                    <div className="flex items-center text-luxury-accent font-medium group-hover:text-white transition-colors">
+                      <Play size={16} className="mr-2" />
+                      Listen Now
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </motion.div>
 
             {/* Upcoming Shows */}
-            <Link href="/appearances">
-              <div className="group cursor-pointer">
-                <div className="bg-gradient-to-br from-luxury-accent/10 to-deep-black border border-luxury-accent/20 rounded-2xl p-8 h-full hover:border-crimson/50 transition-all duration-300">
-                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-crimson transition-colors">
-                    Live Shows
-                  </h3>
-                  <p className="text-smoke text-lg mb-6">
-                    Experience the energy live at upcoming performances
-                  </p>
-                  <div className="flex items-center text-crimson font-medium">
-                    <Calendar size={16} className="mr-2" />
-                    View Dates
+            <motion.div
+              whileHover={{ scale: 1.02, y: -4 }}
+              whileTap={{ scale: 0.98 }}
+              className="relative z-10"
+            >
+              <Link href="/appearances">
+                <div className="group cursor-pointer">
+                  <div className="bg-gradient-to-br from-luxury-accent/10 to-deep-black border border-luxury-accent/20 rounded-2xl p-8 h-full hover:border-crimson/50 hover:shadow-xl hover:shadow-luxury-accent/20 transition-all duration-300 hover:bg-luxury-accent/20">
+                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-crimson transition-colors">
+                      Live Shows
+                    </h3>
+                    <p className="text-smoke text-lg mb-6 group-hover:text-gray-300 transition-colors">
+                      Experience the energy live at upcoming performances
+                    </p>
+                    <div className="flex items-center text-crimson font-medium group-hover:text-white transition-colors">
+                      <Calendar size={16} className="mr-2" />
+                      View Dates
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </motion.div>
 
             {/* Connect */}
-            <Link href="/contact">
-              <div className="group cursor-pointer">
-                <div className="bg-gradient-to-br from-smoke/5 to-deep-black border border-smoke/20 rounded-2xl p-8 h-full hover:border-white/30 transition-all duration-300">
-                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-white transition-colors">
-                    Connect
-                  </h3>
-                  <p className="text-smoke text-lg mb-6">
-                    Get in touch for bookings, collaborations, and more
-                  </p>
-                  <div className="flex items-center text-white font-medium">
-                    <span className="mr-2">✉</span>
-                    Get In Touch
+            <motion.div
+              whileHover={{ scale: 1.02, y: -4 }}
+              whileTap={{ scale: 0.98 }}
+              className="relative z-10"
+            >
+              <Link href="/contact">
+                <div className="group cursor-pointer">
+                  <div className="bg-gradient-to-br from-smoke/5 to-deep-black border border-smoke/20 rounded-2xl p-8 h-full hover:border-white/30 hover:shadow-xl hover:shadow-white/10 transition-all duration-300 hover:bg-smoke/10">
+                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-luxury-accent transition-colors">
+                      Connect
+                    </h3>
+                    <p className="text-smoke text-lg mb-6 group-hover:text-gray-300 transition-colors">
+                      Get in touch for bookings, collaborations, and more
+                    </p>
+                    <div className="flex items-center text-white font-medium group-hover:text-luxury-accent transition-colors">
+                      <span className="mr-2">✉</span>
+                      Get In Touch
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </section>
