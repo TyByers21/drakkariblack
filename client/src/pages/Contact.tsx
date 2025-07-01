@@ -164,7 +164,7 @@ export default function Contact() {
                           <FormControl>
                             <Input 
                               {...field} 
-                              className="bg-dark-bg border-dark-border text-white focus:border-primary"
+                              className="bg-black/90 border-red-900/50 text-white placeholder-gray-400 focus:border-red-500 focus:ring-1 focus:ring-red-500"
                               placeholder="John"
                             />
                           </FormControl>
@@ -181,7 +181,7 @@ export default function Contact() {
                           <FormControl>
                             <Input 
                               {...field} 
-                              className="bg-dark-bg border-dark-border text-white focus:border-primary"
+                              className="bg-black/90 border-red-900/50 text-white placeholder-gray-400 focus:border-red-500 focus:ring-1 focus:ring-red-500"
                               placeholder="Doe"
                             />
                           </FormControl>
@@ -201,7 +201,7 @@ export default function Contact() {
                           <Input 
                             {...field} 
                             type="email"
-                            className="bg-dark-bg border-dark-border text-white focus:border-primary"
+                            className="bg-black/90 border-red-900/50 text-white placeholder-gray-400 focus:border-red-500 focus:ring-1 focus:ring-red-500"
                             placeholder="john@example.com"
                           />
                         </FormControl>
@@ -220,7 +220,7 @@ export default function Contact() {
                           <Input 
                             {...field} 
                             type="tel"
-                            className="bg-dark-bg border-dark-border text-white focus:border-primary"
+                            className="bg-black/90 border-red-900/50 text-white placeholder-gray-400 focus:border-red-500 focus:ring-1 focus:ring-red-500"
                             placeholder="+1 (555) 123-4567"
                           />
                         </FormControl>
@@ -237,7 +237,7 @@ export default function Contact() {
                         <FormLabel className="text-gray-300">Event Type</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
-                            <SelectTrigger className="bg-dark-bg border-dark-border text-white focus:border-primary">
+                            <SelectTrigger className="bg-black/90 border-red-900/50 text-white focus:border-red-500 focus:ring-1 focus:ring-red-500">
                               <SelectValue placeholder="Select event type" />
                             </SelectTrigger>
                           </FormControl>
@@ -264,7 +264,7 @@ export default function Contact() {
                             <Input 
                               {...field} 
                               type="date"
-                              className="bg-dark-bg border-dark-border text-white focus:border-primary"
+                              className="bg-black/90 border-red-900/50 text-white focus:border-red-500 focus:ring-1 focus:ring-red-500"
                             />
                           </FormControl>
                           <FormMessage />
