@@ -300,7 +300,7 @@ export default function Hero() {
             >
               <Link href="/listening">
                 <div className="group cursor-pointer">
-                  <div className="bg-gradient-to-br from-crimson/10 to-deep-black border border-crimson/20 rounded-2xl p-8 h-full hover:border-luxury-accent/50 hover:shadow-xl hover:shadow-crimson/20 transition-all duration-300 hover:bg-crimson/20">
+                  <div className="bg-gradient-to-br from-crimson/10 to-deep-black border border-crimson/20 rounded-2xl p-8 h-full hover:border-luxury-accent/50 hover:shadow-xl hover:shadow-red-500/30 transition-all duration-300 hover:bg-crimson/20">
                     <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-luxury-accent transition-colors">
                       Latest Release
                     </h3>
@@ -324,7 +324,7 @@ export default function Hero() {
             >
               <Link href="/appearances">
                 <div className="group cursor-pointer">
-                  <div className="bg-gradient-to-br from-luxury-accent/10 to-deep-black border border-luxury-accent/20 rounded-2xl p-8 h-full hover:border-crimson/50 hover:shadow-xl hover:shadow-luxury-accent/20 transition-all duration-300 hover:bg-luxury-accent/20">
+                  <div className="bg-gradient-to-br from-luxury-accent/10 to-deep-black border border-luxury-accent/20 rounded-2xl p-8 h-full hover:border-crimson/50 hover:shadow-xl hover:shadow-yellow-500/30 transition-all duration-300 hover:bg-luxury-accent/20">
                     <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-crimson transition-colors">
                       Live Shows
                     </h3>
