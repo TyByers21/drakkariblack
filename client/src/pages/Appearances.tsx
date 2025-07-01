@@ -349,7 +349,7 @@ export default function Appearances() {
             className="text-center mt-20"
           >
             <h2 className="text-5xl font-bold luxury-accent mb-8 tracking-wide animate-glow">
-              <AnimatedText text="Speakeasy Set List" className="brand-font text-8xl" delay={1.0} />
+              <AnimatedText text="Speakeasy Set List" className="brand-font text-6xl sm:text-8xl" delay={1.0} />
             </h2>
             <p className="text-smoke text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
               Explore the full list of requestable songs from my exclusive speakeasy performance set list

@@ -187,8 +187,7 @@ export default function Hero() {
               transition={{ delay: 0.7 }}
               className="text-base sm:text-lg lg:text-xl text-smoke mb-8 leading-relaxed"
             >
-              Crafting the soundtrack to modern soul with innovative beats and
-              timeless melodies.
+              Enter the realm of The Storyteller ...
             </motion.p>
 
             {/* Action Buttons */}
