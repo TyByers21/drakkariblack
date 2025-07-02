@@ -2,6 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertContactSubmissionSchema } from "@shared/schema";
+import { sendContactEmail } from "./email";
 import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -9,7 +10,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/contact", async (req, res) => {
     try {
       const validatedData = insertContactSubmissionSchema.parse(req.body);
+      
+      // Store the submission
       const submission = await storage.createContactSubmission(validatedData);
+      
+      // Send email notification via Mailgun
+      try {
+        await sendContactEmail(validatedData);
+        console.log(`Contact email sent for submission ${submission.id}`);
+      } catch (emailError) {
+        console.error('Failed to send contact email:', emailError);
+        // Don't fail the entire request if email fails
+      }
+      
       res.json({ success: true, id: submission.id });
     } catch (error) {
       if (error instanceof z.ZodError) {
@@ -19,6 +32,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
           errors: error.errors 
         });
       } else {
+        console.error('Contact form submission error:', error);
         res.status(500).json({ 
           success: false, 
           message: "Failed to submit contact form" 
