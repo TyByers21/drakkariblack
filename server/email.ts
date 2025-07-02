@@ -11,7 +11,7 @@ const mg = mailgun.client({
 
 // Using your actual Mailgun sandbox domain
 const MAILGUN_DOMAIN = process.env.MAILGUN_DOMAIN || 'sandboxe4f80c3a8247459d823cd54bc6d1a438.mailgun.org';
-const FROM_EMAIL = `Drakkari Black Website <noreply@${MAILGUN_DOMAIN}>`;
+const FROM_EMAIL = `Drakkari Black Website <postmaster@${MAILGUN_DOMAIN}>`;
 const TO_EMAIL = process.env.CONTACT_EMAIL || 'info@drakkariblack.com';
 
 export async function sendContactEmail(submission: InsertContactSubmission): Promise<void> {
@@ -117,8 +117,16 @@ Submitted on: ${new Date().toLocaleString()}
     });
 
     console.log('Email sent successfully:', result);
-  } catch (error) {
+  } catch (error: any) {
     console.error('Failed to send email:', error);
+    
+    if (error.status === 403) {
+      console.log('\n⚠️  MAILGUN SETUP REQUIRED:');
+      console.log('Sandbox domains require authorized recipients.');
+      console.log('Please add "' + TO_EMAIL + '" to your Authorized Recipients in Mailgun dashboard.');
+      console.log('Visit: https://app.mailgun.com/app/account/authorized\n');
+    }
+    
     throw new Error('Failed to send email notification');
   }
 }
