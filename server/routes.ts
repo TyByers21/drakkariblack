@@ -120,8 +120,24 @@ export async function registerRoutes(app: Express): Promise<Server> {
       console.log(`Subscribed: ${new Date().toLocaleString()}`);
 
       try {
+        // First, let's get the correct list ID by fetching all lists
+        const lists = await mailchimp.lists.getAllLists();
+        console.log('Available Mailchimp lists:', lists.lists.map((list: any) => ({ 
+          id: list.id, 
+          name: list.name 
+        })));
+        
+        // Use the first available list (or find the correct one)
+        const listId = lists.lists[0]?.id || process.env.MAILCHIMP_AUDIENCE_ID;
+        
+        if (!listId) {
+          throw new Error('No Mailchimp list found');
+        }
+
+        console.log(`Using Mailchimp list ID: ${listId}`);
+
         // Add subscriber to Mailchimp list
-        const response = await mailchimp.lists.addListMember(process.env.MAILCHIMP_AUDIENCE_ID, {
+        const response = await mailchimp.lists.addListMember(listId, {
           email_address: email,
           status: 'subscribed',
           tags: ['Drakkari Black Website'],
