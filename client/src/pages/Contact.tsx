@@ -15,8 +15,8 @@ import { apiRequest } from "@/lib/queryClient";
 import { BOOKING_TYPES } from "@/lib/constants";
 import type { InsertContactSubmission } from "@shared/schema";
 import AnimatedText from "@/components/AnimatedText";
-import cashappQR from "@/images/cashapp-qr.jpg";
-import zelleQR from "@/images/zelle-qr.jpg";
+import cashappQR from "@/images/cashapp-qr.png";
+import zelleQR from "@/images/zelle-qr.png";
 
 export default function Contact() {
   const { toast } = useToast();
@@ -364,11 +364,11 @@ export default function Contact() {
                 <DollarSign className="text-white" size={32} />
               </div>
               <h3 className="text-2xl font-bold text-white mb-4">CashApp</h3>
-              <div className="bg-white p-4 rounded-xl mb-4 mx-auto w-fit">
+              <div className="bg-white p-3 rounded-xl mb-4 mx-auto w-fit">
                 <img 
                   src={cashappQR} 
                   alt="CashApp QR Code - $TyroneByers" 
-                  className="w-48 h-48 mx-auto"
+                  className="w-56 h-56 mx-auto object-contain"
                 />
               </div>
               <p className="text-smoke text-lg font-medium">$TyroneByers</p>
@@ -386,11 +386,11 @@ export default function Contact() {
                 <Heart className="text-white" size={32} />
               </div>
               <h3 className="text-2xl font-bold text-white mb-4">Zelle</h3>
-              <div className="bg-white p-4 rounded-xl mb-4 mx-auto w-fit">
+              <div className="bg-white p-3 rounded-xl mb-4 mx-auto w-fit">
                 <img 
                   src={zelleQR} 
                   alt="Zelle QR Code - Tyrone Byers" 
-                  className="w-48 h-48 mx-auto"
+                  className="w-56 h-56 mx-auto object-contain"
                 />
               </div>
               <p className="text-smoke text-lg font-medium">Tyrone Byers</p>
