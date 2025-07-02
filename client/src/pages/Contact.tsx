@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation } from "@tanstack/react-query";
+
 import { Mail, Phone, MapPin, Check, Heart, DollarSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,7 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 import { insertContactSubmissionSchema } from "@shared/schema";
-import { apiRequest } from "@/lib/queryClient";
+
 import { BOOKING_TYPES } from "@/lib/constants";
 import type { InsertContactSubmission } from "@shared/schema";
 import AnimatedText from "@/components/AnimatedText";
@@ -35,29 +35,49 @@ export default function Contact() {
     },
   });
 
-  const contactMutation = useMutation({
-    mutationFn: async (data: InsertContactSubmission) => {
-      const response = await apiRequest("POST", "/api/contact", data);
-      return response.json();
-    },
-    onSuccess: () => {
-      toast({
-        title: "Message sent successfully!",
-        description: "We'll get back to you within 24 hours.",
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const onSubmit = async (data: InsertContactSubmission) => {
+    setIsSubmitting(true);
+    
+    try {
+      // Use FormSubmit.co to send email directly to info@drakkariblack.com
+      const formData = new FormData();
+      formData.append('_subject', `🎵 New Booking Inquiry - ${data.firstName} ${data.lastName}`);
+      formData.append('_template', 'table');
+      formData.append('_autoresponse', 'Thank you for your interest in booking Drakkari Black! We will get back to you within 24 hours.');
+      formData.append('firstName', data.firstName);
+      formData.append('lastName', data.lastName);
+      formData.append('email', data.email);
+      formData.append('phone', data.phone || '');
+      formData.append('eventType', data.eventType || '');
+      formData.append('eventDate', data.eventDate || '');
+      formData.append('expectedAttendance', data.expectedAttendance?.toString() || '');
+      formData.append('message', data.message);
+      
+      const response = await fetch('https://formsubmit.co/info@drakkariblack.com', {
+        method: 'POST',
+        body: formData
       });
-      form.reset();
-    },
-    onError: (error: any) => {
+      
+      if (response.ok) {
+        toast({
+          title: "Message sent successfully!",
+          description: "We'll get back to you within 24 hours.",
+        });
+        form.reset();
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
       toast({
         title: "Failed to send message",
-        description: error.message || "Please try again later.",
+        description: "Please try again later or contact us directly.",
         variant: "destructive",
       });
-    },
-  });
-
-  const onSubmit = (data: InsertContactSubmission) => {
-    contactMutation.mutate(data);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -315,10 +335,10 @@ export default function Contact() {
                   
                   <Button 
                     type="submit" 
-                    disabled={contactMutation.isPending}
+                    disabled={isSubmitting}
                     className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-4 rounded-lg transition-colors duration-200"
                   >
-                    {contactMutation.isPending ? (
+                    {isSubmitting ? (
                       "Sending..."
                     ) : (
                       <>
