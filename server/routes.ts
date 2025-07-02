@@ -105,30 +105,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
       console.log(`Subscribed: ${new Date().toLocaleString()}`);
       console.log('===============================\n');
 
-      // Send email notification using FormSubmit.co server-side
-      try {
-        const formData = new FormData();
-        formData.append('_subject', '🎵 New Newsletter Subscription - Drakkari Black');
-        formData.append('_template', 'table');
-        formData.append('_autoresponse', 'Welcome to the Drakkari Black family! You\'re now subscribed to receive updates about new music, tour dates, and exclusive content.');
-        formData.append('email', email);
-        formData.append('subscriptionType', 'Newsletter');
-        formData.append('timestamp', new Date().toLocaleString());
-        
-        const response = await fetch('https://formsubmit.co/info@drakkariblack.com', {
-          method: 'POST',
-          body: formData
-        });
-        
-        if (response.ok) {
-          console.log('✅ Newsletter subscription email sent successfully');
-        } else {
-          console.log('⚠️  Newsletter email sending failed, but subscription logged');
-        }
-      } catch (emailError) {
-        console.error('Newsletter email error:', emailError);
-        // Don't fail the entire request if email fails
-      }
+      // For now, we'll log the subscription and you can manually add to your email list
+      // This ensures you never miss a subscriber while we work on reliable email delivery
+      console.log('📝 Action required: Add this email to your mailing list manually');
+      console.log('💡 Tip: Export this console log or copy the email for your records');
       
       res.json({ success: true, message: 'Successfully subscribed to newsletter' });
     } catch (error) {

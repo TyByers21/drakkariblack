@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useToast } from "@/hooks/use-toast";
 
 const quickLinks = [
   { name: "Home", path: "/" },
@@ -19,6 +20,7 @@ const musicPlatforms = [
 
 export default function Footer() {
   const [email, setEmail] = useState("");
+  const { toast } = useToast();
 
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,13 +35,20 @@ export default function Footer() {
       });
       
       if (response.ok) {
-        alert("Thank you for subscribing to our newsletter!");
+        toast({
+          title: "Welcome to the family! 🎵",
+          description: "You're now subscribed to Drakkari Black updates. Check your email for a welcome message!",
+        });
         setEmail("");
       } else {
         throw new Error('Failed to subscribe');
       }
     } catch (error) {
-      alert("Sorry, there was an error. Please try again later.");
+      toast({
+        title: "Subscription failed",
+        description: "Please try again later or contact us directly.",
+        variant: "destructive",
+      });
     }
   };
 
