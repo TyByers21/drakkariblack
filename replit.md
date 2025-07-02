@@ -109,6 +109,9 @@ Recent Changes:
   - Applied glass morphism to: About page stats cards, Contact form and info cards, Appearances event cards, Merch product cards, Hero buttons, ListeningLounge video cards, and setlist modal
   - Enhanced Spotify integration working perfectly (51/59 songs automatically enhanced with authentic album artwork)
   - All glass effects include hover animations with crimson accent glows and smooth transforms
+  - Fixed mobile hover issues using @media (hover: hover) queries to prevent unwanted movement on touch devices
+  - Added Outfit font for main h1 and h2 headings with proper letter spacing and weight
+  - Integrated artist support section with CashApp and Zelle QR codes on Contact page for fan tipping
 
 ## Changelog
 

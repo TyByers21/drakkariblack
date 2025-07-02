@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
-import { Mail, Phone, MapPin, Check } from "lucide-react";
+import { Mail, Phone, MapPin, Check, Heart, DollarSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -15,6 +15,8 @@ import { apiRequest } from "@/lib/queryClient";
 import { BOOKING_TYPES } from "@/lib/constants";
 import type { InsertContactSubmission } from "@shared/schema";
 import AnimatedText from "@/components/AnimatedText";
+import cashappQR from "@/images/cashapp-qr.jpg";
+import zelleQR from "@/images/zelle-qr.jpg";
 
 export default function Contact() {
   const { toast } = useToast();
@@ -329,6 +331,84 @@ export default function Contact() {
               </Form>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Support the Artist Section */}
+      <section className="py-20 bg-deep-black">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-white">
+              Support the Artist
+            </h2>
+            <div className="w-24 h-1 bg-gradient-accent mx-auto mb-6 rounded-full"></div>
+            <p className="text-smoke text-xl max-w-2xl mx-auto">
+              Show your appreciation and support <span className="text-luxury-accent font-semibold">Drakkari Black</span> by sending a tip
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* CashApp QR */}
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="glass-card p-8 rounded-2xl text-center"
+            >
+              <div className="bg-gradient-accent p-4 rounded-2xl shadow-lg w-fit mx-auto mb-6">
+                <DollarSign className="text-white" size={32} />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-4">CashApp</h3>
+              <div className="bg-white p-4 rounded-xl mb-4 mx-auto w-fit">
+                <img 
+                  src={cashappQR} 
+                  alt="CashApp QR Code - $TyroneByers" 
+                  className="w-48 h-48 mx-auto"
+                />
+              </div>
+              <p className="text-smoke text-lg font-medium">$TyroneByers</p>
+              <p className="text-smoke opacity-75 text-sm mt-2">Scan with CashApp to send support</p>
+            </motion.div>
+
+            {/* Zelle QR */}
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="glass-card p-8 rounded-2xl text-center"
+            >
+              <div className="bg-gradient-accent p-4 rounded-2xl shadow-lg w-fit mx-auto mb-6">
+                <Heart className="text-white" size={32} />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-4">Zelle</h3>
+              <div className="bg-white p-4 rounded-xl mb-4 mx-auto w-fit">
+                <img 
+                  src={zelleQR} 
+                  alt="Zelle QR Code - Tyrone Byers" 
+                  className="w-48 h-48 mx-auto"
+                />
+              </div>
+              <p className="text-smoke text-lg font-medium">Tyrone Byers</p>
+              <p className="text-smoke opacity-75 text-sm">786-200-4889</p>
+              <p className="text-smoke opacity-75 text-sm mt-2">Scan with your bank app to send via Zelle</p>
+            </motion.div>
+          </div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-center mt-12"
+          >
+            <p className="text-smoke text-lg">
+              Your support helps keep the music alive. Thank you! 🎵
+            </p>
+          </motion.div>
         </div>
       </section>
     </div>
