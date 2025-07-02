@@ -85,6 +85,61 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Newsletter subscription endpoint
+  app.post("/api/newsletter", async (req, res) => {
+    try {
+      const { email } = req.body;
+      
+      if (!email || typeof email !== 'string') {
+        return res.status(400).json({ 
+          success: false, 
+          error: 'Valid email address is required' 
+        });
+      }
+
+      // Log the newsletter subscription
+      console.log('\n📧 ===============================');
+      console.log('   NEW NEWSLETTER SUBSCRIPTION');
+      console.log('===============================');
+      console.log(`Email: ${email}`);
+      console.log(`Subscribed: ${new Date().toLocaleString()}`);
+      console.log('===============================\n');
+
+      // Send email notification using FormSubmit.co server-side
+      try {
+        const formData = new FormData();
+        formData.append('_subject', '🎵 New Newsletter Subscription - Drakkari Black');
+        formData.append('_template', 'table');
+        formData.append('_autoresponse', 'Welcome to the Drakkari Black family! You\'re now subscribed to receive updates about new music, tour dates, and exclusive content.');
+        formData.append('email', email);
+        formData.append('subscriptionType', 'Newsletter');
+        formData.append('timestamp', new Date().toLocaleString());
+        
+        const response = await fetch('https://formsubmit.co/info@drakkariblack.com', {
+          method: 'POST',
+          body: formData
+        });
+        
+        if (response.ok) {
+          console.log('✅ Newsletter subscription email sent successfully');
+        } else {
+          console.log('⚠️  Newsletter email sending failed, but subscription logged');
+        }
+      } catch (emailError) {
+        console.error('Newsletter email error:', emailError);
+        // Don't fail the entire request if email fails
+      }
+      
+      res.json({ success: true, message: 'Successfully subscribed to newsletter' });
+    } catch (error) {
+      console.error('Newsletter subscription error:', error);
+      res.status(500).json({ 
+        success: false, 
+        error: 'Failed to process subscription' 
+      });
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }

@@ -24,18 +24,12 @@ export default function Footer() {
     e.preventDefault();
     
     try {
-      // Use FormSubmit.co to send subscription emails to info@drakkariblack.com
-      const formData = new FormData();
-      formData.append('_subject', '🎵 New Newsletter Subscription - Drakkari Black');
-      formData.append('_template', 'table');
-      formData.append('_autoresponse', 'Welcome to the Drakkari Black family! You\'re now subscribed to receive updates about new music, tour dates, and exclusive content.');
-      formData.append('email', email);
-      formData.append('subscriptionType', 'Newsletter');
-      formData.append('timestamp', new Date().toLocaleString());
-      
-      const response = await fetch('https://formsubmit.co/info@drakkariblack.com', {
+      const response = await fetch('/api/newsletter', {
         method: 'POST',
-        body: formData
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
       });
       
       if (response.ok) {
