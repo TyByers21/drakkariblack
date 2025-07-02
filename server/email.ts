@@ -19,6 +19,12 @@ export async function sendContactEmail(submission: InsertContactSubmission): Pro
     throw new Error('Mailgun API key not configured');
   }
 
+  // Log the configuration for debugging
+  console.log('Sending email via Mailgun...');
+  console.log('Domain:', MAILGUN_DOMAIN);
+  console.log('From:', FROM_EMAIL);
+  console.log('To:', TO_EMAIL);
+
   const emailHtml = `
     <html>
       <head>
