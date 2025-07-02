@@ -4,6 +4,13 @@ import { storage } from "./storage";
 import { insertContactSubmissionSchema } from "@shared/schema";
 import { sendContactEmail } from "./email";
 import { z } from "zod";
+import mailchimp from '@mailchimp/mailchimp_marketing';
+
+// Initialize Mailchimp
+mailchimp.setConfig({
+  apiKey: process.env.MAILCHIMP_API_KEY,
+  server: process.env.MAILCHIMP_API_KEY?.split('-')[1] || 'us21', // Extract server from API key
+});
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission endpoint
@@ -85,7 +92,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Newsletter subscription endpoint
+  // Newsletter subscription endpoint with Mailchimp
   app.post("/api/newsletter", async (req, res) => {
     try {
       const { email } = req.body;
@@ -97,20 +104,66 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
 
+      if (!process.env.MAILCHIMP_API_KEY || !process.env.MAILCHIMP_AUDIENCE_ID) {
+        console.error('Mailchimp credentials not configured');
+        return res.status(500).json({ 
+          success: false, 
+          error: 'Email service not configured' 
+        });
+      }
+
       // Log the newsletter subscription
       console.log('\n📧 ===============================');
       console.log('   NEW NEWSLETTER SUBSCRIPTION');
       console.log('===============================');
       console.log(`Email: ${email}`);
       console.log(`Subscribed: ${new Date().toLocaleString()}`);
-      console.log('===============================\n');
 
-      // For now, we'll log the subscription and you can manually add to your email list
-      // This ensures you never miss a subscriber while we work on reliable email delivery
-      console.log('📝 Action required: Add this email to your mailing list manually');
-      console.log('💡 Tip: Export this console log or copy the email for your records');
+      try {
+        // Add subscriber to Mailchimp list
+        const response = await mailchimp.lists.addListMember(process.env.MAILCHIMP_AUDIENCE_ID, {
+          email_address: email,
+          status: 'subscribed',
+          tags: ['Drakkari Black Website'],
+          merge_fields: {
+            SOURCE: 'Website Footer'
+          }
+        });
+
+        console.log(`✅ Successfully added to Mailchimp: ${response.email_address}`);
+        console.log(`   Status: ${response.status}`);
+        console.log(`   Member ID: ${response.id}`);
+        console.log('===============================\n');
+
+        res.json({ 
+          success: true, 
+          message: 'Successfully subscribed to newsletter',
+          subscriber_id: response.id
+        });
+
+      } catch (mailchimpError: any) {
+        console.error('Mailchimp API error:', mailchimpError);
+        
+        // Handle case where email is already subscribed
+        if (mailchimpError.status === 400 && mailchimpError.title === 'Member Exists') {
+          console.log('⚠️  Email already subscribed to list');
+          console.log('===============================\n');
+          
+          res.json({ 
+            success: true, 
+            message: 'You are already subscribed to our newsletter!' 
+          });
+        } else {
+          console.log('❌ Failed to add to Mailchimp');
+          console.log('===============================\n');
+          
+          res.status(500).json({ 
+            success: false, 
+            error: 'Failed to subscribe to newsletter' 
+          });
+        }
+      }
       
-      res.json({ success: true, message: 'Successfully subscribed to newsletter' });
     } catch (error) {
       console.error('Newsletter subscription error:', error);
       res.status(500).json({ 
