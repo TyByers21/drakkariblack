@@ -136,10 +136,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
         console.log(`Using Mailchimp list ID: ${listId}`);
 
-        // Add subscriber to Mailchimp list
-        const response = await mailchimp.lists.addListMember(listId, {
+        // Add or update subscriber in Mailchimp list using upsert
+        const response = await mailchimp.lists.setListMember(listId, email, {
           email_address: email,
-          status: 'subscribed',
+          status_if_new: 'subscribed',
           tags: ['Drakkari Black Website'],
           merge_fields: {
             SOURCE: 'Website Footer'
@@ -161,8 +161,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
         console.error('Mailchimp API error:', mailchimpError);
         
         // Handle case where email is already subscribed
-        if (mailchimpError.status === 400 && mailchimpError.title === 'Member Exists') {
-          console.log('⚠️  Email already subscribed to list');
+        if (mailchimpError.status === 400 && (
+          mailchimpError.title === 'Member Exists' || 
+          mailchimpError.text?.includes('is already a list member')
+        )) {
+          console.log('✅ Email already subscribed to list - treating as success');
           console.log('===============================\n');
           
           res.json({ 
@@ -171,6 +174,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
           });
         } else {
           console.log('❌ Failed to add to Mailchimp');
+          console.log('Error details:', mailchimpError.text || mailchimpError.message);
           console.log('===============================\n');
           
           res.status(500).json({ 
