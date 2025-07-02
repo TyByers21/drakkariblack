@@ -20,11 +20,33 @@ const musicPlatforms = [
 export default function Footer() {
   const [email, setEmail] = useState("");
 
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement newsletter subscription
-    alert("Thank you for subscribing to our newsletter!");
-    setEmail("");
+    
+    try {
+      // Use FormSubmit.co to send subscription emails to info@drakkariblack.com
+      const formData = new FormData();
+      formData.append('_subject', '🎵 New Newsletter Subscription - Drakkari Black');
+      formData.append('_template', 'table');
+      formData.append('_autoresponse', 'Welcome to the Drakkari Black family! You\'re now subscribed to receive updates about new music, tour dates, and exclusive content.');
+      formData.append('email', email);
+      formData.append('subscriptionType', 'Newsletter');
+      formData.append('timestamp', new Date().toLocaleString());
+      
+      const response = await fetch('https://formsubmit.co/info@drakkariblack.com', {
+        method: 'POST',
+        body: formData
+      });
+      
+      if (response.ok) {
+        alert("Thank you for subscribing to our newsletter!");
+        setEmail("");
+      } else {
+        throw new Error('Failed to subscribe');
+      }
+    } catch (error) {
+      alert("Sorry, there was an error. Please try again later.");
+    }
   };
 
   return (
