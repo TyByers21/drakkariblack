@@ -6,6 +6,8 @@ import george from "@/images/george.jpg";
 import legend from "@/images/legend.jpg";
 import bobby from "@/images/bobby.jpg";
 import jaime from "@/images/jaime.png";
+import bbd from "@/images/bbd.jpg";
+import rk from "@/images/rk.jpeg";
 
 export const STREAMING_PLATFORMS = [
   {
@@ -92,6 +94,13 @@ export const SPEAKEASY_SETLIST = [
     image: "",
   },
   {
+    artist: "Bell Bive Devoe",
+    title: "Poison",
+    album: "",
+    spotifyId: "",
+    image: bbd,
+  },
+  {
     artist: "George Benson",
     title: "Gimme The Night",
     album: "",
@@ -150,6 +159,13 @@ export const SPEAKEASY_SETLIST = [
   {
     artist: "Bobby Caldwell",
     title: "What You Won't Do For Love",
+    album: "",
+    spotifyId: "",
+    image: "",
+  },
+  {
+    artist: "Tevin Campbell",
+    title: "Can We Talk",
     album: "",
     spotifyId: "",
     image: "",
@@ -261,7 +277,21 @@ export const SPEAKEASY_SETLIST = [
   },
   {
     artist: "Michael Jackson",
+    title: "Billie Jean",
+    album: "",
+    spotifyId: "",
+    image: "",
+  },
+  {
+    artist: "Michael Jackson",
     title: "Human Nature",
+    album: "",
+    spotifyId: "",
+    image: "",
+  },
+  {
+    artist: "Michael Jackson",
+    title: "Rock Wit You",
     album: "",
     spotifyId: "",
     image: "",
@@ -279,6 +309,13 @@ export const SPEAKEASY_SETLIST = [
     album: "",
     spotifyId: "",
     image: donell,
+  },
+  {
+    artist: "R. Kelly",
+    title: "Your Body's Callin Me",
+    album: "",
+    spotifyId: "",
+    image: rk,
   },
   {
     artist: "John Legend",
@@ -328,6 +365,13 @@ export const SPEAKEASY_SETLIST = [
     album: "",
     spotifyId: "",
     image: "https://i.scdn.co/image/ab67616d0000b2738863bc11d2aa12b54f5aeb36",
+  },
+  {
+    artist: "George Michael",
+    title: "Faith",
+    album: "",
+    spotifyId: "",
+    image: "",
   },
   {
     artist: "Ne-Yo",
