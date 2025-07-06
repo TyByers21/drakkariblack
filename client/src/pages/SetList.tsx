@@ -229,9 +229,9 @@ export default function SetList() {
               <div className="flex flex-col md:flex-row gap-6">
                 {/* Album Artwork */}
                 <div className="flex-shrink-0">
-                  {selectedSong.spotifyImage ? (
+                  {(selectedSong.spotifyImage || selectedSong.image) ? (
                     <img
-                      src={selectedSong.spotifyImage}
+                      src={selectedSong.spotifyImage || selectedSong.image}
                       alt={`${selectedSong.album} by ${selectedSong.artist}`}
                       className="w-48 h-48 rounded-lg object-cover shadow-xl"
                       onError={(e) => {
@@ -242,7 +242,7 @@ export default function SetList() {
                     />
                   ) : null}
                   <div
-                    className={`w-48 h-48 rounded-lg bg-gradient-to-br from-crimson/20 to-charcoal border border-crimson/20 flex items-center justify-center ${selectedSong.spotifyImage ? "hidden" : ""}`}
+                    className={`w-48 h-48 rounded-lg bg-gradient-to-br from-crimson/20 to-charcoal border border-crimson/20 flex items-center justify-center ${(selectedSong.spotifyImage || selectedSong.image) ? "hidden" : ""}`}
                   >
                     <Music className="h-24 w-24 text-crimson/60" />
                   </div>
@@ -287,6 +287,18 @@ export default function SetList() {
                       </p>
                       <p className="text-xs text-smoke/60">
                         Album artwork and metadata provided by Spotify Web API
+                      </p>
+                    </div>
+                  )}
+                  
+                  {!selectedSong.spotifyId && selectedSong.image && (
+                    <div className="mt-6">
+                      <p className="text-sm text-crimson/80 mb-2 flex items-center gap-2">
+                        <Music className="h-4 w-4" />
+                        Original curated artwork
+                      </p>
+                      <p className="text-xs text-smoke/60">
+                        Handpicked album artwork for the speakeasy collection
                       </p>
                     </div>
                   )}
