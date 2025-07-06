@@ -171,10 +171,10 @@ export default function SetList() {
                   </div>
                 </div>
 
-                {/* Track Number */}
+                {/* Genre and Enhancement Status */}
                 <div className="mt-4 flex justify-between items-center">
                   <span className="text-xs text-smoke/60">
-                    Track {index + 1}
+                    {song.genre || "Various"}
                   </span>
                   {song.spotifyId && (
                     <span className="text-xs text-crimson/60">
