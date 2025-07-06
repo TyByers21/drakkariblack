@@ -138,9 +138,9 @@ export default function SetList() {
                 <div className="flex items-center space-x-4">
                   {/* Album Artwork */}
                   <div className="relative">
-                    {song.spotifyImage ? (
+                    {(song.spotifyImage || song.image) ? (
                       <img
-                        src={song.spotifyImage}
+                        src={song.spotifyImage || song.image}
                         alt={`${song.album} by ${song.artist}`}
                         className="w-16 h-16 rounded-lg object-cover shadow-lg"
                         onError={(e) => {
@@ -151,7 +151,7 @@ export default function SetList() {
                       />
                     ) : null}
                     <div
-                      className={`w-16 h-16 rounded-lg bg-gradient-to-br from-crimson/20 to-charcoal border border-crimson/20 flex items-center justify-center ${song.spotifyImage ? "hidden" : ""}`}
+                      className={`w-16 h-16 rounded-lg bg-gradient-to-br from-crimson/20 to-charcoal border border-crimson/20 flex items-center justify-center ${(song.spotifyImage || song.image) ? "hidden" : ""}`}
                     >
                       <Music className="h-8 w-8 text-crimson/60" />
                     </div>
