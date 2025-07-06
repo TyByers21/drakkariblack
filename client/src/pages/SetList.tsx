@@ -266,9 +266,9 @@ export default function SetList() {
 
                   <div className="grid grid-cols-2 gap-4 py-4">
                     <div className="glass-card p-4">
-                      <p className="text-sm text-smoke mb-1">Track Position</p>
+                      <p className="text-sm text-smoke mb-1">Genre</p>
                       <p className="text-xl font-semibold text-white">
-                        #{selectedSong.trackNumber}
+                        {selectedSong.genre || "Various"}
                       </p>
                     </div>
                     <div className="glass-card p-4">

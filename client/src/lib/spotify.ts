@@ -43,6 +43,7 @@ export interface SongWithSpotifyArt {
   artist: string;
   title: string;
   album: string;
+  genre?: string;
   spotifyId?: string;
   image?: string;
   spotifyImage?: string;
