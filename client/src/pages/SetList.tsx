@@ -214,7 +214,7 @@ export default function SetList() {
 
       {/* Song Detail Modal */}
       <Dialog open={modalOpen} onOpenChange={setModalOpen}>
-        <DialogContent className="glass-card border-crimson/20 max-w-2xl">
+        <DialogContent className="glass-card-static border-crimson/20 max-w-2xl">
           {selectedSong && (
             <div className="p-6">
               <DialogHeader>
