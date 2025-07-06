@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
-import { Music, Clock, User } from "lucide-react";
-import { motion } from "framer-motion";
+import { Music, Clock, User, X, Play, ExternalLink } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { SPEAKEASY_SETLIST } from "@/lib/constants";
 import { enhanceSetlistWithSpotifyArt, type SongWithSpotifyArt } from "@/lib/spotify";
 import AnimatedText from "@/components/AnimatedText";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 export default function SetList() {
   const [enhancedSetlist, setEnhancedSetlist] = useState<SongWithSpotifyArt[]>([]);
   const [loading, setLoading] = useState(true);
+  const [selectedSong, setSelectedSong] = useState<(SongWithSpotifyArt & { trackNumber?: number }) | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     async function loadSetlist() {
@@ -25,6 +28,16 @@ export default function SetList() {
 
     loadSetlist();
   }, []);
+
+  const handleSongClick = (song: SongWithSpotifyArt, index: number) => {
+    setSelectedSong({ ...song, trackNumber: index + 1 });
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setSelectedSong(null);
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -99,7 +112,10 @@ export default function SetList() {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="glass-card p-6 hover:glass-card-hover transition-all duration-300 group"
+                className="glass-card p-6 hover:glass-card-hover transition-all duration-300 group cursor-pointer"
+                onClick={() => handleSongClick(song, index)}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
                 <div className="flex items-center space-x-4">
                   {/* Album Artwork */}
@@ -175,6 +191,93 @@ export default function SetList() {
           </div>
         </div>
       </div>
+
+      {/* Song Detail Modal */}
+      <Dialog open={modalOpen} onOpenChange={setModalOpen}>
+        <DialogContent className="glass-card border-crimson/20 max-w-2xl">
+          {selectedSong && (
+            <div className="p-6">
+              <DialogHeader>
+                <DialogTitle className="text-2xl font-bold text-white mb-6">
+                  Song Details
+                </DialogTitle>
+              </DialogHeader>
+              
+              <div className="flex flex-col md:flex-row gap-6">
+                {/* Album Artwork */}
+                <div className="flex-shrink-0">
+                  {selectedSong.spotifyImage ? (
+                    <img
+                      src={selectedSong.spotifyImage}
+                      alt={`${selectedSong.album} by ${selectedSong.artist}`}
+                      className="w-48 h-48 rounded-lg object-cover shadow-xl"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        target.nextElementSibling?.classList.remove('hidden');
+                      }}
+                    />
+                  ) : null}
+                  <div className={`w-48 h-48 rounded-lg bg-gradient-to-br from-crimson/20 to-charcoal border border-crimson/20 flex items-center justify-center ${selectedSong.spotifyImage ? 'hidden' : ''}`}>
+                    <Music className="h-24 w-24 text-crimson/60" />
+                  </div>
+                </div>
+
+                {/* Song Information */}
+                <div className="flex-1 space-y-4">
+                  <div>
+                    <h3 className="text-3xl font-bold text-white mb-2">
+                      {selectedSong.title}
+                    </h3>
+                    <p className="text-xl text-crimson mb-1">
+                      by {selectedSong.artist}
+                    </p>
+                    {selectedSong.album && (
+                      <p className="text-lg text-smoke/80">
+                        from "{selectedSong.album}"
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4 py-4">
+                    <div className="glass-card p-4">
+                      <p className="text-sm text-smoke mb-1">Track Position</p>
+                      <p className="text-xl font-semibold text-white">
+                        #{selectedSong.trackNumber}
+                      </p>
+                    </div>
+                    <div className="glass-card p-4">
+                      <p className="text-sm text-smoke mb-1">Set List</p>
+                      <p className="text-xl font-semibold text-crimson">
+                        Speakeasy
+                      </p>
+                    </div>
+                  </div>
+
+                  {selectedSong.spotifyId && (
+                    <div className="mt-6">
+                      <p className="text-sm text-crimson/80 mb-2 flex items-center gap-2">
+                        <Play className="h-4 w-4" />
+                        Enhanced with Spotify data
+                      </p>
+                      <p className="text-xs text-smoke/60">
+                        Album artwork and metadata provided by Spotify Web API
+                      </p>
+                    </div>
+                  )}
+
+                  <div className="mt-6 pt-4 border-t border-crimson/20">
+                    <p className="text-sm text-smoke">
+                      This song is part of Drakkari Black's carefully curated speakeasy set, 
+                      featuring intimate acoustic arrangements perfect for upscale venues and private events.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
