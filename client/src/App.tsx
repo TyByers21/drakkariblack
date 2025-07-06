@@ -8,8 +8,8 @@ import Footer from "@/components/Footer";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import ListeningLounge from "@/pages/ListeningLounge";
+import SetList from "@/pages/SetList";
 import Appearances from "@/pages/Appearances";
-import Merch from "@/pages/Merch";
 import Contact from "@/pages/Contact";
 import NotFound from "@/pages/not-found";
 import { useEffect } from "react";
@@ -35,8 +35,8 @@ function Router() {
           <Route path="/" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/listening" component={ListeningLounge} />
+          <Route path="/setlist" component={SetList} />
           <Route path="/appearances" component={Appearances} />
-          <Route path="/merch" component={Merch} />
           <Route path="/contact" component={Contact} />
           <Route component={NotFound} />
         </Switch>
