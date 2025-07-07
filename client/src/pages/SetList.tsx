@@ -77,43 +77,44 @@ export default function SetList() {
     <div className="min-h-screen bg-midnight text-white">
       <div className="container mx-auto px-4 py-20">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 mt-12">
           <AnimatedText
             text="Speakeasy Set List"
-            className="text-6xl m-2 md:text-8xl font-bold mb-8 main-heading"
+            className="text-6xl m-2 luxury-accent animate-glow md:text-8xl font-bold mb-8 main-heading"
           />
           <div className="mb-4"></div>
-          <AnimatedText
-            text="An intimate collection of soulful covers and timeless favorites"
-            className="text-xl m-2 md:text-2xl text-smoke max-w-3xl mx-auto"
-            delay={0.3}
-          />
+          
+          <div className="mt-6 pt-4 border-t border-crimson/20">
+            <p className="text-xl  m-2 md:text-2xl text-smoke max-w-3xl mx-auto text-smoke">
+              An intimate collection of soulful covers and timeless favorites
+            </p>
+          </div>
         </div>
 
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          <div className="glass-card p-6 text-center">
+          <div className="glass-card bg-gradient-primary p-6 text-center">
             <Music className="h-12 w-12 text-crimson mx-auto mb-4" />
-            <h3 className="text-3xl font-bold mb-2">
+            <h3 className="text-4xl font-bold mb-2">
               {enhancedSetlist.length}
             </h3>
             <p className="text-smoke">Total Songs</p>
           </div>
-          <div className="glass-card p-6 text-center">
+          <div className="glass-card p-6 bg-gradient-primary text-center">
             <Clock className="h-12 w-12 text-crimson mx-auto mb-4" />
-            <h3 className="text-3xl font-bold mb-2">~3</h3>
+            <h3 className="text-4xl font-bold mb-2">~ 4</h3>
             <p className="text-smoke">Hours of Music</p>
           </div>
-          <div className="glass-card p-6 text-center">
+          <div className="glass-card bg-gradient-primary p-6 text-center">
             <User className="h-12 w-12 text-crimson mx-auto mb-4" />
-            <h3 className="text-3xl font-bold mb-2">Various</h3>
+            <h3 className="text-4xl font-bold mb-2">Various</h3>
             <p className="text-smoke">Legendary Artists</p>
           </div>
         </div>
 
         {/* Setlist */}
         {loading ? (
-          <div className="text-center py-16">
+          <div className="text-center  py-16">
             <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-crimson mx-auto mb-4"></div>
             <p className="text-smoke">Loading setlist...</p>
           </div>
