@@ -80,7 +80,7 @@ export default function SetList() {
         <div className="text-center mb-16 mt-12">
           <AnimatedText
             text="Speakeasy Set List"
-            className="text-6xl m-2 luxury-accent animate-glow md:text-8xl font-bold mb-8 main-heading"
+            className="text-4xl m-2 luxury-accent animate-glow md:text-8xl font-bold mb-8 main-heading"
           />
           <div className="mb-4"></div>
           
