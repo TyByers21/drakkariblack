@@ -59,7 +59,7 @@ export const UPCOMING_EVENTS = [
   },
   {
     month: "July",
-    day: "16",
+    day: "10",
     year: "2025",
     venue: "Craftails Speakeasy",
     location: "Bradenton, FL",
@@ -68,7 +68,7 @@ export const UPCOMING_EVENTS = [
   },
   {
     month: "July",
-    day: "17",
+    day: "16",
     year: "2025",
     venue: "Craftails Speakeasy",
     location: "Bradenton, FL",
