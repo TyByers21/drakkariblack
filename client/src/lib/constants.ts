@@ -49,17 +49,8 @@ export const SOCIAL_LINKS = [
 
 export const UPCOMING_EVENTS = [
   {
-    month: "July",
-    day: "16",
-    year: "2025",
-    venue: "Craftails Speakeasy",
-    location: "Bradenton, FL",
-    time: "7:00 PM",
-    priceRange: "FREE",
-  },
-  {
-    month: "July",
-    day: "30",
+    month: "August",
+    day: "13",
     year: "2025",
     venue: "Craftails Speakeasy",
     location: "Bradenton, FL",
@@ -68,7 +59,16 @@ export const UPCOMING_EVENTS = [
   },
   {
     month: "August",
-    day: "06",
+    day: "20",
+    year: "2025",
+    venue: "Craftails Speakeasy",
+    location: "Bradenton, FL",
+    time: "7:00 PM",
+    priceRange: "FREE",
+  },
+  {
+    month: "August",
+    day: "27",
     year: "2025",
     venue: "Craftails Speakeasy",
     location: "Bradenton, FL",
@@ -547,14 +547,6 @@ export const SPEAKEASY_SETLIST = [
     title: "Shape Of My Heart",
     album: "",
     genre: "Pop Rock",
-    spotifyId: "",
-    image: "",
-  },
-  {
-    artist: "Keith Sweat",
-    title: "Don't Stop Your Love",
-    album: "",
-    genre: "R&B",
     spotifyId: "",
     image: "",
   },
