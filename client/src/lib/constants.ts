@@ -63,7 +63,7 @@ export const UPCOMING_EVENTS = [
     year: "2025",
     venue: "Craftails Speakeasy",
     location: "Bradenton, FL",
-    time: "7:00 PM",
+    time: "8:00 PM",
     priceRange: "FREE",
   },
   {
