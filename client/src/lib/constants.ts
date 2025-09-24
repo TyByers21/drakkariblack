@@ -111,6 +111,14 @@ export const SPEAKEASY_SETLIST = [
     image: george,
   },
   {
+    artist: "Jon B",
+    title: "Someone To Love",
+    album: "",
+    genre: "R&B",
+    spotifyId: "",
+    image: "",
+  },
+  {
     artist: "Justin Bieber",
     title: "Ghost",
     album: "",
