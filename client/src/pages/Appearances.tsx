@@ -120,6 +120,142 @@ function handleAddToCalendar(
   }
 }
 
+// Image Gallery Modal Component
+function ImageGalleryModal() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = (index: number) => {
+    setCurrentIndex(index);
+    setIsOpen(true);
+  };
+
+  const nextImage = () => {
+    setCurrentIndex((prev) => (prev + 1) % promoImages.length);
+  };
+
+  const prevImage = () => {
+    setCurrentIndex((prev) => (prev - 1 + promoImages.length) % promoImages.length);
+  };
+
+  return (
+    <>
+      {/* Image Gallery Grid */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {promoImages.map((image, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            whileHover={{ scale: 1.1, y: -10 }}
+            className="luxury-card p-4 cursor-pointer group"
+            style={{
+              boxShadow: "0 10px 30px rgba(220, 38, 38, 0.2)",
+            }}
+            onClick={() => openModal(index)}
+            data-testid={`promo-image-${index}`}
+          >
+            <img
+              src={image}
+              alt={`Promotional poster ${index + 1}`}
+              className="w-full h-80 object-cover rounded-xl border border-crimson group-hover:border-luxury-accent transition-all duration-300"
+            />
+            <div className="absolute inset-4 bg-gradient-to-t from-deep-black/60 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Modal Dialog */}
+      <Dialog open={isOpen} onOpenChange={setIsOpen}>
+        <DialogContent className="max-w-4xl max-h-[90vh] glass-card border-crimson p-0 overflow-hidden rounded-2xl">
+          <DialogHeader className="sr-only">
+            <DialogTitle>Promotional Media Gallery</DialogTitle>
+            <DialogDescription>
+              Browse through Drakkari Black's promotional images
+            </DialogDescription>
+          </DialogHeader>
+          
+          <div className="relative">
+            {/* Close Button */}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setIsOpen(false)}
+              className="absolute top-4 right-4 z-20 text-white hover:text-luxury-accent hover:bg-black/20 w-10 h-10 rounded-full"
+              data-testid="modal-close-button"
+            >
+              <X size={20} />
+            </Button>
+
+            {/* Image Display */}
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.3 }}
+              className="relative"
+            >
+              <img
+                src={promoImages[currentIndex]}
+                alt={`Promotional image ${currentIndex + 1}`}
+                className="w-full max-h-[80vh] object-contain rounded-2xl"
+                data-testid="modal-image"
+              />
+            </motion.div>
+
+            {/* Navigation Controls */}
+            {promoImages.length > 1 && (
+              <>
+                <div className="absolute inset-y-0 left-0 flex items-center">
+                  <Button
+                    variant="ghost"
+                    size="lg"
+                    onClick={prevImage}
+                    className="text-white hover:text-luxury-accent hover:bg-black/30 ml-4 w-12 h-12 rounded-full glass-button"
+                    data-testid="prev-image-button"
+                  >
+                    <ChevronLeft size={28} />
+                  </Button>
+                </div>
+                <div className="absolute inset-y-0 right-0 flex items-center">
+                  <Button
+                    variant="ghost"
+                    size="lg"
+                    onClick={nextImage}
+                    className="text-white hover:text-luxury-accent hover:bg-black/30 mr-4 w-12 h-12 rounded-full glass-button"
+                    data-testid="next-image-button"
+                  >
+                    <ChevronRight size={28} />
+                  </Button>
+                </div>
+              </>
+            )}
+
+            {/* Progress Indicator */}
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/50 backdrop-blur-sm rounded-full px-4 py-2">
+              <div className="flex items-center space-x-4">
+                <span className="text-white text-sm font-medium">
+                  {currentIndex + 1} / {promoImages.length}
+                </span>
+                <div className="w-24 bg-white/20 rounded-full h-1">
+                  <div
+                    className="bg-luxury-accent h-1 rounded-full transition-all duration-300"
+                    style={{
+                      width: `${((currentIndex + 1) / promoImages.length) * 100}%`,
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>
+  );
+}
+
 function SetListModal() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [enhancedSetlist, setEnhancedSetlist] =
