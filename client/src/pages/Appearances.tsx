@@ -47,7 +47,7 @@ const promoImages = [
   tySmooth,
   drakSexy,
   drakCigar,
-  drak2Image,
+  drakBridge,
   drakChillin,
   drakChillin2,
   drakChillin3,
