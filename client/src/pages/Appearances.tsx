@@ -177,17 +177,6 @@ function ImageGalleryModal() {
           </DialogHeader>
           
           <div className="relative">
-            {/* Close Button */}
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setIsOpen(false)}
-              className="absolute top-4 right-4 z-20 text-white hover:text-luxury-accent hover:bg-black/20 w-10 h-10 rounded-full"
-              data-testid="modal-close-button"
-            >
-              <X size={20} />
-            </Button>
-
             {/* Image Display */}
             <motion.div
               key={currentIndex}
