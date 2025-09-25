@@ -36,7 +36,7 @@ import drakChillin2 from "@/images/Drak chillin2.png";
 import drakChillin3 from "@/images/Drak chillin3.png";
 import drakSexy from "@/images/Drak sexy.png";
 import drakCigar from "@/images/Drak cigar.png";
-import drakLounge from "@/images/Drak lounge 2.png";
+import drakLounge from "@/images/Drak lounge.png";
 import tySmooth from "@/images/tySmooth.png";
 import drak2Image from "@/images/drak2.jpg";
 import cyberTy from "@/images/cyberTy.jpg";
@@ -44,14 +44,15 @@ import drak4Image from "@/images/drak4.jpg";
 import drakBridge from "@/images/drakBridge.jpg";
 
 const promoImages = [
-  tySmooth,
-  drakSexy,
+  
+  drakSexy,  
   drakCigar,
-  drakBridge,
+  drakLounge,
+  tySmooth,
   drakChillin,
   drakChillin2,
   drakChillin3,
-  drakLounge,
+  drakBridge,
 ];
 
 // Function to generate calendar event URLs
