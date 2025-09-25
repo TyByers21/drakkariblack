@@ -168,7 +168,7 @@ function ImageGalleryModal() {
 
       {/* Modal Dialog */}
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="max-w-4xl max-h-[90vh] glass-card border-crimson p-0 overflow-hidden rounded-2xl">
+        <DialogContent className="max-w-4xl max-h-[90vh] glass-card-static border-crimson p-0 overflow-hidden rounded-2xl">
           <DialogHeader className="sr-only">
             <DialogTitle>Promotional Media Gallery</DialogTitle>
             <DialogDescription>
