@@ -538,28 +538,7 @@ export default function Appearances() {
             <h2 className="text-4xl font-bold luxury-accent mb-12 text-center tracking-wide animate-glow">
               Promotional Media
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {promoImages.map((image, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ scale: 1.1, y: -10 }}
-                  className="luxury-card p-4 cursor-pointer group"
-                  style={{
-                    boxShadow: "0 10px 30px rgba(220, 38, 38, 0.2)",
-                  }}
-                >
-                  <img
-                    src={image}
-                    alt={`Promotional poster ${index + 1}`}
-                    className="w-full h-80 object-cover rounded-xl border border-crimson group-hover:border-luxury-accent transition-all duration-300"
-                  />
-                  <div className="absolute inset-4 bg-gradient-to-t from-deep-black/60 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </motion.div>
-              ))}
-            </div>
+            <ImageGalleryModal />
           </motion.div>
 
           {/* Speakeasy Set List */}
