@@ -45,12 +45,13 @@ import drakBridge from "@/images/drakBridge.jpg";
 
 const promoImages = [
   tySmooth,
-  drakLounge,
   drakSexy,
   drakCigar,
+  drak2Image,
   drakChillin,
   drakChillin2,
   drakChillin3,
+  drakLounge,
 ];
 
 // Function to generate calendar event URLs
