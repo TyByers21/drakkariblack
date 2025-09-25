@@ -1,14 +1,42 @@
 import { motion } from "framer-motion";
-import { Clock, Calendar, Music, ChevronLeft, ChevronRight, X } from "lucide-react";
+import {
+  Clock,
+  Calendar,
+  Music,
+  ChevronLeft,
+  ChevronRight,
+  X,
+} from "lucide-react";
 import { UPCOMING_EVENTS, SPEAKEASY_SETLIST } from "@/lib/constants";
 import AnimatedText from "@/components/AnimatedText";
 import { useState, useEffect } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogDescription,
+} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { useQuery } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
-import { enhanceSetlistWithSpotifyArt, type SongWithSpotifyArt } from "@/lib/spotify";
+import {
+  enhanceSetlistWithSpotifyArt,
+  type SongWithSpotifyArt,
+} from "@/lib/spotify";
+import drakChillin from "@/images/Drak chillin.png";
+import drakChillin2 from "@/images/Drak chillin2.png";
+import drakChillin3 from "@/images/Drak chillin3.png";
+import drakSexy from "@/images/Drak sexy.png";
+import drakCigar from "@/images/Drak cigar.png";
+import drakSingle from "@/images/So Into You.png";
 import tySmooth from "@/images/tySmooth.png";
 import drak2Image from "@/images/drak2.jpg";
 import cyberTy from "@/images/cyberTy.jpg";
@@ -17,25 +45,40 @@ import drakBridge from "@/images/drakBridge.jpg";
 
 const promoImages = [
   tySmooth,
- 
   drakBridge,
   drak4Image,
   cyberTy,
+  drakSexy,
+  drakCigar,
+  drakChillin,
+  drakChillin2,
+  drakChillin3,
+  drakSingle,
 ];
 
 // Function to generate calendar event URLs
-function generateCalendarUrls(event: typeof UPCOMING_EVENTS[0]) {
+function generateCalendarUrls(event: (typeof UPCOMING_EVENTS)[0]) {
   // Parse the event date and time
-  const eventDate = new Date(`${event.month} ${event.day}, ${event.year} ${event.time}`);
-  
+  const eventDate = new Date(
+    `${event.month} ${event.day}, ${event.year} ${event.time}`,
+  );
+
   // Format for different calendar providers
-  const startDate = eventDate.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
-  const endDate = new Date(eventDate.getTime() + 3 * 60 * 60 * 1000).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
-  
+  const startDate = eventDate
+    .toISOString()
+    .replace(/[-:]/g, "")
+    .replace(/\.\d{3}/, "");
+  const endDate = new Date(eventDate.getTime() + 3 * 60 * 60 * 1000)
+    .toISOString()
+    .replace(/[-:]/g, "")
+    .replace(/\.\d{3}/, "");
+
   const title = encodeURIComponent(`Drakkari Black at ${event.venue}`);
-  const details = encodeURIComponent(`Live performance by Drakkari Black at ${event.venue}, ${event.location}. ${event.priceRange}`);
+  const details = encodeURIComponent(
+    `Live performance by Drakkari Black at ${event.venue}, ${event.location}. ${event.priceRange}`,
+  );
   const location = encodeURIComponent(`${event.venue}, ${event.location}`);
-  
+
   return {
     google: `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&details=${details}&location=${location}`,
     outlook: `https://outlook.live.com/calendar/0/deeplink/compose?subject=${title}&startdt=${startDate}&enddt=${endDate}&body=${details}&location=${location}`,
@@ -50,31 +93,38 @@ SUMMARY:${decodeURIComponent(title)}
 DESCRIPTION:${decodeURIComponent(details)}
 LOCATION:${decodeURIComponent(location)}
 END:VEVENT
-END:VCALENDAR`
+END:VCALENDAR`,
   };
 }
 
 // Function to handle add to calendar with provider selection
-function handleAddToCalendar(event: typeof UPCOMING_EVENTS[0], provider: 'google' | 'outlook' | 'yahoo' | 'ics') {
+function handleAddToCalendar(
+  event: (typeof UPCOMING_EVENTS)[0],
+  provider: "google" | "outlook" | "yahoo" | "ics",
+) {
   const urls = generateCalendarUrls(event);
-  
-  if (provider === 'ics') {
+
+  if (provider === "ics") {
     // Create and download ICS file
-    const element = document.createElement('a');
-    element.setAttribute('href', urls.ics);
-    element.setAttribute('download', `drakkari-black-${event.venue.toLowerCase().replace(/\s+/g, '-')}.ics`);
-    element.style.display = 'none';
+    const element = document.createElement("a");
+    element.setAttribute("href", urls.ics);
+    element.setAttribute(
+      "download",
+      `drakkari-black-${event.venue.toLowerCase().replace(/\s+/g, "-")}.ics`,
+    );
+    element.style.display = "none";
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);
   } else {
-    window.open(urls[provider], '_blank');
+    window.open(urls[provider], "_blank");
   }
 }
 
 function SetListModal() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [enhancedSetlist, setEnhancedSetlist] = useState<SongWithSpotifyArt[]>(SPEAKEASY_SETLIST);
+  const [enhancedSetlist, setEnhancedSetlist] =
+    useState<SongWithSpotifyArt[]>(SPEAKEASY_SETLIST);
   const [isLoadingArtwork, setIsLoadingArtwork] = useState(false);
 
   // Enhance setlist with Spotify artwork on component mount
@@ -82,10 +132,12 @@ function SetListModal() {
     const loadArtwork = async () => {
       setIsLoadingArtwork(true);
       try {
-        const enhanced = await enhanceSetlistWithSpotifyArt(SPEAKEASY_SETLIST as SongWithSpotifyArt[]);
+        const enhanced = await enhanceSetlistWithSpotifyArt(
+          SPEAKEASY_SETLIST as SongWithSpotifyArt[],
+        );
         setEnhancedSetlist(enhanced);
       } catch (error) {
-        console.error('Failed to enhance setlist with Spotify artwork:', error);
+        console.error("Failed to enhance setlist with Spotify artwork:", error);
         // Keep original setlist if enhancement fails
         setEnhancedSetlist(SPEAKEASY_SETLIST as SongWithSpotifyArt[]);
       } finally {
@@ -101,7 +153,9 @@ function SetListModal() {
   };
 
   const prevSong = () => {
-    setCurrentIndex((prev) => (prev - 1 + enhancedSetlist.length) % enhancedSetlist.length);
+    setCurrentIndex(
+      (prev) => (prev - 1 + enhancedSetlist.length) % enhancedSetlist.length,
+    );
   };
 
   const currentSong = enhancedSetlist[currentIndex];
@@ -119,7 +173,10 @@ function SetListModal() {
         <DialogContent className="max-w-md glass-card-static border-crimson p-0 overflow-hidden rounded-2xl">
           <DialogHeader className="sr-only">
             <DialogTitle>Speakeasy Set List</DialogTitle>
-            <DialogDescription>Browse through the songs from Drakkari Black's intimate speakeasy performances</DialogDescription>
+            <DialogDescription>
+              Browse through the songs from Drakkari Black's intimate speakeasy
+              performances
+            </DialogDescription>
           </DialogHeader>
           <div className="p-8 text-center">
             <div className="text-white">Loading setlist...</div>
@@ -140,11 +197,14 @@ function SetListModal() {
       <DialogContent className="max-w-md glass-card-static border-crimson p-0 overflow-hidden rounded-2xl">
         <DialogHeader className="sr-only">
           <DialogTitle>Speakeasy Set List</DialogTitle>
-          <DialogDescription>Browse through the songs from Drakkari Black's intimate speakeasy performances</DialogDescription>
+          <DialogDescription>
+            Browse through the songs from Drakkari Black's intimate speakeasy
+            performances
+          </DialogDescription>
         </DialogHeader>
         <div className="relative">
           {/* Song Card */}
-          <motion.div 
+          <motion.div
             key={currentIndex}
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
@@ -155,11 +215,13 @@ function SetListModal() {
             <div className="mb-6 relative">
               {isLoadingArtwork && (
                 <div className="absolute inset-0 bg-black/50 rounded-2xl flex items-center justify-center z-10">
-                  <div className="text-white text-sm">Loading enhanced artwork...</div>
+                  <div className="text-white text-sm">
+                    Loading enhanced artwork...
+                  </div>
                 </div>
               )}
-              <img 
-                src={currentSong.spotifyImage || currentSong.image} 
+              <img
+                src={currentSong.spotifyImage || currentSong.image}
                 alt={`${currentSong.title} album cover`}
                 className="w-64 h-64 mx-auto rounded-2xl shadow-2xl border-2 border-crimson"
               />
@@ -169,16 +231,20 @@ function SetListModal() {
                 </div>
               )}
             </div>
-            <h3 className="text-2xl font-bold text-white mb-2">{currentSong.title}</h3>
-            <p className="text-luxury-accent text-lg font-medium mb-1">{currentSong.artist}</p>
+            <h3 className="text-2xl font-bold text-white mb-2">
+              {currentSong.title}
+            </h3>
+            <p className="text-luxury-accent text-lg font-medium mb-1">
+              {currentSong.artist}
+            </p>
             <p className="text-smoke text-sm opacity-75">{currentSong.album}</p>
           </motion.div>
 
           {/* Navigation */}
           <div className="absolute inset-y-0 left-0 flex items-center">
-            <Button 
-              variant="ghost" 
-              size="sm" 
+            <Button
+              variant="ghost"
+              size="sm"
               onClick={prevSong}
               className="text-white hover:text-luxury-accent hover:bg-black/20 ml-2"
             >
@@ -186,9 +252,9 @@ function SetListModal() {
             </Button>
           </div>
           <div className="absolute inset-y-0 right-0 flex items-center">
-            <Button 
-              variant="ghost" 
-              size="sm" 
+            <Button
+              variant="ghost"
+              size="sm"
               onClick={nextSong}
               className="text-white hover:text-luxury-accent hover:bg-black/20 mr-2"
             >
@@ -202,9 +268,11 @@ function SetListModal() {
               {currentIndex + 1} of {enhancedSetlist.length}
             </div>
             <div className="flex-1 max-w-48 bg-smoke/20 rounded-full h-1">
-              <div 
+              <div
                 className="bg-luxury-accent h-1 rounded-full transition-all duration-300"
-                style={{ width: `${((currentIndex + 1) / enhancedSetlist.length) * 100}%` }}
+                style={{
+                  width: `${((currentIndex + 1) / enhancedSetlist.length) * 100}%`,
+                }}
               />
             </div>
           </div>
@@ -219,7 +287,7 @@ export default function Appearances() {
     <div className="pt-20 min-h-screen bg-deep-black">
       <section className="py-24 bg-gradient-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -229,25 +297,33 @@ export default function Appearances() {
               <span className="block sm:inline">Upcoming</span>
               <span className="block sm:inline">
                 <span className="sm:ml-4">
-                  <AnimatedText text="Appearances" className="brand-font text-7xl sm:text-9xl luxury-accent animate-glow" delay={0.8} />
+                  <AnimatedText
+                    text="Appearances"
+                    className="brand-font text-7xl sm:text-9xl luxury-accent animate-glow"
+                    delay={0.8}
+                  />
                 </span>
               </span>
             </h1>
             <div className="w-32 h-1 bg-gradient-accent mx-auto mb-8 rounded-full"></div>
             <p className="text-smoke text-2xl max-w-3xl mx-auto font-light tracking-wide">
-              Catch <span className="luxury-accent brand-font text-4xl">Drakkari Black</span> live at these exclusive venues
+              Catch{" "}
+              <span className="luxury-accent brand-font text-4xl">
+                Drakkari Black
+              </span>{" "}
+              live at these exclusive venues
             </p>
           </motion.div>
-          
+
           {/* Event Calendar */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="grid lg:grid-cols-3 gap-10 mb-20"
           >
             {UPCOMING_EVENTS.map((event, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -256,12 +332,18 @@ export default function Appearances() {
                 className="glass-card p-8 group cursor-pointer rounded-2xl"
               >
                 <div className="bg-gradient-accent text-white p-6 rounded-2xl text-center mb-6 group-hover:shadow-xl transition-all duration-300">
-                  <div className="text-2xl font-bold opacity-90">{event.month}</div>
+                  <div className="text-2xl font-bold opacity-90">
+                    {event.month}
+                  </div>
                   <div className="text-6xl font-black my-2">{event.day}</div>
-                  <div className="text-lg font-semibold opacity-90">{event.year}</div>
+                  <div className="text-lg font-semibold opacity-90">
+                    {event.year}
+                  </div>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-black text-white mb-3 group-hover:text-luxury-accent transition-colors duration-300">{event.venue}</h3>
+                  <h3 className="text-2xl font-black text-white mb-3 group-hover:text-luxury-accent transition-colors duration-300">
+                    {event.venue}
+                  </h3>
                   <p className="text-smoke mb-6 text-lg">{event.location}</p>
                   <div className="space-y-3 text-smoke mb-8">
                     <div className="flex items-center">
@@ -269,7 +351,10 @@ export default function Appearances() {
                       <span className="font-medium">{event.time}</span>
                     </div>
                     <div className="flex items-center">
-                      <Calendar className="mr-3 text-crimson-accent" size={20} />
+                      <Calendar
+                        className="mr-3 text-crimson-accent"
+                        size={20}
+                      />
                       <span className="font-medium">{event.priceRange}</span>
                     </div>
                   </div>
@@ -281,42 +366,43 @@ export default function Appearances() {
                       </button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="w-56 bg-black/95 border-red-900/50 backdrop-blur-sm">
-                      <DropdownMenuItem 
+                      <DropdownMenuItem
                         className="text-white hover:bg-red-900/30 focus:bg-red-900/30 cursor-pointer"
-                        onClick={() => handleAddToCalendar(event, 'google')}
+                        onClick={() => handleAddToCalendar(event, "google")}
                       >
                         <Calendar className="mr-2 h-4 w-4" />
                         Google Calendar
                       </DropdownMenuItem>
-                      <DropdownMenuItem 
+                      <DropdownMenuItem
                         className="text-white hover:bg-red-900/30 focus:bg-red-900/30 cursor-pointer"
-                        onClick={() => handleAddToCalendar(event, 'outlook')}
+                        onClick={() => handleAddToCalendar(event, "outlook")}
                       >
                         <Calendar className="mr-2 h-4 w-4" />
                         Outlook Calendar
                       </DropdownMenuItem>
-                      <DropdownMenuItem 
+                      <DropdownMenuItem
                         className="text-white hover:bg-red-900/30 focus:bg-red-900/30 cursor-pointer"
-                        onClick={() => handleAddToCalendar(event, 'yahoo')}
+                        onClick={() => handleAddToCalendar(event, "yahoo")}
                       >
                         <Calendar className="mr-2 h-4 w-4" />
                         Yahoo Calendar
                       </DropdownMenuItem>
-
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </div>
               </motion.div>
             ))}
           </motion.div>
-          
+
           {/* Promo Media Gallery */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <h2 className="text-4xl font-bold luxury-accent mb-12 text-center tracking-wide animate-glow">Promotional Media</h2>
+            <h2 className="text-4xl font-bold luxury-accent mb-12 text-center tracking-wide animate-glow">
+              Promotional Media
+            </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {promoImages.map((image, index) => (
                 <motion.div
@@ -326,12 +412,12 @@ export default function Appearances() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   whileHover={{ scale: 1.1, y: -10 }}
                   className="luxury-card p-4 cursor-pointer group"
-                  style={{ 
-                    boxShadow: '0 10px 30px rgba(220, 38, 38, 0.2)' 
+                  style={{
+                    boxShadow: "0 10px 30px rgba(220, 38, 38, 0.2)",
                   }}
                 >
-                  <img 
-                    src={image} 
+                  <img
+                    src={image}
                     alt={`Promotional poster ${index + 1}`}
                     className="w-full h-80 object-cover rounded-xl border border-crimson group-hover:border-luxury-accent transition-all duration-300"
                   />
@@ -342,17 +428,22 @@ export default function Appearances() {
           </motion.div>
 
           {/* Speakeasy Set List */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
             className="text-center mt-20"
           >
             <h2 className="text-5xl font-bold luxury-accent mb-8 tracking-wide animate-glow">
-              <AnimatedText text="Speakeasy Set List" className="brand-font text-6xl sm:text-8xl" delay={1.0} />
+              <AnimatedText
+                text="Speakeasy Set List"
+                className="brand-font text-6xl sm:text-8xl"
+                delay={1.0}
+              />
             </h2>
             <p className="text-smoke text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
-              Explore the full list of requestable songs from my exclusive speakeasy performance set list
+              Explore the full list of requestable songs from my exclusive
+              speakeasy performance set list
             </p>
             <SetListModal />
           </motion.div>
