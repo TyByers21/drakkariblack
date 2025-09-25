@@ -45,9 +45,7 @@ import drakBridge from "@/images/drakBridge.jpg";
 
 const promoImages = [
   tySmooth,
-  drakBridge,
-  drak4Image,
-  cyberTy,
+
   drakSexy,
   drakCigar,
   drakChillin,
