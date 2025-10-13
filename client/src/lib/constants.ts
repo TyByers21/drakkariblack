@@ -49,8 +49,17 @@ export const SOCIAL_LINKS = [
 
 export const UPCOMING_EVENTS = [
   {
-    month: "September",
-    day: "27",
+    month: "October",
+    day: "15",
+    year: "2025",
+    venue: "Craftails Speakeasy",
+    location: "Bradenton, FL",
+    time: "7:30 PM",
+    priceRange: "FREE",
+  },
+  {
+    month: "October",
+    day: "18",
     year: "2025",
     venue: "Craftails Speakeasy",
     location: "Bradenton, FL",
@@ -59,20 +68,11 @@ export const UPCOMING_EVENTS = [
   },
   {
     month: "October",
-    day: "01",
+    day: "22",
     year: "2025",
     venue: "Craftails Speakeasy",
     location: "Bradenton, FL",
-    time: "7:00 PM",
-    priceRange: "FREE",
-  },
-  {
-    month: "October",
-    day: "08",
-    year: "2025",
-    venue: "Craftails Speakeasy",
-    location: "Bradenton, FL",
-    time: "7:00 PM",
+    time: "7:30 PM",
     priceRange: "FREE",
   },
 ];
