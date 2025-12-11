@@ -199,22 +199,22 @@ export default function Hero() {
               transition={{ delay: 0.9 }}
               className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-12 w-full"
             >
-              <Link href="/listening" className="flex-1">
-                <button className="glass-button bg-gradient-primary flex items-center justify-center text-base sm:text-lg py-3 sm:py-4 px-6 sm:px-8 group w-full rounded-xl">
+              <Link href="/listening" className="flex-1 min-w-0">
+                <button className="glass-button bg-gradient-primary flex items-center justify-center text-base sm:text-lg py-3 sm:py-4 px-6 sm:px-8 group w-full rounded-xl whitespace-nowrap min-h-[52px] sm:min-h-[60px]">
                   <Play
-                    className="mr-2 sm:mr-3 group-hover:scale-110 transition-transform"
+                    className="mr-2 sm:mr-3 group-hover:scale-110 transition-transform flex-shrink-0"
                     size={18}
                   />
-                  Play Latest
+                  <span>Play Latest</span>
                 </button>
               </Link>
-              <Link href="/appearances" className="flex-1 ">
-                <button className="glass-button animate-glow bg-gradient-primary flex items-center justify-center text-base sm:text-lg py-3 sm:py-4 px-6 sm:px-8 group w-full rounded-xl">
+              <Link href="/appearances" className="flex-1 min-w-0">
+                <button className="glass-button animate-glow bg-gradient-primary flex items-center justify-center text-base sm:text-lg py-3 sm:py-4 px-6 sm:px-8 group w-full rounded-xl whitespace-nowrap min-h-[52px] sm:min-h-[60px]">
                   <Calendar
-                    className="mr-2 sm:mr-3 group-hover:scale-110 transition-transform"
+                    className="mr-2 sm:mr-3 group-hover:scale-110 transition-transform flex-shrink-0"
                     size={18}
                   />
-                  View Shows
+                  <span>View Shows</span>
                 </button>
               </Link>
             </motion.div>
