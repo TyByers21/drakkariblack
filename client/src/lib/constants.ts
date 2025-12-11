@@ -49,17 +49,8 @@ export const SOCIAL_LINKS = [
 
 export const UPCOMING_EVENTS = [
   {
-    month: "November",
-    day: "26",
-    year: "2025",
-    venue: "Craftails Speakeasy",
-    location: "Bradenton, FL",
-    time: "7:30 PM",
-    priceRange: "FREE",
-  },
-  {
-    month: "November",
-    day: "29",
+    month: "December",
+    day: "13",
     year: "2025",
     venue: "Craftails Speakeasy",
     location: "Bradenton, FL",
@@ -68,11 +59,20 @@ export const UPCOMING_EVENTS = [
   },
   {
     month: "December",
-    day: "03",
+    day: "17",
     year: "2025",
     venue: "Craftails Speakeasy",
     location: "Bradenton, FL",
-    time: "7:30 PM",
+    time: "7:00 PM",
+    priceRange: "FREE",
+  },
+  {
+    month: "January",
+    day: "02",
+    year: "2026",
+    venue: "Craftails Speakeasy",
+    location: "Bradenton, FL",
+    time: "8:00 PM",
     priceRange: "FREE",
   },
 ];
@@ -373,6 +373,14 @@ export const SPEAKEASY_SETLIST = [
     genre: "Soul",
     spotifyId: "3U4isOIWM3VvDubwSI28yq",
     image: "https://i.scdn.co/image/ab67616d0000b273d93ad4c4b8b5b3a2c9f81739",
+  },
+  {
+    artist: "John Legend",
+    title: "Tonight",
+    album: "",
+    genre: "Soul",
+    spotifyId: "",
+    image: "",
   },
   {
     artist: "John Legend",
