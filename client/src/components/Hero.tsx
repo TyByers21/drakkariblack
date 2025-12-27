@@ -3,7 +3,7 @@ import AnimatedText from "@/components/AnimatedText";
 import { Play, Calendar, Volume2, Headphones, Instagram, Twitter, Youtube, Music, Heart, DollarSign } from "lucide-react";
 import { SiTiktok } from "react-icons/si";
 import { SOCIAL_LINKS } from "@/lib/constants";
-import artistImage from "@assets/Ty SmooveNoTats_1750523642870.png";
+import artistImage from "@assets/Drak_stoic_1766878562410.png";
 import { Link } from "wouter";
 import cashappQR from "@/images/cashapp-qr.png";
 import zelleQR from "@/images/zelle-qr.png";
