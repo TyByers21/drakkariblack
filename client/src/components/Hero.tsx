@@ -277,7 +277,7 @@ export default function Hero() {
             <img
               src={artistImage}
               alt="Drakkari Black"
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-cover object-top lg:object-center"
             />
             {/* Gradient fade from left to right - starts at 0% opacity on left, reaches 100% on right */}
             <div
