@@ -267,12 +267,12 @@ export default function Hero() {
         </div>
 
         {/* Right Side - Visual */}
-        <div className="relative overflow-hidden min-h-[40vh] lg:min-h-full order-first lg:order-last">
+        <div className="relative overflow-hidden h-[35vh] lg:min-h-full lg:h-auto order-first lg:order-last">
           <motion.div
             initial={{ scale: 1.1, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1.2 }}
-            className="h-full min-h-[40vh] lg:min-h-full relative"
+            className="h-full lg:min-h-full relative"
           >
             <img
               src={artistImage}
