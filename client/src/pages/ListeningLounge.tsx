@@ -321,16 +321,15 @@ export default function ListeningLounge() {
             className="mb-16"
           >
             <h2 
-              className="text-3xl md:text-4xl font-bold text-center mb-4"
+              className="text-3xl md:text-4xl font-bold text-center mb-4 text-cyan-400"
               style={{ 
                 fontFamily: "'Syncopate', sans-serif",
-                color: '#dc2626',
-                textShadow: "0 0 20px rgba(220, 38, 38, 0.4)"
+                textShadow: "0 0 20px rgba(6, 182, 212, 0.5)"
               }}
             >
               Video Collection
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-crimson to-transparent mx-auto mb-12" />
+            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent mx-auto mb-12" />
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {videos.map((video, index) => (
@@ -339,7 +338,7 @@ export default function ListeningLounge() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="glass-card p-6 group cursor-pointer rounded-2xl border border-white/10 hover:border-crimson/50 transition-all duration-300"
+                  className="glass-card p-6 group cursor-pointer rounded-2xl border border-white/10 hover:border-cyan-500/50 transition-all duration-300"
                   whileHover={{ y: -8 }}
                   onClick={() => openVideo(video)}
                 >
@@ -350,13 +349,13 @@ export default function ListeningLounge() {
                       className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" 
                     />
                     <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <Play size={32} className="text-crimson" />
+                      <Play size={32} className="text-cyan-400" style={{ filter: "drop-shadow(0 0 10px rgba(6, 182, 212, 0.6))" }} />
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-crimson transition-colors duration-300">{video.title}</h3>
+                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors duration-300">{video.title}</h3>
                     <p className="text-smoke text-sm mb-4 leading-relaxed">{video.description}</p>
-                    <button className="text-crimson hover:text-white transition-all duration-300 flex items-center font-semibold text-sm uppercase tracking-wider">
+                    <button className="text-cyan-400 hover:text-white transition-all duration-300 flex items-center font-semibold text-sm uppercase tracking-wider" style={{ textShadow: "0 0 10px rgba(6, 182, 212, 0.5)" }}>
                       <Play size={16} className="mr-2" />
                       Watch Now
                     </button>
@@ -374,16 +373,15 @@ export default function ListeningLounge() {
             className="text-center"
           >
             <h2 
-              className="text-3xl md:text-4xl font-bold mb-4"
+              className="text-3xl md:text-4xl font-bold mb-4 text-cyan-400"
               style={{ 
                 fontFamily: "'Syncopate', sans-serif",
-                color: '#dc2626',
-                textShadow: "0 0 20px rgba(220, 38, 38, 0.4)"
+                textShadow: "0 0 20px rgba(6, 182, 212, 0.5)"
               }}
             >
               Stream Everywhere
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-crimson to-transparent mx-auto mb-12" />
+            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent mx-auto mb-12" />
             
             <div className="flex flex-wrap justify-center gap-6">
               {STREAMING_PLATFORMS.map((platform, index) => (
@@ -392,10 +390,10 @@ export default function ListeningLounge() {
                   href={platform.url}
                   whileHover={{ scale: 1.05, y: -5 }}
                   whileTap={{ scale: 0.95 }}
-                  className="glass-card px-8 py-4 text-white font-bold transition-all duration-300 flex items-center text-base uppercase tracking-wider group rounded-xl border border-white/10 hover:border-crimson/50"
+                  className="glass-card px-8 py-4 text-white font-bold transition-all duration-300 flex items-center text-base uppercase tracking-wider group rounded-xl border border-white/10 hover:border-cyan-500/50"
                 >
-                  <i className={`${platform.icon} text-2xl mr-3 group-hover:text-crimson transition-colors duration-300`}></i>
-                  <span className="group-hover:text-crimson transition-colors duration-300">{platform.name}</span>
+                  <i className={`${platform.icon} text-2xl mr-3 group-hover:text-cyan-400 transition-colors duration-300`}></i>
+                  <span className="group-hover:text-cyan-400 transition-colors duration-300">{platform.name}</span>
                 </motion.a>
               ))}
             </div>
