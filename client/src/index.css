@@ -32,7 +32,7 @@
   --dark-red: hsl(0, 60%, 12%);
   --crimson: hsl(0, 75%, 35%);
   --blood-red: hsl(0, 85%, 45%);
-  --luxury-gold: hsl(45, 95%, 60%);
+  --luxury-gold: hsl(187, 96%, 42%);
   --pearl-white: hsl(0, 0%, 98%);
   --smoke-gray: hsl(0, 0%, 65%);
   --shadow-red: hsl(0, 40%, 8%);
@@ -143,7 +143,7 @@
   
   .luxury-accent {
     color: var(--luxury-gold);
-    text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    text-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
   }
   
   .crimson-accent {
@@ -272,13 +272,13 @@
     color: var(--luxury-gold);
     text-transform: uppercase;
     letter-spacing: 1px;
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
   }
   
   .btn-secondary:hover {
     background: var(--luxury-gold);
     color: var(--deep-black);
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.5);
     transform: translateY(-2px) scale(1.05);
   }
 
@@ -294,7 +294,7 @@
   .btn-outline:hover {
     border-color: var(--luxury-gold);
     color: var(--luxury-gold);
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
     transform: translateY(-2px) scale(1.05);
   }
   
