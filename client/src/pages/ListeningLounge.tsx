@@ -7,6 +7,7 @@ import drak2Image from "@/images/drak2.jpg";
 import bb1Image from "@/images/bb1.jpg";
 import bgTexture from "@assets/generated_images/dark_industrial_texture_background.png";
 import featuredVideoFile from "@assets/My_Prayer_-v1_(1)_1768185489542.mp4";
+import myPrayerCover from "@assets/My_Prayer_-_single_cover_1768193900728.png";
 
 const Countdown = () => {
   const targetDate = new Date('2026-01-21T00:00:00').getTime();
@@ -282,7 +283,7 @@ export default function ListeningLounge() {
                 <video 
                   controls
                   className="w-full h-full object-cover"
-                  poster={drak2Image}
+                  poster={myPrayerCover}
                 >
                   <source src={featuredVideoFile} type="video/mp4" />
                   Your browser does not support the video tag.
