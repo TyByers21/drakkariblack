@@ -1,317 +1,225 @@
 import { motion } from "framer-motion";
-import AnimatedText from "@/components/AnimatedText";
-import { Play, Calendar, Volume2, Headphones, Instagram, Twitter, Youtube, Music, Heart, DollarSign } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
+import { Play, Calendar, Instagram, Twitter, Youtube, Heart, DollarSign, ArrowRight, Disc, Ticket, Shirt } from "lucide-react";
 import { SiTiktok } from "react-icons/si";
-import { SOCIAL_LINKS } from "@/lib/constants";
-import artistImage from "@assets/Drak_stoic_1766878562410.png";
 import { Link } from "wouter";
+import bgTexture from "@assets/generated_images/dark_industrial_texture_background.png";
 import cashappQR from "@/images/cashapp-qr.png";
 import zelleQR from "@/images/zelle-qr.png";
 
+const ScrambleChar = ({ char, stopDelay }: { char: string, stopDelay: number }) => {
+  const [displayChar, setDisplayChar] = useState(char);
+  const [isDone, setIsDone] = useState(false);
+  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$#@%&";
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  
+  useEffect(() => {
+    let currentDelay = 50;
+    let elapsedTime = 0;
+    const totalDuration = stopDelay * 1000;
+    
+    const cycle = () => {
+      const progress = elapsedTime / totalDuration;
+      
+      if (elapsedTime >= totalDuration) {
+        setDisplayChar(char);
+        setIsDone(true);
+        return;
+      }
+
+      setDisplayChar(chars[Math.floor(Math.random() * chars.length)]);
+      currentDelay = 50 + (Math.pow(progress, 3) * 400); 
+      elapsedTime += currentDelay;
+      timeoutRef.current = setTimeout(cycle, currentDelay);
+    };
+
+    cycle();
+
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, [char, stopDelay]);
+
+  return (
+    <span className="relative inline-block" style={{ width: '0.8em', textAlign: 'center' }}>
+      <span className={`relative z-10 transition-colors duration-300 ${isDone ? 'text-white' : 'text-white/50'}`}>
+        {displayChar}
+      </span>
+      <motion.span 
+        initial={{ opacity: 0 }}
+        animate={isDone ? { opacity: [0.2, 0.6, 0.2] } : { opacity: 0 }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute inset-0 z-0 blur-xl scale-150 text-crimson select-none pointer-events-none flex items-center justify-center"
+        style={{ textShadow: `0 0 30px currentColor` }}
+      >
+        {char}
+      </motion.span>
+    </span>
+  );
+};
+
+function InteractiveLink({ icon, text, href }: { icon: React.ReactNode, text: string, href: string }) {
+  return (
+    <Link href={href} className="group flex items-center gap-3 relative px-4 py-2 overflow-hidden">
+      <span className="absolute inset-0 bg-crimson/20 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
+      <span className="relative z-10 flex items-center gap-2 font-mono tracking-widest text-sm text-white group-hover:text-luxury-accent transition-colors duration-300">
+        {icon}
+        {text}
+      </span>
+      <ArrowRight className="w-3 h-3 text-white/50 group-hover:text-luxury-accent group-hover:translate-x-1 transition-all duration-300 relative z-10" />
+    </Link>
+  );
+}
+
 export default function Hero() {
   return (
-    <div className="min-h-screen bg-deep-black relative overflow-hidden">
-      {/* Animated Electric Background */}
-      <div className="absolute inset-0 z-0">
-        {/* Electric Grid Pattern - More Visible */}
-        <div className="absolute inset-0 opacity-30">
-          <svg width="100%" height="100%" className="absolute inset-0">
-            <defs>
-              <pattern
-                id="grid"
-                width="60"
-                height="60"
-                patternUnits="userSpaceOnUse"
-              >
-                <path
-                  d="M 60 0 L 0 0 0 60"
-                  fill="none"
-                  stroke="#dc2626"
-                  strokeWidth=".5"
-                  opacity="0.4"
-                />
-              </pattern>
-              <linearGradient id="gridGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop
-                  offset="0%"
-                  style={{ stopColor: "#dc2626", stopOpacity: 0.6 }}
-                />
-                <stop
-                  offset="50%"
-                  style={{ stopColor: "#ffd700", stopOpacity: 0.8 }}
-                />
-                <stop
-                  offset="100%"
-                  style={{ stopColor: "#dc2626", stopOpacity: 0.6 }}
-                />
-              </linearGradient>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#grid)" />
-            <rect
-              width="100%"
-              height="100%"
-              fill="url(#gridGrad)"
-              opacity="0.1"
-            />
-          </svg>
+    <div className="bg-deep-black">
+      {/* Album Promo Hero Section */}
+      <div className="relative w-full min-h-screen text-white overflow-hidden font-mono selection:bg-crimson selection:text-black">
+        {/* Background Texture with Overlay */}
+        <div 
+          className="absolute inset-0 z-0 opacity-40 pointer-events-none mix-blend-overlay"
+          style={{
+            backgroundImage: `url(${bgTexture})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/80 via-black/50 to-black/90 pointer-events-none" />
+
+        {/* Grid / HUD Overlay */}
+        <div className="absolute inset-0 z-0 pointer-events-none p-4 md:p-8 border border-white/5 m-2 md:m-4">
+          <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-crimson/30" />
+          <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-crimson/30" />
+          <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-crimson/30" />
+          <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-crimson/30" />
+          
+          <div className="absolute top-1/2 left-0 w-8 h-[1px] bg-crimson/20" />
+          <div className="absolute top-1/2 right-0 w-8 h-[1px] bg-crimson/20" />
+          <div className="absolute left-1/2 bottom-0 w-[1px] h-16 bg-crimson/20" />
         </div>
 
-        {/* Visible Floating Particles */}
-        {[...Array(25)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full"
-            style={{
-              width: "3px",
-              height: "3px",
-              background: "#ffd700",
-              boxShadow: "0 0 6px #ffd700",
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              x: [0, Math.random() * 20 - 10, 0],
-              opacity: [0.3, 1, 0.3],
-              scale: [1, 1.8, 1],
-            }}
-            transition={{
-              duration: 4 + Math.random() * 3,
-              repeat: Infinity,
-              delay: Math.random() * 3,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
-
-        {/* Electric Lines - More Visible */}
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={`line-${i}`}
-            className="absolute h-0.5"
-            style={{
-              left: "0%",
-              right: "0%",
-              top: `${15 + i * 15}%`,
-              background:
-                "linear-gradient(90deg, transparent 0%, #dc2626 10%, transparent 50%)",
-              boxShadow: "0 0 4px #dc2626",
-            }}
-            animate={{
-              scaleX: [0, 0.9, 0],
-              opacity: [0, 0.3, 0],
-            }}
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-              delay: i * 1.4,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
-
-        {/* Pulsating Orbs */}
-        <motion.div
-          className="absolute w-32 h-32 rounded-full"
-          style={{
-            top: "20%",
-            left: "10%",
-            background:
-              "radial-gradient(circle, rgba(220, 38, 38, 0.3) 0%, transparent 70%)",
-          }}
-          animate={{
-            scale: [1, 1.5, 1],
-            opacity: [0.3, 0.6, 0.3],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-
-        <motion.div
-          className="absolute w-40 h-40 rounded-full"
-          style={{
-            bottom: "30%",
-            right: "15%",
-            background:
-              "radial-gradient(circle, rgba(255, 215, 0, 0.25) 0%, transparent 70%)",
-          }}
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.2, 0.5, 0.2],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            delay: 2,
-            ease: "easeInOut",
-          }}
-        />
-      </div>
-
-      {/* Main Hero Section - Split Layout */}
-      <section className="grid grid-cols-1 lg:grid-cols-2 min-h-screen relative z-10">
-        {/* Left Side - Content */}
-        <div className="flex flex-col bg-black bg-opacity-80 justify-center items-center px-6 sm:px-8 lg:px-16 py-16 text-center">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-lg mx-auto"
+        {/* Main Content */}
+        <main className="relative z-10 flex flex-col items-center justify-center min-h-screen p-6">
+          
+          {/* Version / Data Tags */}
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.5, delay: 0.5 }} 
+            className="absolute top-20 md:top-24 left-8 md:left-12 text-[10px] md:text-xs text-smoke tracking-widest font-mono"
           >
-            {/* Small Label */}
-            <motion.span
+            SYS.VER.1.0 // <span className="text-crimson">ONLINE</span>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.5, delay: 0.7 }}
+            className="absolute top-20 md:top-24 right-8 md:right-12 text-[10px] md:text-xs text-smoke tracking-widest font-mono text-right"
+          >
+            MIAMI, FL <br className="md:hidden" /> 25.7617° N
+          </motion.div>
+
+          {/* Center Title Layout */}
+          <div className="flex flex-col items-center justify-center text-center space-y-2 md:space-y-6 max-w-7xl mx-auto">
+            
+            <motion.div 
+              initial={{ scale: 0.5, opacity: 0, filter: "blur(10px)" }}
+              animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
+              transition={{ duration: 4.5, ease: [0.22, 1, 0.36, 1] }}
+              className="text-[15vw] leading-[0.8] font-bold tracking-tighter cursor-default flex items-center justify-center gap-2 md:gap-4"
+            >
+              <ScrambleChar char="D" stopDelay={2.0} />
+              <span className="text-white/20 inline-block w-[0.2em] text-center">.</span>
+              <ScrambleChar char="B" stopDelay={3.0} />
+              <span className="text-white/20 inline-block w-[0.2em] text-center">.</span>
+              <ScrambleChar char="X" stopDelay={4.0} />
+              <span className="text-white/20 inline-block w-[0.2em] text-center">.</span>
+            </motion.div>
+
+            <div className="relative overflow-hidden mt-8">
+              <motion.div 
+                initial={{ x: "-100%" }}
+                animate={{ x: "0%" }}
+                transition={{ duration: 2, delay: 4.5, ease: "circOut" }}
+                className="absolute inset-0 bg-crimson/20 mix-blend-overlay z-20 pointer-events-none"
+                style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)" }}
+              />
+              <motion.h2 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 2, delay: 4.8 }}
+                className="text-sm md:text-xl lg:text-3xl uppercase tracking-[0.3em] md:tracking-[0.8em] text-white/90 border-t border-b border-white/10 py-4 px-2 md:px-12 backdrop-blur-sm"
+              >
+                The Drakkari Black Xperiment
+              </motion.h2>
+            </div>
+            
+            <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="text-luxury-accent text-xs sm:text-sm font-medium tracking-widest uppercase mb-4 block text-center"
+              transition={{ duration: 2, delay: 5.5 }}
+              className="max-w-4xl text-center mt-8 leading-relaxed pb-8"
             >
-              Artist • Performer • Visionary
-            </motion.span>
-
-            {/* Main Title - Single Line */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-6 leading-none whitespace-nowrap">
-              <span className="brand-font luxury-accent animate-glow">
-                <AnimatedText
-                  text="Drakkari Black"
-                  className="inline"
-                  delay={0.3}
-                />
+              <span className="text-xs md:text-sm text-smoke font-mono">
+                <span className="text-crimson text-4xl md:text-6xl font-bold tracking-widest mt-2 block">VOL. 1 RELEASING 1/21/2026</span>
               </span>
-            </h1>
-
-            {/* Subtitle */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
-              className="text-base sm:text-lg lg:text-xl text-smoke mb-8 leading-relaxed"
-            >
-              Enter the realm of The Storyteller ...
-            </motion.p>
-
-            {/* Action Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.9 }}
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-12 w-full"
-            >
-              <Link href="/listening" className="flex-1 min-w-0">
-                <button className="glass-button bg-gradient-primary flex items-center justify-center text-base sm:text-lg py-3 sm:py-4 px-6 sm:px-8 group w-full rounded-xl whitespace-nowrap min-h-[52px] sm:min-h-[60px]">
-                  <Play
-                    className="mr-2 sm:mr-3 group-hover:scale-110 transition-transform flex-shrink-0"
-                    size={18}
-                  />
-                  <span>Play Latest</span>
-                </button>
-              </Link>
-              <Link href="/appearances" className="flex-1 min-w-0">
-                <button className="glass-button animate-glow bg-gradient-primary flex items-center justify-center text-base sm:text-lg py-3 sm:py-4 px-6 sm:px-8 group w-full rounded-xl whitespace-nowrap min-h-[52px] sm:min-h-[60px]">
-                  <Calendar
-                    className="mr-2 sm:mr-3 group-hover:scale-110 transition-transform flex-shrink-0"
-                    size={18}
-                  />
-                  <span>View Shows</span>
-                </button>
-              </Link>
+              <span 
+                className="text-luxury-accent hover:text-white transition-colors mt-8 block tracking-[0.3em] text-2xl md:text-4xl brand-font"
+                style={{ textShadow: "0 0 10px rgba(220, 38, 38, 0.5)" }}
+              >
+                Drakkari Black
+              </span>
             </motion.div>
 
-            {/* Social Links */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.1 }}
-              className="flex space-x-4 sm:space-x-6 justify-center"
+               initial={{ opacity: 0, y: 20 }}
+               animate={{ opacity: 1, y: 0 }}
+               transition={{ duration: 1.5, delay: 6.0 }}
+               className="pt-12 flex flex-col md:flex-row gap-6 md:gap-12 items-center"
             >
-              <motion.a
-                href="https://www.tiktok.com/@drakkariblack?is_from_webapp=1&sender_device=pc"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ y: -3, scale: 1.1 }}
-                className="text-smoke hover:text-luxury-accent transition-colors duration-300"
-              >
-                <SiTiktok size={24} />
-              </motion.a>
-              <motion.a
-                href="https://www.instagram.com/drakkariblack"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ y: -3, scale: 1.1 }}
-                className="text-smoke hover:text-luxury-accent transition-colors duration-300"
-              >
-                <Instagram size={24} />
-              </motion.a>
-              <motion.a
-                href="https://x.com/drakkariblack"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ y: -3, scale: 1.1 }}
-                className="text-smoke hover:text-luxury-accent transition-colors duration-300"
-              >
-                <Twitter size={24} />
-              </motion.a>
-              <motion.a
-                href="https://www.youtube.com/@drakkariblacktv"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ y: -3, scale: 1.1 }}
-                className="text-smoke hover:text-luxury-accent transition-colors duration-300"
-              >
-                <Youtube size={24} />
-              </motion.a>
-            </motion.div>
-          </motion.div>
-        </div>
-
-        {/* Right Side - Visual */}
-        <div className="relative overflow-hidden h-[50vh] lg:min-h-full lg:h-auto order-first lg:order-last">
-          <motion.div
-            initial={{ scale: 1.1, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1.2 }}
-            className="h-full lg:min-h-full relative"
-          >
-            <img
-              src={artistImage}
-              alt="Drakkari Black"
-              className="w-full h-full object-cover object-top lg:object-center"
-            />
-            {/* Gradient fade from left to right - starts at 0% opacity on left, reaches 100% on right */}
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.1) 60%, transparent 80%)",
-              }}
-            ></div>
-            {/* Bottom fade for depth */}
-            <div className="absolute inset-0 bg-gradient-to-t from-deep-black/60 via-transparent to-transparent"></div>
-          </motion.div>
-
-          {/* Floating Music Visualizer */}
-          <div className="absolute top-4 right-4 sm:top-6 sm:right-6 lg:top-8 lg:right-8">
-            <motion.div
-              animate={{
-                boxShadow: [
-                  "0 0 20px rgba(220,38,38,0.3)",
-                  "0 0 40px rgba(220,38,38,0.6)",
-                  "0 0 20px rgba(220,38,38,0.3)",
-                ],
-              }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="bg-deep-black/80 backdrop-blur-sm border border-crimson/30 rounded-full p-4"
-            >
-              <Volume2 className="text-luxury-accent" size={24} />
+               <InteractiveLink icon={<Disc className="w-4 h-4"/>} text="LISTEN" href="/listening" />
+               <div className="w-1 h-1 bg-crimson/20 rounded-full hidden md:block" />
+               <InteractiveLink icon={<Ticket className="w-4 h-4"/>} text="SHOWS" href="/appearances" />
+               <div className="w-1 h-1 bg-crimson/20 rounded-full hidden md:block" />
+               <InteractiveLink icon={<Shirt className="w-4 h-4"/>} text="MERCH" href="/merch" />
             </motion.div>
           </div>
-        </div>
-      </section>
+
+          {/* Play Button Floating */}
+          <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 6.5, duration: 1.5 }}
+              className="absolute bottom-12 right-12 hidden md:block"
+          >
+              <Link href="/listening" className="flex items-center gap-3 group">
+                <span className="font-mono text-xs text-white/50 group-hover:text-luxury-accent transition-colors">PLAY LATEST</span>
+                <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:border-crimson group-hover:bg-crimson/10 transition-all duration-300">
+                    <Play className="w-4 h-4 fill-current text-white group-hover:text-luxury-accent" />
+                </div>
+              </Link>
+          </motion.div>
+
+          {/* Social Links */}
+          <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 6.5, duration: 1.5 }}
+              className="absolute bottom-12 left-12 hidden md:flex gap-6"
+          >
+              <a href="https://www.instagram.com/drakkariblack" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-white/30 hover:text-luxury-accent transition-colors">IG</a>
+              <a href="https://www.youtube.com/@drakkariblacktv" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-white/30 hover:text-luxury-accent transition-colors">YT</a>
+              <a href="https://x.com/drakkariblack" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-white/30 hover:text-luxury-accent transition-colors">X</a>
+              <a href="https://www.tiktok.com/@drakkariblack" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-white/30 hover:text-luxury-accent transition-colors">TT</a>
+          </motion.div>
+
+        </main>
+      </div>
 
       {/* Featured Content Row */}
-      <section className="py-20 px-8 lg:px-16 border-t border-smoke/10 ">
+      <section className="py-20 px-8 lg:px-16 border-t border-smoke/10">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 40 }}

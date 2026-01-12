@@ -1,0 +1,232 @@
+import { motion } from "framer-motion";
+import { useEffect, useState, useRef } from "react";
+import bgTexture from "@assets/generated_images/dark_industrial_abstract_texture_background.png";
+import { ArrowRight, Disc, Ticket, Shirt, Play } from "lucide-react";
+
+const ScrambleChar = ({ char, stopDelay }: { char: string, stopDelay: number }) => {
+  const [displayChar, setDisplayChar] = useState(char); // Start with target to get width? No, start random.
+  const [isDone, setIsDone] = useState(false);
+  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$#@%&";
+  
+  // Use a ref to control the animation loop
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  
+  useEffect(() => {
+    // Start immediately
+    let currentDelay = 50; // Initial speed (fast)
+    let elapsedTime = 0;
+    const totalDuration = stopDelay * 1000; // Convert to ms
+    
+    const cycle = () => {
+      // Calculate progress (0 to 1)
+      const progress = elapsedTime / totalDuration;
+      
+      // If we're done
+      if (elapsedTime >= totalDuration) {
+        setDisplayChar(char);
+        setIsDone(true);
+        return;
+      }
+
+      // Pick random char
+      setDisplayChar(chars[Math.floor(Math.random() * chars.length)]);
+
+      // Exponential ease-out for delay (slow down at the end)
+      // As progress goes 0 -> 1, delay goes 50 -> ~300
+      currentDelay = 50 + (Math.pow(progress, 3) * 400); 
+      
+      elapsedTime += currentDelay;
+      timeoutRef.current = setTimeout(cycle, currentDelay);
+    };
+
+    cycle();
+
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, [char, stopDelay]);
+
+  return (
+    <span className="relative inline-block" style={{ width: '0.8em', textAlign: 'center' }}>
+      <span className={`relative z-10 transition-colors duration-300 ${isDone ? 'text-white' : 'text-white/50'}`}>
+        {displayChar}
+      </span>
+      {/* Pulsating Glow Behind - Only appears when done */}
+      <motion.span 
+        initial={{ opacity: 0 }}
+        animate={isDone ? { opacity: [0.2, 0.6, 0.2] } : { opacity: 0 }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute inset-0 z-0 blur-xl scale-150 text-cyan-500 select-none pointer-events-none flex items-center justify-center"
+        style={{ 
+          textShadow: `0 0 30px currentColor`,
+        }}
+      >
+        {char}
+      </motion.span>
+    </span>
+  );
+};
+
+export default function Home() {
+  return (
+    <div className="relative w-full min-h-screen bg-background text-foreground overflow-hidden font-mono selection:bg-cyan-500 selection:text-black">
+      {/* Background Texture with Overlay */}
+      <div 
+        className="absolute inset-0 z-0 opacity-40 pointer-events-none mix-blend-overlay"
+        style={{
+          backgroundImage: `url(${bgTexture})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      />
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/80 via-black/50 to-black/90 pointer-events-none" />
+
+      {/* Grid / HUD Overlay */}
+      <div className="absolute inset-0 z-0 pointer-events-none p-4 md:p-8 border border-white/5 m-2 md:m-4">
+        <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-white/30" />
+        <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-white/30" />
+        <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-white/30" />
+        <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-white/30" />
+        
+        {/* Decorative Lines */}
+        <div className="absolute top-1/2 left-0 w-8 h-[1px] bg-white/20" />
+        <div className="absolute top-1/2 right-0 w-8 h-[1px] bg-white/20" />
+        <div className="absolute left-1/2 bottom-0 w-[1px] h-16 bg-white/20" />
+      </div>
+
+      {/* Main Content */}
+      <main className="relative z-10 flex flex-col items-center justify-center min-h-screen p-6">
+        
+        {/* Version / Data Tags */}
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5, delay: 0.5 }} 
+          className="absolute top-8 md:top-12 left-8 md:left-12 text-[10px] md:text-xs text-muted-foreground tracking-widest font-mono"
+        >
+          SYS.VER.3.0.1 // <span className="text-cyan-500">ONLINE</span>
+        </motion.div>
+
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5, delay: 0.7 }}
+          className="absolute top-8 md:top-12 right-8 md:right-12 text-[10px] md:text-xs text-muted-foreground tracking-widest font-mono text-right"
+        >
+          COORDINATES: <br className="md:hidden" /> 45.912° N, 12.011° E
+        </motion.div>
+
+        {/* Center Title Layout */}
+        <div className="flex flex-col items-center justify-center text-center space-y-2 md:space-y-6 max-w-7xl mx-auto">
+          
+          <motion.div 
+            initial={{ scale: 0.5, opacity: 0, filter: "blur(10px)" }}
+            animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
+            transition={{ duration: 4.5, ease: [0.22, 1, 0.36, 1] }} // Updated duration
+            className="text-[15vw] leading-[0.8] font-display font-bold tracking-tighter cursor-default flex items-center justify-center gap-2 md:gap-4"
+          >
+            {/* D - Stops first (approx 2s) */}
+            <ScrambleChar char="D" stopDelay={2.0} />
+            <span className="text-white/20 inline-block w-[0.2em] text-center">.</span>
+            
+            {/* B - Stops second (1s after D) */}
+            <ScrambleChar char="B" stopDelay={3.0} />
+            <span className="text-white/20 inline-block w-[0.2em] text-center">.</span>
+
+            {/* X - Stops last (1s after B) */}
+            <ScrambleChar char="X" stopDelay={4.0} />
+            <span className="text-white/20 inline-block w-[0.2em] text-center">.</span>
+          </motion.div>
+
+          <div className="relative overflow-hidden mt-8">
+            <motion.div 
+              initial={{ x: "-100%" }}
+              animate={{ x: "0%" }}
+              transition={{ duration: 2, delay: 4.5, ease: "circOut" }} // Waits for all letters
+              className="absolute inset-0 bg-cyan-900/20 mix-blend-overlay z-20 pointer-events-none"
+              style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)" }}
+            />
+            <motion.h2 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 2, delay: 4.8 }}
+              className="text-sm md:text-xl lg:text-3xl font-tech uppercase tracking-[0.3em] md:tracking-[0.8em] text-white/90 border-t border-b border-white/10 py-4 px-2 md:px-12 backdrop-blur-sm"
+            >
+              The Drakkari Black Xperiment
+            </motion.h2>
+          </div>
+          
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2, delay: 5.5 }}
+            className="max-w-4xl text-center mt-8 leading-relaxed pb-8"
+          >
+            <span className="text-xs md:text-sm text-muted-foreground font-mono">
+              <span className="text-cyan-500/50 text-4xl md:text-6xl font-bold tracking-widest mt-2 block">VOL. 1 RELEASING 1/21/2026</span> <br/>
+            </span>
+            <a 
+              href="https://www.DrakkariBlack.com" 
+              className="text-white hover:text-cyan-400 transition-colors mt-8 block tracking-[0.3em] font-display text-2xl md:text-4xl"
+              style={{ textShadow: "0 0 10px rgba(6, 182, 212, 0.5)" }}
+            >
+              www.DrakkariBlack.com
+            </a>
+          </motion.p>
+
+          <motion.div
+             initial={{ opacity: 0, y: 20 }}
+             animate={{ opacity: 1, y: 0 }}
+             transition={{ duration: 1.5, delay: 6.0 }}
+             className="pt-12 flex flex-col md:flex-row gap-6 md:gap-12 items-center"
+          >
+             <InteractiveLink icon={<Disc className="w-4 h-4"/>} text="LISTEN" />
+             <div className="w-1 h-1 bg-cyan-500/20 rounded-full hidden md:block" />
+             <InteractiveLink icon={<Ticket className="w-4 h-4"/>} text="TOUR" />
+             <div className="w-1 h-1 bg-cyan-500/20 rounded-full hidden md:block" />
+             <InteractiveLink icon={<Shirt className="w-4 h-4"/>} text="MERCH" />
+          </motion.div>
+        </div>
+
+        {/* Listen Button Floating */}
+        <motion.button
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 6.5, duration: 1.5 }}
+            className="absolute bottom-12 right-12 hidden md:flex items-center gap-3 group"
+        >
+            <span className="font-mono text-xs text-white/50 group-hover:text-cyan-400 transition-colors">PLAY LATEST</span>
+            <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:border-cyan-500 group-hover:bg-cyan-500/10 transition-all duration-300">
+                <Play className="w-4 h-4 fill-current text-white group-hover:text-cyan-400" />
+            </div>
+        </motion.button>
+
+        {/* Social / Contact */}
+        <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 6.5, duration: 1.5 }}
+            className="absolute bottom-12 left-12 hidden md:flex gap-6"
+        >
+            {['IG', 'YT', 'X'].map((social) => (
+                <a key={social} href="#" className="text-xs font-bold text-white/30 hover:text-cyan-400 transition-colors">{social}</a>
+            ))}
+        </motion.div>
+
+      </main>
+    </div>
+  );
+}
+
+function InteractiveLink({ icon, text }: { icon: React.ReactNode, text: string }) {
+  return (
+    <a href="#" className="group flex items-center gap-3 relative px-4 py-2 overflow-hidden">
+      <span className="absolute inset-0 bg-cyan-900/20 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
+      <span className="relative z-10 flex items-center gap-2 font-tech tracking-widest text-sm text-white group-hover:text-cyan-200 transition-colors duration-300">
+        {icon}
+        {text}
+      </span>
+      <ArrowRight className="w-3 h-3 text-white/50 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all duration-300 relative z-10" />
+    </a>
+  );
+}
