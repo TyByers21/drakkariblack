@@ -151,8 +151,8 @@ export default function Hero() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 2, delay: 4.8 }}
-                className="text-sm md:text-xl lg:text-3xl uppercase tracking-[0.3em] md:tracking-[0.5em] text-white/90 border-t border-b border-cyan-500/30 py-4 px-2 md:px-12 backdrop-blur-sm"
-                style={{ fontFamily: "'Chakra Petch', sans-serif" }}
+                className="text-sm md:text-xl lg:text-3xl uppercase tracking-[0.3em] md:tracking-[0.5em] text-white/90 border-t border-b border-cyan-500/30 py-4 px-2 md:px-12 backdrop-blur-sm font-light"
+                style={{ fontFamily: "'Chakra Petch', sans-serif", fontWeight: 300 }}
               >
                 The Drakkari Black Xperiment
               </motion.h2>
