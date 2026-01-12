@@ -16,7 +16,7 @@ import { BOOKING_TYPES } from "@/lib/constants";
 import type { InsertContactSubmission } from "@shared/schema";
 import AnimatedText from "@/components/AnimatedText";
 import cashappQR from "@/images/cashapp-qr.png";
-import zelleQR from "@/images/zelle-qr.png";
+import venmoQR from "@/images/venmo-qr.jpg";
 
 export default function Contact() {
   const { toast } = useToast();
@@ -387,15 +387,15 @@ export default function Contact() {
               <div className="bg-white p-3 rounded-xl mb-4 mx-auto w-fit">
                 <img 
                   src={cashappQR} 
-                  alt="CashApp QR Code - $TyroneByers" 
+                  alt="CashApp QR Code - $DrakkariBlack" 
                   className="w-56 h-56 mx-auto object-contain"
                 />
               </div>
-              <p className="text-smoke text-lg font-medium">$TyroneByers</p>
+              <p className="text-smoke text-lg font-medium">$DrakkariBlack</p>
               <p className="text-smoke opacity-75 text-sm mt-2">Scan with CashApp to send support</p>
             </motion.div>
 
-            {/* Zelle QR */}
+            {/* Venmo QR */}
             <motion.div 
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -405,17 +405,16 @@ export default function Contact() {
               <div className="bg-gradient-accent p-4 rounded-2xl shadow-lg w-fit mx-auto mb-6">
                 <Heart className="text-white" size={32} />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">Zelle</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">Venmo</h3>
               <div className="bg-white p-3 rounded-xl mb-4 mx-auto w-fit">
                 <img 
-                  src={zelleQR} 
-                  alt="Zelle QR Code - Tyrone Byers" 
+                  src={venmoQR} 
+                  alt="Venmo QR Code - @DrakkariBlack" 
                   className="w-56 h-56 mx-auto object-contain"
                 />
               </div>
-              <p className="text-smoke text-lg font-medium">Tyrone Byers</p>
-              <p className="text-smoke opacity-75 text-sm">786-200-4889</p>
-              <p className="text-smoke opacity-75 text-sm mt-2">Scan with your bank app to send via Zelle</p>
+              <p className="text-smoke text-lg font-medium">@DrakkariBlack</p>
+              <p className="text-smoke opacity-75 text-sm mt-2">Scan with Venmo to send support</p>
             </motion.div>
           </div>
 
