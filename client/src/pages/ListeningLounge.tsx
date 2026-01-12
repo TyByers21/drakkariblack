@@ -282,6 +282,8 @@ export default function ListeningLounge() {
               >
                 <video 
                   controls
+                  playsInline
+                  preload="metadata"
                   className="w-full h-full object-cover"
                   poster={myPrayerCover}
                 >
