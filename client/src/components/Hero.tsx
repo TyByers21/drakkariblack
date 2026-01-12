@@ -7,6 +7,57 @@ import bgTexture from "@assets/generated_images/dark_industrial_texture_backgrou
 import cashappQR from "@/images/cashapp-qr.png";
 import zelleQR from "@/images/zelle-qr.png";
 
+const Countdown = () => {
+  const targetDate = new Date('2026-01-21T00:00:00').getTime();
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+
+  useEffect(() => {
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((difference % (1000 * 60)) / 1000)
+        });
+      }
+    };
+
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const TimeUnit = ({ value, label }: { value: number, label: string }) => (
+    <div className="flex flex-col items-center">
+      <span 
+        className="text-4xl md:text-6xl font-bold text-cyan-400"
+        style={{ fontFamily: "'Syncopate', sans-serif", textShadow: "0 0 20px rgba(6, 182, 212, 0.6)" }}
+      >
+        {value.toString().padStart(2, '0')}
+      </span>
+      <span className="text-xs md:text-sm text-white/50 uppercase tracking-widest mt-2" style={{ fontFamily: "'Chakra Petch', sans-serif" }}>
+        {label}
+      </span>
+    </div>
+  );
+
+  return (
+    <div className="flex items-center justify-center gap-4 md:gap-8 mt-8">
+      <TimeUnit value={timeLeft.days} label="Days" />
+      <span className="text-cyan-500/50 text-3xl md:text-5xl font-light">:</span>
+      <TimeUnit value={timeLeft.hours} label="Hours" />
+      <span className="text-cyan-500/50 text-3xl md:text-5xl font-light">:</span>
+      <TimeUnit value={timeLeft.minutes} label="Min" />
+      <span className="text-cyan-500/50 text-3xl md:text-5xl font-light">:</span>
+      <TimeUnit value={timeLeft.seconds} label="Sec" />
+    </div>
+  );
+};
+
 const ScrambleChar = ({ char, stopDelay }: { char: string, stopDelay: number }) => {
   const [displayChar, setDisplayChar] = useState(char);
   const [isDone, setIsDone] = useState(false);
@@ -167,12 +218,7 @@ export default function Hero() {
               <span className="text-cyan-500 text-4xl md:text-6xl font-bold tracking-widest mt-2 block font-mono">
                 VOL. 1 RELEASING 1/21/2026
               </span>
-              <span 
-                className="text-cyan-400 hover:text-white transition-colors mt-8 block tracking-[0.4em] text-xl md:text-3xl uppercase"
-                style={{ fontFamily: "'Syncopate', sans-serif", textShadow: "0 0 20px rgba(6, 182, 212, 0.6)" }}
-              >
-                www.DrakkariBlack.com
-              </span>
+              <Countdown />
             </motion.div>
 
             <motion.div
