@@ -249,10 +249,10 @@ export default function ListeningLounge() {
             </div>
             
             <p 
-              className="text-cyan-500 text-xl md:text-2xl font-bold tracking-widest mb-6"
-              style={{ fontFamily: "'Syncopate', sans-serif" }}
+              className="text-cyan-500 text-lg md:text-2xl tracking-[0.3em] mb-6 uppercase"
+              style={{ fontFamily: "'Chakra Petch', sans-serif", fontWeight: 400, textShadow: "0 0 15px rgba(6, 182, 212, 0.4)" }}
             >
-              VOL. 1 • 1/21/2026
+              VOL. 1 • 01.21.26
             </p>
             
             <Countdown />

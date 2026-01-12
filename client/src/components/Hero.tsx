@@ -215,8 +215,11 @@ export default function Hero() {
               transition={{ duration: 2, delay: 5.5 }}
               className="max-w-4xl text-center mt-8 leading-relaxed pb-8"
             >
-              <span className="text-cyan-500 text-4xl md:text-6xl font-bold tracking-widest mt-2 block font-mono">
-                VOL. 1 RELEASING 1/21/2026
+              <span 
+                className="text-cyan-500 text-2xl md:text-4xl tracking-[0.3em] mt-2 block uppercase"
+                style={{ fontFamily: "'Chakra Petch', sans-serif", fontWeight: 400, textShadow: "0 0 15px rgba(6, 182, 212, 0.4)" }}
+              >
+                VOL. 1 • 01.21.26
               </span>
               <Countdown />
             </motion.div>
