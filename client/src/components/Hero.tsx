@@ -49,7 +49,7 @@ const ScrambleChar = ({ char, stopDelay }: { char: string, stopDelay: number }) 
         initial={{ opacity: 0 }}
         animate={isDone ? { opacity: [0.2, 0.6, 0.2] } : { opacity: 0 }}
         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute inset-0 z-0 blur-xl scale-150 text-crimson select-none pointer-events-none flex items-center justify-center"
+        className="absolute inset-0 z-0 blur-xl scale-150 text-cyan-500 select-none pointer-events-none flex items-center justify-center"
         style={{ textShadow: `0 0 30px currentColor` }}
       >
         {char}
@@ -61,12 +61,12 @@ const ScrambleChar = ({ char, stopDelay }: { char: string, stopDelay: number }) 
 function InteractiveLink({ icon, text, href }: { icon: React.ReactNode, text: string, href: string }) {
   return (
     <Link href={href} className="group flex items-center gap-3 relative px-4 py-2 overflow-hidden">
-      <span className="absolute inset-0 bg-crimson/20 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
-      <span className="relative z-10 flex items-center gap-2 font-mono tracking-widest text-sm text-white group-hover:text-luxury-accent transition-colors duration-300">
+      <span className="absolute inset-0 bg-cyan-900/20 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
+      <span className="relative z-10 flex items-center gap-2 font-mono tracking-widest text-sm text-white group-hover:text-cyan-400 transition-colors duration-300">
         {icon}
         {text}
       </span>
-      <ArrowRight className="w-3 h-3 text-white/50 group-hover:text-luxury-accent group-hover:translate-x-1 transition-all duration-300 relative z-10" />
+      <ArrowRight className="w-3 h-3 text-white/50 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all duration-300 relative z-10" />
     </Link>
   );
 }
@@ -75,7 +75,7 @@ export default function Hero() {
   return (
     <div className="bg-deep-black">
       {/* Album Promo Hero Section */}
-      <div className="relative w-full min-h-screen text-white overflow-hidden font-mono selection:bg-crimson selection:text-black">
+      <div className="relative w-full min-h-screen text-white overflow-hidden font-mono selection:bg-cyan-500 selection:text-black">
         {/* Background Texture with Overlay */}
         <div 
           className="absolute inset-0 z-0 opacity-40 pointer-events-none mix-blend-overlay"
@@ -89,14 +89,14 @@ export default function Hero() {
 
         {/* Grid / HUD Overlay */}
         <div className="absolute inset-0 z-0 pointer-events-none p-4 md:p-8 border border-white/5 m-2 md:m-4">
-          <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-crimson/30" />
-          <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-crimson/30" />
-          <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-crimson/30" />
-          <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-crimson/30" />
+          <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-cyan-500/30" />
+          <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-cyan-500/30" />
+          <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-cyan-500/30" />
+          <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-cyan-500/30" />
           
-          <div className="absolute top-1/2 left-0 w-8 h-[1px] bg-crimson/20" />
-          <div className="absolute top-1/2 right-0 w-8 h-[1px] bg-crimson/20" />
-          <div className="absolute left-1/2 bottom-0 w-[1px] h-16 bg-crimson/20" />
+          <div className="absolute top-1/2 left-0 w-8 h-[1px] bg-cyan-500/20" />
+          <div className="absolute top-1/2 right-0 w-8 h-[1px] bg-cyan-500/20" />
+          <div className="absolute left-1/2 bottom-0 w-[1px] h-16 bg-cyan-500/20" />
         </div>
 
         {/* Main Content */}
@@ -109,7 +109,7 @@ export default function Hero() {
             transition={{ duration: 1.5, delay: 0.5 }} 
             className="absolute top-20 md:top-24 left-8 md:left-12 text-[10px] md:text-xs text-smoke tracking-widest font-mono"
           >
-            SYS.VER.1.0 // <span className="text-crimson">ONLINE</span>
+            SYS.VER.1.0 // <span className="text-cyan-500">ONLINE</span>
           </motion.div>
 
           <motion.div 
@@ -143,14 +143,14 @@ export default function Hero() {
                 initial={{ x: "-100%" }}
                 animate={{ x: "0%" }}
                 transition={{ duration: 2, delay: 4.5, ease: "circOut" }}
-                className="absolute inset-0 bg-crimson/20 mix-blend-overlay z-20 pointer-events-none"
+                className="absolute inset-0 bg-cyan-900/30 z-20 pointer-events-none"
                 style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)" }}
               />
               <motion.h2 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 2, delay: 4.8 }}
-                className="text-sm md:text-xl lg:text-3xl uppercase tracking-[0.3em] md:tracking-[0.8em] text-white/90 border-t border-b border-white/10 py-4 px-2 md:px-12 backdrop-blur-sm"
+                className="text-sm md:text-xl lg:text-3xl uppercase tracking-[0.3em] md:tracking-[0.5em] text-white/90 border-t border-b border-cyan-500/30 py-4 px-2 md:px-12 backdrop-blur-sm"
               >
                 The Drakkari Black Xperiment
               </motion.h2>
@@ -162,14 +162,14 @@ export default function Hero() {
               transition={{ duration: 2, delay: 5.5 }}
               className="max-w-4xl text-center mt-8 leading-relaxed pb-8"
             >
-              <span className="text-xs md:text-sm text-smoke font-mono">
-                <span className="text-crimson text-4xl md:text-6xl font-bold tracking-widest mt-2 block">VOL. 1 RELEASING 1/21/2026</span>
+              <span className="text-cyan-500 text-4xl md:text-6xl font-bold tracking-widest mt-2 block font-mono">
+                VOL. 1 RELEASING 1/21/2026
               </span>
               <span 
-                className="text-luxury-accent hover:text-white transition-colors mt-8 block tracking-[0.3em] text-2xl md:text-4xl brand-font"
-                style={{ textShadow: "0 0 10px rgba(220, 38, 38, 0.5)" }}
+                className="text-cyan-400 hover:text-white transition-colors mt-8 block tracking-[0.3em] text-2xl md:text-4xl"
+                style={{ textShadow: "0 0 10px rgba(6, 182, 212, 0.5)" }}
               >
-                Drakkari Black
+                www.DrakkariBlack.com
               </span>
             </motion.div>
 
@@ -180,9 +180,9 @@ export default function Hero() {
                className="pt-12 flex flex-col md:flex-row gap-6 md:gap-12 items-center"
             >
                <InteractiveLink icon={<Disc className="w-4 h-4"/>} text="LISTEN" href="/listening" />
-               <div className="w-1 h-1 bg-crimson/20 rounded-full hidden md:block" />
-               <InteractiveLink icon={<Ticket className="w-4 h-4"/>} text="SHOWS" href="/appearances" />
-               <div className="w-1 h-1 bg-crimson/20 rounded-full hidden md:block" />
+               <div className="w-1 h-1 bg-cyan-500/20 rounded-full hidden md:block" />
+               <InteractiveLink icon={<Ticket className="w-4 h-4"/>} text="TOUR" href="/appearances" />
+               <div className="w-1 h-1 bg-cyan-500/20 rounded-full hidden md:block" />
                <InteractiveLink icon={<Shirt className="w-4 h-4"/>} text="MERCH" href="/merch" />
             </motion.div>
           </div>
@@ -195,9 +195,9 @@ export default function Hero() {
               className="absolute bottom-12 right-12 hidden md:block"
           >
               <Link href="/listening" className="flex items-center gap-3 group">
-                <span className="font-mono text-xs text-white/50 group-hover:text-luxury-accent transition-colors">PLAY LATEST</span>
-                <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:border-crimson group-hover:bg-crimson/10 transition-all duration-300">
-                    <Play className="w-4 h-4 fill-current text-white group-hover:text-luxury-accent" />
+                <span className="font-mono text-xs text-white/50 group-hover:text-cyan-400 transition-colors">PLAY LATEST</span>
+                <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:border-cyan-500 group-hover:bg-cyan-500/10 transition-all duration-300">
+                    <Play className="w-4 h-4 fill-current text-white group-hover:text-cyan-400" />
                 </div>
               </Link>
           </motion.div>
@@ -209,10 +209,10 @@ export default function Hero() {
               transition={{ delay: 6.5, duration: 1.5 }}
               className="absolute bottom-12 left-12 hidden md:flex gap-6"
           >
-              <a href="https://www.instagram.com/drakkariblack" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-white/30 hover:text-luxury-accent transition-colors">IG</a>
-              <a href="https://www.youtube.com/@drakkariblacktv" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-white/30 hover:text-luxury-accent transition-colors">YT</a>
-              <a href="https://x.com/drakkariblack" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-white/30 hover:text-luxury-accent transition-colors">X</a>
-              <a href="https://www.tiktok.com/@drakkariblack" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-white/30 hover:text-luxury-accent transition-colors">TT</a>
+              <a href="https://www.instagram.com/drakkariblack" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-white/30 hover:text-cyan-400 transition-colors">IG</a>
+              <a href="https://www.youtube.com/@drakkariblacktv" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-white/30 hover:text-cyan-400 transition-colors">YT</a>
+              <a href="https://x.com/drakkariblack" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-white/30 hover:text-cyan-400 transition-colors">X</a>
+              <a href="https://www.tiktok.com/@drakkariblack" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-white/30 hover:text-cyan-400 transition-colors">TT</a>
           </motion.div>
 
         </main>
