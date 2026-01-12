@@ -129,6 +129,7 @@ export default function Hero() {
               animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
               transition={{ duration: 4.5, ease: [0.22, 1, 0.36, 1] }}
               className="text-[15vw] leading-[0.8] font-bold tracking-tighter cursor-default flex items-center justify-center gap-2 md:gap-4"
+              style={{ fontFamily: "'Syncopate', sans-serif" }}
             >
               <ScrambleChar char="D" stopDelay={2.0} />
               <span className="text-white/20 inline-block w-[0.2em] text-center">.</span>
@@ -151,6 +152,7 @@ export default function Hero() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 2, delay: 4.8 }}
                 className="text-sm md:text-xl lg:text-3xl uppercase tracking-[0.3em] md:tracking-[0.5em] text-white/90 border-t border-b border-cyan-500/30 py-4 px-2 md:px-12 backdrop-blur-sm"
+                style={{ fontFamily: "'Chakra Petch', sans-serif" }}
               >
                 The Drakkari Black Xperiment
               </motion.h2>
@@ -166,8 +168,8 @@ export default function Hero() {
                 VOL. 1 RELEASING 1/21/2026
               </span>
               <span 
-                className="text-cyan-400 hover:text-white transition-colors mt-8 block tracking-[0.3em] text-2xl md:text-4xl"
-                style={{ textShadow: "0 0 10px rgba(6, 182, 212, 0.5)" }}
+                className="text-cyan-400 hover:text-white transition-colors mt-8 block tracking-[0.4em] text-xl md:text-3xl uppercase"
+                style={{ fontFamily: "'Syncopate', sans-serif", textShadow: "0 0 20px rgba(6, 182, 212, 0.6)" }}
               >
                 www.DrakkariBlack.com
               </span>
