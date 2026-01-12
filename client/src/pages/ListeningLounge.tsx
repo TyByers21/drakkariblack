@@ -272,7 +272,7 @@ export default function ListeningLounge() {
                 textShadow: "0 0 20px rgba(6, 182, 212, 0.5)"
               }}
             >
-              Featured Preview
+              Video Spotlight
             </h2>
             
             <div className="max-w-4xl mx-auto">
