@@ -84,7 +84,7 @@ export default function SetList() {
           />
           <div className="mb-4"></div>
           
-          <div className="mt-6 pt-4 border-t border-crimson/20">
+          <div className="mt-6 pt-4 border-t border-cyan-500/20">
             <p className="text-xl  m-2 md:text-2xl text-smoke max-w-3xl mx-auto text-smoke">
               An intimate collection of soulful covers and timeless favorites
             </p>
@@ -94,19 +94,19 @@ export default function SetList() {
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <div className="glass-card bg-gradient-primary p-6 text-center">
-            <Music className="h-12 w-12 text-crimson mx-auto mb-4" />
+            <Music className="h-12 w-12 text-cyan-400 mx-auto mb-4" />
             <h3 className="text-4xl font-bold mb-2">
               {enhancedSetlist.length}
             </h3>
             <p className="text-smoke">Total Songs</p>
           </div>
           <div className="glass-card p-6 bg-gradient-primary text-center">
-            <Clock className="h-12 w-12 text-crimson mx-auto mb-4" />
+            <Clock className="h-12 w-12 text-cyan-400 mx-auto mb-4" />
             <h3 className="text-4xl font-bold mb-2">~ 4</h3>
             <p className="text-smoke">Hours of Music</p>
           </div>
           <div className="glass-card bg-gradient-primary p-6 text-center">
-            <User className="h-12 w-12 text-crimson mx-auto mb-4" />
+            <User className="h-12 w-12 text-cyan-400 mx-auto mb-4" />
             <h3 className="text-4xl font-bold mb-2">Various</h3>
             <p className="text-smoke">Legendary Artists</p>
           </div>
@@ -115,7 +115,7 @@ export default function SetList() {
         {/* Setlist */}
         {loading ? (
           <div className="text-center  py-16">
-            <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-crimson mx-auto mb-4"></div>
+            <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-cyan-500 mx-auto mb-4"></div>
             <p className="text-smoke">Loading setlist...</p>
           </div>
         ) : (
@@ -152,15 +152,15 @@ export default function SetList() {
                       />
                     ) : null}
                     <div
-                      className={`w-16 h-16 rounded-lg bg-gradient-to-br from-crimson/20 to-charcoal border border-crimson/20 flex items-center justify-center ${(song.spotifyImage || song.image) ? "hidden" : ""}`}
+                      className={`w-16 h-16 rounded-lg bg-gradient-to-br from-cyan-500/20 to-charcoal border border-cyan-500/20 flex items-center justify-center ${(song.spotifyImage || song.image) ? "hidden" : ""}`}
                     >
-                      <Music className="h-8 w-8 text-crimson/60" />
+                      <Music className="h-8 w-8 text-cyan-400/60" />
                     </div>
                   </div>
 
                   {/* Song Details */}
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-white truncate group-hover:text-crimson transition-colors">
+                    <h3 className="font-semibold text-white truncate group-hover:text-cyan-400 transition-colors">
                       {song.title}
                     </h3>
                     <p className="text-smoke text-sm truncate">{song.artist}</p>
@@ -178,7 +178,7 @@ export default function SetList() {
                     {song.genre || "Various"}
                   </span>
                   {song.spotifyId && (
-                    <span className="text-xs text-crimson/60">
+                    <span className="text-xs text-cyan-400/60">
                       ♪ Spotify Enhanced
                     </span>
                   )}
@@ -215,7 +215,7 @@ export default function SetList() {
 
       {/* Song Detail Modal */}
       <Dialog open={modalOpen} onOpenChange={setModalOpen}>
-        <DialogContent className="glass-card-static border-crimson/20 max-w-2xl">
+        <DialogContent className="glass-card-static border-cyan-500/20 max-w-2xl">
           {selectedSong && (
             <div className="p-6">
               <DialogHeader>
@@ -243,9 +243,9 @@ export default function SetList() {
                     />
                   ) : null}
                   <div
-                    className={`w-48 h-48 rounded-lg bg-gradient-to-br from-crimson/20 to-charcoal border border-crimson/20 flex items-center justify-center ${(selectedSong.spotifyImage || selectedSong.image) ? "hidden" : ""}`}
+                    className={`w-48 h-48 rounded-lg bg-gradient-to-br from-cyan-500/20 to-charcoal border border-cyan-500/20 flex items-center justify-center ${(selectedSong.spotifyImage || selectedSong.image) ? "hidden" : ""}`}
                   >
-                    <Music className="h-24 w-24 text-crimson/60" />
+                    <Music className="h-24 w-24 text-cyan-400/60" />
                   </div>
                 </div>
 
@@ -255,7 +255,7 @@ export default function SetList() {
                     <h3 className="text-3xl font-bold text-white mb-2">
                       {selectedSong.title}
                     </h3>
-                    <p className="text-xl text-crimson mb-1">
+                    <p className="text-xl text-cyan-400 mb-1">
                       by {selectedSong.artist}
                     </p>
                     {selectedSong.album && (
@@ -274,7 +274,7 @@ export default function SetList() {
                     </div>
                     <div className="glass-card p-4">
                       <p className="text-sm text-smoke mb-1">Set List</p>
-                      <p className="text-xl font-semibold text-crimson">
+                      <p className="text-xl font-semibold text-cyan-400">
                         Speakeasy
                       </p>
                     </div>
@@ -282,7 +282,7 @@ export default function SetList() {
 
                   {selectedSong.spotifyId && (
                     <div className="mt-6">
-                      <p className="text-sm text-crimson/80 mb-2 flex items-center gap-2">
+                      <p className="text-sm text-cyan-400/80 mb-2 flex items-center gap-2">
                         <Play className="h-4 w-4" />
                         Enhanced with Spotify data
                       </p>
@@ -294,7 +294,7 @@ export default function SetList() {
                   
                   {!selectedSong.spotifyId && selectedSong.image && (
                     <div className="mt-6">
-                      <p className="text-sm text-crimson/80 mb-2 flex items-center gap-2">
+                      <p className="text-sm text-cyan-400/80 mb-2 flex items-center gap-2">
                         <Music className="h-4 w-4" />
                         Original curated artwork
                       </p>
@@ -304,7 +304,7 @@ export default function SetList() {
                     </div>
                   )}
 
-                  <div className="mt-6 pt-4 border-t border-crimson/20">
+                  <div className="mt-6 pt-4 border-t border-cyan-500/20">
                     <p className="text-sm text-smoke">
                       This song is part of Drakkari Black's carefully curated
                       speakeasy set, featuring intimate acoustic arrangements

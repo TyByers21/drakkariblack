@@ -31,7 +31,7 @@ export const STREAMING_PLATFORMS = [
   {
     name: "YouTube Music",
     icon: "fab fa-youtube",
-    color: "hover:bg-red-600",
+    color: "hover:bg-cyan-600",
     url: "https://www.youtube.com/@drakkariblacktv",
   },
 ];

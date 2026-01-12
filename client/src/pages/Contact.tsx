@@ -154,7 +154,7 @@ export default function Contact() {
                 <ul className="space-y-4 text-smoke">
                   {BOOKING_TYPES.map((type, index) => (
                     <li key={index} className="flex items-center">
-                      <Check className="text-crimson-accent mr-4" size={20} />
+                      <Check className="text-cyan-400 mr-4" size={20} />
                       <span className="text-lg font-medium">{type}</span>
                     </li>
                   ))}
@@ -183,7 +183,7 @@ export default function Contact() {
                           <FormControl>
                             <Input 
                               {...field} 
-                              className="bg-black/90 border-red-900/50 text-white placeholder-gray-400 focus:border-red-500 focus:ring-1 focus:ring-red-500"
+                              className="bg-black/90 border-cyan-900/50 text-white placeholder-gray-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500"
                               placeholder="John"
                             />
                           </FormControl>
@@ -200,7 +200,7 @@ export default function Contact() {
                           <FormControl>
                             <Input 
                               {...field} 
-                              className="bg-black/90 border-red-900/50 text-white placeholder-gray-400 focus:border-red-500 focus:ring-1 focus:ring-red-500"
+                              className="bg-black/90 border-cyan-900/50 text-white placeholder-gray-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500"
                               placeholder="Doe"
                             />
                           </FormControl>
@@ -220,7 +220,7 @@ export default function Contact() {
                           <Input 
                             {...field} 
                             type="email"
-                            className="bg-black/90 border-red-900/50 text-white placeholder-gray-400 focus:border-red-500 focus:ring-1 focus:ring-red-500"
+                            className="bg-black/90 border-cyan-900/50 text-white placeholder-gray-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500"
                             placeholder="john@example.com"
                           />
                         </FormControl>
@@ -240,7 +240,7 @@ export default function Contact() {
                             {...field}
                             value={field.value || ""}
                             type="tel"
-                            className="bg-black/90 border-red-900/50 text-white placeholder-gray-400 focus:border-red-500 focus:ring-1 focus:ring-red-500"
+                            className="bg-black/90 border-cyan-900/50 text-white placeholder-gray-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500"
                             placeholder="+1 (555) 123-4567"
                           />
                         </FormControl>
@@ -257,15 +257,15 @@ export default function Contact() {
                         <FormLabel className="text-gray-300">Event Type</FormLabel>
                         <Select onValueChange={field.onChange} value={field.value || undefined}>
                           <FormControl>
-                            <SelectTrigger className="bg-black/90 border-red-900/50 text-white focus:border-red-500 focus:ring-1 focus:ring-red-500">
+                            <SelectTrigger className="bg-black/90 border-cyan-900/50 text-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500">
                               <SelectValue placeholder="Select event type" />
                             </SelectTrigger>
                           </FormControl>
-                          <SelectContent className="bg-black/95 border-red-900/50 backdrop-blur-sm">
-                            <SelectItem value="concert" className="text-white hover:bg-red-900/50 focus:bg-red-900/50">Concert Venue</SelectItem>
-                            <SelectItem value="festival" className="text-white hover:bg-red-900/50 focus:bg-red-900/50">Music Festival</SelectItem>
-                            <SelectItem value="private" className="text-white hover:bg-red-900/50 focus:bg-red-900/50">Private Event</SelectItem>
-                            <SelectItem value="corporate" className="text-white hover:bg-red-900/50 focus:bg-red-900/50">Corporate Function</SelectItem>
+                          <SelectContent className="bg-black/95 border-cyan-900/50 backdrop-blur-sm">
+                            <SelectItem value="concert" className="text-white hover:bg-cyan-900/50 focus:bg-cyan-900/50">Concert Venue</SelectItem>
+                            <SelectItem value="festival" className="text-white hover:bg-cyan-900/50 focus:bg-cyan-900/50">Music Festival</SelectItem>
+                            <SelectItem value="private" className="text-white hover:bg-cyan-900/50 focus:bg-cyan-900/50">Private Event</SelectItem>
+                            <SelectItem value="corporate" className="text-white hover:bg-cyan-900/50 focus:bg-cyan-900/50">Corporate Function</SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />
@@ -285,7 +285,7 @@ export default function Contact() {
                               {...field}
                               value={field.value || ""}
                               type="date"
-                              className="bg-black/90 border-red-900/50 text-white focus:border-red-500 focus:ring-1 focus:ring-red-500"
+                              className="bg-black/90 border-cyan-900/50 text-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500"
                             />
                           </FormControl>
                           <FormMessage />
@@ -303,7 +303,7 @@ export default function Contact() {
                               {...field}
                               value={field.value ? field.value.toString() : ""}
                               type="number"
-                              className="bg-black/90 border-red-900/50 text-white placeholder-gray-400 focus:border-red-500 focus:ring-1 focus:ring-red-500"
+                              className="bg-black/90 border-cyan-900/50 text-white placeholder-gray-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500"
                               placeholder="1000"
                               onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)}
                             />
@@ -324,7 +324,7 @@ export default function Contact() {
                           <Textarea 
                             {...field} 
                             rows={5}
-                            className="bg-black/90 border-red-900/50 text-white placeholder-gray-400 focus:border-red-500 focus:ring-1 focus:ring-red-500 resize-none"
+                            className="bg-black/90 border-cyan-900/50 text-white placeholder-gray-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 resize-none"
                             placeholder="Tell us about your event, venue, and any specific requirements..."
                           />
                         </FormControl>

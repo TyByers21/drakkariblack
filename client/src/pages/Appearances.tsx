@@ -151,7 +151,7 @@ function ImageGalleryModal() {
             whileHover={{ scale: 1.1, y: -10 }}
             className="luxury-card p-4 cursor-pointer group"
             style={{
-              boxShadow: "0 10px 30px rgba(220, 38, 38, 0.2)",
+              boxShadow: "0 10px 30px rgba(6, 182, 212, 0.2)",
             }}
             onClick={() => openModal(index)}
             data-testid={`promo-image-${index}`}
@@ -159,7 +159,7 @@ function ImageGalleryModal() {
             <img
               src={image}
               alt={`Promotional poster ${index + 1}`}
-              className="w-full h-80 object-cover rounded-xl border border-crimson group-hover:border-luxury-accent transition-all duration-300"
+              className="w-full h-80 object-cover rounded-xl border border-cyan-500 group-hover:border-luxury-accent transition-all duration-300"
             />
             <div className="absolute inset-4 bg-gradient-to-t from-deep-black/60 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </motion.div>
@@ -168,7 +168,7 @@ function ImageGalleryModal() {
 
       {/* Modal Dialog */}
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="max-w-4xl max-h-[90vh] glass-card-static border-crimson p-0 overflow-hidden rounded-2xl">
+        <DialogContent className="max-w-4xl max-h-[90vh] glass-card-static border-cyan-500 p-0 overflow-hidden rounded-2xl">
           <DialogHeader className="sr-only">
             <DialogTitle>Promotional Media Gallery</DialogTitle>
             <DialogDescription>
@@ -294,7 +294,7 @@ function SetListModal() {
             View Set List
           </Button>
         </DialogTrigger>
-        <DialogContent className="max-w-md glass-card-static border-crimson p-0 overflow-hidden rounded-2xl">
+        <DialogContent className="max-w-md glass-card-static border-cyan-500 p-0 overflow-hidden rounded-2xl">
           <DialogHeader className="sr-only">
             <DialogTitle>Speakeasy Set List</DialogTitle>
             <DialogDescription>
@@ -318,7 +318,7 @@ function SetListModal() {
           View Set List
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-md glass-card-static border-crimson p-0 overflow-hidden rounded-2xl">
+      <DialogContent className="max-w-md glass-card-static border-cyan-500 p-0 overflow-hidden rounded-2xl">
         <DialogHeader className="sr-only">
           <DialogTitle>Speakeasy Set List</DialogTitle>
           <DialogDescription>
@@ -347,7 +347,7 @@ function SetListModal() {
               <img
                 src={currentSong.spotifyImage || currentSong.image}
                 alt={`${currentSong.title} album cover`}
-                className="w-64 h-64 mx-auto rounded-2xl shadow-2xl border-2 border-crimson"
+                className="w-64 h-64 mx-auto rounded-2xl shadow-2xl border-2 border-cyan-500"
               />
               {currentSong.spotifyImage && (
                 <div className="absolute -bottom-2 -right-2 bg-luxury-accent text-white text-xs px-2 py-1 rounded-full">
@@ -471,12 +471,12 @@ export default function Appearances() {
                   <p className="text-smoke mb-6 text-lg">{event.location}</p>
                   <div className="space-y-3 text-smoke mb-8">
                     <div className="flex items-center">
-                      <Clock className="mr-3 text-crimson-accent" size={20} />
+                      <Clock className="mr-3 text-cyan-400" size={20} />
                       <span className="font-medium">{event.time}</span>
                     </div>
                     <div className="flex items-center">
                       <Calendar
-                        className="mr-3 text-crimson-accent"
+                        className="mr-3 text-cyan-400"
                         size={20}
                       />
                       <span className="font-medium">{event.priceRange}</span>

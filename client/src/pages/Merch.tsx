@@ -108,7 +108,7 @@ export default function Merch() {
     <div className="min-h-screen bg-deep-black">
       {/* Hero Section */}
       <section className="relative py-20 px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-crimson/20 via-deep-black to-luxury-gold/10"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-deep-black to-luxury-gold/10"></div>
         <div className="relative max-w-6xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -143,7 +143,7 @@ export default function Merch() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="text-center bg-gradient-primary  p-6 glass-card rounded-2xl"
               >
-                <feature.icon className="w-12 h-12 text-crimson-accent mx-auto mb-4" />
+                <feature.icon className="w-12 h-12 text-cyan-400 mx-auto mb-4" />
                 <h3 className="text-xl font-bold text-white mb-2">{feature.title}</h3>
                 <p className="text-smoke">{feature.description}</p>
               </motion.div>
@@ -186,7 +186,7 @@ export default function Merch() {
                     className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   {item.originalPrice > item.price && (
-                    <Badge className="absolute top-3 left-3 bg-crimson-accent text-white">
+                    <Badge className="absolute top-3 left-3 bg-cyan-500 text-white">
                       Sale
                     </Badge>
                   )}

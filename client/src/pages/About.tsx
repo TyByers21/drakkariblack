@@ -41,7 +41,7 @@ export default function About() {
                 From intimate studio sessions to sold-out arenas, every performance is a testament to his commitment to authentic artistry. <span className="luxury-accent font-medium">Drakkari Black doesn't just make music — he creates experiences that transform the soul.</span>
               </p>
               
-              <div className="grid grid-cols-3 gap-8 mt-12 pt-8 border-t border-crimson">
+              <div className="grid grid-cols-3 gap-8 mt-12 pt-8 border-t border-cyan-500">
                 <div className="text-center glass-card p-6 rounded-2xl">
                   <div className="text-4xl font-black luxury-accent animate-glow">15+</div>
                   <div className="text-smoke text-lg mt-2">Years Active</div>
@@ -66,7 +66,7 @@ export default function About() {
               <img 
                 src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
                 alt="Professional music studio setup" 
-                className="rounded-xl shadow-2xl w-full h-96 object-cover border border-crimson" 
+                className="rounded-xl shadow-2xl w-full h-96 object-cover border border-cyan-500" 
               />
               <div className="absolute inset-8 bg-gradient-to-t from-deep-black/80 via-transparent to-transparent rounded-xl"></div>
               <div className="absolute bottom-12 left-12 right-12">

@@ -16,7 +16,7 @@ export default function Navigation() {
   const [location] = useLocation();
 
   return (
-    <nav className="fixed top-0 w-full glass-effect border-b border-crimson z-50">
+    <nav className="fixed top-0 w-full glass-effect border-b border-cyan-500 z-50">
       <div className=" mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link href="/">
@@ -33,7 +33,7 @@ export default function Navigation() {
                   <span className={`nav-link ${
                     location === item.path 
                       ? 'text-white' 
-                      : 'text-smoke crimson-accent-hover'
+                      : 'text-smoke luxury-accent'
                   }`}>
                     {item.name}
                   </span>
@@ -61,7 +61,7 @@ export default function Navigation() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-charcoal border-t border-crimson"
+            className="md:hidden bg-charcoal border-t border-cyan-500"
           >
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
@@ -70,7 +70,7 @@ export default function Navigation() {
                     className={`block px-3 py-2 transition-colors duration-200 ${
                       location === item.path 
                         ? 'text-white' 
-                        : 'text-smoke crimson-accent-hover'
+                        : 'text-smoke luxury-accent'
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >

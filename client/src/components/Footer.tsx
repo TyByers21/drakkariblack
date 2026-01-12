@@ -53,7 +53,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-charcoal border-t border-crimson py-16">
+    <footer className="bg-charcoal border-t border-cyan-500 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
@@ -68,28 +68,28 @@ export default function Footer() {
             <div className="flex space-x-6">
               <motion.a
                 href="#"
-                className="text-smoke crimson-accent-hover transition-all duration-300 transform hover:scale-125"
+                className="text-smoke luxury-accent transition-all duration-300 transform hover:scale-125"
                 whileHover={{ y: -3 }}
               >
                 <i className="fab fa-instagram text-2xl"></i>
               </motion.a>
               <motion.a
                 href="#"
-                className="text-smoke crimson-accent-hover transition-all duration-300 transform hover:scale-125"
+                className="text-smoke luxury-accent transition-all duration-300 transform hover:scale-125"
                 whileHover={{ y: -3 }}
               >
                 <i className="fab fa-twitter text-2xl"></i>
               </motion.a>
               <motion.a
                 href="#"
-                className="text-smoke crimson-accent-hover transition-all duration-300 transform hover:scale-125"
+                className="text-smoke luxury-accent transition-all duration-300 transform hover:scale-125"
                 whileHover={{ y: -3 }}
               >
                 <i className="fab fa-facebook text-2xl"></i>
               </motion.a>
               <motion.a
                 href="#"
-                className="text-smoke crimson-accent-hover transition-all duration-300 transform hover:scale-125"
+                className="text-smoke luxury-accent transition-all duration-300 transform hover:scale-125"
                 whileHover={{ y: -3 }}
               >
                 <i className="fab fa-youtube text-2xl"></i>
@@ -104,7 +104,7 @@ export default function Footer() {
               {quickLinks.map((link) => (
                 <li key={link.path}>
                   <Link href={link.path}>
-                    <span className="text-smoke crimson-accent-hover transition-all duration-300 cursor-pointer text-lg hover:translate-x-2 block">
+                    <span className="text-smoke luxury-accent transition-all duration-300 cursor-pointer text-lg hover:translate-x-2 block">
                       {link.name}
                     </span>
                   </Link>
@@ -123,7 +123,7 @@ export default function Footer() {
                 <li key={platform.name}>
                   <a
                     href={platform.url}
-                    className="text-smoke crimson-accent-hover transition-all duration-300 text-lg hover:translate-x-2 block"
+                    className="text-smoke luxury-accent transition-all duration-300 text-lg hover:translate-x-2 block"
                   >
                     {platform.name}
                   </a>
@@ -143,7 +143,7 @@ export default function Footer() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-charcoal border border-crimson rounded-xl px-6 py-4 text-white focus:outline-none focus:border-luxury-accent focus:ring-2 focus:ring-luxury-accent/20 transition-all duration-300 text-lg"
+                className="w-full bg-charcoal border border-cyan-500 rounded-xl px-6 py-4 text-white focus:outline-none focus:border-luxury-accent focus:ring-2 focus:ring-luxury-accent/20 transition-all duration-300 text-lg"
                 placeholder="Enter your email"
                 required
               />
@@ -156,16 +156,16 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-crimson pt-12 text-center">
+        <div className="border-t border-cyan-500 pt-12 text-center">
           <p className="text-smoke text-lg">
             © 2025{" "}
             <span className="luxury-accent font-medium">Drakkari Black</span>.
             All rights reserved. |{" "}
-            <span className="crimson-accent hover:text-white transition-colors duration-300 cursor-pointer">
+            <span className="cyan-400 hover:text-white transition-colors duration-300 cursor-pointer">
               Privacy Policy
             </span>{" "}
             |{" "}
-            <span className="crimson-accent hover:text-white transition-colors duration-300 cursor-pointer">
+            <span className="cyan-400 hover:text-white transition-colors duration-300 cursor-pointer">
               Terms of Service
             </span>
           </p>

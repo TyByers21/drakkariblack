@@ -287,7 +287,7 @@ export default function Hero() {
             >
               <Link href="/listening">
                 <div className="group cursor-pointer">
-                  <div className="bg-gradient-to-br from-crimson/10 to-deep-black border border-crimson/20 rounded-2xl p-8 h-full hover:border-luxury-accent/50 hover:shadow-xl hover:shadow-white/20 transition-all duration-300 hover:bg-crimson/20">
+                  <div className="bg-gradient-to-br from-cyan-500/10 to-deep-black border border-cyan-500/20 rounded-2xl p-8 h-full hover:border-luxury-accent/50 hover:shadow-xl hover:shadow-white/20 transition-all duration-300 hover:bg-cyan-500/20">
                     <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-luxury-accent transition-colors">
                       Latest Release
                     </h3>
@@ -311,14 +311,14 @@ export default function Hero() {
             >
               <Link href="/appearances">
                 <div className="group cursor-pointer">
-                  <div className="bg-gradient-to-br from-luxury-accent/10 to-deep-black border border-luxury-accent/20 rounded-2xl p-8 h-full hover:border-crimson/50 hover:shadow-xl hover:shadow-white/20 transition-all duration-300 hover:bg-luxury-accent/20">
-                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-crimson transition-colors">
+                  <div className="bg-gradient-to-br from-luxury-accent/10 to-deep-black border border-luxury-accent/20 rounded-2xl p-8 h-full hover:border-cyan-500/50 hover:shadow-xl hover:shadow-white/20 transition-all duration-300 hover:bg-luxury-accent/20">
+                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-cyan-400 transition-colors">
                       Live Shows
                     </h3>
                     <p className="text-smoke text-lg mb-6 group-hover:text-gray-300 transition-colors">
                       Experience the energy live at upcoming performances
                     </p>
-                    <div className="flex items-center text-crimson font-medium group-hover:text-white transition-colors">
+                    <div className="flex items-center text-cyan-400 font-medium group-hover:text-white transition-colors">
                       <Calendar size={16} className="mr-2" />
                       View Dates
                     </div>
