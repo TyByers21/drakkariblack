@@ -16,7 +16,7 @@ import { BOOKING_TYPES } from "@/lib/constants";
 import type { InsertContactSubmission } from "@shared/schema";
 import AnimatedText from "@/components/AnimatedText";
 import cashappQR from "@/images/cashapp-qr.png";
-import venmoQR from "@/images/venmo-qr.jpg";
+import venmoQR from "@/images/venmo-qr.png";
 
 export default function Contact() {
   const { toast } = useToast();

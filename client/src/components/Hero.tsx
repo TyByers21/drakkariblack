@@ -5,7 +5,7 @@ import { SiTiktok } from "react-icons/si";
 import { Link } from "wouter";
 import bgTexture from "@assets/generated_images/dark_industrial_texture_background.png";
 import cashappQR from "@/images/cashapp-qr.png";
-import venmoQR from "@/images/venmo-qr.jpg";
+import venmoQR from "@/images/venmo-qr.png";
 
 const Countdown = () => {
   const targetDate = new Date('2026-01-21T00:00:00').getTime();
