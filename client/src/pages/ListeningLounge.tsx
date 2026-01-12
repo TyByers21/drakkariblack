@@ -232,12 +232,20 @@ export default function ListeningLounge() {
               D.B.X.
             </h1>
             
-            <h2 
-              className="text-lg md:text-2xl uppercase tracking-[0.3em] text-white/80 mb-6 font-light"
-              style={{ fontFamily: "'Chakra Petch', sans-serif", fontWeight: 300 }}
-            >
-              The Drakkari Black Xperiment
-            </h2>
+            <div className="relative inline-block">
+              <motion.div
+                initial={{ clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)" }}
+                animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)" }}
+                transition={{ duration: 2, delay: 0.5, ease: "circOut" }}
+                className="absolute inset-0 bg-cyan-900/30 z-0 pointer-events-none"
+              />
+              <h2 
+                className="relative z-10 text-lg md:text-2xl uppercase tracking-[0.3em] text-white/90 border-t border-b border-cyan-500/30 py-4 px-4 md:px-12 backdrop-blur-sm font-light"
+                style={{ fontFamily: "'Chakra Petch', sans-serif", fontWeight: 300 }}
+              >
+                The Drakkari Black Xperiment
+              </h2>
+            </div>
             
             <p 
               className="text-cyan-500 text-xl md:text-2xl font-bold tracking-widest mb-6"
