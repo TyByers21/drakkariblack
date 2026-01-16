@@ -76,15 +76,6 @@ export default function Footer() {
                 <i className="fab fa-instagram text-2xl"></i>
               </motion.a>
               <motion.a
-                href="https://x.com/drakkariblack"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-smoke luxury-accent transition-all duration-300 transform hover:scale-125"
-                whileHover={{ y: -3 }}
-              >
-                <i className="fab fa-twitter text-2xl"></i>
-              </motion.a>
-              <motion.a
                 href="https://facebook.com/drakkariblack"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -94,7 +85,7 @@ export default function Footer() {
                 <i className="fab fa-facebook text-2xl"></i>
               </motion.a>
               <motion.a
-                href="https://youtube.com/@drakkariblack"
+                href="https://youtube.com/@drakkariblacktv"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-smoke luxury-accent transition-all duration-300 transform hover:scale-125"
@@ -110,15 +101,6 @@ export default function Footer() {
                 whileHover={{ y: -3 }}
               >
                 <i className="fab fa-tiktok text-2xl"></i>
-              </motion.a>
-              <motion.a
-                href="https://open.spotify.com/artist/drakkariblack"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-smoke luxury-accent transition-all duration-300 transform hover:scale-125"
-                whileHover={{ y: -3 }}
-              >
-                <i className="fab fa-spotify text-2xl"></i>
               </motion.a>
             </div>
           </div>
