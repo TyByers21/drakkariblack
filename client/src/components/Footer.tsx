@@ -67,32 +67,58 @@ export default function Footer() {
             </p>
             <div className="flex space-x-6">
               <motion.a
-                href="#"
+                href="https://instagram.com/drakkariblack"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-smoke luxury-accent transition-all duration-300 transform hover:scale-125"
                 whileHover={{ y: -3 }}
               >
                 <i className="fab fa-instagram text-2xl"></i>
               </motion.a>
               <motion.a
-                href="#"
+                href="https://x.com/drakkariblack"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-smoke luxury-accent transition-all duration-300 transform hover:scale-125"
                 whileHover={{ y: -3 }}
               >
                 <i className="fab fa-twitter text-2xl"></i>
               </motion.a>
               <motion.a
-                href="#"
+                href="https://facebook.com/drakkariblack"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-smoke luxury-accent transition-all duration-300 transform hover:scale-125"
                 whileHover={{ y: -3 }}
               >
                 <i className="fab fa-facebook text-2xl"></i>
               </motion.a>
               <motion.a
-                href="#"
+                href="https://youtube.com/@drakkariblack"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-smoke luxury-accent transition-all duration-300 transform hover:scale-125"
                 whileHover={{ y: -3 }}
               >
                 <i className="fab fa-youtube text-2xl"></i>
+              </motion.a>
+              <motion.a
+                href="https://tiktok.com/@drakkariblack"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-smoke luxury-accent transition-all duration-300 transform hover:scale-125"
+                whileHover={{ y: -3 }}
+              >
+                <i className="fab fa-tiktok text-2xl"></i>
+              </motion.a>
+              <motion.a
+                href="https://open.spotify.com/artist/drakkariblack"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-smoke luxury-accent transition-all duration-300 transform hover:scale-125"
+                whileHover={{ y: -3 }}
+              >
+                <i className="fab fa-spotify text-2xl"></i>
               </motion.a>
             </div>
           </div>
@@ -158,7 +184,7 @@ export default function Footer() {
 
         <div className="border-t border-cyan-500 pt-12 text-center">
           <p className="text-smoke text-lg">
-            © 2025{" "}
+            © 2026{" "}
             <span className="luxury-accent font-medium">Drakkari Black</span>.
             All rights reserved. |{" "}
             <span className="cyan-400 hover:text-white transition-colors duration-300 cursor-pointer">
