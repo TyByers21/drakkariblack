@@ -20,7 +20,7 @@ export const STREAMING_PLATFORMS = [
     name: "Apple Music",
     icon: "fab fa-apple",
     color: "hover:bg-gray-800",
-    url: "https://music.apple.com/us/new",
+    url: "https://music.apple.com/us/album/d-b-x-the-drakkari-black-xperiment/1869737486",
   },
   {
     name: "SoundCloud",
@@ -41,7 +41,7 @@ export const SOCIAL_LINKS = [
     icon: "fab fa-spotify",
     url: "https://open.spotify.com/album/5zDcz8n4lq4F7BY6j3TZPe?si=3MuJCZGUSByN9QqpB6qIng",
   },
-  { icon: "fab fa-apple", url: "https://music.apple.com/us/new" },
+  { icon: "fab fa-apple", url: "https://music.apple.com/us/album/d-b-x-the-drakkari-black-xperiment/1869737486" },
   { icon: "fab fa-instagram", url: "https://instagram.com/drakkariblack" },
   { icon: "fab fa-twitter", url: "https://x.com/drakkariblack" },
   { icon: "fab fa-youtube", url: "https://www.youtube.com/@drakkariblacktv" },

@@ -12,8 +12,8 @@ const quickLinks = [
 ];
 
 const musicPlatforms = [
-  { name: "Spotify", url: "https://open.spotify.com/" },
-  { name: "Apple Music", url: "https://music.apple.com/us/new" },
+  { name: "Spotify", url: "https://open.spotify.com/album/5zDcz8n4lq4F7BY6j3TZPe?si=3MuJCZGUSByN9QqpB6qIng" },
+  { name: "Apple Music", url: "https://music.apple.com/us/album/d-b-x-the-drakkari-black-xperiment/1869737486" },
   { name: "SoundCloud", url: "https://soundcloud.com/drakkari-black" },
   { name: "YouTube Music", url: "https://www.youtube.com/@drakkariblacktv" },
 ];
