@@ -32,13 +32,13 @@ export default function About() {
             >
               <h2 className="text-4xl font-bold animate-glow brand-accent mb-8 tracking-wide">The Journey</h2>
               <p className="text-smoke text-xl leading-relaxed font-light">
-                Born from the intersection of classical training and urban wisdom, <span className="text-white font-medium">Drakkari Black</span> emerged as a defining voice in contemporary music. His journey began in the underground clubs of Atlanta, where raw talent met relentless ambition.
+                <span className="text-white font-medium">Drakkari Black</span> is an artist who doesn't chase trends—he creates atmospheres. Born from the intersection of classical training and urban wisdom, he emerged from the underground clubs of Atlanta with a sound that's both eclectic and undeniably commercial, blending <span className="luxury-accent font-medium">rich acoustic textures with haunting melodies</span> that linger long after the song ends.
               </p>
               <p className="text-smoke text-xl leading-relaxed font-light">
-                With over a decade of experience crafting sounds that resonate across generations, Drakkari has collaborated with industry legends while maintaining his unique artistic vision. His music tells stories of <span className="brand-accent animate-glow text-white font-medium">triumph, struggle, and the human experience</span>.
+                His voice is his signature—melodic, emotive, and unmistakably intimate—pulling listeners into a world that feels cinematic yet deeply personal. Each track unfolds like a confession whispered in the dark, balancing raw vulnerability with polished songwriting that resonates across genres. His music carries the weight of lived experience: <span className="brand-accent animate-glow text-white font-medium">love, loss, reflection, and quiet resilience</span>, all woven into hypnotic lyrics and infectious harmonies.
               </p>
               <p className="text-smoke text-xl leading-relaxed font-light">
-                From intimate studio sessions to sold-out arenas, every performance is a testament to his commitment to authentic artistry. <span className="luxury-accent font-medium">Drakkari Black doesn't just make music — he creates experiences that transform the soul.</span>
+                With over a decade of experience crafting sounds that resonate across generations, Drakkari has collaborated with industry legends while maintaining his unique artistic vision. From intimate studio sessions to sold-out stages, every performance is a testament to authentic artistry. In an era hungry for something real, his sound stands apart—compelling, immersive, and impossible to ignore. <span className="luxury-accent font-medium">This is an artist poised for global discovery. A voice meant to travel far.</span>
               </p>
               
               <div className="grid grid-cols-3 gap-8 mt-12 pt-8 border-t border-cyan-500">
