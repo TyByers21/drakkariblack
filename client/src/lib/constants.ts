@@ -14,7 +14,7 @@ export const STREAMING_PLATFORMS = [
     name: "Spotify",
     icon: "fab fa-spotify",
     color: "hover:bg-green-600",
-    url: "https://open.spotify.com/",
+    url: "https://open.spotify.com/album/5zDcz8n4lq4F7BY6j3TZPe?si=3MuJCZGUSByN9QqpB6qIng",
   },
   {
     name: "Apple Music",
@@ -39,7 +39,7 @@ export const STREAMING_PLATFORMS = [
 export const SOCIAL_LINKS = [
   {
     icon: "fab fa-spotify",
-    url: "https://open.spotify.com/track/4NjBWWELiKCLfqpQOlIFL8?si=0a13a98fd11b4e02",
+    url: "https://open.spotify.com/album/5zDcz8n4lq4F7BY6j3TZPe?si=3MuJCZGUSByN9QqpB6qIng",
   },
   { icon: "fab fa-apple", url: "https://music.apple.com/us/new" },
   { icon: "fab fa-instagram", url: "https://instagram.com/drakkariblack" },

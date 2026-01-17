@@ -102,6 +102,15 @@ export default function Footer() {
               >
                 <i className="fab fa-tiktok text-2xl"></i>
               </motion.a>
+              <motion.a
+                href="https://open.spotify.com/album/5zDcz8n4lq4F7BY6j3TZPe?si=3MuJCZGUSByN9QqpB6qIng"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-smoke luxury-accent transition-all duration-300 transform hover:scale-125"
+                whileHover={{ y: -3 }}
+              >
+                <i className="fab fa-spotify text-2xl"></i>
+              </motion.a>
             </div>
           </div>
 
