@@ -41,7 +41,7 @@ export default function Contact() {
     setIsSubmitting(true);
     
     try {
-      // Use FormSubmit.co to send email directly to info@drakkariblack.com
+      // Use FormSubmit.co to send email directly to drakkariblack@gmail.com
       const formData = new FormData();
       formData.append('_subject', `🎵 New Booking Inquiry - ${data.firstName} ${data.lastName}`);
       formData.append('_template', 'table');
@@ -55,7 +55,7 @@ export default function Contact() {
       formData.append('expectedAttendance', data.expectedAttendance?.toString() || '');
       formData.append('message', data.message);
       
-      const response = await fetch('https://formsubmit.co/info@drakkariblack.com', {
+      const response = await fetch('https://formsubmit.co/drakkariblack@gmail.com', {
         method: 'POST',
         body: formData
       });
@@ -121,7 +121,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold text-white mb-3">Email</h3>
-                    <p className="text-smoke text-lg font-medium">info@drakkariblack.com</p>
+                    <p className="text-smoke text-lg font-medium">drakkariblack@gmail.com</p>
                     <p className="text-smoke opacity-75">Response within 24 hours</p>
                   </div>
                 </div>
