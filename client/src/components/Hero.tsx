@@ -171,6 +171,42 @@ export default function Hero() {
                 className="w-full max-w-md mx-auto rounded-lg shadow-2xl border border-cyan-500/30"
                 style={{ boxShadow: "0 0 60px rgba(6, 182, 212, 0.3)" }}
               />
+              
+              <p 
+                className="text-white/70 text-sm md:text-base tracking-widest uppercase mt-8 mb-4"
+                style={{ fontFamily: "'Chakra Petch', sans-serif" }}
+              >
+                Now Streaming On:
+              </p>
+              
+              <div className="flex items-center justify-center gap-6">
+                <a 
+                  href="https://open.spotify.com/album/5zDcz8n4lq4F7BY6j3TZPe?si=3MuJCZGUSByN9QqpB6qIng" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-green-500 hover:border-green-500 hover:bg-green-500/10 transition-all duration-300"
+                >
+                  <i className="fab fa-spotify text-2xl"></i>
+                </a>
+                <a 
+                  href="https://music.apple.com/us/album/d-b-x-the-drakkari-black-xperiment/1869737486" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-pink-500 hover:border-pink-500 hover:bg-pink-500/10 transition-all duration-300"
+                >
+                  <i className="fab fa-apple text-2xl"></i>
+                </a>
+                <a 
+                  href="https://tidal.com/browse/artist/45802912" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-cyan-400 hover:border-cyan-400 hover:bg-cyan-400/10 transition-all duration-300"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12.012 3.992L8.008 7.996 4.004 3.992 0 7.996l4.004 4.004L0 16.004 4.004 20.008l4.004-4.004 4.004 4.004 4.004-4.004-4.004-4.004 4.004-4.004-4.004-4.004zM16.042 7.996l3.979-3.979L24 7.996l-3.979 3.979z"/>
+                  </svg>
+                </a>
+              </div>
             </motion.div>
 
             <motion.div
