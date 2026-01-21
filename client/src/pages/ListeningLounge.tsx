@@ -277,30 +277,16 @@ export default function ListeningLounge() {
             
             <div className="max-w-4xl mx-auto">
               <div 
-                className="relative aspect-video overflow-hidden rounded-lg border border-cyan-500/40 bg-black/60 backdrop-blur-sm group cursor-pointer"
+                className="relative aspect-video overflow-hidden rounded-lg border border-cyan-500/40 bg-black/60 backdrop-blur-sm"
                 style={{ boxShadow: "0 0 60px rgba(6, 182, 212, 0.2)" }}
               >
-                <img 
-                  src={myPrayerCover}
-                  alt="My Prayer - Single Cover"
-                  className="w-full h-full object-cover"
+                <iframe
+                  src="https://www.youtube.com/embed/bpmVy6V-R3E?rel=0&modestbranding=1"
+                  title="My Prayer - Drakkari Black"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
                 />
-                
-                {/* Coming Soon Overlay */}
-                <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center">
-                  <div 
-                    className="text-cyan-400 text-xl md:text-3xl font-bold mb-3 tracking-wider animate-pulse"
-                    style={{ fontFamily: "'Syncopate', sans-serif", textShadow: "0 0 20px rgba(6, 182, 212, 0.6)" }}
-                  >
-                    VIDEO DROPS
-                  </div>
-                  <div 
-                    className="text-white text-3xl md:text-5xl font-bold tracking-widest"
-                    style={{ fontFamily: "'Chakra Petch', sans-serif", textShadow: "0 0 30px rgba(255, 255, 255, 0.3)" }}
-                  >
-                    01.21.2026
-                  </div>
-                </div>
                 
                 {/* HUD corners */}
                 <div className="absolute top-2 left-2 w-8 h-8 border-l-2 border-t-2 border-cyan-500/70 pointer-events-none" />
@@ -317,7 +303,7 @@ export default function ListeningLounge() {
                   My Prayer
                 </h3>
                 <p className="text-cyan-400/70 text-sm uppercase tracking-wider">
-                  Official Video Coming Soon
+                  Official Music Video
                 </p>
               </div>
             </div>
