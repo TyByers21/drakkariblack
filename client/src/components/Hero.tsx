@@ -197,7 +197,7 @@ export default function Hero() {
                   <i className="fab fa-apple text-2xl"></i>
                 </a>
                 <a 
-                  href="https://tidal.com/browse/artist/45802912" 
+                  href="https://tidal.com/album/490230961" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-cyan-400 hover:border-cyan-400 hover:bg-cyan-400/10 transition-all duration-300"
