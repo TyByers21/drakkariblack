@@ -163,16 +163,6 @@ export default function ListeningLounge() {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <div className="inline-flex items-center gap-3 mb-6 px-6 py-2 border border-cyan-500/30 bg-black/50 backdrop-blur-sm">
-              <Disc className="w-5 h-5 text-cyan-400 animate-spin" style={{ animationDuration: '3s' }} />
-              <span 
-                className="text-cyan-400 text-sm uppercase tracking-[0.3em]"
-                style={{ fontFamily: "'Chakra Petch', sans-serif" }}
-              >
-                New Album Coming Soon
-              </span>
-            </div>
-            
             <h1 
               className="text-5xl md:text-7xl lg:text-8xl font-black mb-4 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-white to-cyan-400"
               style={{ 
