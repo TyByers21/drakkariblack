@@ -6,57 +6,7 @@ import { Link } from "wouter";
 import bgTexture from "@assets/generated_images/dark_industrial_texture_background.png";
 import cashappQR from "@/images/cashapp-qr.png";
 import venmoQR from "@/images/venmo-qr.png";
-
-const Countdown = () => {
-  const targetDate = new Date('2026-01-21T00:00:00').getTime();
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-
-  useEffect(() => {
-    const updateCountdown = () => {
-      const now = new Date().getTime();
-      const difference = targetDate - now;
-
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((difference % (1000 * 60)) / 1000)
-        });
-      }
-    };
-
-    updateCountdown();
-    const interval = setInterval(updateCountdown, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const TimeUnit = ({ value, label }: { value: number, label: string }) => (
-    <div className="flex flex-col items-center">
-      <span 
-        className="text-4xl md:text-6xl font-bold text-cyan-400"
-        style={{ fontFamily: "'Syncopate', sans-serif", textShadow: "0 0 20px rgba(6, 182, 212, 0.6)" }}
-      >
-        {value.toString().padStart(2, '0')}
-      </span>
-      <span className="text-xs md:text-sm text-white/50 uppercase tracking-widest mt-2" style={{ fontFamily: "'Chakra Petch', sans-serif" }}>
-        {label}
-      </span>
-    </div>
-  );
-
-  return (
-    <div className="flex items-center justify-center gap-4 md:gap-8 mt-8">
-      <TimeUnit value={timeLeft.days} label="Days" />
-      <span className="text-cyan-500/50 text-3xl md:text-5xl font-light">:</span>
-      <TimeUnit value={timeLeft.hours} label="Hours" />
-      <span className="text-cyan-500/50 text-3xl md:text-5xl font-light">:</span>
-      <TimeUnit value={timeLeft.minutes} label="Min" />
-      <span className="text-cyan-500/50 text-3xl md:text-5xl font-light">:</span>
-      <TimeUnit value={timeLeft.seconds} label="Sec" />
-    </div>
-  );
-};
+import dbxAlbumArt from "@assets/FB_1768982086946.png";
 
 const ScrambleChar = ({ char, stopDelay }: { char: string, stopDelay: number }) => {
   const [displayChar, setDisplayChar] = useState(char);
@@ -210,18 +160,17 @@ export default function Hero() {
             </div>
             
             <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 2, delay: 5.5 }}
-              className="max-w-4xl text-center mt-8 leading-relaxed pb-8"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.5, delay: 5.5 }}
+              className="max-w-2xl text-center mt-8 pb-8"
             >
-              <span 
-                className="text-cyan-500 text-2xl md:text-4xl tracking-[0.3em] mt-2 block uppercase"
-                style={{ fontFamily: "'Chakra Petch', sans-serif", fontWeight: 400, textShadow: "0 0 15px rgba(6, 182, 212, 0.4)" }}
-              >
-                VOL. 1 • 01.21.26
-              </span>
-              <Countdown />
+              <img 
+                src={dbxAlbumArt} 
+                alt="D.B.X. - The Drakkari Black Xperiment" 
+                className="w-full max-w-md mx-auto rounded-lg shadow-2xl border border-cyan-500/30"
+                style={{ boxShadow: "0 0 60px rgba(6, 182, 212, 0.3)" }}
+              />
             </motion.div>
 
             <motion.div

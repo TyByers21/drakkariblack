@@ -8,57 +8,7 @@ import bb1Image from "@/images/bb1.jpg";
 import bgTexture from "@assets/generated_images/dark_industrial_texture_background.png";
 import featuredVideoFile from "@assets/My_Prayer_-v1_(1)_1768185489542.mp4";
 import myPrayerCover from "@assets/My_Prayer_-_single_cover_1768193900728.png";
-
-const Countdown = () => {
-  const targetDate = new Date('2026-01-21T00:00:00').getTime();
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-
-  useEffect(() => {
-    const updateCountdown = () => {
-      const now = new Date().getTime();
-      const difference = targetDate - now;
-
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((difference % (1000 * 60)) / 1000)
-        });
-      }
-    };
-
-    updateCountdown();
-    const interval = setInterval(updateCountdown, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const TimeUnit = ({ value, label }: { value: number, label: string }) => (
-    <div className="flex flex-col items-center">
-      <span 
-        className="text-2xl md:text-4xl font-bold text-cyan-400"
-        style={{ fontFamily: "'Syncopate', sans-serif", textShadow: "0 0 20px rgba(6, 182, 212, 0.6)" }}
-      >
-        {value.toString().padStart(2, '0')}
-      </span>
-      <span className="text-xs text-white/50 uppercase tracking-widest mt-1" style={{ fontFamily: "'Chakra Petch', sans-serif" }}>
-        {label}
-      </span>
-    </div>
-  );
-
-  return (
-    <div className="flex items-center justify-center gap-3 md:gap-6">
-      <TimeUnit value={timeLeft.days} label="Days" />
-      <span className="text-cyan-500/50 text-xl md:text-3xl font-light">:</span>
-      <TimeUnit value={timeLeft.hours} label="Hours" />
-      <span className="text-cyan-500/50 text-xl md:text-3xl font-light">:</span>
-      <TimeUnit value={timeLeft.minutes} label="Min" />
-      <span className="text-cyan-500/50 text-xl md:text-3xl font-light">:</span>
-      <TimeUnit value={timeLeft.seconds} label="Sec" />
-    </div>
-  );
-};
+import dbxAlbumArt from "@assets/FB_1768982086946.png";
 
 const videos = [
   {
@@ -248,14 +198,19 @@ export default function ListeningLounge() {
               </h2>
             </div>
             
-            <p 
-              className="text-cyan-500 text-lg md:text-2xl tracking-[0.3em] mb-6 uppercase"
-              style={{ fontFamily: "'Chakra Petch', sans-serif", fontWeight: 400, textShadow: "0 0 15px rgba(6, 182, 212, 0.4)" }}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.3 }}
+              className="max-w-lg mx-auto mt-6"
             >
-              VOL. 1 • 01.21.26
-            </p>
-            
-            <Countdown />
+              <img 
+                src={dbxAlbumArt} 
+                alt="D.B.X. - The Drakkari Black Xperiment" 
+                className="w-full rounded-lg shadow-2xl border border-cyan-500/30"
+                style={{ boxShadow: "0 0 60px rgba(6, 182, 212, 0.3)" }}
+              />
+            </motion.div>
           </motion.div>
 
           {/* Featured Video - My Prayer */}
