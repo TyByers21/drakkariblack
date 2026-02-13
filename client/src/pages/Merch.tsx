@@ -186,7 +186,7 @@ export default function Merch() {
                     className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   {item.originalPrice > item.price && (
-                    <Badge className="absolute top-3 left-3 bg-cyan-500 text-white">
+                    <Badge className="absolute top-3 left-3 bg-cyan-500 text-black">
                       Sale
                     </Badge>
                   )}

@@ -117,7 +117,7 @@ export default function Contact() {
               <div className="space-y-8">
                 <div className="flex items-start space-x-6 glass-card p-6 rounded-2xl">
                   <div className="bg-gradient-accent p-4 rounded-2xl shadow-lg">
-                    <Mail className="text-white" size={28} />
+                    <Mail className="text-black" size={28} />
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold text-white mb-3">Email</h3>
@@ -128,7 +128,7 @@ export default function Contact() {
                 
                 <div className="flex items-start space-x-6 glass-card p-6 rounded-2xl">
                   <div className="bg-gradient-accent p-4 rounded-2xl shadow-lg">
-                    <Phone className="text-white" size={28} />
+                    <Phone className="text-black" size={28} />
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold text-white mb-3">Phone</h3>
@@ -139,7 +139,7 @@ export default function Contact() {
                 
                 <div className="flex items-start space-x-6 glass-card p-6 rounded-2xl">
                   <div className="bg-gradient-accent p-4 rounded-2xl shadow-lg">
-                    <MapPin className="text-white" size={28} />
+                    <MapPin className="text-black" size={28} />
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold text-white mb-3">Management</h3>
@@ -336,7 +336,7 @@ export default function Contact() {
                   <Button 
                     type="submit" 
                     disabled={isSubmitting}
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-4 rounded-lg transition-colors duration-200"
+                    className="w-full bg-primary hover:bg-primary/90 text-black font-semibold py-4 rounded-lg transition-colors duration-200"
                   >
                     {isSubmitting ? (
                       "Sending..."
@@ -381,7 +381,7 @@ export default function Contact() {
               className="glass-card p-8 rounded-2xl text-center"
             >
               <div className="bg-gradient-accent p-4 rounded-2xl shadow-lg w-fit mx-auto mb-6">
-                <DollarSign className="text-white" size={32} />
+                <DollarSign className="text-black" size={32} />
               </div>
               <h3 className="text-2xl font-bold text-white mb-4">CashApp</h3>
               <div className="bg-white p-3 rounded-xl mb-4 mx-auto w-fit">
@@ -403,7 +403,7 @@ export default function Contact() {
               className="glass-card p-8 rounded-2xl text-center"
             >
               <div className="bg-gradient-accent p-4 rounded-2xl shadow-lg w-fit mx-auto mb-6">
-                <Heart className="text-white" size={32} />
+                <Heart className="text-black" size={32} />
               </div>
               <h3 className="text-2xl font-bold text-white mb-4">Venmo</h3>
               <div className="bg-white p-3 rounded-xl mb-4 mx-auto w-fit">

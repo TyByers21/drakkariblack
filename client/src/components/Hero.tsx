@@ -389,7 +389,7 @@ export default function Hero() {
               className="glass-card p-8 rounded-2xl text-center"
             >
               <div className="bg-gradient-accent p-4 rounded-2xl shadow-lg w-fit mx-auto mb-6">
-                <DollarSign className="text-white" size={32} />
+                <DollarSign className="text-black" size={32} />
               </div>
               <h3 className="text-2xl font-bold text-white mb-4">CashApp</h3>
               <div className="bg-white p-3 rounded-xl mb-4 mx-auto w-fit">
@@ -412,7 +412,7 @@ export default function Hero() {
               className="glass-card p-8 rounded-2xl text-center"
             >
               <div className="bg-gradient-accent p-4 rounded-2xl shadow-lg w-fit mx-auto mb-6">
-                <Heart className="text-white" size={32} />
+                <Heart className="text-black" size={32} />
               </div>
               <h3 className="text-2xl font-bold text-white mb-4">Venmo</h3>
               <div className="bg-white p-3 rounded-xl mb-4 mx-auto w-fit">
