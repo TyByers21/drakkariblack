@@ -350,7 +350,7 @@ function SetListModal() {
                 className="w-64 h-64 mx-auto rounded-2xl shadow-2xl border-2 border-cyan-500"
               />
               {currentSong.spotifyImage && (
-                <div className="absolute -bottom-2 -right-2 bg-luxury-accent text-white text-xs px-2 py-1 rounded-full">
+                <div className="absolute -bottom-2 -right-2 bg-luxury-accent text-black text-xs px-2 py-1 rounded-full">
                   Spotify
                 </div>
               )}

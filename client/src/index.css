@@ -257,8 +257,9 @@
   }
   
   .btn-primary {
-    @apply bg-primary text-primary-foreground font-bold px-10 py-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg;
+    @apply bg-primary font-bold px-10 py-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg;
     background: var(--gradient-accent);
+    color: hsl(0, 0%, 0%);
     box-shadow: 0 8px 32px rgba(6, 182, 212, 0.3);
     text-transform: uppercase;
     letter-spacing: 1px;
