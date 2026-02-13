@@ -289,7 +289,7 @@ function SetListModal() {
     return (
       <Dialog>
         <DialogTrigger asChild>
-          <Button className="btn-primary text-lg px-8 py-4">
+          <Button className="btn-primary text-lg px-8 py-4 text-black">
             <Music className="mr-3" size={24} />
             View Set List
           </Button>
@@ -313,7 +313,7 @@ function SetListModal() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="btn-primary text-lg px-8 py-4">
+        <Button className="btn-primary text-lg px-8 py-4 text-black">
           <Music className="mr-3" size={24} />
           View Set List
         </Button>
@@ -484,7 +484,7 @@ export default function Appearances() {
                   </div>
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <button className="w-full btn-primary text-lg flex items-center justify-center">
+                      <button className="w-full btn-primary text-lg flex items-center justify-center text-black">
                         <Calendar className="mr-2" size={20} />
                         Add to Calendar
                       </button>

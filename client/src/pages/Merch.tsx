@@ -242,7 +242,7 @@ export default function Merch() {
                     </div>
                   </div>
                   
-                  <Button className="w-full btn-primary mt-4 flex items-center justify-center">
+                  <Button className="w-full btn-primary mt-4 flex items-center justify-center text-black">
                     <ShoppingCart className="w-4 h-4 mr-2" />
                     Add to Cart
                   </Button>
@@ -267,7 +267,7 @@ export default function Merch() {
               Stay tuned for exclusive limited edition drops, new designs, and special collaborations. 
               Follow our social media for the latest updates on new merchandise releases.
             </p>
-            <Button className="btn-primary w-full text-lg px-8 py-4">
+            <Button className="btn-primary w-full text-lg px-8 py-4 text-black">
               Notify Me of New Releases
             </Button>
           </motion.div>
