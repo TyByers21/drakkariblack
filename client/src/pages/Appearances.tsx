@@ -455,12 +455,12 @@ export default function Appearances() {
                 whileHover={{ scale: 1.05, y: -10 }}
                 className="glass-card p-8 group cursor-pointer rounded-2xl"
               >
-                <div className="bg-gradient-accent text-white p-6 rounded-2xl text-center mb-6 group-hover:shadow-xl transition-all duration-300">
-                  <div className="text-2xl font-bold opacity-90">
+                <div className="bg-gradient-accent text-black p-6 rounded-2xl text-center mb-6 group-hover:shadow-xl transition-all duration-300">
+                  <div className="text-2xl font-bold">
                     {event.month}
                   </div>
                   <div className="text-6xl font-black my-2">{event.day}</div>
-                  <div className="text-lg font-semibold opacity-90">
+                  <div className="text-lg font-semibold">
                     {event.year}
                   </div>
                 </div>
