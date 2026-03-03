@@ -108,12 +108,12 @@ export default function ListeningLounge() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.5, delay: 1.0 }}
-              className="max-w-2xl text-center mt-8 pb-8"
+              className="max-w-4xl text-center mt-8 pb-8"
             >
               <img 
                 src={dbxAlbumArt} 
                 alt="D.B.X. - The Drakkari Black Xperiment" 
-                className="w-full max-w-md mx-auto rounded-lg shadow-2xl border border-cyan-500/30"
+                className="w-full max-w-sm md:max-w-lg lg:max-w-2xl mx-auto rounded-lg shadow-2xl border border-cyan-500/30"
                 style={{ boxShadow: "0 0 60px rgba(6, 182, 212, 0.3)" }}
               />
               
