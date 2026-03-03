@@ -41,7 +41,10 @@ export const SOCIAL_LINKS = [
     icon: "fab fa-spotify",
     url: "https://open.spotify.com/album/5zDcz8n4lq4F7BY6j3TZPe?si=3MuJCZGUSByN9QqpB6qIng",
   },
-  { icon: "fab fa-apple", url: "https://music.apple.com/us/album/d-b-x-the-drakkari-black-xperiment/1869737486" },
+  {
+    icon: "fab fa-apple",
+    url: "https://music.apple.com/us/album/d-b-x-the-drakkari-black-xperiment/1869737486",
+  },
   { icon: "fab fa-instagram", url: "https://instagram.com/drakkariblack" },
   { icon: "fab fa-twitter", url: "https://x.com/drakkariblack" },
   { icon: "fab fa-youtube", url: "https://www.youtube.com/@drakkariblacktv" },
@@ -49,17 +52,8 @@ export const SOCIAL_LINKS = [
 
 export const UPCOMING_EVENTS = [
   {
-    month: "February",
+    month: "March",
     day: "13",
-    year: "2026",
-    venue: "Craftails Speakeasy",
-    location: "Bradenton, FL",
-    time: "8:00 PM",
-    priceRange: "FREE",
-  },
-  {
-    month: "February",
-    day: "27",
     year: "2026",
     venue: "Craftails Speakeasy",
     location: "Bradenton, FL",
@@ -68,7 +62,16 @@ export const UPCOMING_EVENTS = [
   },
   {
     month: "March",
-    day: "13",
+    day: "27",
+    year: "2026",
+    venue: "Craftails Speakeasy",
+    location: "Bradenton, FL",
+    time: "8:00 PM",
+    priceRange: "FREE",
+  },
+  {
+    month: "April",
+    day: "10",
     year: "2026",
     venue: "Craftails Speakeasy",
     location: "Bradenton, FL",
