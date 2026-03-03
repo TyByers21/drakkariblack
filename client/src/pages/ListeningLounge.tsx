@@ -320,6 +320,74 @@ export default function ListeningLounge() {
         </div>
       </section>
 
+      {/* Midnight Sessions Section */}
+      <section className="py-20 bg-gradient-to-b from-deep-black via-black/95 to-deep-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <h2
+              className="text-2xl md:text-4xl font-bold text-center mb-4 text-cyan-400"
+              style={{
+                fontFamily: "'Syncopate', sans-serif",
+                textShadow: "0 0 20px rgba(6, 182, 212, 0.5)"
+              }}
+            >
+              Midnight Sessions
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent mx-auto mb-12" />
+
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {[
+                {
+                  title: "Episode #1",
+                  videoId: "fzP2I_J5rTA",
+                },
+                {
+                  title: "Episode #2",
+                  videoId: "H3srs3TD34o",
+                },
+              ].map((episode, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.15 }}
+                  className="glass-card p-4 rounded-2xl border border-white/10 hover:border-cyan-500/50 transition-all duration-300"
+                >
+                  <div
+                    className="relative aspect-video overflow-hidden rounded-lg border border-cyan-500/30 bg-black/60"
+                    style={{ boxShadow: "0 0 40px rgba(6, 182, 212, 0.15)" }}
+                  >
+                    <iframe
+                      src={`https://www.youtube.com/embed/${episode.videoId}?rel=0&modestbranding=1`}
+                      title={`Midnight Sessions - ${episode.title}`}
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                    <div className="absolute top-2 left-2 w-6 h-6 border-l-2 border-t-2 border-cyan-500/70 pointer-events-none" />
+                    <div className="absolute top-2 right-2 w-6 h-6 border-r-2 border-t-2 border-cyan-500/70 pointer-events-none" />
+                    <div className="absolute bottom-2 left-2 w-6 h-6 border-l-2 border-b-2 border-cyan-500/70 pointer-events-none" />
+                    <div className="absolute bottom-2 right-2 w-6 h-6 border-r-2 border-b-2 border-cyan-500/70 pointer-events-none" />
+                  </div>
+                  <div className="text-center mt-4">
+                    <h3
+                      className="text-xl font-bold text-white"
+                      style={{ fontFamily: "'Chakra Petch', sans-serif" }}
+                    >
+                      {episode.title}
+                    </h3>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Video Gallery Section */}
       <section className="py-20 bg-gradient-to-b from-deep-black via-black/95 to-deep-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
