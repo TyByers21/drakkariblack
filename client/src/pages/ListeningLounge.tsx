@@ -58,7 +58,7 @@ export default function ListeningLounge() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.5, delay: 0.5 }} 
-            className="hidden md:block absolute top-20 md:top-24 left-8 md:left-12 text-[10px] md:text-xs text-smoke tracking-widest font-mono"
+            className="absolute top-20 md:top-24 left-8 md:left-12 text-[10px] md:text-xs text-smoke tracking-widest font-mono"
           >
             LISTENING.LOUNGE // <span className="text-cyan-500">ACTIVE</span>
           </motion.div>
@@ -67,7 +67,7 @@ export default function ListeningLounge() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.5, delay: 0.7 }}
-            className="hidden md:block absolute top-20 md:top-24 right-8 md:right-12 text-[10px] md:text-xs text-smoke tracking-widest font-mono text-right"
+            className="absolute top-20 md:top-24 right-8 md:right-12 text-[10px] md:text-xs text-smoke tracking-widest font-mono text-right"
           >
             AUDIO.STREAM <br className="md:hidden" /> MODE.ON
           </motion.div>
@@ -226,7 +226,7 @@ export default function ListeningLounge() {
       </section>
 
       {/* Midnight Sessions Section */}
-      <section className="py-20 bg-gradient-to-b from-deep-black via-black/95 to-deep-black">
+      <section className="py-8 md:py-20 bg-gradient-to-b from-deep-black via-black/95 to-deep-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
