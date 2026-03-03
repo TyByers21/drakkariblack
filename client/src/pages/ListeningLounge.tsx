@@ -26,7 +26,7 @@ export default function ListeningLounge() {
     <div className="pt-20 min-h-screen bg-deep-black">
       
       {/* DBX Hero Section - Matching Homepage Layout */}
-      <section className="relative overflow-hidden font-mono selection:bg-cyan-500 selection:text-black">
+      <section className="relative md:min-h-screen overflow-hidden font-mono selection:bg-cyan-500 selection:text-black">
         {/* Background Texture with Overlay */}
         <div 
           className="absolute inset-0 z-0 opacity-40 pointer-events-none mix-blend-overlay"
@@ -51,14 +51,14 @@ export default function ListeningLounge() {
         </div>
 
         {/* Main Content */}
-        <div className="relative z-10 flex flex-col items-center justify-center p-6 pt-16 pb-16">
+        <div className="relative z-10 flex flex-col items-center justify-center p-6 pt-28 pb-12 md:min-h-screen md:pt-24 md:pb-16">
           
           {/* Version / Data Tags */}
           <motion.div 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.5, delay: 0.5 }} 
-            className="absolute top-20 md:top-24 left-8 md:left-12 text-[10px] md:text-xs text-smoke tracking-widest font-mono"
+            className="hidden md:block absolute top-20 md:top-24 left-8 md:left-12 text-[10px] md:text-xs text-smoke tracking-widest font-mono"
           >
             LISTENING.LOUNGE // <span className="text-cyan-500">ACTIVE</span>
           </motion.div>
@@ -67,7 +67,7 @@ export default function ListeningLounge() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.5, delay: 0.7 }}
-            className="absolute top-20 md:top-24 right-8 md:right-12 text-[10px] md:text-xs text-smoke tracking-widest font-mono text-right"
+            className="hidden md:block absolute top-20 md:top-24 right-8 md:right-12 text-[10px] md:text-xs text-smoke tracking-widest font-mono text-right"
           >
             AUDIO.STREAM <br className="md:hidden" /> MODE.ON
           </motion.div>
@@ -171,7 +171,7 @@ export default function ListeningLounge() {
       </section>
 
       {/* Featured Video Section */}
-      <section className="py-10 bg-gradient-to-b from-deep-black via-black/95 to-deep-black">
+      <section className="py-10 md:py-20 bg-gradient-to-b from-deep-black via-black/95 to-deep-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
