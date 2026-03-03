@@ -26,7 +26,7 @@ export default function ListeningLounge() {
     <div className="pt-20 min-h-screen bg-deep-black">
       
       {/* DBX Hero Section - Matching Homepage Layout */}
-      <section className="relative min-h-screen overflow-hidden font-mono selection:bg-cyan-500 selection:text-black">
+      <section className="relative overflow-hidden font-mono selection:bg-cyan-500 selection:text-black">
         {/* Background Texture with Overlay */}
         <div 
           className="absolute inset-0 z-0 opacity-40 pointer-events-none mix-blend-overlay"
@@ -51,7 +51,7 @@ export default function ListeningLounge() {
         </div>
 
         {/* Main Content */}
-        <div className="relative z-10 flex flex-col items-center justify-center min-h-screen p-6 pt-24">
+        <div className="relative z-10 flex flex-col items-center justify-center p-6 pt-16 pb-16">
           
           {/* Version / Data Tags */}
           <motion.div 
@@ -171,7 +171,7 @@ export default function ListeningLounge() {
       </section>
 
       {/* Featured Video Section */}
-      <section className="py-20 bg-gradient-to-b from-deep-black via-black/95 to-deep-black">
+      <section className="py-10 bg-gradient-to-b from-deep-black via-black/95 to-deep-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
