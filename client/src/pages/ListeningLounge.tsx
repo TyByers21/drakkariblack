@@ -1,124 +1,29 @@
 import { motion } from "framer-motion";
-import { Play, X, Disc } from "lucide-react";
 import { STREAMING_PLATFORMS } from "@/lib/constants";
-import { useState, useEffect } from "react";
-import drakImage from "@/images/drak.jpg";
-import drak2Image from "@/images/drak2.jpg";
-import bb1Image from "@/images/bb1.jpg";
 import bgTexture from "@assets/generated_images/dark_industrial_texture_background.png";
-import featuredVideoFile from "@assets/My_Prayer_-v1_(1)_1768185489542.mp4";
-import myPrayerCover from "@assets/My_Prayer_-_single_cover_1768193900728.png";
 import dbxAlbumArt from "@assets/FB_1768982086946.png";
 
 const videos = [
   {
     title: "Quicksand",
     description: "First single release",
-    thumbnail: drak2Image,
-    videoUrl: "https://youtu.be/jfvJn0JWBCI?si=yc5hBxN9j273dh6j"
+    videoId: "jfvJn0JWBCI",
   },
   {
     title: "Bad Bitch Comin",
     description: "Exclusive song written for Rihanna",
-    thumbnail: bb1Image,
-    videoUrl: "https://youtu.be/xyWb6bErq9o?si=X3wenN5ta5K_oAHf"
+    videoId: "xyWb6bErq9o",
   },
   {
     title: "Put It Right There",
     description: "Best moments from international shows",
-    thumbnail: drakImage,
-    videoUrl: "https://youtu.be/kJbk2raSQCk?si=sa9IDjPO8qQZcDGe"
+    videoId: "kJbk2raSQCk",
   }
 ];
 
-function getYouTubeEmbedUrl(url: string): string {
-  if (!url) return "";
-  
-  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-  const match = url.match(regExp);
-  
-  if (match && match[2].length === 11) {
-    return `https://www.youtube.com/embed/${match[2]}`;
-  }
-  
-  return url;
-}
-
-function VideoModal({ video, isOpen, onClose }: { 
-  video: { title: string; videoUrl: string; description: string } | null; 
-  isOpen: boolean; 
-  onClose: () => void; 
-}) {
-  if (!isOpen || !video) return null;
-
-  const embedUrl = getYouTubeEmbedUrl(video.videoUrl);
-
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4"
-      onClick={onClose}
-    >
-      <motion.div
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.8, opacity: 0 }}
-        className="relative w-full max-w-6xl aspect-video bg-deep-black rounded-xl overflow-hidden border border-cyan-500/30"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 z-10 bg-black/50 hover:bg-cyan-500/30 text-white rounded-full p-2 transition-colors duration-200 border border-cyan-500/30"
-        >
-          <X size={24} />
-        </button>
-        
-        {embedUrl ? (
-          <iframe
-            src={embedUrl}
-            title={video.title}
-            className="w-full h-full"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center text-white">
-            <div className="text-center">
-              <p className="text-xl mb-4">Video URL not provided</p>
-              <p className="text-smoke">Please add a video URL to play this content</p>
-            </div>
-          </div>
-        )}
-        
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-          <h3 className="text-2xl font-bold text-cyan-400 mb-2" style={{ fontFamily: "'Chakra Petch', sans-serif" }}>{video.title}</h3>
-          <p className="text-smoke">{video.description}</p>
-        </div>
-      </motion.div>
-    </motion.div>
-  );
-}
-
 export default function ListeningLounge() {
-  const [selectedVideo, setSelectedVideo] = useState<{ title: string; videoUrl: string; description: string } | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openVideo = (video: { title: string; videoUrl: string; description: string }) => {
-    setSelectedVideo(video);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedVideo(null);
-  };
-
   return (
     <div className="pt-20 min-h-screen bg-deep-black">
-      <VideoModal video={selectedVideo} isOpen={isModalOpen} onClose={closeModal} />
       
       {/* DBX Hero Section - Matching Homepage Layout */}
       <section className="relative min-h-screen overflow-hidden font-mono selection:bg-cyan-500 selection:text-black">
@@ -415,27 +320,32 @@ export default function ListeningLounge() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="glass-card p-6 group cursor-pointer rounded-2xl border border-white/10 hover:border-cyan-500/50 transition-all duration-300"
-                  whileHover={{ y: -8 }}
-                  onClick={() => openVideo(video)}
+                  className="glass-card p-4 rounded-2xl border border-white/10 hover:border-cyan-500/50 transition-all duration-300"
                 >
-                  <div className="relative overflow-hidden rounded-xl mb-6">
-                    <img 
-                      src={video.thumbnail} 
-                      alt={video.title}
-                      className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" 
+                  <div
+                    className="relative aspect-video overflow-hidden rounded-lg border border-cyan-500/30 bg-black/60"
+                    style={{ boxShadow: "0 0 40px rgba(6, 182, 212, 0.15)" }}
+                  >
+                    <iframe
+                      src={`https://www.youtube.com/embed/${video.videoId}?rel=0&modestbranding=1`}
+                      title={video.title}
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
                     />
-                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <Play size={32} className="text-cyan-400" style={{ filter: "drop-shadow(0 0 10px rgba(6, 182, 212, 0.6))" }} />
-                    </div>
+                    <div className="absolute top-2 left-2 w-6 h-6 border-l-2 border-t-2 border-cyan-500/70 pointer-events-none" />
+                    <div className="absolute top-2 right-2 w-6 h-6 border-r-2 border-t-2 border-cyan-500/70 pointer-events-none" />
+                    <div className="absolute bottom-2 left-2 w-6 h-6 border-l-2 border-b-2 border-cyan-500/70 pointer-events-none" />
+                    <div className="absolute bottom-2 right-2 w-6 h-6 border-r-2 border-b-2 border-cyan-500/70 pointer-events-none" />
                   </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors duration-300">{video.title}</h3>
-                    <p className="text-smoke text-sm mb-4 leading-relaxed">{video.description}</p>
-                    <button className="text-cyan-400 hover:text-white transition-all duration-300 flex items-center font-semibold text-sm uppercase tracking-wider" style={{ textShadow: "0 0 10px rgba(6, 182, 212, 0.5)" }}>
-                      <Play size={16} className="mr-2" />
-                      Watch Now
-                    </button>
+                  <div className="text-center mt-4">
+                    <h3
+                      className="text-xl font-bold text-white"
+                      style={{ fontFamily: "'Chakra Petch', sans-serif" }}
+                    >
+                      {video.title}
+                    </h3>
+                    <p className="text-smoke text-sm mt-1">{video.description}</p>
                   </div>
                 </motion.div>
               ))}
