@@ -222,7 +222,7 @@ export default function ListeningLounge() {
                   My Prayer - THE REMIX
                 </h3>
                 <p className="text-cyan-400/70 text-sm uppercase tracking-wider">
-                  Official Music Video
+                  Official Music Video Coming Soon!!
                 </p>
               </div>
             </div>
