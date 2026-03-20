@@ -5,6 +5,11 @@ import dbxAlbumArt from "@assets/FB_1768982086946.png";
 
 const videos = [
   {
+    title: "My Prayer",
+    description: "Official Music Video",
+    videoId: "bpmVy6V-R3E",
+  },
+  {
     title: "Quicksand",
     description: "First single release",
     videoId: "jfvJn0JWBCI",
@@ -214,10 +219,10 @@ export default function ListeningLounge() {
                   className="text-2xl font-bold text-white mb-2"
                   style={{ fontFamily: "'Chakra Petch', sans-serif" }}
                 >
-                  Video Spotlight
+                  My Prayer - THE REMIX
                 </h3>
                 <p className="text-cyan-400/70 text-sm uppercase tracking-wider">
-                  Drakkari Black
+                  Official Music Video
                 </p>
               </div>
             </div>
