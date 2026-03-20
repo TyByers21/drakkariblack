@@ -195,8 +195,8 @@ export default function ListeningLounge() {
                 style={{ boxShadow: "0 0 60px rgba(6, 182, 212, 0.2)" }}
               >
                 <iframe
-                  src="https://www.youtube.com/embed/bpmVy6V-R3E?rel=0&modestbranding=1"
-                  title="My Prayer - Drakkari Black"
+                  src="https://www.youtube.com/embed/9Bm7Y6Qx1xQ?rel=0&modestbranding=1"
+                  title="Featured Video - Drakkari Black"
                   className="w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
@@ -214,10 +214,10 @@ export default function ListeningLounge() {
                   className="text-2xl font-bold text-white mb-2"
                   style={{ fontFamily: "'Chakra Petch', sans-serif" }}
                 >
-                  My Prayer
+                  Video Spotlight
                 </h3>
                 <p className="text-cyan-400/70 text-sm uppercase tracking-wider">
-                  Official Music Video
+                  Drakkari Black
                 </p>
               </div>
             </div>
