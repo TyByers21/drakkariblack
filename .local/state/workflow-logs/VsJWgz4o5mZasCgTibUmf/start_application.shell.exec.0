@@ -1,0 +1,351 @@
+
+> rest-express@1.0.0 dev
+> NODE_ENV=development tsx server/index.ts
+
+[1G[0K4:32:52 PM [express] serving on port 5000
+Browserslist: browsers data (caniuse-lite) is 18 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+
+
+
+
+
+
+
+[1;1H[0J[2m4:33:03 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/SetList.tsx, /src/index.css?v=-MpGRYyhDHiaD2J8lqZUt, /src/pages/ListeningLounge.tsx, /src/pages/Contact.tsx, /src/pages/Appearances.tsx[22m
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m4:33:06 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/SetList.tsx, /src/index.css?v=-MpGRYyhDHiaD2J8lqZUt, /src/pages/ListeningLounge.tsx, /src/pages/Contact.tsx, /src/pages/Appearances.tsx[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m4:33:11 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/SetList.tsx, /src/index.css?v=-MpGRYyhDHiaD2J8lqZUt, /src/pages/ListeningLounge.tsx, /src/pages/Contact.tsx, /src/pages/Appearances.tsx[22m [33m(x3)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m4:33:15 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/SetList.tsx, /src/index.css?v=-MpGRYyhDHiaD2J8lqZUt, /src/pages/ListeningLounge.tsx, /src/pages/Contact.tsx, /src/pages/Appearances.tsx[22m [33m(x4)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m4:33:18 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/SetList.tsx, /src/index.css?v=-MpGRYyhDHiaD2J8lqZUt, /src/pages/ListeningLounge.tsx, /src/pages/Contact.tsx, /src/pages/Appearances.tsx[22m [33m(x5)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m4:33:32 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/SetList.tsx, /src/index.css?v=-MpGRYyhDHiaD2J8lqZUt, /src/pages/ListeningLounge.tsx, /src/pages/Contact.tsx, /src/pages/Appearances.tsx[22m [33m(x6)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m4:33:33 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/SetList.tsx, /src/index.css?v=-MpGRYyhDHiaD2J8lqZUt, /src/pages/ListeningLounge.tsx, /src/pages/Contact.tsx, /src/pages/Appearances.tsx[22m [33m(x7)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m4:34:11 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/SetList.tsx, /src/index.css?v=-MpGRYyhDHiaD2J8lqZUt, /src/pages/ListeningLounge.tsx, /src/pages/Contact.tsx, /src/pages/Appearances.tsx[22m [33m(x8)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m4:34:14 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/SetList.tsx, /src/index.css?v=-MpGRYyhDHiaD2J8lqZUt, /src/pages/ListeningLounge.tsx, /src/pages/Contact.tsx, /src/pages/Appearances.tsx[22m [33m(x9)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m4:34:20 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/SetList.tsx, /src/index.css?v=-MpGRYyhDHiaD2J8lqZUt, /src/pages/ListeningLounge.tsx, /src/pages/Contact.tsx, /src/pages/Appearances.tsx[22m [33m(x10)[39m
+4:34:27 PM [express] POST /api/spotify-token 200 in 83ms :: {"access_token":"BQBXd_nuKbKcu8XdnpvjB-0…
+4:38:42 PM [express] POST /api/spotify-token 200 in 33ms :: {"access_token":"BQCjRjbQBxXIbf6NRPM-tj2…
+4:43:42 PM [express] POST /api/spotify-token 200 in 62ms :: {"access_token":"BQBb2xuCG5cErEuUfwiNiLN…
+4:48:45 PM [express] POST /api/spotify-token 200 in 27ms :: {"access_token":"BQADOa1giYo6YuDKLneCfQr…
+4:54:42 PM [express] POST /api/spotify-token 200 in 43ms :: {"access_token":"BQDVYBfFnsJWuKpa-mdfdwM…
+4:59:42 PM [express] POST /api/spotify-token 200 in 26ms :: {"access_token":"BQB5GG4uRyonMoW-Mh0dsCM…
+5:04:42 PM [express] POST /api/spotify-token 200 in 27ms :: {"access_token":"BQBtClg3CRHliuTHmVt0dWz…
+5:10:42 PM [express] POST /api/spotify-token 200 in 27ms :: {"access_token":"BQDJq8W6765_9Ct7WePVpTy…
+5:15:42 PM [express] POST /api/spotify-token 200 in 29ms :: {"access_token":"BQDVvTWOxoqVDj17uwPUTvn…
+5:21:43 PM [express] POST /api/spotify-token 200 in 43ms :: {"access_token":"BQBujOqp0wn0tTAyUQzCsfC…
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m5:28:25 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/SetList.tsx, /src/index.css?v=-MpGRYyhDHiaD2J8lqZUt, /src/pages/ListeningLounge.tsx, /src/pages/Contact.tsx, /src/pages/Appearances.tsx[22m [33m(x11)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m5:28:56 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/SetList.tsx, /src/index.css?v=-MpGRYyhDHiaD2J8lqZUt, /src/pages/ListeningLounge.tsx, /src/pages/Contact.tsx, /src/pages/Appearances.tsx[22m [33m(x12)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m5:29:02 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/SetList.tsx, /src/index.css?v=-MpGRYyhDHiaD2J8lqZUt, /src/pages/ListeningLounge.tsx, /src/pages/Contact.tsx, /src/pages/Appearances.tsx[22m [33m(x13)[39m
+[2m5:29:02 PM[22m [31m[1m[vite][22m[39m Pre-transform error: Transform failed with 1 error:
+/home/runner/workspace/client/src/lib/constants.ts:653:17: ERROR: Unterminated string literal
+[1G[0K⠙[1G[0K[1mnpm[22m [96mnotice[39m
+[1mnpm[22m [96mnotice[39m New [31mmajor[39m version of npm available! [31m10.8.2[39m -> [34m11.12.1[39m
+[1mnpm[22m [96mnotice[39m Changelog: [34mhttps://github.com/npm/cli/releases/tag/v11.12.1[39m
+[1mnpm[22m [96mnotice[39m To update run: [4mnpm install -g npm@11.12.1[24m
+[1mnpm[22m [96mnotice[39m
+[1G[0K⠙[1G[0K

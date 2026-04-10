@@ -1,0 +1,662 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drakkari Black - Official Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-bg': '#0a0a0a',
+                        'dark-surface': '#1a1a1a',
+                        'dark-border': '#333333',
+                        'accent-gold': '#d4af37',
+                        'accent-gold-hover': '#b8941f',
+                        'text-muted': '#666666'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark-bg text-white font-inter">
+    <!-- @COMPONENT: NavigationBar -->
+    <nav class="fixed top-0 w-full bg-dark-bg/95 backdrop-blur-sm border-b border-dark-border z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold text-accent-gold">DRAKKARI BLACK</div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="nav-link text-white hover:text-accent-gold transition-colors duration-200 font-medium">Home</a>
+                        <a href="#about" class="nav-link text-text-muted hover:text-accent-gold transition-colors duration-200 font-medium">About</a>
+                        <a href="#listening" class="nav-link text-text-muted hover:text-accent-gold transition-colors duration-200 font-medium">Listening Lounge</a>
+                        <a href="#appearances" class="nav-link text-text-muted hover:text-accent-gold transition-colors duration-200 font-medium">Appearances</a>
+                        <a href="#contact" class="nav-link text-text-muted hover:text-accent-gold transition-colors duration-200 font-medium">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-white hover:text-accent-gold">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-dark-surface border-t border-dark-border">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 text-white hover:text-accent-gold transition-colors duration-200">Home</a>
+                <a href="#about" class="block px-3 py-2 text-text-muted hover:text-accent-gold transition-colors duration-200">About</a>
+                <a href="#listening" class="block px-3 py-2 text-text-muted hover:text-accent-gold transition-colors duration-200">Listening Lounge</a>
+                <a href="#appearances" class="block px-3 py-2 text-text-muted hover:text-accent-gold transition-colors duration-200">Appearances</a>
+                <a href="#contact" class="block px-3 py-2 text-text-muted hover:text-accent-gold transition-colors duration-200">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <!-- @END_COMPONENT: NavigationBar -->
+
+    <!-- @COMPONENT: HeroSection -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background with provided artist image -->
+        <div class="absolute inset-0 bg-gradient-to-br from-dark-bg via-dark-surface to-dark-bg">
+            <div class="absolute inset-0 bg-black/40"></div>
+            <img src="attached_assets/Ty SmooveNoTats_1750523642870.png" alt="Drakkari Black artist portrait" class="w-full h-full object-cover opacity-60" data-mock="true">
+        </div>
+        
+        <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+            <h1 class="text-6xl md:text-8xl font-black mb-6 text-white leading-tight">
+                DRAKKARI<br>
+                <span class="text-accent-gold">BLACK</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 text-gray-300 font-light max-w-2xl mx-auto">
+                Experience the sound that defines a generation. Modern beats, timeless soul.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button class="bg-accent-gold hover:bg-accent-gold-hover text-black font-semibold px-8 py-3 rounded-full transition-all duration-200 transform hover:scale-105">
+                    <i class="fas fa-play mr-2"></i>Listen Now
+                </button>
+                <button class="border-2 border-white text-white hover:bg-white hover:text-black font-semibold px-8 py-3 rounded-full transition-all duration-200">
+                    Book Performance
+                </button>
+            </div>
+            
+            <!-- Social Links -->
+            <div class="flex justify-center space-x-6 mt-12">
+                <a href="#" class="text-2xl text-gray-400 hover:text-accent-gold transition-colors duration-200">
+                    <i class="fab fa-spotify"></i>
+                </a>
+                <a href="#" class="text-2xl text-gray-400 hover:text-accent-gold transition-colors duration-200">
+                    <i class="fab fa-apple"></i>
+                </a>
+                <a href="#" class="text-2xl text-gray-400 hover:text-accent-gold transition-colors duration-200">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="text-2xl text-gray-400 hover:text-accent-gold transition-colors duration-200">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="text-2xl text-gray-400 hover:text-accent-gold transition-colors duration-200">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: HeroSection -->
+
+    <!-- @COMPONENT: AboutSection -->
+    <section id="about" class="py-20 bg-dark-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4 text-white">About Drakkari Black</h2>
+                <div class="w-24 h-1 bg-accent-gold mx-auto"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h3 class="text-3xl font-semibold text-accent-gold mb-6">The Journey</h3>
+                    <p class="text-gray-300 text-lg leading-relaxed" data-mock="true">
+                        Born from the intersection of classical training and street wisdom, Drakkari Black emerged as a defining voice in contemporary music. His journey began in the underground clubs of Detroit, where raw talent met relentless ambition.
+                    </p>
+                    <p class="text-gray-300 text-lg leading-relaxed" data-mock="true">
+                        With over a decade of experience crafting sounds that resonate across generations, Drakkari has collaborated with industry legends while maintaining his unique artistic vision. His music tells stories of triumph, struggle, and the human experience.
+                    </p>
+                    <p class="text-gray-300 text-lg leading-relaxed" data-mock="true">
+                        From intimate studio sessions to sold-out arenas, every performance is a testament to his commitment to authentic artistry. Drakkari Black doesn't just make music—he creates experiences that transform listeners.
+                    </p>
+                    
+                    <div class="grid grid-cols-3 gap-6 mt-8">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-accent-gold" data-mock="true">15+</div>
+                            <div class="text-gray-400">Years Active</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-accent-gold" data-mock="true">500K+</div>
+                            <div class="text-gray-400">Monthly Listeners</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-accent-gold" data-mock="true">50+</div>
+                            <div class="text-gray-400">Live Shows</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <!-- Professional music studio with equipment and atmospheric lighting -->
+                    <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" alt="Professional music studio setup" class="rounded-lg shadow-2xl w-full h-96 object-cover" data-mock="true">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-bg/60 to-transparent rounded-lg"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: AboutSection -->
+
+    <!-- @COMPONENT: ListeningLoungeSection -->
+    <section id="listening" class="py-20 bg-dark-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4 text-white">Listening Lounge</h2>
+                <div class="w-24 h-1 bg-accent-gold mx-auto mb-6"></div>
+                <p class="text-gray-300 text-xl max-w-2xl mx-auto">
+                    Immerse yourself in the complete Drakkari Black experience
+                </p>
+            </div>
+            
+            <!-- Featured Video -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-semibold text-accent-gold mb-8 text-center">Featured Video</h3>
+                <div class="max-w-4xl mx-auto">
+                    <div class="relative aspect-video bg-dark-surface rounded-lg overflow-hidden shadow-2xl">
+                        <!-- Concert stage with dramatic lighting and crowd -->
+                        <img src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&h=675" alt="Concert stage with dramatic lighting" class="w-full h-full object-cover" data-mock="true">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <button class="bg-accent-gold hover:bg-accent-gold-hover text-black rounded-full p-6 transform hover:scale-110 transition-all duration-200 shadow-lg">
+                                <i class="fas fa-play text-3xl ml-1"></i>
+                            </button>
+                        </div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <h4 class="text-2xl font-bold text-white mb-2" data-mock="true">Midnight Sessions - Live Performance</h4>
+                            <p class="text-gray-300" data-mock="true">Exclusive live recording from the sold-out Madison Square Garden show</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Video Gallery -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-semibold text-accent-gold mb-8 text-center">Video Collection</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- @MAP: videos.map(video => ( -->
+                    <div class="bg-dark-surface rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-200">
+                        <!-- Music venue with stage lighting and empty seats -->
+                        <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250" alt="Music venue interior with stage lighting" class="w-full h-48 object-cover" data-mock="true">
+                        <div class="p-4">
+                            <h4 class="text-xl font-semibold text-white mb-2" data-mock="true">Studio Sessions Vol. 1</h4>
+                            <p class="text-gray-400 text-sm mb-3" data-mock="true">Behind the scenes creative process</p>
+                            <button class="text-accent-gold hover:text-accent-gold-hover transition-colors duration-200">
+                                <i class="fas fa-play mr-2"></i>Watch Now
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-dark-surface rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-200">
+                        <!-- Recording studio with mixing board and monitors -->
+                        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250" alt="Recording studio with professional equipment" class="w-full h-48 object-cover" data-mock="true">
+                        <div class="p-4">
+                            <h4 class="text-xl font-semibold text-white mb-2" data-mock="true">Golden Hour Acoustic</h4>
+                            <p class="text-gray-400 text-sm mb-3" data-mock="true">Stripped down intimate performance</p>
+                            <button class="text-accent-gold hover:text-accent-gold-hover transition-colors duration-200">
+                                <i class="fas fa-play mr-2"></i>Watch Now
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-dark-surface rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-200">
+                        <!-- Concert venue with crowd and stage production -->
+                        <img src="https://pixabay.com/get/geec80fd9d1f0918515755157eb753bf918bac96390ba5c9bb0b9f402bae91e3a6b29f23a0de7b52ba0dba8e93a950344ccc33e92701b95e274812151d4c8d229_1280.jpg" alt="Live concert venue with crowd and stage production" class="w-full h-48 object-cover" data-mock="true">
+                        <div class="p-4">
+                            <h4 class="text-xl font-semibold text-white mb-2" data-mock="true">World Tour Highlights</h4>
+                            <p class="text-gray-400 text-sm mb-3" data-mock="true">Best moments from international shows</p>
+                            <button class="text-accent-gold hover:text-accent-gold-hover transition-colors duration-200">
+                                <i class="fas fa-play mr-2"></i>Watch Now
+                            </button>
+                        </div>
+                    </div>
+                    <!-- @END_MAP )) -->
+                </div>
+            </div>
+            
+            <!-- Streaming Platforms -->
+            <div class="text-center">
+                <h3 class="text-3xl font-semibold text-accent-gold mb-8">Stream Everywhere</h3>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="#" class="bg-dark-surface hover:bg-green-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-200 transform hover:scale-105 flex items-center">
+                        <i class="fab fa-spotify text-2xl mr-3"></i>
+                        Spotify
+                    </a>
+                    <a href="#" class="bg-dark-surface hover:bg-gray-800 text-white px-8 py-4 rounded-full font-semibold transition-all duration-200 transform hover:scale-105 flex items-center">
+                        <i class="fab fa-apple text-2xl mr-3"></i>
+                        Apple Music
+                    </a>
+                    <a href="#" class="bg-dark-surface hover:bg-orange-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-200 transform hover:scale-105 flex items-center">
+                        <i class="fab fa-soundcloud text-2xl mr-3"></i>
+                        SoundCloud
+                    </a>
+                    <a href="#" class="bg-dark-surface hover:bg-red-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-200 transform hover:scale-105 flex items-center">
+                        <i class="fab fa-youtube text-2xl mr-3"></i>
+                        YouTube Music
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ListeningLoungeSection -->
+
+    <!-- @COMPONENT: UpcomingAppearancesSection -->
+    <section id="appearances" class="py-20 bg-dark-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4 text-white">Upcoming Appearances</h2>
+                <div class="w-24 h-1 bg-accent-gold mx-auto mb-6"></div>
+                <p class="text-gray-300 text-xl max-w-2xl mx-auto">
+                    Catch Drakkari Black live at these exclusive venues
+                </p>
+            </div>
+            
+            <!-- Event Calendar -->
+            <div class="grid lg:grid-cols-3 gap-8 mb-16">
+                <!-- @MAP: events.map(event => ( -->
+                <div class="bg-dark-bg rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105">
+                    <div class="bg-accent-gold text-black p-4 text-center">
+                        <div class="text-3xl font-bold" data-mock="true">MAR</div>
+                        <div class="text-5xl font-black" data-mock="true">15</div>
+                        <div class="text-sm font-semibold" data-mock="true">2024</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2" data-mock="true">Madison Square Garden</h3>
+                        <p class="text-gray-400 mb-4" data-mock="true">New York, NY</p>
+                        <div class="space-y-2 text-gray-300 mb-6">
+                            <div class="flex items-center">
+                                <i class="fas fa-clock mr-2 text-accent-gold"></i>
+                                <span data-mock="true">8:00 PM</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-ticket-alt mr-2 text-accent-gold"></i>
+                                <span data-mock="true">$75 - $250</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-accent-gold hover:bg-accent-gold-hover text-black font-semibold py-3 rounded-lg transition-colors duration-200">
+                            Get Tickets
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bg-dark-bg rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105">
+                    <div class="bg-accent-gold text-black p-4 text-center">
+                        <div class="text-3xl font-bold" data-mock="true">APR</div>
+                        <div class="text-5xl font-black" data-mock="true">02</div>
+                        <div class="text-sm font-semibold" data-mock="true">2024</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2" data-mock="true">Hollywood Bowl</h3>
+                        <p class="text-gray-400 mb-4" data-mock="true">Los Angeles, CA</p>
+                        <div class="space-y-2 text-gray-300 mb-6">
+                            <div class="flex items-center">
+                                <i class="fas fa-clock mr-2 text-accent-gold"></i>
+                                <span data-mock="true">7:30 PM</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-ticket-alt mr-2 text-accent-gold"></i>
+                                <span data-mock="true">$85 - $300</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-accent-gold hover:bg-accent-gold-hover text-black font-semibold py-3 rounded-lg transition-colors duration-200">
+                            Get Tickets
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bg-dark-bg rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105">
+                    <div class="bg-accent-gold text-black p-4 text-center">
+                        <div class="text-3xl font-bold" data-mock="true">MAY</div>
+                        <div class="text-5xl font-black" data-mock="true">18</div>
+                        <div class="text-sm font-semibold" data-mock="true">2024</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2" data-mock="true">Red Rocks Amphitheatre</h3>
+                        <p class="text-gray-400 mb-4" data-mock="true">Morrison, CO</p>
+                        <div class="space-y-2 text-gray-300 mb-6">
+                            <div class="flex items-center">
+                                <i class="fas fa-clock mr-2 text-accent-gold"></i>
+                                <span data-mock="true">8:00 PM</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-ticket-alt mr-2 text-accent-gold"></i>
+                                <span data-mock="true">$95 - $350</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-accent-gold hover:bg-accent-gold-hover text-black font-semibold py-3 rounded-lg transition-colors duration-200">
+                            Get Tickets
+                        </button>
+                    </div>
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+            
+            <!-- Promo Media Gallery -->
+            <div>
+                <h3 class="text-3xl font-semibold text-accent-gold mb-8 text-center">Promotional Media</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Concert promotional poster with bold typography -->
+                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=600" alt="Concert promotional poster design" class="rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200 cursor-pointer transform hover:scale-105" data-mock="true">
+                    
+                    <!-- Music festival poster with artistic design -->
+                    <img src="https://pixabay.com/get/g4d5794d8c3842ea659b8e1d438c1c9a1aaaa838f08ae5d759629ebd49e4eddd7409a9fc978bd6ce868d1265f523b8eaa189924022952c897ca198a7faf68e5b0_1280.jpg" alt="Music festival promotional poster" class="rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200 cursor-pointer transform hover:scale-105" data-mock="true">
+                    
+                    <!-- Album artwork promotional material -->
+                    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=600" alt="Album artwork promotional design" class="rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200 cursor-pointer transform hover:scale-105" data-mock="true">
+                    
+                    <!-- Tour announcement poster -->
+                    <img src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=600" alt="Tour announcement promotional poster" class="rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200 cursor-pointer transform hover:scale-105" data-mock="true">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: UpcomingAppearancesSection -->
+
+    <!-- @COMPONENT: ContactSection -->
+    <section id="contact" class="py-20 bg-dark-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4 text-white">Get In Touch</h2>
+                <div class="w-24 h-1 bg-accent-gold mx-auto mb-6"></div>
+                <p class="text-gray-300 text-xl max-w-2xl mx-auto">
+                    Ready to book Drakkari Black for your next event? Let's create something unforgettable together.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <h3 class="text-3xl font-semibold text-accent-gold mb-6">Booking Information</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-accent-gold/20 p-3 rounded-lg">
+                                <i class="fas fa-envelope text-accent-gold text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-white mb-2">Email</h4>
+                                <p class="text-gray-300" data-mock="true">booking@drakkariblack.com</p>
+                                <p class="text-gray-400 text-sm" data-mock="true">Response within 24 hours</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-accent-gold/20 p-3 rounded-lg">
+                                <i class="fas fa-phone text-accent-gold text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-white mb-2">Phone</h4>
+                                <p class="text-gray-300" data-mock="true">+1 (555) 123-4567</p>
+                                <p class="text-gray-400 text-sm" data-mock="true">Mon-Fri, 9AM-6PM EST</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-accent-gold/20 p-3 rounded-lg">
+                                <i class="fas fa-map-marker-alt text-accent-gold text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-white mb-2">Management</h4>
+                                <p class="text-gray-300" data-mock="true">Apex Entertainment Group</p>
+                                <p class="text-gray-400 text-sm" data-mock="true">Los Angeles, CA</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-dark-surface p-6 rounded-lg">
+                        <h4 class="text-xl font-semibold text-white mb-4">Booking Types</h4>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent-gold mr-3"></i>
+                                <span data-mock="true">Concert Venues</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent-gold mr-3"></i>
+                                <span data-mock="true">Music Festivals</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent-gold mr-3"></i>
+                                <span data-mock="true">Private Events</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent-gold mr-3"></i>
+                                <span data-mock="true">Corporate Functions</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="bg-dark-surface p-8 rounded-lg shadow-xl">
+                    <h3 class="text-2xl font-semibold text-white mb-6">Send Us a Message</h3>
+                    <form class="space-y-6" data-implementation="Should integrate with backend API for form submission">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-gray-300 text-sm font-medium mb-2">First Name *</label>
+                                <input type="text" class="w-full bg-dark-bg border border-dark-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-gold transition-colors duration-200" placeholder="John" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-300 text-sm font-medium mb-2">Last Name *</label>
+                                <input type="text" class="w-full bg-dark-bg border border-dark-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-gold transition-colors duration-200" placeholder="Doe" required>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 text-sm font-medium mb-2">Email Address *</label>
+                            <input type="email" class="w-full bg-dark-bg border border-dark-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-gold transition-colors duration-200" placeholder="john@example.com" required>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 text-sm font-medium mb-2">Phone Number</label>
+                            <input type="tel" class="w-full bg-dark-bg border border-dark-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-gold transition-colors duration-200" placeholder="+1 (555) 123-4567">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 text-sm font-medium mb-2">Event Type</label>
+                            <select class="w-full bg-dark-bg border border-dark-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-gold transition-colors duration-200">
+                                <option value="">Select event type</option>
+                                <option value="concert">Concert Venue</option>
+                                <option value="festival">Music Festival</option>
+                                <option value="private">Private Event</option>
+                                <option value="corporate">Corporate Function</option>
+                            </select>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-gray-300 text-sm font-medium mb-2">Event Date</label>
+                                <input type="date" class="w-full bg-dark-bg border border-dark-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-gold transition-colors duration-200">
+                            </div>
+                            <div>
+                                <label class="block text-gray-300 text-sm font-medium mb-2">Expected Attendance</label>
+                                <input type="number" class="w-full bg-dark-bg border border-dark-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-gold transition-colors duration-200" placeholder="1000">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 text-sm font-medium mb-2">Message *</label>
+                            <textarea rows="5" class="w-full bg-dark-bg border border-dark-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-gold transition-colors duration-200 resize-none" placeholder="Tell us about your event, venue, and any specific requirements..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-accent-gold hover:bg-accent-gold-hover text-black font-semibold py-4 rounded-lg transition-colors duration-200 transform hover:scale-105">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ContactSection -->
+
+    <!-- @COMPONENT: Footer -->
+    <footer class="bg-dark-surface border-t border-dark-border py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="text-2xl font-bold text-accent-gold mb-4">DRAKKARI BLACK</div>
+                    <p class="text-gray-400 mb-4" data-mock="true">
+                        Defining the sound of a generation through authentic artistry and unforgettable experiences.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-accent-gold transition-colors duration-200">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-accent-gold transition-colors duration-200">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-accent-gold transition-colors duration-200">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-accent-gold transition-colors duration-200">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-accent-gold transition-colors duration-200">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-accent-gold transition-colors duration-200">About</a></li>
+                        <li><a href="#listening" class="text-gray-400 hover:text-accent-gold transition-colors duration-200">Listening Lounge</a></li>
+                        <li><a href="#appearances" class="text-gray-400 hover:text-accent-gold transition-colors duration-200">Appearances</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-accent-gold transition-colors duration-200">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Music Platforms</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-accent-gold transition-colors duration-200">Spotify</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent-gold transition-colors duration-200">Apple Music</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent-gold transition-colors duration-200">SoundCloud</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent-gold transition-colors duration-200">YouTube Music</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4" data-mock="true">Stay updated with latest releases and tour dates</p>
+                    <form class="space-y-3" data-implementation="Should integrate with email marketing service">
+                        <input type="email" class="w-full bg-dark-bg border border-dark-border rounded-lg px-4 py-2 text-white focus:outline-none focus:border-accent-gold transition-colors duration-200" placeholder="Enter your email">
+                        <button type="submit" class="w-full bg-accent-gold hover:bg-accent-gold-hover text-black font-semibold py-2 rounded-lg transition-colors duration-200">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-dark-border pt-8 text-center">
+                <p class="text-gray-400" data-mock="true">
+                    © 2024 Drakkari Black. All rights reserved. | Privacy Policy | Terms of Service
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <script>
+        // TODO: Implement business logic, API calls, and state management
+        
+        (function() {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Navigation active state
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section[id]');
+            
+            function updateActiveNav() {
+                const scrollPos = window.scrollY + 100;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('text-white');
+                            link.classList.add('text-text-muted');
+                        });
+                        
+                        const activeLink = document.querySelector(`a[href="#${sectionId}"]`);
+                        if (activeLink) {
+                            activeLink.classList.remove('text-text-muted');
+                            activeLink.classList.add('text-white');
+                        }
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', updateActiveNav);
+            updateActiveNav();
+
+            // Form validation placeholder
+            const contactForm = document.querySelector('form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // TODO: Implement form validation and submission
+                    alert('Thank you for your message! We will get back to you soon.');
+                });
+            }
+
+            // Newsletter form placeholder
+            const newsletterForm = document.querySelector('footer form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // TODO: Implement newsletter subscription
+                    alert('Thank you for subscribing to our newsletter!');
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
