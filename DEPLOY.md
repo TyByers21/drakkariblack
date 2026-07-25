@@ -19,11 +19,23 @@ and Hostinger DNS points at Render.
 `.env` is gitignored and will not be uploaded — that's intentional. Secrets go
 into Render's dashboard in step 3.
 
+This repo has **no `origin` remote** (it was stripped during the Replit export;
+the only remote is `gitsafe-backup`, which is not GitHub). Add it once:
+
+```bash
+git remote add origin https://github.com/<your-username>/drakkariblack.git
+```
+
+Then:
+
 ```bash
 git add .
 git commit -m "Add deployment config"
-git push origin main
+git push -u origin main
 ```
+
+If the GitHub repo was created with a README or other initial commit, the push
+is rejected as a non-fast-forward. See "Push rejected" at the bottom of this file.
 
 ## 2. Create the Render service
 
@@ -108,3 +120,33 @@ that's a bad first impression; the $7/month Starter tier stays warm.
 
 **Rotate the credentials** that were shared in chat: Spotify client secret,
 Mailchimp API key, Mailgun API key.
+
+## Push rejected
+
+If `git push` fails with `non-fast-forward` or `refusing to merge unrelated
+histories`, the GitHub repo contains commits this clone doesn't share — usually
+an auto-created `README`/`.gitignore` from the "Add a README file" checkbox.
+
+Inspect what's actually on the remote before doing anything destructive:
+
+```bash
+git fetch origin
+git log --oneline origin/main
+```
+
+- **Remote has only an init commit you don't care about** — overwrite it:
+
+  ```bash
+  git push --force-with-lease origin main
+  ```
+
+  `--force-with-lease` (not `--force`) aborts if someone else pushed in the
+  meantime.
+
+- **Remote has real work you want to keep** — join the histories instead:
+
+  ```bash
+  git pull origin main --allow-unrelated-histories
+  # resolve any conflicts, then
+  git push origin main
+  ```
