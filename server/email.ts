@@ -1,11 +1,27 @@
-import nodemailer from 'nodemailer';
+import formData from 'form-data';
+import Mailgun from 'mailgun.js';
 import type { InsertContactSubmission } from '@shared/schema';
 
 // Email configuration
-const TO_EMAIL = 'info@drakkariblack.com';
-const FROM_EMAIL = 'website@drakkariblack.com';
+const TO_EMAIL = process.env.CONTACT_TO_EMAIL || 'info@drakkariblack.com';
 
-export async function sendContactEmail(submission: InsertContactSubmission): Promise<void> {
+// Mailgun rejects a From address that isn't on the verified sending domain,
+// so derive it from MAILGUN_DOMAIN rather than hardcoding it.
+const MAILGUN_DOMAIN = process.env.MAILGUN_DOMAIN;
+const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL || `website@${MAILGUN_DOMAIN}`;
+
+/** Escape user-supplied text so it can't inject markup into the notification email. */
+function escapeHtml(value: string | number): string {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+/** Returns true if an email was actually sent, false if Mailgun isn't configured. */
+export async function sendContactEmail(submission: InsertContactSubmission): Promise<boolean> {
   // Always log to console first
   console.log('\n🎵 ===============================');
   console.log('   NEW CONTACT FORM SUBMISSION');
@@ -20,6 +36,21 @@ export async function sendContactEmail(submission: InsertContactSubmission): Pro
   console.log(`Submitted: ${new Date().toLocaleString()}`);
   console.log('===============================\n');
 
+  if (!process.env.MAILGUN_API_KEY || !MAILGUN_DOMAIN) {
+    console.log('📧 Mailgun not configured - skipping email notification.');
+    console.log('   Set MAILGUN_API_KEY and MAILGUN_DOMAIN to enable it.');
+    return false;
+  }
+
+  const firstName = escapeHtml(submission.firstName);
+  const lastName = escapeHtml(submission.lastName);
+  const email = escapeHtml(submission.email);
+  const phone = escapeHtml(submission.phone || 'Not provided');
+  const eventType = escapeHtml(submission.eventType || 'Not specified');
+  const eventDate = escapeHtml(submission.eventDate || 'Not specified');
+  const expectedAttendance = escapeHtml(submission.expectedAttendance || 'Not specified');
+  const message = escapeHtml(submission.message);
+
   // Create email content
   const emailHtml = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #0a0a0a; color: #ffffff; padding: 20px;">
@@ -27,26 +58,26 @@ export async function sendContactEmail(submission: InsertContactSubmission): Pro
         <h1 style="color: #dc2626; margin: 0; font-size: 28px;">🎵 Drakkari Black</h1>
         <p style="color: #b0b0b0; margin: 10px 0 0 0;">New Booking Inquiry</p>
       </div>
-      
+
       <div style="background-color: #1a1a1a; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
         <h2 style="color: #dc2626; margin-top: 0;">Contact Information</h2>
-        <p><strong>Name:</strong> ${submission.firstName} ${submission.lastName}</p>
-        <p><strong>Email:</strong> <a href="mailto:${submission.email}" style="color: #dc2626;">${submission.email}</a></p>
-        <p><strong>Phone:</strong> ${submission.phone || 'Not provided'}</p>
+        <p><strong>Name:</strong> ${firstName} ${lastName}</p>
+        <p><strong>Email:</strong> <a href="mailto:${email}" style="color: #dc2626;">${email}</a></p>
+        <p><strong>Phone:</strong> ${phone}</p>
       </div>
-      
+
       <div style="background-color: #1a1a1a; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
         <h2 style="color: #dc2626; margin-top: 0;">Event Details</h2>
-        <p><strong>Event Type:</strong> ${submission.eventType}</p>
-        <p><strong>Event Date:</strong> ${submission.eventDate || 'Not specified'}</p>
-        <p><strong>Expected Attendance:</strong> ${submission.expectedAttendance || 'Not specified'}</p>
+        <p><strong>Event Type:</strong> ${eventType}</p>
+        <p><strong>Event Date:</strong> ${eventDate}</p>
+        <p><strong>Expected Attendance:</strong> ${expectedAttendance}</p>
       </div>
-      
+
       <div style="background-color: #1a1a1a; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
         <h2 style="color: #dc2626; margin-top: 0;">Message</h2>
-        <p style="white-space: pre-wrap;">${submission.message}</p>
+        <p style="white-space: pre-wrap;">${message}</p>
       </div>
-      
+
       <div style="text-align: center; padding: 20px; background-color: #1a1a1a; border-radius: 10px; color: #888;">
         <p>Submitted on: ${new Date().toLocaleString()}</p>
         <p>From: Drakkari Black Website Contact Form</p>
@@ -74,31 +105,25 @@ Submitted on: ${new Date().toLocaleString()}
 From: Drakkari Black Website Contact Form
   `;
 
-  // Try to send email
-  try {
-    // Create a simple transporter that will work with most email services
-    const transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 587,
-      secure: false,
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
-      }
-    });
+  const mailgun = new Mailgun(formData);
+  const mg = mailgun.client({
+    username: 'api',
+    key: process.env.MAILGUN_API_KEY,
+    // EU-region accounts need https://api.eu.mailgun.net
+    url: process.env.MAILGUN_API_URL || 'https://api.mailgun.net',
+  });
 
-    await transporter.sendMail({
-      from: `"Drakkari Black Website" <${FROM_EMAIL}>`,
-      to: TO_EMAIL,
-      subject: `🎵 New Booking Inquiry - ${submission.firstName} ${submission.lastName}`,
-      text: emailText,
-      html: emailHtml,
-      replyTo: submission.email
-    });
+  // Let failures propagate: registerRoutes already catches them and keeps the
+  // submission, so swallowing here would report success for mail that never sent.
+  await mg.messages.create(MAILGUN_DOMAIN, {
+    from: `Drakkari Black Website <${FROM_EMAIL}>`,
+    to: [TO_EMAIL],
+    subject: `🎵 New Booking Inquiry - ${submission.firstName} ${submission.lastName}`,
+    text: emailText,
+    html: emailHtml,
+    'h:Reply-To': submission.email,
+  });
 
-    console.log('✅ Email sent successfully to info@drakkariblack.com');
-  } catch (error) {
-    console.log('⚠️  Email sending failed, but form submission saved:', error);
-    console.log('📧 To enable email notifications, set EMAIL_USER and EMAIL_PASS environment variables');
-  }
+  console.log(`✅ Email sent successfully to ${TO_EMAIL}`);
+  return true;
 }

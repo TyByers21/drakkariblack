@@ -23,8 +23,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       // Send email notification via Mailgun
       try {
-        await sendContactEmail(validatedData);
-        console.log(`Contact email sent for submission ${submission.id}`);
+        const sent = await sendContactEmail(validatedData);
+        if (sent) {
+          console.log(`Contact email sent for submission ${submission.id}`);
+        }
       } catch (emailError) {
         console.error('Failed to send contact email:', emailError);
         // Don't fail the entire request if email fails

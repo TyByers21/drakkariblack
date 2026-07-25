@@ -1,0 +1,39 @@
+services:
+  - type: web
+    name: drakkari-black
+    runtime: node
+    plan: free
+    region: oregon
+
+    # --include=dev is required: vite and esbuild are devDependencies, and
+    # Render sets NODE_ENV=production, which makes a plain `npm ci` skip them.
+    buildCommand: npm ci --include=dev && npm run build
+
+    # Deliberately not `npm start` -- that script uses cross-env, a
+    # devDependency. NODE_ENV is set below, so call node directly.
+    startCommand: node dist/index.js
+
+    healthCheckPath: /
+
+    envVars:
+      - key: NODE_VERSION
+        value: 24.15.0
+      - key: NODE_ENV
+        value: production
+
+      # sync: false = Render prompts for the value and stores it encrypted.
+      # These are never committed to the repo.
+      - key: SPOTIFY_CLIENT_ID
+        sync: false
+      - key: SPOTIFY_CLIENT_SECRET
+        sync: false
+      - key: MAILCHIMP_API_KEY
+        sync: false
+      - key: MAILCHIMP_AUDIENCE_ID
+        sync: false
+      - key: MAILGUN_API_KEY
+        sync: false
+      - key: MAILGUN_DOMAIN
+        sync: false
+      - key: SESSION_SECRET
+        sync: false
