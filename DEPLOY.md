@@ -78,24 +78,44 @@ displays**, not values copied from a guide — Render's IPs change over time.
 
 ## 5. Point Hostinger DNS at Render
 
+Hostinger's only role from here is **DNS**. The domain stays registered there;
+nothing gets uploaded to Hostinger hosting.
+
+Confirmed live state of `drakkariblack.com` (checked against Google + Cloudflare
+resolvers):
+
+| Record | Current value | Meaning |
+|---|---|---|
+| `NS` | `ns1.dns-parking.com`, `ns2.dns-parking.com` | Hostinger nameservers — edit DNS in hPanel ✅ |
+| `A` @ | `92.112.189.221` | Hostinger shared hosting — **must be replaced** |
+| `AAAA` @ | `2a02:4780:84::32` | Hostinger IPv6 — **must be deleted** (see below) |
+| `CNAME` www | → `drakkariblack.com` | Fine to keep, or repoint at Render |
+| `MX` | **none** | No inbound email — see Known follow-ups |
+| `TXT` | `v=spf1 include:spf.mailjet.com include:spf.titan.email ~all` | SPF omits Mailgun — see Known follow-ups |
+
 In hPanel: **Domains → drakkariblack.com → DNS / Nameservers → Manage DNS records**
 
-First confirm the domain is using **Hostinger nameservers** (`ns1.dns-parking.com`
-/ `ns2.dns-parking.com`). If it uses someone else's, edit DNS there instead.
-
-Then:
-
-1. **Delete or edit the existing `A` record for `@`** — it currently points at
-   Hostinger's shared hosting IP. This is the step people miss; leaving it means
-   the domain keeps serving the old hosting.
-2. **Delete any existing `CNAME` for `www`** for the same reason.
-3. Add the records Render gave you — typically:
-   - `A` record, name `@`, value = the IP Render shows
-   - `CNAME` record, name `www`, value = `<your-app>.onrender.com`
-4. Leave `MX` records alone if you receive email at this domain.
+1. **Delete the `AAAA` record for `@`** (`2a02:4780:84::32`).
+   This is the step that silently breaks things. Render serves the apex over
+   IPv4 only. If the IPv6 record survives, any visitor on an IPv6 connection
+   still reaches Hostinger's empty hosting while IPv4 visitors see the new site
+   — an intermittent "works for me" failure that is miserable to diagnose.
+2. **Edit the `A` record for `@`**, replacing `92.112.189.221` with the IP shown
+   in Render's Custom Domains panel (currently `216.24.57.1`, but **use what the
+   dashboard displays** — Render's IPs change).
+3. **Point `www` at Render**: set the `CNAME` for `www` to
+   `<your-app>.onrender.com`.
+4. **Leave the `TXT`/SPF record alone** for now — it affects email, not the site.
 
 DNS propagation is usually minutes but can take up to 48 hours. Render issues a
 TLS certificate automatically once the records resolve — no SSL setup needed.
+
+Verify propagation from your machine:
+
+```bash
+nslookup drakkariblack.com 8.8.8.8        # expect Render's IP, not 92.112.189.221
+nslookup -type=AAAA drakkariblack.com 8.8.8.8   # expect no answer
+```
 
 ## 6. Verify
 
@@ -117,6 +137,37 @@ form still saves and logs submissions — only the email notification is skipped
 **Render's free tier sleeps.** After ~15 minutes of no traffic the service spins
 down, and the next visitor waits ~50 seconds for a cold start. For a public site
 that's a bad first impression; the $7/month Starter tier stays warm.
+
+**`info@drakkariblack.com` cannot receive mail.** The domain has **no MX
+records** (verified against both Google and Cloudflare resolvers). The contact
+form is configured to notify `info@drakkariblack.com`, so even after Mailgun is
+reactivated, those notifications would bounce — nothing is listening for inbound
+mail at that address. The SPF record references `spf.titan.email`, which
+suggests Titan (Hostinger's email product) was intended but never finished.
+
+Two ways to fix, in hPanel → **Emails**:
+
+- Set up Titan/Hostinger email for the domain, which adds the MX records; or
+- Skip inbound mail entirely and point notifications at an address that already
+  works, by setting `CONTACT_TO_EMAIL` in Render to e.g. your Gmail. No code
+  change needed — `server/email.ts` already reads it.
+
+**SPF does not authorize Mailgun.** The current record is:
+
+```
+v=spf1 include:spf.mailjet.com include:spf.titan.email ~all
+```
+
+Mail sent through Mailgun from `@drakkariblack.com` fails SPF alignment and is
+likely to be spam-filtered. When you reactivate Mailgun, add its include:
+
+```
+v=spf1 include:spf.mailjet.com include:spf.titan.email include:mailgun.org ~all
+```
+
+Mailgun's dashboard also provides DKIM records — add those in Hostinger DNS too.
+Note this affects *deliverability of the notification*, and is separate from the
+account-inactivity block above.
 
 **Rotate the credentials** that were shared in chat: Spotify client secret,
 Mailchimp API key, Mailgun API key.
