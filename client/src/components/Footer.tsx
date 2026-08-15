@@ -18,38 +18,33 @@ const musicPlatforms = [
   { name: "YouTube Music", url: "https://www.youtube.com/@drakkariblacktv" },
 ];
 
+// Mailchimp's standard embedded-form target for the "Drakkari Black" audience.
+// These ids are public by design (they ship in every Mailchimp embed form) --
+// the secret API key stays out of the browser, so this works on static hosting.
+//
+// This is a real form POST rather than fetch(): Mailchimp sends no CORS headers,
+// so a scripted request is blocked by the browser. Their JSONP endpoint
+// (/subscribe/post-json) has been retired and now returns 404. A native form
+// submission is not subject to CORS, which is why the official embed uses one.
+// target="_blank" sends the confirmation to a new tab so the visitor keeps
+// their place on the site.
+const MAILCHIMP_ACTION = "https://gmail.us13.list-manage.com/subscribe/post";
+const MAILCHIMP_U = "73860a19d2c81dd29fb4ea9d9";
+const MAILCHIMP_ID = "ec7b462747";
+
 export default function Footer() {
   const [email, setEmail] = useState("");
   const { toast } = useToast();
 
-  const handleNewsletterSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    try {
-      const response = await fetch('/api/newsletter', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email }),
-      });
-      
-      if (response.ok) {
-        toast({
-          title: "Welcome to the family! 🎵",
-          description: "You're now subscribed to Drakkari Black updates. Check your email for a welcome message!",
-        });
-        setEmail("");
-      } else {
-        throw new Error('Failed to subscribe');
-      }
-    } catch (error) {
-      toast({
-        title: "Subscription failed",
-        description: "Please try again later or contact us directly.",
-        variant: "destructive",
-      });
-    }
+  // The response renders in the new tab and is cross-origin, so it cannot be
+  // read from here. Confirm only that the request was handed off.
+  const handleNewsletterSubmit = () => {
+    toast({
+      title: "Almost there! 🎵",
+      description:
+        "Confirm your subscription in the tab that just opened, then check your email.",
+    });
+    setEmail("");
   };
 
   return (
@@ -155,15 +150,36 @@ export default function Footer() {
             <p className="text-smoke mb-6 text-lg leading-relaxed">
               Stay updated with latest releases and tour dates
             </p>
-            <form onSubmit={handleNewsletterSubmit} className="space-y-4">
+            <form
+              action={MAILCHIMP_ACTION}
+              method="post"
+              target="_blank"
+              onSubmit={handleNewsletterSubmit}
+              className="space-y-4"
+            >
+              <input type="hidden" name="u" value={MAILCHIMP_U} />
+              <input type="hidden" name="id" value={MAILCHIMP_ID} />
               <input
                 type="email"
+                name="EMAIL"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full bg-charcoal border border-cyan-500 rounded-xl px-6 py-4 text-white focus:outline-none focus:border-luxury-accent focus:ring-2 focus:ring-luxury-accent/20 transition-all duration-300 text-lg"
                 placeholder="Enter your email"
                 required
               />
+              {/* Mailchimp bot-prevention honeypot -- must stay empty and hidden */}
+              <div
+                style={{ position: "absolute", left: "-5000px" }}
+                aria-hidden="true"
+              >
+                <input
+                  type="text"
+                  name={`b_${MAILCHIMP_U}_${MAILCHIMP_ID}`}
+                  tabIndex={-1}
+                  defaultValue=""
+                />
+              </div>
               <div className="animate-glow bg-gradient-primary">
               <button type="submit" className="glass-button flex items-center justify-center text-xl sm:text-lg py-3 sm:py-4 px-6 sm:px-8 group w-full rounded-xl">
                 Subscribe
