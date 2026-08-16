@@ -55,6 +55,11 @@ const promoImages = [
   drakBridge,
 ];
 
+// Canonical public URL. Hardcoded rather than read from window.location so a
+// downloaded .ics always points at the live site, even if the page was opened
+// from a preview or staging host.
+const SITE_URL = "https://drakkariblack.com";
+
 // Function to generate calendar event URLs
 function generateCalendarUrls(event: (typeof UPCOMING_EVENTS)[0]) {
   // Parse the event date and time
@@ -85,7 +90,7 @@ function generateCalendarUrls(event: (typeof UPCOMING_EVENTS)[0]) {
     ics: `data:text/calendar;charset=utf8,BEGIN:VCALENDAR
 VERSION:2.0
 BEGIN:VEVENT
-URL:${window.location.href}
+URL:${SITE_URL}/appearances
 DTSTART:${startDate}
 DTEND:${endDate}
 SUMMARY:${decodeURIComponent(title)}
