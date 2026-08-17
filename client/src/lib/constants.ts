@@ -55,9 +55,9 @@ export const UPCOMING_EVENTS = [
     month: "Aug",
     day: "28",
     year: "2026",
-    venue: "Ruby's Elixir",
+    venue: "Craftails Speakeasy",
     location: "St. Pete, FL",
-    time: "7:00 PM",
+    time: "8:00 PM",
     priceRange: "FREE",
   },
   {
