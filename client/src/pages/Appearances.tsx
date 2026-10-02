@@ -42,17 +42,18 @@ import drak2Image from "@/images/drak2.jpg";
 import cyberTy from "@/images/cyberTy.jpg";
 import drak4Image from "@/images/drak4.jpg";
 import drakBridge from "@/images/drakBridge.jpg";
+import drakSpeakeasy from "@/images/drak speakeasy.png";
+import drakSolace from "@/images/Drak in Solace.jpg";
 
 const promoImages = [
-  
-  drakSexy,  
+  drakSexy,
   drakCigar,
   drakLounge,
-  tySmooth,
   drakChillin,
   drakChillin2,
   drakChillin3,
-  drakBridge,
+  drakSpeakeasy,
+  drakSolace,
 ];
 
 // Canonical public URL. Hardcoded rather than read from window.location so a
@@ -140,7 +141,9 @@ function ImageGalleryModal() {
   };
 
   const prevImage = () => {
-    setCurrentIndex((prev) => (prev - 1 + promoImages.length) % promoImages.length);
+    setCurrentIndex(
+      (prev) => (prev - 1 + promoImages.length) % promoImages.length,
+    );
   };
 
   return (
@@ -180,7 +183,7 @@ function ImageGalleryModal() {
               Browse through Drakkari Black's promotional images
             </DialogDescription>
           </DialogHeader>
-          
+
           <div className="relative">
             {/* Image Display */}
             <motion.div
@@ -461,13 +464,9 @@ export default function Appearances() {
                 className="glass-card p-8 group cursor-pointer rounded-2xl"
               >
                 <div className="bg-gradient-accent text-black p-6 rounded-2xl text-center mb-6 group-hover:shadow-xl transition-all duration-300">
-                  <div className="text-2xl font-bold">
-                    {event.month}
-                  </div>
+                  <div className="text-2xl font-bold">{event.month}</div>
                   <div className="text-6xl font-black my-2">{event.day}</div>
-                  <div className="text-lg font-semibold">
-                    {event.year}
-                  </div>
+                  <div className="text-lg font-semibold">{event.year}</div>
                 </div>
                 <div>
                   <h3 className="text-2xl font-black text-white mb-3 group-hover:text-luxury-accent transition-colors duration-300">
@@ -480,10 +479,7 @@ export default function Appearances() {
                       <span className="font-medium">{event.time}</span>
                     </div>
                     <div className="flex items-center">
-                      <Calendar
-                        className="mr-3 text-cyan-400"
-                        size={20}
-                      />
+                      <Calendar className="mr-3 text-cyan-400" size={20} />
                       <span className="font-medium">{event.priceRange}</span>
                     </div>
                   </div>
