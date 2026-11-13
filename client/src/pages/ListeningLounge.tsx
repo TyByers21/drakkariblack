@@ -2,8 +2,14 @@ import { motion } from "framer-motion";
 import { STREAMING_PLATFORMS } from "@/lib/constants";
 import bgTexture from "@assets/generated_images/dark_industrial_texture_background.png";
 import dbxAlbumArt from "@assets/FB_1768982086946.png";
+import VideoSpotlight from "@/components/VideoSpotlight";
 
 const videos = [
+  {
+    title: "The Rain",
+    description: "New single",
+    videoId: "JhMnvKTXE7Q",
+  },
   {
     title: "My Prayer",
     description: "Official Music Video",
@@ -217,60 +223,7 @@ export default function ListeningLounge() {
         </div>
       </section>
 
-      {/* Featured Video Section */}
-      <section className="py-10 md:py-20 bg-gradient-to-b from-deep-black via-black/95 to-deep-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mb-16"
-          >
-            <h2
-              className="text-2xl md:text-4xl font-bold text-center mb-8 text-cyan-400"
-              style={{
-                fontFamily: "'Syncopate', sans-serif",
-                textShadow: "0 0 20px rgba(6, 182, 212, 0.5)",
-              }}
-            >
-              Video Spotlight
-            </h2>
-
-            <div className="max-w-4xl mx-auto">
-              <div
-                className="relative aspect-video overflow-hidden rounded-lg border border-cyan-500/40 bg-black/60 backdrop-blur-sm"
-                style={{ boxShadow: "0 0 60px rgba(6, 182, 212, 0.2)" }}
-              >
-                <iframe
-                  src="https://www.youtube.com/embed/bpmVy6V-R3E?si=6bSv3z-D3oeWmOCU"
-                  title="Featured Video - Drakkari Black"
-                  className="w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-
-                {/* HUD corners */}
-                <div className="absolute top-2 left-2 w-8 h-8 border-l-2 border-t-2 border-cyan-500/70 pointer-events-none" />
-                <div className="absolute top-2 right-2 w-8 h-8 border-r-2 border-t-2 border-cyan-500/70 pointer-events-none" />
-                <div className="absolute bottom-2 left-2 w-8 h-8 border-l-2 border-b-2 border-cyan-500/70 pointer-events-none" />
-                <div className="absolute bottom-2 right-2 w-8 h-8 border-r-2 border-b-2 border-cyan-500/70 pointer-events-none" />
-              </div>
-
-              <div className="text-center mt-6">
-                <h3
-                  className="text-2xl font-bold text-white mb-2"
-                  style={{ fontFamily: "'Chakra Petch', sans-serif" }}
-                >
-                  My Prayer - OFFICIAL MUSIC VIDEO
-                </h3>
-                <p className="text-cyan-400/70 text-sm uppercase tracking-wider">
-                  New Music Alert!!
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <VideoSpotlight />
 
       {/* Midnight Sessions Section */}
       <section className="py-8 md:py-20 bg-gradient-to-b from-deep-black via-black/95 to-deep-black">
@@ -314,7 +267,7 @@ export default function ListeningLounge() {
                     style={{ boxShadow: "0 0 40px rgba(6, 182, 212, 0.15)" }}
                   >
                     <iframe
-                      src={`https://www.youtube.com/embed/${episode.videoId}?rel=0&modestbranding=1`}
+                      src={`https://www.youtube.com/embed/${episode.videoId}?rel=0&modestbranding=1&cc_load_policy=0`}
                       title={`Midnight Sessions - ${episode.title}`}
                       className="w-full h-full"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -374,7 +327,7 @@ export default function ListeningLounge() {
                     style={{ boxShadow: "0 0 40px rgba(6, 182, 212, 0.15)" }}
                   >
                     <iframe
-                      src={`https://www.youtube.com/embed/${video.videoId}?rel=0&modestbranding=1`}
+                      src={`https://www.youtube.com/embed/${video.videoId}?rel=0&modestbranding=1&cc_load_policy=0`}
                       title={video.title}
                       className="w-full h-full"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

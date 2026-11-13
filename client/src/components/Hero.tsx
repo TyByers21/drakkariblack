@@ -7,6 +7,7 @@ import bgTexture from "@assets/generated_images/dark_industrial_texture_backgrou
 import cashappQR from "@/images/cashapp-qr.png";
 import venmoQR from "@/images/venmo-qr.png";
 import dbxAlbumArt from "@assets/FB_1768982086946.png";
+import VideoSpotlight from "@/components/VideoSpotlight";
 
 const ScrambleChar = ({ char, stopDelay }: { char: string, stopDelay: number }) => {
   const [displayChar, setDisplayChar] = useState(char);
@@ -274,6 +275,8 @@ export default function Hero() {
 
         </main>
       </div>
+
+      <VideoSpotlight />
 
       {/* Featured Content Row */}
       <section className="py-20 px-8 lg:px-16 border-t border-smoke/10">
